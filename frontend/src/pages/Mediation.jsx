@@ -66,7 +66,7 @@ const Mediation = () => {
               <p className="text-xl mb-8 leading-relaxed text-sky-50">
                 {t.hero.title.includes('partenaire')
                   ? 'Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.'
-                  : 'Amicable solutions to resolve your conflicts and preserve your professional relationships.'}
+                  : 'Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.'}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-600 hover:bg-gray-100">
