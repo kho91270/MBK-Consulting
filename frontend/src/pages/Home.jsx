@@ -142,7 +142,7 @@ const Home = () => {
               ? 'Ils nous ont fait confiance pour les accompagner dans leur transformation'
               : 'They trusted us to support them in their transformation'}
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 mb-12">
             {clients.map((client, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6 flex items-center justify-center hover:bg-gray-100 transition-colors">
                 <div className="text-center">
@@ -153,6 +153,65 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* Testimonials */}
+          <div className="mt-16">
+            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              {t.about.title.includes('propos') ? 'Témoignages clients' : 'Client testimonials'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">Sophie L.</div>
+                    <div className="text-sm text-gray-600">Directrice Générale</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">
+                  {t.about.title.includes('propos')
+                    ? '"Un accompagnement exceptionnel qui a transformé notre organisation. L\'équipe MBK a su comprendre nos enjeux et proposer des solutions concrètes."'
+                    : '"Exceptional support that transformed our organization. The MBK team understood our challenges and proposed concrete solutions."'}
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">Marc D.</div>
+                    <div className="text-sm text-gray-600">Directeur Financier</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">
+                  {t.about.title.includes('propos')
+                    ? '"L\'audit réalisé par MBK nous a permis d\'identifier des axes d\'amélioration majeurs et d\'optimiser nos processus."'
+                    : '"The audit carried out by MBK allowed us to identify major areas for improvement and optimize our processes."'}
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">Claire P.</div>
+                    <div className="text-sm text-gray-600">DRH</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">
+                  {t.about.title.includes('propos')
+                    ? '"Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences essentielles."'
+                    : '"The training offered is of very high quality. Our teams have developed essential new skills."'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
