@@ -112,38 +112,68 @@ const Home = () => {
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative animate-slideInLeft">
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-200 rounded-full opacity-50"></div>
               <img 
                 src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80" 
                 alt="Équipe MBK Consulting"
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl relative z-10"
               />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-200 rounded-full opacity-50"></div>
+              
+              {/* Floating stats cards */}
+              <div className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-xl z-20 animate-float">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900">95%</div>
+                    <div className="text-xs text-gray-600">Satisfaction</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-xl z-20 animate-float" style={{animationDelay: '1s'}}>
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900">15+</div>
+                    <div className="text-xs text-gray-600">Années</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            
+            <div className="animate-slideInRight">
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 {t.about.title}
               </h2>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                 {t.about.description}
               </p>
-              <div className="space-y-4 mb-8">
+              <div className="space-y-5 mb-8">
                 {t.about.valuesList.slice(0, 3).map((value, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div key={index} className="flex items-start space-x-4 group hover:translate-x-2 transition-transform duration-200">
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                      <CheckCircle2 className="w-6 h-6 text-blue-600" />
+                    </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{value.title}</h4>
-                      <p className="text-gray-600 text-sm">{value.description}</p>
+                      <h4 className="font-bold text-gray-900 text-lg mb-1">{value.title}</h4>
+                      <p className="text-gray-600">{value.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <Link to="/about">
-                <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50">
+                <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg group">
                   {t.nav.about}
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
