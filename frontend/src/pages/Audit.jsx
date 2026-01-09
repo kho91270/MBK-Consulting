@@ -78,7 +78,7 @@ const Audit = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('partenaire') ? 'Nos services d\'audit' : 'Our audit services'}
+                  {t.hero.title.includes('propos') ? 'Nos services d\'audit' : 'Nos services d\'audit'}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.audit.items.map((item, index) => (
