@@ -8,48 +8,75 @@ const Audit = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    t.hero.title.includes('partenaire')
-      ? 'Méthodologie rigoureuse et structurée'
-      : 'Rigorous and structured methodology',
-    t.hero.title.includes('partenaire')
-      ? 'Analyse approfondie et objective'
-      : 'In-depth and objective analysis',
-    t.hero.title.includes('partenaire')
-      ? 'Recommandations actionables'
-      : 'Actionable recommendations',
-    t.hero.title.includes('partenaire')
-      ? 'Conformité réglementaire assurée'
-      : 'Regulatory compliance ensured'
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Méthodologie rigoureuse'
+        : 'Rigorous methodology',
+      description: t.hero.title.includes('partenaire')
+        ? 'Une approche structurée basée sur les meilleures pratiques'
+        : 'A structured approach based on best practices'
+    },
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Analyse approfondie'
+        : 'In-depth analysis',
+      description: t.hero.title.includes('partenaire')
+        ? 'Un diagnostic complet et objectif de vos processus'
+        : 'A complete and objective diagnosis of your processes'
+    },
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Recommandations concrètes'
+        : 'Concrete recommendations',
+      description: t.hero.title.includes('partenaire')
+        ? 'Des plans d\'action prioritisés et opérationnels'
+        : 'Prioritized and operational action plans'
+    },
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Conformité garantie'
+        : 'Guaranteed compliance',
+      description: t.hero.title.includes('partenaire')
+        ? 'Une mise en conformité avec les normes réglementaires'
+        : 'Compliance with regulatory standards'
+    }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-rose-50 to-rose-100 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-rose-600 to-rose-800 py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1753955900083-b62ee8d97805?w=1920&q=80" 
+            alt="Audit professionnel"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <div className="inline-flex items-center space-x-2 bg-rose-200 px-4 py-2 rounded-full mb-6">
-                <FileSearch className="w-5 h-5 text-rose-800" />
-                <span className="text-rose-800 font-semibold">{t.services.audit.title}</span>
+            <div className="lg:w-1/2 text-white">
+              <div className="inline-flex items-center space-x-2 bg-rose-500 px-4 py-2 rounded-full mb-6">
+                <FileSearch className="w-5 h-5" />
+                <span className="font-semibold">{t.services.audit.title}</span>
               </div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-5xl font-bold mb-6">
                 {t.services.audit.title}
               </h1>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-xl mb-8 leading-relaxed text-rose-50">
                 {t.hero.title.includes('partenaire')
                   ? 'Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.'
                   : 'Comprehensive audits to assess, improve and secure your processes and organizations.'}
               </p>
               <Link to="/contact">
-                <Button size="lg" className="bg-rose-600 hover:bg-rose-700">
+                <Button size="lg" className="bg-white text-rose-600 hover:bg-gray-100">
                   {t.hero.cta}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
             <div className="lg:w-1/2">
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   {t.hero.title.includes('partenaire') ? 'Nos services d\'audit' : 'Our audit services'}
                 </h3>
@@ -67,19 +94,43 @@ const Audit = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Image Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <img 
+              src="https://images.pexels.com/photos/267415/pexels-photo-267415.jpeg?w=800&q=80" 
+              alt="Analyse de données"
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <img 
+              src="https://images.pexels.com/photos/7111590/pexels-photo-7111590.jpeg?w=800&q=80" 
+              alt="Travail d'audit"
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
             {t.hero.title.includes('partenaire') ? 'Les avantages de nos audits' : 'The benefits of our audits'}
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            {t.hero.title.includes('partenaire')
+              ? 'Une approche systématique pour identifier les risques et opportunités d\'amélioration'
+              : 'A systematic approach to identify risks and improvement opportunities'}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-gradient-to-br from-rose-50 to-white p-6 rounded-lg border border-rose-200 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">{index + 1}</span>
                 </div>
-                <p className="text-gray-900 font-semibold">{benefit}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
