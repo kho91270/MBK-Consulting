@@ -273,9 +273,5 @@ export const clients = [
   { name: 'TechCorp', logo: 'TC' },
   { name: 'Global Industries', logo: 'GI' },
   { name: 'Innovation Group', logo: 'IG' },
-  { name: 'Sustainable Solutions', logo: 'SS' },
-  { name: 'Digital Ventures', logo: 'DV' },
-  { name: 'Excellence Partners', logo: 'EP' },
-  { name: 'Future Holdings', logo: 'FH' },
   { name: 'Strategic Alliance', logo: 'SA' }
 ];
