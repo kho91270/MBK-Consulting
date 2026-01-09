@@ -134,9 +134,14 @@ const Home = () => {
       {/* Clients Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
             {t.about.title.includes('propos') ? 'Nos clients nous font confiance' : 'Our clients trust us'}
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            {t.about.title.includes('propos') 
+              ? 'Ils nous ont fait confiance pour les accompagner dans leur transformation'
+              : 'They trusted us to support them in their transformation'}
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {clients.map((client, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6 flex items-center justify-center hover:bg-gray-100 transition-colors">
