@@ -3,7 +3,20 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from '../components/ui/button';
 import ServiceCard from '../components/ServiceCard';
-import { Briefcase, FileSearch, GraduationCap, HandshakeIcon, ArrowRight, CheckCircle2, Users } from 'lucide-react';
+import { 
+  Briefcase, 
+  FileSearch, 
+  GraduationCap, 
+  HandshakeIcon, 
+  ArrowRight, 
+  CheckCircle2, 
+  Users, 
+  TrendingUp, 
+  Shield, 
+  Zap,
+  Star,
+  Award
+} from 'lucide-react';
 import { clients } from '../mockData';
 
 const Home = () => {
