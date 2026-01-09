@@ -66,7 +66,7 @@ const Audit = () => {
               <p className="text-xl mb-8 leading-relaxed text-rose-50">
                 {t.hero.title.includes('partenaire')
                   ? 'Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.'
-                  : 'Comprehensive audits to assess, improve and secure your processes and organizations.'}
+                  : 'Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.'}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-rose-600 hover:bg-gray-100">
