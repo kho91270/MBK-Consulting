@@ -125,12 +125,10 @@ const Conseil = () => {
       <section className="py-20 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            {t.hero.title.includes('partenaire') ? 'Discutons de votre projet' : 'Let\'s discuss your project'}
+            Discutons de votre projet
           </h2>
           <p className="text-xl mb-10 text-emerald-100">
-            {t.hero.title.includes('partenaire')
-              ? 'Notre équipe est prête à vous accompagner dans votre transformation'
-              : 'Our team is ready to support you in your transformation'}
+            Notre équipe est prête à vous accompagner dans votre transformation
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-emerald-600 hover:bg-gray-100 border-0">
