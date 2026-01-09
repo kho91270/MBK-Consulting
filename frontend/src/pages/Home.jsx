@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 import { Button } from '../components/ui/button';
 import ServiceCard from '../components/ServiceCard';
 import { 
