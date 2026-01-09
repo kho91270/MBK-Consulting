@@ -43,20 +43,28 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-900 py-20 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80" 
+            alt="Business consulting"
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/90"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
               {t.hero.title}
             </h1>
-            <p className="text-2xl lg:text-3xl text-gray-700 mb-4 font-light">
+            <p className="text-2xl lg:text-3xl text-gray-200 mb-4 font-light">
               {t.hero.subtitle}
             </p>
-            <p className="text-lg lg:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+            <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
               {t.hero.description}
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 shadow-xl">
                 {t.hero.cta}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
