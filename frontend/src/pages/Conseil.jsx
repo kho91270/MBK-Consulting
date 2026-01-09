@@ -78,7 +78,7 @@ const Conseil = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('partenaire') ? 'Nos expertises' : 'Our expertise'}
+                  {t.hero.title.includes('partenaire') ? 'Nos expertises' : 'Nos expertises'}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.conseil.items.map((item, index) => (
