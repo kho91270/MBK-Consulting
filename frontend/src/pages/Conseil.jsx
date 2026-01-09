@@ -9,36 +9,20 @@ const Conseil = () => {
 
   const benefits = [
     {
-      title: t.hero.title.includes('partenaire') 
-        ? 'Accompagnement personnalisé'
-        : 'Personalized support',
-      description: t.hero.title.includes('partenaire')
-        ? 'Une approche sur mesure adaptée à vos enjeux spécifiques'
-        : 'A tailor-made approach adapted to your specific challenges'
+      title: 'Accompagnement personnalisé',
+      description: 'Une approche sur mesure adaptée à vos enjeux spécifiques'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Expertise reconnue'
-        : 'Recognized expertise',
-      description: t.hero.title.includes('partenaire')
-        ? 'Des consultants expérimentés dans votre secteur d\'activité'
-        : 'Experienced consultants in your industry'
+      title: 'Expertise reconnue',
+      description: 'Des consultants expérimentés dans votre secteur d\'activité'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Résultats mesurables'
-        : 'Measurable results',
-      description: t.hero.title.includes('partenaire')
-        ? 'Des KPIs clairs et un suivi régulier de la performance'
-        : 'Clear KPIs and regular performance monitoring'
+      title: 'Résultats mesurables',
+      description: 'Des KPIs clairs et un suivi régulier de la performance'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Méthodologie éprouvée'
-        : 'Proven methodology',
-      description: t.hero.title.includes('partenaire')
-        ? 'Une approche agile et collaborative testée avec succès'
-        : 'An agile and collaborative approach successfully tested'
+      title: 'Méthodologie éprouvée',
+      description: 'Une approche agile et collaborative testée avec succès'
     }
   ];
 
