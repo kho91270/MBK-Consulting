@@ -126,10 +126,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Clients Section */}
       <section className="py-20 bg-white">
