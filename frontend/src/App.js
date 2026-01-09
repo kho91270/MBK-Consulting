@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './context/LanguageContext';
 import { Toaster } from './components/ui/toaster';
 import Header from './components/Header';
@@ -15,26 +16,28 @@ import './App.css';
 
 function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <div className="App min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/conseil" element={<Conseil />} />
-              <Route path="/audit" element={<Audit />} />
-              <Route path="/formation" element={<Formation />} />
-              <Route path="/mediation" element={<Mediation />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </main>
-          <Footer />
-          <Toaster />
-        </div>
-      </BrowserRouter>
-    </LanguageProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        <BrowserRouter>
+          <div className="App min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/conseil" element={<Conseil />} />
+                <Route path="/audit" element={<Audit />} />
+                <Route path="/formation" element={<Formation />} />
+                <Route path="/mediation" element={<Mediation />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </main>
+            <Footer />
+            <Toaster />
+          </div>
+        </BrowserRouter>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 }
 
