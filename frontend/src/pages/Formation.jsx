@@ -66,7 +66,7 @@ const Formation = () => {
               <p className="text-xl mb-8 leading-relaxed text-amber-50">
                 {t.hero.title.includes('partenaire')
                   ? 'Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.'
-                  : 'Develop your teams\' skills with training adapted to your challenges.'}
+                  : 'Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.'}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-amber-600 hover:bg-gray-100">
