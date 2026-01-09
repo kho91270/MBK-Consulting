@@ -310,10 +310,10 @@ const Home = () => {
             <Zap className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-5xl font-bold mb-6">
-            {t.hero.title.includes('partenaire') ? 'Prêt à transformer votre entreprise ?' : 'Ready to transform your business?'}
+            Prêt à transformer votre entreprise ?
           </h2>
           <p className="text-2xl mb-12 text-blue-100 leading-relaxed max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire') ? 'Contactez-nous dès aujourd\'hui pour discuter de vos projets' : 'Contact us today to discuss your projects'}
+            Contactez-nous dès aujourd'hui pour discuter de vos projets
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
