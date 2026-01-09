@@ -66,7 +66,7 @@ const Conseil = () => {
               <p className="text-xl mb-8 leading-relaxed text-emerald-50">
                 {t.hero.title.includes('partenaire')
                   ? 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.'
-                  : 'We support your company in its strategic and operational transformation to create sustainable value.'}
+                  : 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.'}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100">
