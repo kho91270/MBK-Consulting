@@ -87,14 +87,25 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
-            {t.services.title}
-          </h2>
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-10 right-10 w-72 h-72 bg-blue-100 rounded-full filter blur-3xl opacity-30 animate-float"></div>
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-emerald-100 rounded-full filter blur-3xl opacity-30 animate-float" style={{animationDelay: '1.5s'}}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 animate-fadeIn">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+              {t.services.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Des solutions sur mesure pour accompagner votre transformation et votre croissance
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
+              <div key={index} className="animate-fadeIn" style={{animationDelay: `${index * 0.1}s`}}>
+                <ServiceCard {...service} />
+              </div>
             ))}
           </div>
         </div>
