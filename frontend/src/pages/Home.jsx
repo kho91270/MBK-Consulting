@@ -281,9 +281,7 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 italic leading-relaxed">
-                  {t.about.title.includes('propos')
-                    ? '"Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences essentielles."'
-                    : '"The training offered is of very high quality. Our teams have developed essential new skills."'}
+                  "Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences essentielles."
                 </p>
               </div>
             </div>
