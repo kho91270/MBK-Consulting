@@ -9,36 +9,20 @@ const Formation = () => {
 
   const benefits = [
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Formations certifiantes'
-        : 'Certified training',
-      description: t.hero.title.includes('partenaire')
-        ? 'Des programmes reconnus et certifiés Qualiopi'
-        : 'Recognized and Qualiopi certified programs'
+      title: 'Formations certifiantes',
+      description: 'Des programmes reconnus et certifiés Qualiopi'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Formateurs experts'
-        : 'Expert trainers',
-      description: t.hero.title.includes('partenaire')
-        ? 'Des professionnels expérimentés et pédagogues'
-        : 'Experienced and pedagogical professionals'
+      title: 'Formateurs experts',
+      description: 'Des professionnels expérimentés et pédagogues'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Méthodes interactives'
-        : 'Interactive methods',
-      description: t.hero.title.includes('partenaire')
-        ? 'Ateliers pratiques et mises en situation réelles'
-        : 'Practical workshops and real-life situations'
+      title: 'Méthodes interactives',
+      description: 'Ateliers pratiques et mises en situation réelles'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Suivi personnalisé'
-        : 'Personalized follow-up',
-      description: t.hero.title.includes('partenaire')
-        ? 'Un accompagnement post-formation pour ancrer les acquis'
-        : 'Post-training support to anchor learning'
+      title: 'Suivi personnalisé',
+      description: 'Un accompagnement post-formation pour ancrer les acquis'
     }
   ];
 
