@@ -9,36 +9,20 @@ const Audit = () => {
 
   const benefits = [
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Méthodologie rigoureuse'
-        : 'Rigorous methodology',
-      description: t.hero.title.includes('partenaire')
-        ? 'Une approche structurée basée sur les meilleures pratiques'
-        : 'A structured approach based on best practices'
+      title: 'Méthodologie rigoureuse',
+      description: 'Une approche structurée basée sur les meilleures pratiques'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Analyse approfondie'
-        : 'In-depth analysis',
-      description: t.hero.title.includes('partenaire')
-        ? 'Un diagnostic complet et objectif de vos processus'
-        : 'A complete and objective diagnosis of your processes'
+      title: 'Analyse approfondie',
+      description: 'Un diagnostic complet et objectif de vos processus'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Recommandations concrètes'
-        : 'Concrete recommendations',
-      description: t.hero.title.includes('partenaire')
-        ? 'Des plans d\'action prioritisés et opérationnels'
-        : 'Prioritized and operational action plans'
+      title: 'Recommandations concrètes',
+      description: 'Des plans d\'action prioritisés et opérationnels'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Conformité garantie'
-        : 'Guaranteed compliance',
-      description: t.hero.title.includes('partenaire')
-        ? 'Une mise en conformité avec les normes réglementaires'
-        : 'Compliance with regulatory standards'
+      title: 'Conformité garantie',
+      description: 'Une mise en conformité avec les normes réglementaires'
     }
   ];
 
