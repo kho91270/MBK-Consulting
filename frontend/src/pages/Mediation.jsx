@@ -9,36 +9,20 @@ const Mediation = () => {
 
   const benefits = [
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Approche neutre'
-        : 'Neutral approach',
-      description: t.hero.title.includes('partenaire')
-        ? 'Un médiateur impartial pour faciliter le dialogue'
-        : 'An impartial mediator to facilitate dialogue'
+      title: 'Approche neutre',
+      description: 'Un médiateur impartial pour faciliter le dialogue'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Résolution rapide'
-        : 'Fast resolution',
-      description: t.hero.title.includes('partenaire')
-        ? 'Des solutions trouvées en quelques séances'
-        : 'Solutions found in a few sessions'
+      title: 'Résolution rapide',
+      description: 'Des solutions trouvées en quelques séances'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Confidentialité absolue'
-        : 'Absolute confidentiality',
-      description: t.hero.title.includes('partenaire')
-        ? 'Un cadre sécurisé et confidentiel garanti'
-        : 'A secure and confidential framework guaranteed'
+      title: 'Confidentialité absolue',
+      description: 'Un cadre sécurisé et confidentiel garanti'
     },
     {
-      title: t.hero.title.includes('partenaire')
-        ? 'Préservation des relations'
-        : 'Preservation of relationships',
-      description: t.hero.title.includes('partenaire')
-        ? 'Maintien des liens professionnels et commerciaux'
-        : 'Maintaining professional and commercial relationships'
+      title: 'Préservation des relations',
+      description: 'Maintien des liens professionnels et commerciaux'
     }
   ];
 
