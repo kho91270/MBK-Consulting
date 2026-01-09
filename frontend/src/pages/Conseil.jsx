@@ -100,12 +100,10 @@ const Conseil = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            {t.hero.title.includes('partenaire') ? 'Pourquoi choisir MBK Consulting ?' : 'Why choose MBK Consulting?'}
+            Pourquoi choisir MBK Consulting ?
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire')
-              ? 'Notre approche combine expertise sectorielle et méthodologie éprouvée pour garantir votre réussite'
-              : 'Our approach combines sector expertise and proven methodology to guarantee your success'}
+            Notre approche combine expertise sectorielle et méthodologie éprouvée pour garantir votre réussite
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
