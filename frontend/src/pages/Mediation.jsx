@@ -48,9 +48,7 @@ const Mediation = () => {
                 {t.services.mediation.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-sky-50">
-                {t.hero.title.includes('partenaire')
-                  ? 'Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.'
-                  : 'Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.'}
+                Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-600 hover:bg-gray-100">
@@ -62,7 +60,7 @@ const Mediation = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('partenaire') ? 'Nos services de médiation' : 'Nos services de médiation'}
+                  Nos services de médiation
                 </h3>
                 <ul className="space-y-4">
                   {t.services.mediation.items.map((item, index) => (
@@ -100,12 +98,10 @@ const Mediation = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            {t.hero.title.includes('partenaire') ? 'Les avantages de la médiation' : 'The benefits of mediation'}
+            Les avantages de la médiation
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire')
-              ? 'Une alternative constructive aux procédures judiciaires longues et coûteuses'
-              : 'A constructive alternative to long and costly legal proceedings'}
+            Une alternative constructive aux procédures judiciaires longues et coûteuses
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -125,12 +121,10 @@ const Mediation = () => {
       <section className="py-20 bg-gradient-to-br from-sky-600 to-sky-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            {t.hero.title.includes('partenaire') ? 'Trouvons une solution ensemble' : 'Let\'s find a solution together'}
+            Trouvons une solution ensemble
           </h2>
           <p className="text-xl mb-10 text-sky-100">
-            {t.hero.title.includes('partenaire')
-              ? 'Nos médiateurs certifiés vous aident à résoudre vos différends de manière constructive'
-              : 'Our certified mediators help you resolve your disputes constructively'}
+            Nos médiateurs certifiés vous aident à résoudre vos différends de manière constructive
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 border-0">

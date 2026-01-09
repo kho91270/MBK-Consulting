@@ -48,9 +48,7 @@ const Audit = () => {
                 {t.services.audit.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-rose-50">
-                {t.hero.title.includes('partenaire')
-                  ? 'Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.'
-                  : 'Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.'}
+                Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-rose-600 hover:bg-gray-100">
@@ -62,7 +60,7 @@ const Audit = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('propos') ? 'Nos services d\'audit' : 'Nos services d\'audit'}
+                  Nos services d'audit
                 </h3>
                 <ul className="space-y-4">
                   {t.services.audit.items.map((item, index) => (
@@ -100,12 +98,10 @@ const Audit = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            {t.hero.title.includes('partenaire') ? 'Les avantages de nos audits' : 'The benefits of our audits'}
+            Les avantages de nos audits
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire')
-              ? 'Une approche systématique pour identifier les risques et opportunités d\'amélioration'
-              : 'A systematic approach to identify risks and improvement opportunities'}
+            Une approche systématique pour identifier les risques et opportunités d'amélioration
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -125,12 +121,10 @@ const Audit = () => {
       <section className="py-20 bg-gradient-to-br from-rose-600 to-rose-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            {t.hero.title.includes('partenaire') ? 'Planifiez votre audit' : 'Schedule your audit'}
+            Planifiez votre audit
           </h2>
           <p className="text-xl mb-10 text-rose-100">
-            {t.hero.title.includes('partenaire')
-              ? 'Nos experts sont à votre disposition pour réaliser un audit adapté à vos besoins'
-              : 'Our experts are at your disposal to carry out an audit adapted to your needs'}
+            Nos experts sont à votre disposition pour réaliser un audit adapté à vos besoins
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-rose-600 hover:bg-gray-100 border-0">

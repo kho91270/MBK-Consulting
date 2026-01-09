@@ -48,9 +48,7 @@ const Formation = () => {
                 {t.services.formation.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-amber-50">
-                {t.hero.title.includes('partenaire')
-                  ? 'Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.'
-                  : 'Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.'}
+                Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-amber-600 hover:bg-gray-100">
@@ -62,7 +60,7 @@ const Formation = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('partenaire') ? 'Notre offre de formation' : 'Notre offre de formation'}
+                  Notre offre de formation
                 </h3>
                 <ul className="space-y-4">
                   {t.services.formation.items.map((item, index) => (
@@ -100,12 +98,10 @@ const Formation = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            {t.hero.title.includes('partenaire') ? 'Nos points forts' : 'Our strengths'}
+            Nos points forts
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire')
-              ? 'Une pédagogie innovante qui place l\'apprenant au cœur de la formation'
-              : 'An innovative pedagogy that places the learner at the heart of training'}
+            Une pédagogie innovante qui place l'apprenant au cœur de la formation
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -125,12 +121,10 @@ const Formation = () => {
       <section className="py-20 bg-gradient-to-br from-amber-600 to-amber-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            {t.hero.title.includes('partenaire') ? 'Construisons votre programme de formation' : 'Let\'s build your training program'}
+            Construisons votre programme de formation
           </h2>
           <p className="text-xl mb-10 text-amber-100">
-            {t.hero.title.includes('partenaire')
-              ? 'Nos formateurs vous accompagnent pour développer les compétences clés de votre organisation'
-              : 'Our trainers support you to develop the key skills of your organization'}
+            Nos formateurs vous accompagnent pour développer les compétences clés de votre organisation
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-amber-600 hover:bg-gray-100 border-0">
