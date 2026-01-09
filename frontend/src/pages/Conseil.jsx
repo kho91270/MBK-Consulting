@@ -8,48 +8,75 @@ const Conseil = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    t.hero.title.includes('partenaire') 
-      ? 'Accompagnement personnalisé et sur mesure'
-      : 'Personalized and tailored support',
-    t.hero.title.includes('partenaire')
-      ? 'Expertise reconnue et éprouvée'
-      : 'Recognized and proven expertise',
-    t.hero.title.includes('partenaire')
-      ? 'Résultats mesurables et durables'
-      : 'Measurable and sustainable results',
-    t.hero.title.includes('partenaire')
-      ? 'Méthodologie agile et collaborative'
-      : 'Agile and collaborative methodology'
+    {
+      title: t.hero.title.includes('partenaire') 
+        ? 'Accompagnement personnalisé'
+        : 'Personalized support',
+      description: t.hero.title.includes('partenaire')
+        ? 'Une approche sur mesure adaptée à vos enjeux spécifiques'
+        : 'A tailor-made approach adapted to your specific challenges'
+    },
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Expertise reconnue'
+        : 'Recognized expertise',
+      description: t.hero.title.includes('partenaire')
+        ? 'Des consultants expérimentés dans votre secteur d\'activité'
+        : 'Experienced consultants in your industry'
+    },
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Résultats mesurables'
+        : 'Measurable results',
+      description: t.hero.title.includes('partenaire')
+        ? 'Des KPIs clairs et un suivi régulier de la performance'
+        : 'Clear KPIs and regular performance monitoring'
+    },
+    {
+      title: t.hero.title.includes('partenaire')
+        ? 'Méthodologie éprouvée'
+        : 'Proven methodology',
+      description: t.hero.title.includes('partenaire')
+        ? 'Une approche agile et collaborative testée avec succès'
+        : 'An agile and collaborative approach successfully tested'
+    }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 to-emerald-100 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-emerald-600 to-emerald-800 py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80" 
+            alt="Conseil stratégique"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <div className="inline-flex items-center space-x-2 bg-emerald-200 px-4 py-2 rounded-full mb-6">
-                <Briefcase className="w-5 h-5 text-emerald-800" />
-                <span className="text-emerald-800 font-semibold">{t.services.conseil.title}</span>
+            <div className="lg:w-1/2 text-white">
+              <div className="inline-flex items-center space-x-2 bg-emerald-500 px-4 py-2 rounded-full mb-6">
+                <Briefcase className="w-5 h-5" />
+                <span className="font-semibold">{t.services.conseil.title}</span>
               </div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-5xl font-bold mb-6">
                 {t.services.conseil.title}
               </h1>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-xl mb-8 leading-relaxed text-emerald-50">
                 {t.hero.title.includes('partenaire')
                   ? 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.'
                   : 'We support your company in its strategic and operational transformation to create sustainable value.'}
               </p>
               <Link to="/contact">
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100">
                   {t.hero.cta}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
             <div className="lg:w-1/2">
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   {t.hero.title.includes('partenaire') ? 'Nos expertises' : 'Our expertise'}
                 </h3>
@@ -67,19 +94,43 @@ const Conseil = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Image Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
+              alt="Travail d'équipe"
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" 
+              alt="Réunion stratégique"
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
             {t.hero.title.includes('partenaire') ? 'Pourquoi choisir MBK Consulting ?' : 'Why choose MBK Consulting?'}
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            {t.hero.title.includes('partenaire')
+              ? 'Notre approche combine expertise sectorielle et méthodologie éprouvée pour garantir votre réussite'
+              : 'Our approach combines sector expertise and proven methodology to guarantee your success'}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-gradient-to-br from-emerald-50 to-white p-6 rounded-lg border border-emerald-200 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">{index + 1}</span>
                 </div>
-                <p className="text-gray-900 font-semibold">{benefit}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
