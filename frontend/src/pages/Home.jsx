@@ -219,12 +219,10 @@ const Home = () => {
           {/* Testimonials */}
           <div className="mt-20">
             <h3 className="text-4xl font-bold text-gray-900 text-center mb-4">
-              {t.about.title.includes('propos') ? 'Témoignages clients' : 'Client testimonials'}
+              Témoignages clients
             </h3>
             <p className="text-center text-gray-600 mb-12 text-lg">
-              {t.about.title.includes('propos') 
-                ? 'Découvrez ce que nos clients disent de leur expérience avec MBK Consulting'
-                : 'Discover what our clients say about their experience with MBK Consulting'}
+              Découvrez ce que nos clients disent de leur expérience avec MBK Consulting
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl hover-lift border border-gray-100">
