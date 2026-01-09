@@ -55,7 +55,14 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO 
+        title="Accueil"
+        description="MBK Consulting - Cabinet de conseil, audit, formation et médiation. Expertise reconnue en transformation d'entreprise. Accompagnement sur mesure pour votre réussite."
+        keywords="conseil stratégique, audit organisationnel, formation professionnelle, médiation commerciale, transformation entreprise, Paris"
+        canonical="https://mbk-consulting.fr/"
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gray-900 py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
