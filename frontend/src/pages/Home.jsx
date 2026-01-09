@@ -292,20 +292,35 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-8 backdrop-blur-sm">
+            <Zap className="w-10 h-10 text-white" />
+          </div>
+          <h2 className="text-5xl font-bold mb-6">
             {t.hero.title.includes('partenaire') ? 'Prêt à transformer votre entreprise ?' : 'Ready to transform your business?'}
           </h2>
-          <p className="text-xl mb-10 text-blue-100">
+          <p className="text-2xl mb-12 text-blue-100 leading-relaxed max-w-2xl mx-auto">
             {t.hero.title.includes('partenaire') ? 'Contactez-nous dès aujourd\'hui pour discuter de vos projets' : 'Contact us today to discuss your projects'}
           </p>
-          <Link to="/contact">
-            <Button size="lg" variant="outline" className="bg-white text-blue-600 hover:bg-gray-100 border-0 text-lg px-8 py-6">
-              {t.nav.contact}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="bg-white text-blue-600 hover:bg-gray-100 border-0 text-lg px-10 py-7 shadow-2xl hover:shadow-3xl group">
+                {t.nav.contact}
+                <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button size="lg" variant="outline" className="bg-transparent text-white border-2 border-white hover:bg-white/10 text-lg px-10 py-7 group">
+                En savoir plus
+                <Shield className="w-6 h-6 ml-2 group-hover:rotate-12 transition-transform" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
