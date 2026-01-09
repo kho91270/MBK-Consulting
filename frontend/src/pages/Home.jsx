@@ -194,15 +194,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fadeIn">
             <h2 className="text-5xl font-bold text-gray-900 mb-4">
-              {t.about.title.includes('propos') ? 'Nos clients nous font confiance' : 'Our clients trust us'}
+              Nos clients nous font confiance
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              {t.about.title.includes('propos') 
-                ? 'Ils nous ont fait confiance pour les accompagner dans leur transformation'
-                : 'They trusted us to support them in their transformation'}
+              Ils nous ont fait confiance pour les accompagner dans leur transformation
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
             {clients.map((client, index) => (
               <div 
                 key={index} 
