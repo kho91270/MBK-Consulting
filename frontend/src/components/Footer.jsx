@@ -13,11 +13,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">MBK</span>
+            <div className="flex items-center space-x-2">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-gray-900 font-bold text-xs leading-tight">M B K</span>
+                  <div className="w-8 h-0.5 bg-blue-500 mt-0.5"></div>
+                </div>
               </div>
-              <span className="text-xl font-bold text-white">MBK Consulting</span>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-white leading-tight">MBK</span>
+                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">Consulting</span>
+              </div>
             </div>
             <p className="text-sm text-gray-400">
               {t.footer.description}
