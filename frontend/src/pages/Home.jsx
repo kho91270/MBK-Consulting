@@ -91,6 +91,13 @@ const Home = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80" 
+                alt="Équipe MBK Consulting"
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 {t.about.title}
@@ -116,17 +123,9 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {t.team.members.map((member, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mb-4 mx-auto">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 text-center mb-1">{member.name}</h4>
-                  <p className="text-sm text-blue-600 text-center mb-2">{member.role}</p>
-                  <p className="text-xs text-gray-600 text-center">{member.expertise}</p>
-                </div>
-              ))}
+          </div>
+        </div>
+      </section>
             </div>
           </div>
         </div>
