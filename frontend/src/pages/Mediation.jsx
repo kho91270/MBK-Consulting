@@ -78,7 +78,7 @@ const Mediation = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('partenaire') ? 'Nos services de médiation' : 'Our mediation services'}
+                  {t.hero.title.includes('partenaire') ? 'Nos services de médiation' : 'Nos services de médiation'}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.mediation.items.map((item, index) => (
