@@ -23,11 +23,19 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
-              <span className="text-white font-bold text-xl">MBK</span>
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="relative">
+              <div className="w-14 h-14 bg-gray-900 rounded-lg flex items-center justify-center transform transition-all group-hover:scale-105 group-hover:shadow-lg">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-white font-bold text-xs leading-tight">M B K</span>
+                  <div className="w-8 h-0.5 bg-blue-500 mt-0.5"></div>
+                </div>
+              </div>
             </div>
-            <span className="text-2xl font-bold text-gray-900">MBK Consulting</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-gray-900 leading-tight">MBK</span>
+              <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Consulting</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
