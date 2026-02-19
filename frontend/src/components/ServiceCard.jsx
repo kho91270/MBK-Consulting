@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
+import { useLanguage } from '../context/LanguageContext';
 
 const ServiceCard = ({ title, items, icon: Icon, color, link }) => {
+  const { t } = useLanguage();
+  
   return (
     <div className={`${color} rounded-xl p-8 shadow-lg hover-lift group relative overflow-hidden`}>
       {/* Decorative gradient overlay */}
@@ -29,7 +32,7 @@ const ServiceCard = ({ title, items, icon: Icon, color, link }) => {
             variant="outline" 
             className="w-full bg-white hover:bg-gray-50 border-2 border-gray-800 text-gray-800 font-bold group/btn"
           >
-            En savoir plus
+            {t.common.learnMore}
             <ArrowRight className="w-4 h-4 ml-2 transform transition-transform group-hover/btn:translate-x-1" />
           </Button>
         </Link>
