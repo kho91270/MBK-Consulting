@@ -152,7 +152,7 @@ const Home = () => {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">15+</div>
-                    <div className="text-xs text-gray-600">Années</div>
+                    <div className="text-xs text-gray-600">{t.common.years}</div>
                   </div>
                 </div>
               </div>
