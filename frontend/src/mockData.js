@@ -144,7 +144,24 @@ export const translations = {
       testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience avec MBK Consulting',
       ctaTitle: 'Prêt à transformer votre entreprise ?',
       ctaSubtitle: 'Contactez-nous dès aujourd\'hui pour discuter de vos projets',
-      servicesSubtitle: 'Des solutions sur mesure pour accompagner votre transformation et votre croissance'
+      servicesSubtitle: 'Des solutions sur mesure pour accompagner votre transformation et votre croissance',
+      testimonials: [
+        {
+          name: 'Sophie L.',
+          role: 'Directrice Générale',
+          text: '"Un accompagnement exceptionnel qui a transformé notre organisation. L\'équipe MBK a su comprendre nos enjeux et proposer des solutions concrètes."'
+        },
+        {
+          name: 'Marc D.',
+          role: 'Directeur Financier',
+          text: '"L\'audit réalisé par MBK nous a permis d\'identifier des axes d\'amélioration majeurs et d\'optimiser nos processus."'
+        },
+        {
+          name: 'Claire P.',
+          role: 'DRH',
+          text: '"Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences essentielles."'
+        }
+      ]
     }
   },
   en: {
