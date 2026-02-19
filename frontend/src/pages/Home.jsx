@@ -225,65 +225,27 @@ const Home = () => {
               {t.common.testimonialsSubtitle}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl hover-lift border border-gray-100">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4">
-                    <Users className="w-7 h-7 text-white" />
+              {t.common.testimonials.map((testimonial, index) => (
+                <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl hover-lift border border-gray-100">
+                  <div className="flex items-center mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4">
+                      <Users className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
+                      <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    </div>
+                    <div className="ml-auto flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-lg">Sophie L.</div>
-                    <div className="text-sm text-gray-600">Directrice Générale</div>
-                  </div>
-                  <div className="ml-auto flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
+                  <p className="text-gray-700 italic leading-relaxed">
+                    {testimonial.text}
+                  </p>
                 </div>
-                <p className="text-gray-700 italic leading-relaxed">
-                  "Un accompagnement exceptionnel qui a transformé notre organisation. L'équipe MBK a su comprendre nos enjeux et proposer des solutions concrètes."
-                </p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl hover-lift border border-gray-100">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4">
-                    <Users className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-lg">Marc D.</div>
-                    <div className="text-sm text-gray-600">Directeur Financier</div>
-                  </div>
-                  <div className="ml-auto flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-700 italic leading-relaxed">
-                  "L'audit réalisé par MBK nous a permis d'identifier des axes d'amélioration majeurs et d'optimiser nos processus."
-                </p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl hover-lift border border-gray-100">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4">
-                    <Users className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-lg">Claire P.</div>
-                    <div className="text-sm text-gray-600">DRH</div>
-                  </div>
-                  <div className="ml-auto flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-700 italic leading-relaxed">
-                  "Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences essentielles."
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
