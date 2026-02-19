@@ -131,7 +131,20 @@ export const translations = {
       legal: 'Mentions légales',
       privacy: 'Politique de confidentialité',
       terms: 'Conditions générales',
-      rights: 'Tous droits réservés'
+      rights: 'Tous droits réservés',
+      contact: 'Contact',
+      learnMore: 'En savoir plus'
+    },
+    common: {
+      learnMore: 'En savoir plus',
+      years: 'années',
+      clientsTitle: 'Nos clients nous font confiance',
+      clientsSubtitle: 'Ils nous ont fait confiance pour les accompagner dans leur transformation',
+      testimonialsTitle: 'Témoignages clients',
+      testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience avec MBK Consulting',
+      ctaTitle: 'Prêt à transformer votre entreprise ?',
+      ctaSubtitle: 'Contactez-nous dès aujourd\'hui pour discuter de vos projets',
+      servicesSubtitle: 'Des solutions sur mesure pour accompagner votre transformation et votre croissance'
     }
   },
   en: {
