@@ -307,7 +307,24 @@ export const translations = {
       testimonialsSubtitle: 'Discover what our clients say about their experience with MBK Consulting',
       ctaTitle: 'Ready to transform your business?',
       ctaSubtitle: 'Contact us today to discuss your projects',
-      servicesSubtitle: 'Tailored solutions to support your transformation and growth'
+      servicesSubtitle: 'Tailored solutions to support your transformation and growth',
+      testimonials: [
+        {
+          name: 'Sophie L.',
+          role: 'Chief Executive Officer',
+          text: '"Exceptional support that transformed our organization. The MBK team understood our challenges and provided concrete solutions."'
+        },
+        {
+          name: 'Marc D.',
+          role: 'Chief Financial Officer',
+          text: '"The audit conducted by MBK enabled us to identify major improvement areas and optimize our processes."'
+        },
+        {
+          name: 'Claire P.',
+          role: 'HR Director',
+          text: '"The training programs offered are of very high quality. Our teams have developed essential new skills."'
+        }
+      ]
     }
   }
 };
