@@ -314,7 +314,7 @@ const Home = () => {
             </Link>
             <Link to="/about">
               <Button size="lg" variant="outline" className="bg-transparent text-white border-2 border-white hover:bg-white/10 text-lg px-10 py-7 group">
-                En savoir plus
+                {t.common.learnMore}
                 <Shield className="w-6 h-6 ml-2 group-hover:rotate-12 transition-transform" />
               </Button>
             </Link>
