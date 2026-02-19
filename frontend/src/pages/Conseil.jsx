@@ -7,25 +7,6 @@ import { Briefcase, ArrowRight, CheckCircle2 } from 'lucide-react';
 const Conseil = () => {
   const { t } = useLanguage();
 
-  const benefits = [
-    {
-      title: 'Accompagnement personnalisé',
-      description: 'Une approche sur mesure adaptée à vos enjeux spécifiques'
-    },
-    {
-      title: 'Expertise reconnue',
-      description: 'Des consultants expérimentés dans votre secteur d\'activité'
-    },
-    {
-      title: 'Résultats mesurables',
-      description: 'Des KPIs clairs et un suivi régulier de la performance'
-    },
-    {
-      title: 'Méthodologie éprouvée',
-      description: 'Une approche agile et collaborative testée avec succès'
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -48,9 +29,7 @@ const Conseil = () => {
                 {t.services.conseil.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-emerald-50">
-                {t.hero.title.includes('partenaire')
-                  ? 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.'
-                  : 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.'}
+                {t.pages.conseil.description}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100">
@@ -62,7 +41,7 @@ const Conseil = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.hero.title.includes('partenaire') ? 'Nos expertises' : 'Nos expertises'}
+                  {t.services.conseil.title}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.conseil.items.map((item, index) => (
@@ -100,13 +79,13 @@ const Conseil = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            Pourquoi choisir MBK Consulting ?
+            {t.pages.conseil.whyTitle}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Notre approche combine expertise sectorielle et méthodologie éprouvée pour garantir votre réussite
+            {t.pages.conseil.whySubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
+            {t.pages.conseil.benefits.map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">{index + 1}</span>
@@ -123,10 +102,10 @@ const Conseil = () => {
       <section className="py-20 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Discutons de votre projet
+            {t.pages.conseil.ctaTitle}
           </h2>
           <p className="text-xl mb-10 text-emerald-100">
-            Notre équipe est prête à vous accompagner dans votre transformation
+            {t.pages.conseil.ctaSubtitle}
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-emerald-600 hover:bg-gray-100 border-0">
