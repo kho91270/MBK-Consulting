@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Légal</h3>
+            <h3 className="text-white font-semibold mb-4">{t.footer.legal}</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-sm hover:text-blue-400 transition-colors">{t.footer.legal}</a></li>
               <li><a href="#" className="text-sm hover:text-blue-400 transition-colors">{t.footer.privacy}</a></li>
