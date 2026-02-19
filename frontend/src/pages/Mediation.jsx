@@ -7,25 +7,6 @@ import { HandshakeIcon, ArrowRight, CheckCircle2 } from 'lucide-react';
 const Mediation = () => {
   const { t } = useLanguage();
 
-  const benefits = [
-    {
-      title: 'Approche neutre',
-      description: 'Un médiateur impartial pour faciliter le dialogue'
-    },
-    {
-      title: 'Résolution rapide',
-      description: 'Des solutions trouvées en quelques séances'
-    },
-    {
-      title: 'Confidentialité absolue',
-      description: 'Un cadre sécurisé et confidentiel garanti'
-    },
-    {
-      title: 'Préservation des relations',
-      description: 'Maintien des liens professionnels et commerciaux'
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -48,7 +29,7 @@ const Mediation = () => {
                 {t.services.mediation.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-sky-50">
-                Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.
+                {t.pages.mediation.description}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-600 hover:bg-gray-100">
@@ -60,7 +41,7 @@ const Mediation = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Nos services de médiation
+                  {t.services.mediation.title}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.mediation.items.map((item, index) => (
@@ -98,13 +79,13 @@ const Mediation = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            Les avantages de la médiation
+            {t.pages.mediation.whyTitle}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Une alternative constructive aux procédures judiciaires longues et coûteuses
+            {t.pages.mediation.whySubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
+            {t.pages.mediation.benefits.map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">{index + 1}</span>
@@ -121,10 +102,10 @@ const Mediation = () => {
       <section className="py-20 bg-gradient-to-br from-sky-600 to-sky-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Trouvons une solution ensemble
+            {t.pages.mediation.ctaTitle}
           </h2>
           <p className="text-xl mb-10 text-sky-100">
-            Nos médiateurs certifiés vous aident à résoudre vos différends de manière constructive
+            {t.pages.mediation.ctaSubtitle}
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 border-0">
