@@ -7,25 +7,6 @@ import { GraduationCap, ArrowRight, CheckCircle2 } from 'lucide-react';
 const Formation = () => {
   const { t } = useLanguage();
 
-  const benefits = [
-    {
-      title: 'Formations certifiantes',
-      description: 'Des programmes reconnus et certifiés Qualiopi'
-    },
-    {
-      title: 'Formateurs experts',
-      description: 'Des professionnels expérimentés et pédagogues'
-    },
-    {
-      title: 'Méthodes interactives',
-      description: 'Ateliers pratiques et mises en situation réelles'
-    },
-    {
-      title: 'Suivi personnalisé',
-      description: 'Un accompagnement post-formation pour ancrer les acquis'
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -48,7 +29,7 @@ const Formation = () => {
                 {t.services.formation.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-amber-50">
-                Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.
+                {t.pages.formation.description}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-amber-600 hover:bg-gray-100">
@@ -60,7 +41,7 @@ const Formation = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Notre offre de formation
+                  {t.services.formation.title}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.formation.items.map((item, index) => (
@@ -98,13 +79,13 @@ const Formation = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            Nos points forts
+            {t.pages.formation.whyTitle}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Une pédagogie innovante qui place l'apprenant au cœur de la formation
+            {t.pages.formation.whySubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
+            {t.pages.formation.benefits.map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">{index + 1}</span>
@@ -121,10 +102,10 @@ const Formation = () => {
       <section className="py-20 bg-gradient-to-br from-amber-600 to-amber-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Construisons votre programme de formation
+            {t.pages.formation.ctaTitle}
           </h2>
           <p className="text-xl mb-10 text-amber-100">
-            Nos formateurs vous accompagnent pour développer les compétences clés de votre organisation
+            {t.pages.formation.ctaSubtitle}
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-amber-600 hover:bg-gray-100 border-0">
