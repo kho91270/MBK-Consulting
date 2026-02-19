@@ -106,7 +106,7 @@ const Home = () => {
               {t.services.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Des solutions sur mesure pour accompagner votre transformation et votre croissance
+              {t.common.servicesSubtitle}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
