@@ -7,25 +7,6 @@ import { FileSearch, ArrowRight, CheckCircle2 } from 'lucide-react';
 const Audit = () => {
   const { t } = useLanguage();
 
-  const benefits = [
-    {
-      title: 'Méthodologie rigoureuse',
-      description: 'Une approche structurée basée sur les meilleures pratiques'
-    },
-    {
-      title: 'Analyse approfondie',
-      description: 'Un diagnostic complet et objectif de vos processus'
-    },
-    {
-      title: 'Recommandations concrètes',
-      description: 'Des plans d\'action prioritisés et opérationnels'
-    },
-    {
-      title: 'Conformité garantie',
-      description: 'Une mise en conformité avec les normes réglementaires'
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -48,7 +29,7 @@ const Audit = () => {
                 {t.services.audit.title}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-rose-50">
-                Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.
+                {t.pages.audit.description}
               </p>
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-rose-600 hover:bg-gray-100">
@@ -60,7 +41,7 @@ const Audit = () => {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-2xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Nos services d'audit
+                  {t.services.audit.title}
                 </h3>
                 <ul className="space-y-4">
                   {t.services.audit.items.map((item, index) => (
@@ -98,13 +79,13 @@ const Audit = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            Les avantages de nos audits
+            {t.pages.audit.whyTitle}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Une approche systématique pour identifier les risques et opportunités d'amélioration
+            {t.pages.audit.whySubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
+            {t.pages.audit.benefits.map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">{index + 1}</span>
@@ -121,10 +102,10 @@ const Audit = () => {
       <section className="py-20 bg-gradient-to-br from-rose-600 to-rose-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Planifiez votre audit
+            {t.pages.audit.ctaTitle}
           </h2>
           <p className="text-xl mb-10 text-rose-100">
-            Nos experts sont à votre disposition pour réaliser un audit adapté à vos besoins
+            {t.pages.audit.ctaSubtitle}
           </p>
           <Link to="/contact">
             <Button size="lg" variant="outline" className="bg-white text-rose-600 hover:bg-gray-100 border-0">
