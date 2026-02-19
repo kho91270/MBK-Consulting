@@ -379,6 +379,60 @@ export const translations = {
           text: '"The training programs offered are of very high quality. Our teams have developed essential new skills."'
         }
       ]
+    },
+    pages: {
+      conseil: {
+        description: 'We support your company in its strategic and operational transformation to create sustainable value.',
+        whyTitle: 'Why choose MBK Consulting?',
+        whySubtitle: 'Our approach combines sector expertise and proven methodology to guarantee your success',
+        benefits: [
+          { title: 'Personalized support', description: 'A tailor-made approach adapted to your specific challenges' },
+          { title: 'Recognized expertise', description: 'Experienced consultants in your industry sector' },
+          { title: 'Measurable results', description: 'Clear KPIs and regular performance monitoring' },
+          { title: 'Proven methodology', description: 'An agile and collaborative approach successfully tested' }
+        ],
+        ctaTitle: 'Let\'s discuss your project',
+        ctaSubtitle: 'Our team is ready to support you in your transformation'
+      },
+      audit: {
+        description: 'Comprehensive audits to assess, improve and secure your processes and organizations.',
+        whyTitle: 'The advantages of our audits',
+        whySubtitle: 'A systematic approach to identify risks and improvement opportunities',
+        benefits: [
+          { title: 'Rigorous methodology', description: 'A structured approach based on best practices' },
+          { title: 'In-depth analysis', description: 'A complete and objective diagnosis of your processes' },
+          { title: 'Concrete recommendations', description: 'Prioritized and operational action plans' },
+          { title: 'Guaranteed compliance', description: 'Compliance with regulatory standards' }
+        ],
+        ctaTitle: 'Schedule your audit',
+        ctaSubtitle: 'Our experts are at your disposal to conduct an audit tailored to your needs'
+      },
+      formation: {
+        description: 'Develop your teams\' skills with training adapted to your challenges.',
+        whyTitle: 'Our strengths',
+        whySubtitle: 'An innovative pedagogy that places the learner at the heart of training',
+        benefits: [
+          { title: 'Certified training', description: 'Recognized and Qualiopi certified programs' },
+          { title: 'Expert trainers', description: 'Experienced and pedagogical professionals' },
+          { title: 'Interactive methods', description: 'Practical workshops and real-life situations' },
+          { title: 'Personalized follow-up', description: 'Post-training support to anchor learning' }
+        ],
+        ctaTitle: 'Let\'s build your training program',
+        ctaSubtitle: 'Our trainers support you to develop the key skills of your organization'
+      },
+      mediation: {
+        description: 'Amicable solutions to resolve your conflicts and preserve your professional relationships.',
+        whyTitle: 'The advantages of mediation',
+        whySubtitle: 'A constructive alternative to long and costly legal proceedings',
+        benefits: [
+          { title: 'Neutral approach', description: 'An impartial mediator to facilitate dialogue' },
+          { title: 'Fast resolution', description: 'Solutions found in a few sessions' },
+          { title: 'Absolute confidentiality', description: 'A secure and confidential framework guaranteed' },
+          { title: 'Preservation of relationships', description: 'Maintaining professional and commercial relationships' }
+        ],
+        ctaTitle: 'Let\'s find a solution together',
+        ctaSubtitle: 'Our certified mediators help you resolve your disputes constructively'
+      }
     }
   }
 };
