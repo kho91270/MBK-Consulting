@@ -162,6 +162,60 @@ export const translations = {
           text: '"Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences essentielles."'
         }
       ]
+    },
+    pages: {
+      conseil: {
+        description: 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.',
+        whyTitle: 'Pourquoi choisir MBK Consulting ?',
+        whySubtitle: 'Notre approche combine expertise sectorielle et méthodologie éprouvée pour garantir votre réussite',
+        benefits: [
+          { title: 'Accompagnement personnalisé', description: 'Une approche sur mesure adaptée à vos enjeux spécifiques' },
+          { title: 'Expertise reconnue', description: 'Des consultants expérimentés dans votre secteur d\'activité' },
+          { title: 'Résultats mesurables', description: 'Des KPIs clairs et un suivi régulier de la performance' },
+          { title: 'Méthodologie éprouvée', description: 'Une approche agile et collaborative testée avec succès' }
+        ],
+        ctaTitle: 'Discutons de votre projet',
+        ctaSubtitle: 'Notre équipe est prête à vous accompagner dans votre transformation'
+      },
+      audit: {
+        description: 'Des audits complets pour évaluer, améliorer et sécuriser vos processus et organisations.',
+        whyTitle: 'Les avantages de nos audits',
+        whySubtitle: 'Une approche systématique pour identifier les risques et opportunités d\'amélioration',
+        benefits: [
+          { title: 'Méthodologie rigoureuse', description: 'Une approche structurée basée sur les meilleures pratiques' },
+          { title: 'Analyse approfondie', description: 'Un diagnostic complet et objectif de vos processus' },
+          { title: 'Recommandations concrètes', description: 'Des plans d\'action prioritisés et opérationnels' },
+          { title: 'Conformité garantie', description: 'Une mise en conformité avec les normes réglementaires' }
+        ],
+        ctaTitle: 'Planifiez votre audit',
+        ctaSubtitle: 'Nos experts sont à votre disposition pour réaliser un audit adapté à vos besoins'
+      },
+      formation: {
+        description: 'Développez les compétences de vos équipes avec des formations adaptées à vos enjeux.',
+        whyTitle: 'Nos points forts',
+        whySubtitle: 'Une pédagogie innovante qui place l\'apprenant au cœur de la formation',
+        benefits: [
+          { title: 'Formations certifiantes', description: 'Des programmes reconnus et certifiés Qualiopi' },
+          { title: 'Formateurs experts', description: 'Des professionnels expérimentés et pédagogues' },
+          { title: 'Méthodes interactives', description: 'Ateliers pratiques et mises en situation réelles' },
+          { title: 'Suivi personnalisé', description: 'Un accompagnement post-formation pour ancrer les acquis' }
+        ],
+        ctaTitle: 'Construisons votre programme de formation',
+        ctaSubtitle: 'Nos formateurs vous accompagnent pour développer les compétences clés de votre organisation'
+      },
+      mediation: {
+        description: 'Des solutions amiables pour résoudre vos conflits et préserver vos relations professionnelles.',
+        whyTitle: 'Les avantages de la médiation',
+        whySubtitle: 'Une alternative constructive aux procédures judiciaires longues et coûteuses',
+        benefits: [
+          { title: 'Approche neutre', description: 'Un médiateur impartial pour faciliter le dialogue' },
+          { title: 'Résolution rapide', description: 'Des solutions trouvées en quelques séances' },
+          { title: 'Confidentialité absolue', description: 'Un cadre sécurisé et confidentiel garanti' },
+          { title: 'Préservation des relations', description: 'Maintien des liens professionnels et commerciaux' }
+        ],
+        ctaTitle: 'Trouvons une solution ensemble',
+        ctaSubtitle: 'Nos médiateurs certifiés vous aident à résoudre vos différends de manière constructive'
+      }
     }
   },
   en: {
