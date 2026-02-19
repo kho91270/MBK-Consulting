@@ -180,7 +180,7 @@ const Home = () => {
               </div>
               <Link to="/about">
                 <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg group">
-                  {t.nav.about}
+                  {t.common.learnMore}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
