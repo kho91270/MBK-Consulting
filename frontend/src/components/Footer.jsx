@@ -44,7 +44,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{t.nav.contact}</h3>
+            <h3 className="text-white font-semibold mb-4">{t.footer.contact}</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-2">
                 <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
