@@ -300,10 +300,10 @@ const Home = () => {
             <Zap className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-5xl font-bold mb-6">
-            Prêt à transformer votre entreprise ?
+            {t.common.ctaTitle}
           </h2>
           <p className="text-2xl mb-12 text-blue-100 leading-relaxed max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour discuter de vos projets
+            {t.common.ctaSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
