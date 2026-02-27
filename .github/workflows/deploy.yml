@@ -14,9 +14,10 @@ jobs:
       - name: 🏗️ Installer et Construire le Frontend
         working-directory: ./frontend
         run: |
-          # On ajoute --legacy-peer-deps pour ignorer les erreurs de versions
+          rm -rf node_modules package-lock.json
+          npm install ajv --save-dev
           npm install --legacy-peer-deps
-          npm run build --if-present
+          npm run build
 
       - name: 🚀 FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -24,9 +25,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          
-          # On essaie d'envoyer le dossier 'dist' ou 'build'
-          # L'IA Emergent utilise souvent 'dist'
-          local-dir: ./frontend/dist/
+          local-dir: ./frontend/build/
           server-dir: ./www/
           delete-destination: false
