@@ -14,8 +14,9 @@ jobs:
       - name: 🏗️ Installer et Construire le Frontend
         working-directory: ./frontend
         run: |
+          # Nettoyage et installation forcée
           rm -rf node_modules package-lock.json
-          npm install ajv --save-dev
+          npm install ajv --save-dev --legacy-peer-deps
           npm install --legacy-peer-deps
           npm run build
 
@@ -25,6 +26,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          # Craco crée un dossier 'build'
           local-dir: ./frontend/build/
           server-dir: ./www/
           delete-destination: false
