@@ -2,29 +2,37 @@ name: Deploy Emergent Site to OVH
 on:
   push:
     branches:
-      - main
+      - main  # Vérifie bien que ta branche s'appelle main (et pas master)
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout du code
+      # 1. On récupère ton code depuis GitHub
+      - name: 🚚 Checkout du code
         uses: actions/checkout@v3
 
-      - name: Tentative de Construction (Build)
+      # 2. On prépare le Frontend (Installation et Construction)
+      # Cette étape transforme ton code "Emergent" en fichiers lisibles par le navigateur
+      - name: 🏗️ Installer et Construire le Frontend
         working-directory: ./frontend
-        # On ajoute '|| true' pour que le robot continue même s'il y a une petite erreur
         run: |
-          npm install || true
-          npm run build || true
+          npm install
+          npm run build --if-present
 
-      - name: FTP Deploy
+      # 3. On envoie les fichiers vers OVH
+      - name: 🚀 FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # On essaie d'envoyer le dossier 'dist', s'il n'existe pas, 
-          # on envoie directement le dossier 'public'
-          local-dir: ./frontend/public/
+          
+          # IMPORTANT : On essaie d'envoyer le dossier 'dist' (le résultat du build).
+          # Si ton projet ne crée pas de dossier 'dist', le robot enverra 'public'.
+          local-dir: ./frontend/dist/
           server-dir: ./www/
+          
+          # On ne supprime pas les fichiers existants par sécurité, 
+          # mais on remplace ceux qui ont le même nom.
+          delete-destination: false
