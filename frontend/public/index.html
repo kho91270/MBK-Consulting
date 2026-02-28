@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,20 +14,122 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
     <title>MBK Procurement | Ingénierie de la Performance Achats</title>
-    <meta name="description" content="Cabinet expert en audit, conseil sourcing et médiation commerciale." />
+    
+    <style>
+      /* STYLE DU SPLASH SCREEN (Critique pour un chargement sans flash blanc) */
+      body, html {
+        margin: 0;
+        padding: 0;
+        background-color: #0A192F; /* Bleu nuit institutionnel */
+        overflow: hidden; /* Empêche le scroll pendant le chargement */
+      }
 
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0A192F;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out, visibility 0.8s;
+      }
+
+      .logo-container {
+        text-align: center;
+        animation: fadeInScale 1.2s ease-out forwards;
+      }
+
+      .logo-text {
+        color: white; 
+        font-family: 'Playfair Display', serif; 
+        font-size: 2.5rem; 
+        font-weight: bold; 
+        letter-spacing: -0.02em;
+      }
+
+      .logo-subtext {
+        color: #2563eb; 
+        font-family: 'Inter', sans-serif; 
+        font-size: 0.8rem; 
+        text-transform: uppercase; 
+        letter-spacing: 0.4em; 
+        margin-left: 10px;
+        font-weight: 600;
+      }
+
+      .loader-bar-container {
+        width: 140px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin-top: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loader-bar-progress {
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: #2563eb;
+        transition: width 0.5s ease;
+      }
+
+      @keyframes fadeInScale {
+        0% { opacity: 0; transform: scale(0.95); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+
+      /* Classe pour restaurer le scroll après le chargement */
+      body.loaded {
+        overflow: auto;
+      }
+    </style>
   </head>
   
-  <body class="antialiased">
+  <body>
+    <div id="splash-screen">
+      <div class="logo-container">
+        <span class="logo-text">MBK <span class="logo-subtext">Procurement</span></span>
+      </div>
+      
+      <div class="loader-bar-container">
+        <div id="progress-bar" class="loader-bar-progress"></div>
+      </div>
+    </div>
+
     <div id="root"></div>
-    
+
+    <script>
+      // Simulation d'une progression fluide dès le début
+      setTimeout(() => {
+        document.getElementById('progress-bar').style.width = '40%';
+      }, 100);
+
+      window.addEventListener('load', function() {
+        const splash = document.getElementById('splash-screen');
+        const progressBar = document.getElementById('progress-bar');
+        
+        // Finalisation de la barre
+        progressBar.style.width = '100%';
+        
+        // Sortie douce de l'écran de chargement
+        setTimeout(() => {
+          splash.style.opacity = '0';
+          splash.style.visibility = 'hidden';
+          document.body.classList.add('loaded');
+        }, 800);
+      });
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
 
     <noscript>
-      <div style="text-align: center; padding: 50px; font-family: sans-serif;">
+      <div style="text-align: center; padding: 50px; color: white;">
         <h1>JavaScript requis</h1>
         <p>Veuillez activer JavaScript pour accéder à l'expérience MBK Procurement.</p>
       </div>
