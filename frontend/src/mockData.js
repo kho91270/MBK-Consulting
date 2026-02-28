@@ -1,4 +1,3 @@
-// Mock data for MBK Procurement website
 export const translations = {
   fr: {
     nav: {
@@ -19,73 +18,75 @@ export const translations = {
       title: 'Notre offre de services',
       conseil: {
         title: 'CONSEIL',
-        items: [
-          'Stratégie et transformation organisationnelle',
-          'Optimisation des processus métiers',
-          'Accompagnement au changement',
-          'Diagnostic et recommandations stratégiques',
-          'Plans d\'action orientés ROI'
-        ]
+        items: ['Stratégie et transformation', 'Optimisation des processus', 'Accompagnement au changement']
       },
       audit: {
         title: 'AUDIT',
-        items: [
-          'Audit organisationnel et opérationnel',
-          'Évaluation des systèmes de contrôle interne',
-          'Audit de conformité et réglementaire',
-          'Analyse des risques et opportunités',
-          'Rapports détaillés et préconisations'
-        ]
+        items: ['Audit organisationnel', 'Contrôle interne', 'Conformité']
       },
       formation: {
         title: 'FORMATION',
-        items: [
-          'Programmes de formation sur mesure',
-          'Développement des compétences managériales',
-          'Formation en présentiel et à distance',
-          'Coaching individuel et collectif',
-          'Certifications professionnelles'
-        ]
+        items: ['Programmes sur mesure', 'Management', 'Coaching']
       },
       mediation: {
-        title: 'MÉDIATION & CONCILIATION',
-        items: [
-          'Médiation commerciale et d\'entreprise',
-          'Résolution amiable des conflits',
-          'Conciliation et négociation',
-          'Facilitation de dialogue entre parties',
-          'Accompagnement post-conflit'
-        ]
+        title: 'MÉDIATION',
+        items: ['Résolution de conflits', 'Conciliation', 'Facilitation']
       }
     },
     about: {
       title: 'À propos de MBK Procurement',
-      description: 'MBK Procurement est un cabinet de conseil de premier plan, spécialisé dans l\'optimisation de la fonction Achats et la transformation stratégique des entreprises.',
+      description: 'MBK Procurement est un cabinet de conseil de premier plan, spécialisé dans l\'optimisation de la fonction Achats.',
       mission: 'Notre mission',
-      missionText: 'Accompagner nos clients dans leur développement en apportant des solutions innovantes et personnalisées qui créent de la valeur durable.',
+      missionText: 'Accompagner nos clients avec des solutions innovantes.',
       values: 'Nos valeurs',
       valuesList: [
-        { title: 'Excellence', description: 'Nous visons l\'excellence dans chaque mission' },
-        { title: 'Intégrité', description: 'L\'éthique et la transparence guident nos actions' },
-        { title: 'Innovation', description: 'Nous proposons des solutions créatives et adaptées' },
-        { title: 'Engagement', description: 'Nous nous engageons pleinement pour votre réussite' }
+        { title: 'Excellence', description: 'Nous visons le meilleur' },
+        { title: 'Intégrité', description: 'Transparence totale' },
+        { title: 'Innovation', description: 'Solutions créatives' },
+        { title: 'Engagement', description: 'Dédiés à votre succès' }
       ]
+    },
+    pages: {
+      conseil: {
+        title: 'Conseil Stratégique',
+        description: 'Nous accompagnons votre entreprise dans sa transformation stratégique.',
+        whyTitle: 'Pourquoi notre conseil ?',
+        benefits: [
+          { title: 'Sur Mesure', description: 'Une approche adaptée à vos besoins.' },
+          { title: 'Expertise', description: 'Des consultants seniors à votre service.' }
+        ]
+      },
+      audit: {
+        title: 'Audit & Diagnostic',
+        description: 'Des audits complets pour sécuriser vos organisations.',
+        whyTitle: 'Les bénéfices de l\'audit',
+        benefits: [
+          { title: 'Rigueur', description: 'Une méthodologie basée sur les meilleures pratiques.' },
+          { title: 'Vision', description: 'Identifier les opportunités cachées.' }
+        ]
+      },
+      formation: {
+        title: 'Formation & Coaching',
+        description: 'Développez le capital humain de votre entreprise.',
+        whyTitle: 'Nos points forts',
+        benefits: [
+          { title: 'Pratique', description: 'Des ateliers concrets et interactifs.' },
+          { title: 'Suivi', description: 'Un accompagnement post-formation.' }
+        ]
+      },
+      mediation: {
+        title: 'Médiation Professionnelle',
+        description: 'Résolvez vos différends de manière constructive.',
+        whyTitle: 'Pourquoi la médiation ?',
+        benefits: [
+          { title: 'Confidentialité', description: 'Un cadre sécurisé et privé.' },
+          { title: 'Rapidité', description: 'Une solution en quelques séances.' }
+        ]
+      }
     },
     team: {
       title: 'Notre équipe',
-      subtitle: 'Des experts passionnés par votre réussite',
-      members: [
-        {
-          name: 'Marc-B. K.',
-          role: 'Fondateur & Expert Achats',
-          expertise: '20 ans d\'expérience en stratégie Procurement'
-        },
-        {
-          name: 'Marie Dubois',
-          role: 'Directrice Associée',
-          expertise: 'Stratégie et transformation'
-        }
-      ]
+      members: [{ name: 'Marc-B. K.', role: 'Fondateur', expertise: 'Expert Procurement' }]
     },
     stats: {
       experience: "Années d'expérience",
@@ -93,128 +94,39 @@ export const translations = {
       missions: "Missions réalisées",
       satisfaction: "Taux de satisfaction"
     },
-    contact: {
-      title: 'Contactez-nous',
-      subtitle: 'Nous sommes à votre écoute pour répondre à vos besoins',
-      form: {
-        name: 'Nom complet',
-        email: 'Email',
-        phone: 'Téléphone',
-        company: 'Entreprise',
-        subject: 'Sujet',
-        message: 'Votre message',
-        submit: 'Envoyer',
-        success: 'Message envoyé avec succès !',
-        error: 'Erreur lors de l\'envoi'
-      }
-    },
-    footer: {
-      description: 'MBK Procurement - Votre partenaire de confiance pour la transformation et la croissance de votre entreprise.',
-      links: 'Liens rapides',
-      legal: 'Mentions légales',
-      privacy: 'Politique de confidentialité',
-      terms: 'Conditions générales',
-      rights: 'Tous droits réservés',
-      contact: 'Contact'
-    },
     common: {
       learnMore: 'En savoir plus',
-      ctaSubtitle: '"Notre engagement : être à vos côtés à chaque étape de votre transformation pour garantir des résultats durables."',
-      testimonialsTitle: 'Témoignages clients',
-      testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience avec MBK Procurement',
-      testimonials: [
-        {
-          name: 'Sophie L.',
-          role: 'Directrice Générale',
-          text: '"Un accompagnement exceptionnel qui a transformé notre organisation."'
-        },
-        {
-          name: 'Marc D.',
-          role: 'Directeur Financier',
-          text: '"L\'audit réalisé par MBK nous a permis d\'optimiser nos processus."'
-        }
-      ]
+      ctaSubtitle: '"Votre réussite est notre priorité."',
+      testimonialsTitle: 'Témoignages',
+      testimonials: [{ name: 'Sophie L.', role: 'CEO', text: '"Excellent service."' }]
     },
-    pages: {
-        conseil: { description: "Expertise en conseil stratégique." },
-        audit: { description: "Expertise en audit opérationnel." },
-        formation: { description: "Expertise en formation continue." },
-        mediation: { description: "Expertise en médiation professionnelle." }
-    }
+    contact: { title: 'Contact', form: { submit: 'Envoyer' } },
+    footer: { rights: 'Tous droits réservés' }
   },
   en: {
-    nav: {
-      conseil: 'Consulting',
-      audit: 'Audit',
-      formation: 'Training',
-      mediation: 'Mediation',
-      about: 'About',
-      contact: 'Contact'
-    },
-    hero: {
-      title: 'MBK Procurement',
-      subtitle: 'Your partner in consulting, audit, training and mediation',
-      description: 'Excellence, expertise and tailored support to transform your challenges into opportunities',
-      cta: 'Request a consultation'
-    },
+    // Structure identique pour la partie "en"
+    nav: { conseil: 'Consulting', audit: 'Audit', formation: 'Training', mediation: 'Mediation', about: 'About', contact: 'Contact' },
+    hero: { title: 'MBK Procurement', subtitle: 'Your partner', description: 'Expertise', cta: 'Consultation' },
     services: {
-      title: 'Our Services',
-      conseil: { title: 'CONSULTING', items: ['Strategy', 'Process optimization'] },
-      audit: { title: 'AUDIT', items: ['Operational audit', 'Compliance'] },
-      formation: { title: 'TRAINING', items: ['Custom programs', 'Coaching'] },
-      mediation: { title: 'MEDIATION', items: ['Conflict resolution', 'Negotiation'] }
+        title: 'Our Services',
+        conseil: { title: 'CONSULTING', items: ['Strategy'] },
+        audit: { title: 'AUDIT', items: ['Audit'] },
+        formation: { title: 'TRAINING', items: ['Training'] },
+        mediation: { title: 'MEDIATION', items: ['Mediation'] }
     },
-    about: {
-      title: 'About MBK Procurement',
-      description: 'Leading firm in Procurement and strategic transformation.',
-      mission: 'Our Mission',
-      missionText: 'To provide sustainable value to our clients.',
-      values: 'Our Values',
-      valuesList: [
-        { title: 'Excellence', description: 'Top quality missions' },
-        { title: 'Integrity', description: 'Ethical behavior' },
-        { title: 'Innovation', description: 'Creative solutions' },
-        { title: 'Engagement', description: 'Committed to your success' }
-      ]
-    },
-    team: {
-      title: 'Our Team',
-      subtitle: 'Experts dedicated to your growth',
-      members: [
-        { name: 'Marc-B. K.', role: 'Founder', expertise: 'Strategy Expert' }
-      ]
-    },
-    stats: {
-      experience: "Years of experience",
-      clients: "Clients supported",
-      missions: "Missions completed",
-      satisfaction: "Satisfaction rate"
-    },
-    contact: { title: 'Contact Us', subtitle: 'Reach out to us', form: { submit: 'Send' } },
-    footer: {
-      description: 'MBK Procurement - Your trusted partner.',
-      links: 'Quick links',
-      rights: 'All rights reserved'
-    },
-    common: {
-      learnMore: 'Learn more',
-      ctaSubtitle: '"Our commitment to your success."',
-      testimonialsTitle: 'Testimonials',
-      testimonialsSubtitle: 'What our clients say',
-      testimonials: [
-        { name: 'John D.', role: 'CEO', text: '"Great experience."' }
-      ]
-    },
+    about: { title: 'About Us', description: 'Expert firm', mission: 'Mission', missionText: 'Value creation', values: 'Values', valuesList: [] },
     pages: {
-        conseil: { description: "Consulting expertise." },
-        audit: { description: "Audit expertise." },
-        formation: { description: "Training expertise." },
-        mediation: { description: "Mediation expertise." }
-    }
+      conseil: { title: 'Strategic Consulting', description: 'We support your transformation.', whyTitle: 'Why us?', benefits: [{ title: 'Tailored', description: 'Custom approach' }] },
+      audit: { title: 'Audit', description: 'Secure your organization.', whyTitle: 'Benefits', benefits: [{ title: 'Rigorous', description: 'Best practices' }] },
+      formation: { title: 'Training', description: 'Develop skills.', whyTitle: 'Strengths', benefits: [{ title: 'Practical', description: 'Workshops' }] },
+      mediation: { title: 'Mediation', description: 'Resolve conflicts.', whyTitle: 'Why mediation?', benefits: [{ title: 'Private', description: 'Confidential' }] }
+    },
+    team: { title: 'Team', members: [] },
+    stats: { experience: 'Experience', clients: 'Clients', missions: 'Missions', satisfaction: 'Satisfaction' },
+    common: { learnMore: 'Learn more', ctaSubtitle: '"Your success is our priority"', testimonialsTitle: 'Testimonials', testimonials: [] },
+    contact: { title: 'Contact', form: { submit: 'Send' } },
+    footer: { rights: 'All rights reserved' }
   }
 };
 
-export const clients = [
-  { name: 'TechCorp', logo: 'TC' },
-  { name: 'Global Industries', logo: 'GI' }
-];
+export const clients = [{ name: 'TechCorp', logo: 'TC' }];
