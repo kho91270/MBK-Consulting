@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { translations } from '../mockData';
 
 const LanguageContext = createContext();
@@ -12,13 +12,12 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-  // On initialise avec la langue du navigateur ou 'fr' par défaut
   const [language, setLanguage] = useState('fr');
 
-  // Sécurité : On s'assure que t ne soit jamais "undefined" même pendant le chargement
+  // Sécurité : on s'assure que t ne soit jamais indéfini
   const t = translations[language] || translations['fr'];
 
-  // Fonction pour changer la langue manuellement (utilisée dans le Header)
+  // Cette fonction est celle que le Header réclame (le fameux "n")
   const handleSetLanguage = (lang) => {
     if (translations[lang]) {
       setLanguage(lang);
@@ -32,7 +31,7 @@ export const LanguageProvider = ({ children }) => {
   return (
     <LanguageContext.Provider value={{ 
       language, 
-      setLanguage: handleSetLanguage, // On ajoute cette fonction pour le Header
+      setLanguage: handleSetLanguage, // <--- On expose explicitement la fonction ici
       toggleLanguage, 
       t 
     }}>
