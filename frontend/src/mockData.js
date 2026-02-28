@@ -1,8 +1,9 @@
 export const translations = {
   fr: {
     common: {
-      ctaTitle: "Prêt à optimiser votre performance ?",
-      ctaSubtitle: "Analysons ensemble vos leviers de croissance et de sécurisation.",
+      ctaTitle: "Libérez votre Performance Achats",
+      ctaSubtitle: "Engagez la transformation de votre Working Capital dès maintenant.",
+      learnMore: "Explorer l'Expertise",
       backToTop: "Retour en haut"
     },
     nav: { 
@@ -24,43 +25,19 @@ export const translations = {
       title: 'Expertises Métiers & Vision Stratégique',
       conseil: {
         title: 'Conseil & Ingénierie Sourcing',
-        items: [
-          'Category Management & Stratégies d\'Achats', 
-          'Rationalisation de panel & Global Sourcing', 
-          'Analyse de la structure des coûts (Clean Sheet)', 
-          'Déploiement de solutions SI Achats (e-Sourcing)', 
-          'Programmes d\'optimisation du TCO'
-        ]
+        items: ['Category Management & Stratégies d\'Achats', 'Rationalisation de panel & Global Sourcing', 'Analyse de la structure des coûts (Clean Sheet)', 'Déploiement de solutions SI Achats (e-Sourcing)', 'Programmes d\'optimisation du TCO']
       },
       audit: {
         title: 'Diagnostic & Audit 360°',
-        items: [
-          'Spend Analysis & Segmentation de Pareto', 
-          'Audit de Conformité & Risk Management', 
-          'Évaluation de maturité digitale et process', 
-          'Analyse de performance (KPIs & Scorecards)', 
-          'Diagnostic Source-to-Contract (S2C)'
-        ]
+        items: ['Spend Analysis & Segmentation de Pareto', 'Audit de Conformité & Risk Management', 'Évaluation de maturité digitale et process', 'Analyse de performance (KPIs & Scorecards)', 'Diagnostic Source-to-Contract (S2C)']
       },
       formation: {
         title: 'Transfert de Compétences',
-        items: [
-          'Négociation Complexe (Méthode Harvard)', 
-          'Management de la Relation Fournisseurs (SRM)', 
-          'Pilotage de la Performance Achats', 
-          'Sécurisation Juridique des Contrats', 
-          'Posture de Leadership de l’Acheteur'
-        ]
+        items: ['Négociation Complexe (Méthode Harvard)', 'Management de la Relation Fournisseurs (SRM)', 'Pilotage de la Performance Achats', 'Sécurisation Juridique des Contrats', 'Posture de Leadership de l’Acheteur']
       },
       mediation: {
         title: 'Médiation & Résolution Business',
-        items: [
-          'Résolution amiable de litiges critiques', 
-          'Gestion de crise & Continuité de flux', 
-          'Négociation de protocoles transactionnels', 
-          'Médiation inter-entreprises facilitée', 
-          'Prévention des ruptures d\'approvisionnement'
-        ]
+        items: ['Résolution amiable de litiges critiques', 'Gestion de crise & Continuité de flux', 'Négociation de protocoles transactionnels', 'Médiation inter-entreprises facilitée', 'Prévention des ruptures d\'approvisionnement']
       }
     },
     pages: {
@@ -110,53 +87,54 @@ export const translations = {
       }
     },
     about: {
-      title: "L'Excellence en Sourcing",
-      description: "MBK Procurement est un cabinet de conseil premium dédié à la transformation des fonctions Achats pour les organisations exigeantes.",
-      mission: "Notre Mission",
-      missionText: "Accompagner les directions générales et achats dans la création de valeur durable par une ingénierie de sourcing innovante et sécurisée.",
+      title: "L'Excellence MBK Procurement",
+      description: "Cabinet de conseil premium spécialisé dans la transformation des organisations Achats et Supply Chain.",
+      mission: "Notre Approche Méthodologique",
+      missionText: "Notre mission est d'ancrer l'excellence au cœur de vos processus pour libérer les marges opérationnelles et sécuriser vos actifs immatériels.",
       valuesList: [
-        { title: "Expertise", description: "Une connaissance approfondie des marchés et des leviers de négociation complexes." },
-        { title: "Intégrité", description: "Une approche éthique et transparente dans toutes nos médiations et audits." }
+        { title: "Analytique Avancée", description: "Utilisation de la donnée pour piloter chaque décision de sourcing." },
+        { title: "Intégrité Structurelle", description: "Transparence totale et éthique irréprochable dans nos missions." }
       ]
     },
     contact: {
-      title: 'Consultation Stratégique',
-      subtitle: 'Analysons ensemble vos leviers de performance.',
+      title: 'Contactez votre Consultant',
+      subtitle: 'Optimisons ensemble votre performance Achats.',
       location: 'Localisation',
       emea: 'Interventions sur toute la zone EMEA',
       form: { 
-        name: 'Nom', 
-        email: 'Email Pro', 
-        phone: 'Téléphone', 
-        company: 'Entreprise', 
-        subject: 'Objet', 
-        message: 'Message', 
-        submit: 'Envoyer la demande', 
-        success: 'Demande transmise avec succès. Nos experts vous recontacteront sous 24h.' 
+        name: 'Nom complet', email: 'Email professionnel', phone: 'Téléphone', company: 'Entreprise', 
+        subject: 'Objet', message: 'Message', submit: 'Envoyer ma demande', 
+        success: 'Message reçu ! Je vous recontacte sous 24h.' 
       }
+    },
+    legal: {
+      title: "Mentions Légales",
+      editorTitle: "Édition du site",
+      editorDesc: "Le site mbkprocurement.com est édité par MBK Procurement, immatriculée au RCS de Paris.",
+      registration: "SIRET : en cours d'immatriculation | RCS : Paris ",
+      hostingTitle: "Hébergement",
+      hostingDesc: "Le site est hébergé par OVH SAS, 2 rue Kellermann - 59100 Roubaix - France.",
+      contactTitle: "Nous contacter",
+      contactDesc: "Par email : contact@mbkprocurement.com"
     },
     privacy: {
       title: "Politique de Confidentialité",
       intro: "MBK Procurement s'engage à protéger vos données personnelles conformément au RGPD.",
       dataTitle: "Collecte des données",
-      dataDesc: "Nous collectons votre nom, email et téléphone uniquement via notre formulaire de contact pour répondre à vos demandes professionnelles.",
+      dataDesc: "Nous collectons vos données uniquement via le formulaire de contact pour répondre à vos demandes professionnelles.",
       rightsTitle: "Vos droits",
-      rightsDesc: "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données sur simple demande à : contact@mbkprocurement.com"
+      rightsDesc: "Droit d'accès et de suppression via : contact@mbkprocurement.com"
     },
     footer: {
-      description: 'Cabinet de conseil premium spécialisé dans l\'audit, l\'ingénierie sourcing et la médiation commerciale.',
-      links: 'Expertises', 
-      contact: 'Coordonnées', 
-      legal: 'Mentions Légales', 
-      privacy: 'Confidentialité', 
-      terms: 'Conditions', 
-      rights: 'Tous droits réservés'
+      description: 'Conseil premium en audit, ingénierie sourcing et médiation commerciale.',
+      links: 'Expertises', contact: 'Coordonnées', legal: 'Mentions Légales', privacy: 'Confidentialité', terms: 'Conditions', rights: 'Tous droits réservés'
     }
   },
   en: {
     common: {
-      ctaTitle: "Ready to optimize your performance?",
-      ctaSubtitle: "Let's analyze your growth and security levers together.",
+      ctaTitle: "Unlock Your Purchasing Performance",
+      ctaSubtitle: "Begin the transformation of your Working Capital today.",
+      learnMore: "Explore Expertise",
       backToTop: "Back to top"
     },
     nav: { 
@@ -178,49 +156,25 @@ export const translations = {
       title: 'Strategic Areas & Business Vision',
       conseil: {
         title: 'Consulting & Sourcing Engineering',
-        items: [
-          'Category Management & Procurement Strategies', 
-          'Panel Rationalization & Global Sourcing', 
-          'Cost Structure Analysis (Clean Sheet)', 
-          'e-Procurement Solutions Deployment', 
-          'TCO Optimization Programs'
-        ]
+        items: ['Category Management & Procurement Strategies', 'Panel Rationalization & Global Sourcing', 'Cost Structure Analysis (Clean Sheet)', 'e-Procurement Solutions Deployment', 'TCO Optimization Programs']
       },
       audit: {
         title: '360° Diagnosis & Audit',
-        items: [
-          'Predictive Spend Analysis & Pareto Segmentation', 
-          'Compliance Audit & Risk Management', 
-          'Digital & Process Maturity Assessment', 
-          'Performance Analysis (KPIs & Scorecards)', 
-          'Source-to-Contract (S2C) Diagnosis'
-        ]
+        items: ['Predictive Spend Analysis & Pareto Segmentation', 'Compliance Audit & Risk Management', 'Digital & Process Maturity Assessment', 'Performance Analysis (KPIs & Scorecards)', 'Source-to-Contract (S2C) Diagnosis']
       },
       formation: {
         title: 'Skills Transfer',
-        items: [
-          'Complex Negotiation (Harvard Method)', 
-          'Supplier Relationship Management (SRM)', 
-          'Purchasing Performance Steering', 
-          'Legal Contract Securing', 
-          'Buyer Leadership Posture'
-        ]
+        items: ['Complex Negotiation (Harvard Method)', 'Supplier Relationship Management (SRM)', 'Purchasing Performance Steering', 'Legal Contract Securing', 'Buyer Leadership Posture']
       },
       mediation: {
         title: 'Mediation & Business Resolution',
-        items: [
-          'Amicable Critical Dispute Resolution', 
-          'Crisis Management & Flow Continuity', 
-          'Settlement Protocol Negotiation', 
-          'Facilitated Inter-company Mediation', 
-          'Supply Chain Disruption Prevention'
-        ]
+        items: ['Amicable Critical Dispute Resolution', 'Crisis Management & Flow Continuity', 'Settlement Protocol Negotiation', 'Facilitated Inter-company Mediation', 'Supply Chain Disruption Prevention']
       }
     },
     pages: {
       conseil: {
         title: 'Strategic Supply Engineering',
-        description: 'Redéfinir le modèle opérationnel pour maximiser l’agilité financière et la résilience industrielle.',
+        description: 'Redefining the operating model to maximize financial agility and industrial resilience.',
         whyTitle: 'Our Sourcing Methodology',
         roiTitle: 'ROI Objectives',
         roiDesc: 'Each mission is aligned with your profitability indicators and generates measurable gains.',
@@ -264,47 +218,47 @@ export const translations = {
       }
     },
     about: {
-      title: "Excellence in Sourcing",
-      description: "MBK Procurement is a premium consulting firm dedicated to transforming Procurement functions for demanding organizations.",
-      mission: "Our Mission",
-      missionText: "Supporting general and procurement management in sustainable value creation through innovative and secure sourcing engineering.",
+      title: "MBK Procurement Excellence",
+      description: "Premium consulting firm specialized in Purchasing and Supply Chain organization transformation.",
+      mission: "Our Methodological Approach",
+      missionText: "Our mission is to anchor excellence at the heart of your processes to unlock operating margins and secure your intangible assets.",
       valuesList: [
-        { title: "Expertise", description: "Deep market knowledge and complex negotiation levers." },
-        { title: "Integrity", description: "An ethical and transparent approach in all our mediations and audits." }
+        { title: "Advanced Analytics", description: "Using data to drive every sourcing decision." },
+        { title: "Structural Integrity", description: "Full transparency and impeccable ethics in our missions." }
       ]
     },
     contact: {
-      title: 'Strategic Consultation',
-      subtitle: 'Let’s analyze your performance levers together.',
+      title: 'Contact your Consultant',
+      subtitle: 'Let\'s optimize your Procurement performance together.',
       location: 'Location',
       emea: 'Deployments across the entire EMEA region',
       form: { 
-        name: 'Name', 
-        email: 'Work Email', 
-        phone: 'Phone', 
-        company: 'Company', 
-        subject: 'Subject', 
-        message: 'Message', 
-        submit: 'Send Request', 
-        success: 'Request successfully transmitted. Our experts will contact you within 24 hours.' 
+        name: 'Full Name', email: 'Work Email', phone: 'Phone', company: 'Company', 
+        subject: 'Subject', message: 'Message', submit: 'Send Request', 
+        success: 'Message received! I will contact you within 24h.' 
       }
+    },
+    legal: {
+      title: "Legal Notice",
+      editorTitle: "Site Edition",
+      editorDesc: "The website mbkprocurement.com is published by MBK Procurement, registered at the RCS of Paris.",
+      registration: "Company ID : in progress| RCS : Paris ",
+      hostingTitle: "Hosting",
+      hostingDesc: "The website is hosted by OVH SAS, 2 rue Kellermann - 59100 Roubaix - France.",
+      contactTitle: "Contact Us",
+      contactDesc: "By email: contact@mbkprocurement.com"
     },
     privacy: {
       title: "Privacy Policy",
       intro: "MBK Procurement is committed to protecting your personal data in compliance with GDPR.",
       dataTitle: "Data Collection",
-      dataDesc: "We collect your name, email, and phone number only through our contact form to respond to your business inquiries.",
+      dataDesc: "We collect your data only through the contact form to respond to your business inquiries.",
       rightsTitle: "Your Rights",
-      rightsDesc: "You have the right to access, rectify, and delete your data by contacting: contact@mbkprocurement.com"
+      rightsDesc: "Right of access and deletion via: contact@mbkprocurement.com"
     },
     footer: {
-      description: 'Premium consulting firm specialized in audit, sourcing engineering, and business mediation.',
-      links: 'Expertise', 
-      contact: 'Contact Info', 
-      legal: 'Legal Notice', 
-      privacy: 'Privacy Policy', 
-      terms: 'Terms', 
-      rights: 'All rights reserved'
+      description: 'Premium consulting in audit, sourcing engineering and business mediation.',
+      links: 'Expertise', contact: 'Contact Info', legal: 'Legal Notice', privacy: 'Privacy Policy', terms: 'Terms', rights: 'All rights reserved'
     }
   }
 };
