@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://mbk-consulting.fr/sitemap.xml
+Sitemap: https://mbkprocurement.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 10
