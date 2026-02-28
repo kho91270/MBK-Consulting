@@ -1,4 +1,4 @@
-// Mock data for MBK Consulting website
+// Mock data for MBK Procurement website
 
 export const translations = {
   fr: {
@@ -11,7 +11,7 @@ export const translations = {
       contact: 'Contact'
     },
     hero: {
-      title: 'MBK Consulting',
+      title: 'MBK Procurement',
       subtitle: 'Votre partenaire en conseil, audit, formation et médiation',
       description: 'Excellence, expertise et accompagnement sur mesure pour transformer vos défis en opportunités',
       cta: 'Demander une consultation'
@@ -60,8 +60,8 @@ export const translations = {
       }
     },
     about: {
-      title: 'À propos de MBK Consulting',
-      description: 'MBK Consulting est un cabinet de conseil reconnu pour son expertise dans l\'accompagnement des entreprises. Notre équipe de consultants expérimentés met son savoir-faire au service de votre réussite.',
+      title: 'À propos de MBK Procurement',
+      description: 'MBK Procurement est un cabinet de conseil reconnu pour son expertise dans l\'accompagnement des entreprises. Notre équipe de consultants expérimentés met son savoir-faire au service de votre réussite.',
       mission: 'Notre mission',
       missionText: 'Accompagner nos clients dans leur développement en apportant des solutions innovantes et personnalisées qui créent de la valeur durable.',
       values: 'Nos valeurs',
@@ -126,7 +126,7 @@ export const translations = {
       }
     },
     footer: {
-      description: 'MBK Consulting - Votre partenaire de confiance pour la transformation et la croissance de votre entreprise.',
+      description: 'MBK Procurement - Votre partenaire de confiance pour la transformation et la croissance de votre entreprise.',
       links: 'Liens rapides',
       legal: 'Mentions légales',
       privacy: 'Politique de confidentialité',
@@ -141,7 +141,7 @@ export const translations = {
       clientsTitle: 'Nos clients nous font confiance',
       clientsSubtitle: 'Ils nous ont fait confiance pour les accompagner dans leur transformation',
       testimonialsTitle: 'Témoignages clients',
-      testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience avec MBK Consulting',
+      testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience avec MBK Procurement',
       ctaTitle: 'Prêt à transformer votre entreprise ?',
       ctaSubtitle: 'Contactez-nous dès aujourd\'hui pour discuter de vos projets',
       servicesSubtitle: 'Des solutions sur mesure pour accompagner votre transformation et votre croissance',
@@ -166,7 +166,7 @@ export const translations = {
     pages: {
       conseil: {
         description: 'Nous accompagnons votre entreprise dans sa transformation stratégique et opérationnelle pour créer de la valeur durable.',
-        whyTitle: 'Pourquoi choisir MBK Consulting ?',
+        whyTitle: 'Pourquoi choisir MBK Procurement ?',
         whySubtitle: 'Notre approche combine expertise sectorielle et méthodologie éprouvée pour garantir votre réussite',
         benefits: [
           { title: 'Accompagnement personnalisé', description: 'Une approche sur mesure adaptée à vos enjeux spécifiques' },
@@ -228,7 +228,7 @@ export const translations = {
       contact: 'Contact'
     },
     hero: {
-      title: 'MBK Consulting',
+      title: 'MBK Procurement',
       subtitle: 'Your partner in consulting, audit, training and mediation',
       description: 'Excellence, expertise and tailored support to transform your challenges into opportunities',
       cta: 'Request a consultation'
@@ -277,8 +277,8 @@ export const translations = {
       }
     },
     about: {
-      title: 'About MBK Consulting',
-      description: 'MBK Consulting is a recognized consulting firm for its expertise in supporting businesses. Our team of experienced consultants puts their know-how at the service of your success.',
+      title: 'About MBK Procurement',
+      description: 'MBK Procurement is a recognized consulting firm for its expertise in supporting businesses. Our team of experienced consultants puts their know-how at the service of your success.',
       mission: 'Our mission',
       missionText: 'To support our clients in their development by providing innovative and personalized solutions that create sustainable value.',
       values: 'Our values',
@@ -343,7 +343,7 @@ export const translations = {
       }
     },
     footer: {
-      description: 'MBK Consulting - Your trusted partner for the transformation and growth of your business.',
+      description: 'MBK Procurement - Your trusted partner for the transformation and growth of your business.',
       links: 'Quick links',
       legal: 'Legal notice',
       privacy: 'Privacy policy',
@@ -358,7 +358,7 @@ export const translations = {
       clientsTitle: 'Our clients trust us',
       clientsSubtitle: 'They trusted us to support them in their transformation',
       testimonialsTitle: 'Client testimonials',
-      testimonialsSubtitle: 'Discover what our clients say about their experience with MBK Consulting',
+      testimonialsSubtitle: 'Discover what our clients say about their experience with MBK Procurement',
       ctaTitle: 'Ready to transform your business?',
       ctaSubtitle: 'Contact us today to discuss your projects',
       servicesSubtitle: 'Tailored solutions to support your transformation and growth',
@@ -383,7 +383,7 @@ export const translations = {
     pages: {
       conseil: {
         description: 'We support your company in its strategic and operational transformation to create sustainable value.',
-        whyTitle: 'Why choose MBK Consulting?',
+        whyTitle: 'Why choose MBK Procurement?',
         whySubtitle: 'Our approach combines sector expertise and proven methodology to guarantee your success',
         benefits: [
           { title: 'Personalized support', description: 'A tailor-made approach adapted to your specific challenges' },
