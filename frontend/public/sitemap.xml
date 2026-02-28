@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://mbkprocurement.com/</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/"/>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Services Pages -->
+
   <url>
     <loc>https://mbkprocurement.com/conseil</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/conseil"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/conseil"/>
+    <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://mbkprocurement.com/audit</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/audit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/audit"/>
+    <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://mbkprocurement.com/formation</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/formation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/formation"/>
+    <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://mbkprocurement.com/mediation</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/mediation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/mediation"/>
+    <priority>0.8</priority>
   </url>
-  
-  <!-- About & Contact -->
+
   <url>
     <loc>https://mbkprocurement.com/about</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/about"/>
+    <priority>0.6</priority>
   </url>
-  
+
   <url>
     <loc>https://mbkprocurement.com/contact</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mbkprocurement.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mbkprocurement.com/contact"/>
+    <priority>0.6</priority>
   </url>
-  
+
 </urlset>
