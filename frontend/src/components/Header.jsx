@@ -34,7 +34,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gray-900 leading-tight">MBK</span>
-              <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Consulting</span>
+              <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Procurement</span>
             </div>
           </Link>
 
