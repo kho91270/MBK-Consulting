@@ -108,11 +108,41 @@ export const translations = {
         ]
       }
     },
+    footer: {
+      description: 'Cabinet de conseil premium spécialisé dans l\'audit, l\'ingénierie sourcing et la médiation commerciale.',
+      links: 'Expertises',
+      contact: 'Coordonnées',
+      legal: 'Mentions Légales',
+      privacy: 'Confidentialité',
+      terms: 'Conditions d\'utilisation',
+      rights: 'Tous droits réservés'
+    },
+    contact: {
+      title: 'Contactez votre Consultant',
+      subtitle: 'Optimisons ensemble votre performance Achats.',
+      form: {
+        name: 'Nom complet',
+        email: 'Email professionnel',
+        phone: 'Téléphone',
+        company: 'Entreprise',
+        subject: 'Objet',
+        message: 'Détaillez votre projet',
+        submit: 'Envoyer ma demande',
+        success: 'Message reçu ! Je vous recontacte sous 24h.'
+      }
+    },
+    stats: {
+      experience: "Années d'expertise",
+      clients: "Entreprises auditées",
+      missions: "Appels d'offres menés",
+      satisfaction: "Taux de satisfaction"
+    },
     common: {
       learnMore: 'Explorer l’Expertise',
       ctaTitle: 'Libérez votre Performance Achats',
       ctaSubtitle: 'Engagez la transformation de votre Working Capital dès maintenant.',
       testimonialsTitle: 'Réalisations Stratégiques',
+      testimonialsSubtitle: 'Découvrez l\'impact de nos missions',
       testimonials: [
         { name: 'S. Le Guen', role: 'Group CPO', text: '"L’audit Spend Analysis a permis de restructurer notre panel de 2000 fournisseurs, dégageant 12M€ de cash-flow."' }
       ]
@@ -227,11 +257,41 @@ export const translations = {
         ]
       }
     },
+    footer: {
+      description: 'Premium consulting firm specialized in audit, sourcing engineering, and business mediation.',
+      links: 'Expertise',
+      contact: 'Contact Info',
+      legal: 'Legal Notice',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
+      rights: 'All rights reserved'
+    },
+    contact: {
+      title: 'Contact your Consultant',
+      subtitle: 'Let\'s optimize your Procurement performance together.',
+      form: {
+        name: 'Full Name',
+        email: 'Work Email',
+        phone: 'Phone',
+        company: 'Company',
+        subject: 'Subject',
+        message: 'Detail your project',
+        submit: 'Send Request',
+        success: 'Message received! I will contact you within 24h.'
+      }
+    },
+    stats: {
+      experience: "Years of expertise",
+      clients: "Audited companies",
+      missions: "Tenders conducted",
+      satisfaction: "Satisfaction rate"
+    },
     common: {
       learnMore: 'Explore Expertise',
       ctaTitle: 'Unlock Your Purchasing Performance',
       ctaSubtitle: 'Engage your Working Capital transformation now.',
       testimonialsTitle: 'Strategic Achievements',
+      testimonialsSubtitle: 'Discover the impact of our missions',
       testimonials: [
         { name: 'S. Le Guen', role: 'Group CPO', text: '"The Spend Analysis audit restructured our 2000-supplier panel, unlocking €12M in cash flow."' }
       ]
