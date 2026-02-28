@@ -22,7 +22,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white leading-tight">MBK</span>
-                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">Consulting</span>
+                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">Procurement</span>
               </div>
             </div>
             <p className="text-sm text-gray-400">
