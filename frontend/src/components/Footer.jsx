@@ -56,7 +56,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-sm">contact@mbk-consulting.fr</span>
+                <span className="text-sm">contact@mbkprocurement.com</span>
               </li>
             </ul>
           </div>
@@ -74,7 +74,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            © {currentYear} MBK Consulting. {t.footer.rights}
+            © {currentYear} MBK Procurement. {t.footer.rights}
           </p>
         </div>
       </div>
