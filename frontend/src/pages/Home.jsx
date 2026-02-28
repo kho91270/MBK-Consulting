@@ -131,29 +131,38 @@ const Home = () => {
         </section>
 
         {/* SECTION INSIGHTS (STYLE DELOITTE) */}
-        <section className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-16 font-serif">Perspectives & Analyses</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="group cursor-pointer">
-                <div className="overflow-hidden mb-6 aspect-video">
-                  <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=800" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Data" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 font-serif">L'IA dans le Sourcing 2026</h3>
-                <p className="text-gray-600 mb-4">Comment l'IA générative redéfinit la réduction des coûts opérationnels.</p>
-                <span className="text-blue-600 font-bold text-xs uppercase tracking-widest italic underline">Lire l'article</span>
-              </div>
-              <div className="group cursor-pointer">
-                <div className="overflow-hidden mb-6 aspect-video">
-                  <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Supply Chain" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 font-serif">Résilience de la Supply Chain</h3>
-                <p className="text-gray-600 mb-4">Sécuriser ses flux dans un contexte de volatilité mondiale.</p>
-                <span className="text-blue-600 font-bold text-xs uppercase tracking-widest italic underline">Découvrir l'étude</span>
-              </div>
-            </div>
-          </div>
-        </section>
+       {/* SECTION INSIGHTS CORRIGÉE */}
+<section className="py-24 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-bold mb-16 font-serif border-b border-gray-200 pb-4 text-[#0A192F]">Perspectives & Analyses</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="group cursor-pointer">
+        <div className="overflow-hidden mb-6 aspect-video bg-gray-200">
+          <img 
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" 
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+            alt="Data Analytics Procurement" 
+          />
+        </div>
+        <h3 className="text-2xl font-bold mb-4 font-serif text-[#0A192F]">L'IA dans le Sourcing 2026</h3>
+        <p className="text-gray-600 mb-4 leading-relaxed font-light">Analyse sur la réduction des coûts opérationnels via l'IA générative.</p>
+        <span className="text-blue-600 font-bold text-xs uppercase tracking-widest border-b border-blue-600 pb-1">Lire l'étude</span>
+      </div>
+      <div className="group cursor-pointer">
+        <div className="overflow-hidden mb-6 aspect-video bg-gray-200">
+          <img 
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" 
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+            alt="Supply Chain Resilience" 
+          />
+        </div>
+        <h3 className="text-2xl font-bold mb-4 font-serif text-[#0A192F]">Résilience de la Supply Chain</h3>
+        <p className="text-gray-600 mb-4 leading-relaxed font-light">Sécuriser ses flux stratégiques dans un contexte de volatilité mondiale.</p>
+        <span className="text-blue-600 font-bold text-xs uppercase tracking-widest border-b border-blue-600 pb-1">Découvrir l'analyse</span>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </>
   );
