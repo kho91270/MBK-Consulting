@@ -1,3 +1,4 @@
+// Mock data for MBK Procurement website
 export const translations = {
   fr: {
     nav: {
@@ -16,73 +17,29 @@ export const translations = {
     },
     services: {
       title: 'Notre offre de services',
-      conseil: {
-        title: 'CONSEIL',
-        items: ['Stratégie et transformation', 'Optimisation des processus', 'Accompagnement au changement']
-      },
-      audit: {
-        title: 'AUDIT',
-        items: ['Audit organisationnel', 'Contrôle interne', 'Conformité']
-      },
-      formation: {
-        title: 'FORMATION',
-        items: ['Programmes sur mesure', 'Management', 'Coaching']
-      },
-      mediation: {
-        title: 'MÉDIATION',
-        items: ['Résolution de conflits', 'Conciliation', 'Facilitation']
-      }
+      conseil: { title: 'CONSEIL', items: ['Stratégie', 'Optimisation'] },
+      audit: { title: 'AUDIT', items: ['Audit', 'Conformité'] },
+      formation: { title: 'FORMATION', items: ['Programmes', 'Coaching'] },
+      mediation: { title: 'MÉDIATION', items: ['Résolution', 'Facilitation'] }
     },
     about: {
       title: 'À propos de MBK Procurement',
-      description: 'MBK Procurement est un cabinet de conseil de premier plan, spécialisé dans l\'optimisation de la fonction Achats.',
+      description: 'Cabinet de conseil spécialisé dans l\'optimisation des Achats.',
       mission: 'Notre mission',
-      missionText: 'Accompagner nos clients avec des solutions innovantes.',
+      missionText: 'Accompagner nos clients vers une performance durable.',
       values: 'Nos valeurs',
       valuesList: [
-        { title: 'Excellence', description: 'Nous visons le meilleur' },
-        { title: 'Intégrité', description: 'Transparence totale' },
-        { title: 'Innovation', description: 'Solutions créatives' },
-        { title: 'Engagement', description: 'Dédiés à votre succès' }
+        { title: 'Excellence', description: 'Rigueur et qualité.' },
+        { title: 'Intégrité', description: 'Éthique totale.' },
+        { title: 'Innovation', description: 'Solutions modernes.' },
+        { title: 'Engagement', description: 'Dédiés à votre succès.' }
       ]
     },
     pages: {
-      conseil: {
-        title: 'Conseil Stratégique',
-        description: 'Nous accompagnons votre entreprise dans sa transformation stratégique.',
-        whyTitle: 'Pourquoi notre conseil ?',
-        benefits: [
-          { title: 'Sur Mesure', description: 'Une approche adaptée à vos besoins.' },
-          { title: 'Expertise', description: 'Des consultants seniors à votre service.' }
-        ]
-      },
-      audit: {
-        title: 'Audit & Diagnostic',
-        description: 'Des audits complets pour sécuriser vos organisations.',
-        whyTitle: 'Les bénéfices de l\'audit',
-        benefits: [
-          { title: 'Rigueur', description: 'Une méthodologie basée sur les meilleures pratiques.' },
-          { title: 'Vision', description: 'Identifier les opportunités cachées.' }
-        ]
-      },
-      formation: {
-        title: 'Formation & Coaching',
-        description: 'Développez le capital humain de votre entreprise.',
-        whyTitle: 'Nos points forts',
-        benefits: [
-          { title: 'Pratique', description: 'Des ateliers concrets et interactifs.' },
-          { title: 'Suivi', description: 'Un accompagnement post-formation.' }
-        ]
-      },
-      mediation: {
-        title: 'Médiation Professionnelle',
-        description: 'Résolvez vos différends de manière constructive.',
-        whyTitle: 'Pourquoi la médiation ?',
-        benefits: [
-          { title: 'Confidentialité', description: 'Un cadre sécurisé et privé.' },
-          { title: 'Rapidité', description: 'Une solution en quelques séances.' }
-        ]
-      }
+      conseil: { title: 'Conseil Stratégique', description: 'Transformation stratégique.', whyTitle: 'Pourquoi nous ?', benefits: [{ title: 'Sur Mesure', description: 'Approche adaptée.' }] },
+      audit: { title: 'Audit', description: 'Sécurisation.', whyTitle: 'Bénéfices', benefits: [{ title: 'Rigueur', description: 'Méthodologie.' }] },
+      formation: { title: 'Formation', description: 'Développement.', whyTitle: 'Atouts', benefits: [{ title: 'Pratique', description: 'Ateliers.' }] },
+      mediation: { title: 'Médiation', description: 'Résolution.', whyTitle: 'Avantages', benefits: [{ title: 'Rapide', description: 'Efficace.' }] }
     },
     team: {
       title: 'Notre équipe',
@@ -94,38 +51,72 @@ export const translations = {
       missions: "Missions réalisées",
       satisfaction: "Taux de satisfaction"
     },
+    contact: {
+      title: 'Contactez-nous',
+      subtitle: 'Nous sommes à votre écoute pour répondre à vos besoins',
+      form: {
+        name: 'Nom complet',
+        email: 'Email',
+        phone: 'Téléphone',
+        company: 'Entreprise',
+        subject: 'Sujet',
+        message: 'Votre message',
+        submit: 'Envoyer',
+        success: 'Message envoyé !',
+        error: 'Erreur lors de l\'envoi'
+      },
+      newsletter: {
+        title: 'Newsletter',
+        description: 'Recevez nos actualités',
+        placeholder: 'Votre email',
+        button: 'S\'inscrire'
+      },
+      consultation: {
+        title: 'Demander une consultation',
+        service: 'Service',
+        selectService: 'Choisir...',
+        date: 'Date',
+        submit: 'Demander'
+      }
+    },
+    footer: {
+      description: 'MBK Procurement - Votre partenaire de confiance.',
+      links: 'Liens rapides',
+      rights: 'Tous droits réservés',
+      contact: 'Contact',
+      legal: 'Légal',
+      privacy: 'Confidentialité',
+      terms: 'Conditions'
+    },
     common: {
       learnMore: 'En savoir plus',
       ctaSubtitle: '"Votre réussite est notre priorité."',
       testimonialsTitle: 'Témoignages',
+      testimonialsSubtitle: 'Ce que nos clients disent',
       testimonials: [{ name: 'Sophie L.', role: 'CEO', text: '"Excellent service."' }]
-    },
-    contact: { title: 'Contact', form: { submit: 'Envoyer' } },
-    footer: { rights: 'Tous droits réservés' }
+    }
   },
   en: {
-    // Structure identique pour la partie "en"
     nav: { conseil: 'Consulting', audit: 'Audit', formation: 'Training', mediation: 'Mediation', about: 'About', contact: 'Contact' },
     hero: { title: 'MBK Procurement', subtitle: 'Your partner', description: 'Expertise', cta: 'Consultation' },
-    services: {
-        title: 'Our Services',
-        conseil: { title: 'CONSULTING', items: ['Strategy'] },
-        audit: { title: 'AUDIT', items: ['Audit'] },
-        formation: { title: 'TRAINING', items: ['Training'] },
-        mediation: { title: 'MEDIATION', items: ['Mediation'] }
-    },
     about: { title: 'About Us', description: 'Expert firm', mission: 'Mission', missionText: 'Value creation', values: 'Values', valuesList: [] },
     pages: {
-      conseil: { title: 'Strategic Consulting', description: 'We support your transformation.', whyTitle: 'Why us?', benefits: [{ title: 'Tailored', description: 'Custom approach' }] },
-      audit: { title: 'Audit', description: 'Secure your organization.', whyTitle: 'Benefits', benefits: [{ title: 'Rigorous', description: 'Best practices' }] },
-      formation: { title: 'Training', description: 'Develop skills.', whyTitle: 'Strengths', benefits: [{ title: 'Practical', description: 'Workshops' }] },
-      mediation: { title: 'Mediation', description: 'Resolve conflicts.', whyTitle: 'Why mediation?', benefits: [{ title: 'Private', description: 'Confidential' }] }
+      conseil: { title: 'Consulting', description: 'Strategy.', whyTitle: 'Why?', benefits: [] },
+      audit: { title: 'Audit', description: 'Security.', whyTitle: 'Benefits', benefits: [] },
+      formation: { title: 'Training', description: 'Skills.', whyTitle: 'Strengths', benefits: [] },
+      mediation: { title: 'Mediation', description: 'Resolution.', whyTitle: 'Advantages', benefits: [] }
     },
     team: { title: 'Team', members: [] },
     stats: { experience: 'Experience', clients: 'Clients', missions: 'Missions', satisfaction: 'Satisfaction' },
-    common: { learnMore: 'Learn more', ctaSubtitle: '"Your success is our priority"', testimonialsTitle: 'Testimonials', testimonials: [] },
-    contact: { title: 'Contact', form: { submit: 'Send' } },
-    footer: { rights: 'All rights reserved' }
+    contact: {
+      title: 'Contact Us',
+      subtitle: 'We are here to help',
+      form: { name: 'Full Name', email: 'Email', phone: 'Phone', company: 'Company', subject: 'Subject', message: 'Message', submit: 'Send', success: 'Sent!', error: 'Error' },
+      newsletter: { title: 'Newsletter', description: 'Stay updated', placeholder: 'Your email', button: 'Subscribe' },
+      consultation: { title: 'Request consultation', service: 'Service', selectService: 'Select...', date: 'Date', submit: 'Request' }
+    },
+    footer: { description: 'MBK Procurement', links: 'Links', rights: 'All rights reserved', contact: 'Contact', legal: 'Legal', privacy: 'Privacy', terms: 'Terms' },
+    common: { learnMore: 'Learn more', ctaSubtitle: '"Your success is our priority"', testimonialsTitle: 'Testimonials', testimonials: [] }
   }
 };
 
