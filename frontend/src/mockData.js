@@ -57,6 +57,19 @@ export const translations = {
         ]
       }
     },
+    about: {
+      title: 'L’Excellence MBK Procurement',
+      description: 'Un cabinet spécialisé dans la transformation des organisations Achats. Nous combinons rigueur académique et pragmatisme opérationnel pour offrir une vision 360° de votre chaîne de valeur.',
+      mission: 'Notre Approche Méthodologique',
+      missionText: 'Notre mission est d\'ancrer l\'excellence au cœur de vos processus. Nous utilisons des méthodologies éprouvées pour libérer les marges opérationnelles et sécuriser les actifs immatériels liés aux relations fournisseurs.',
+      values: 'Nos Piliers Fondamentaux',
+      valuesList: [
+        { title: 'Analytique Avancée', description: 'Utilisation de la donnée pour piloter chaque décision de sourcing.' },
+        { title: 'Intégrité Structurelle', description: 'Transparence totale et éthique irréprochable dans les médiations.' },
+        { title: 'Résilience Opérationnelle', description: 'Capacité à intervenir en urgence sur des chaînes de flux en tension.' },
+        { title: 'Valeur Partagée', description: 'Création de bénéfices mesurables pour l\'ensemble des parties prenantes.' }
+      ]
+    },
     pages: {
       conseil: {
         title: 'Ingénierie Stratégique des Approvisionnements',
@@ -89,10 +102,12 @@ export const translations = {
       mediation: {
         title: 'Médiation & Continuité Business',
         description: 'Gestion de conflits à hauts enjeux pour protéger la réputation et les opérations de l\'entreprise.',
-        whyTitle: 'Levier de Sécurisation',
+        whyTitle: 'L’Atout Médiation',
+        expertiseTitle: 'Expertise en Résolution de Conflits',
+        ctaButton: 'Engager une Médiation Confidentielle',
         benefits: [
-          { title: 'Neutralité Experte', description: 'Intervention d\'un tiers neutre maîtrisant les codes de l\'industrie.' },
-          { title: 'Protocole Accéléré', description: 'Résolution contractuelle rapide évitant les contentieux judiciaires.' }
+          { title: 'Confidentialité', description: 'Résolution hors tribunaux pour protéger votre image.' },
+          { title: 'Efficacité Coût', description: 'Économies massives sur les frais de contentieux.' }
         ]
       }
     },
@@ -234,10 +249,12 @@ export const translations = {
       mediation: {
         title: 'Mediation & Business Continuity',
         description: 'Managing high-stakes conflicts to protect company reputation and operations.',
-        whyTitle: 'Security Lever',
+        whyTitle: 'The Mediation Edge',
+        expertiseTitle: 'Conflict Resolution Expertise',
+        ctaButton: 'Engage Confidential Mediation',
         benefits: [
-          { title: 'Expert Neutrality', description: 'Intervention of a neutral third party mastering industry codes.' },
-          { title: 'Accelerated Protocol', description: 'Fast contractual resolution avoiding court litigation.' }
+          { title: 'Confidentiality', description: 'Out-of-court resolution to protect your corporate image.' },
+          { title: 'Cost Efficiency', description: 'Massive savings on legal and litigation fees.' }
         ]
       }
     },
