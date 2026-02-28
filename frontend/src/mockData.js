@@ -164,7 +164,7 @@ export const translations = {
       cta: 'Launch a Performance Audit'
     },
     services: {
-      title: 'Strategic Areas of Intervention',
+      title: 'Strategic Intervention Areas',
       conseil: {
         title: 'Consulting & Sourcing Engineering',
         items: [
