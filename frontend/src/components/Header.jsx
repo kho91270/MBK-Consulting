@@ -1,104 +1,107 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Globe, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { Button } from './ui/button';
+import { Globe, Menu, X } from 'lucide-react';
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "./ui/menubar"; // On importe les outils de l'étape 1
 
 const Header = () => {
-  const { language, toggleLanguage, t } = useLanguage();
-  const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
-  const navItems = [
-    { path: '/conseil', label: t.nav.conseil },
-    { path: '/audit', label: t.nav.audit },
-    { path: '/formation', label: t.nav.formation },
-    { path: '/mediation', label: t.nav.mediation },
-    { path: '/about', label: t.nav.about },
-    { path: '/contact', label: t.nav.contact }
-  ];
+  // Gestion de la transparence au défilement
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <div className="w-14 h-14 bg-gray-900 rounded-lg flex items-center justify-center transform transition-all group-hover:scale-105 group-hover:shadow-lg">
-                <div className="flex flex-col items-center justify-center">
-                  <span className="text-white font-bold text-xs leading-tight">M B K</span>
-                  <div className="w-8 h-0.5 bg-blue-500 mt-0.5"></div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-gray-900 leading-tight">MBK</span>
-              <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Procurement</span>
-            </div>
-          </Link>
+    <header className={`fixed w-full z-50 transition-all duration-500 ${
+      isScrolled || !isHomePage ? 'bg-[#0A192F] py-3 shadow-2xl' : 'bg-transparent py-6'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        
+        {/* LOGO MBK - Style Institutionnel */}
+        <Link to="/" className="group">
+          <span className="text-2xl font-bold text-white font-serif tracking-tight">
+            MBK <span className="text-blue-500 font-sans text-xs uppercase tracking-[0.3em] ml-1">Procurement</span>
+          </span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  location.pathname === item.path ? 'text-blue-600' : 'text-gray-700'
-                }`}
-              >
-                {item.label}
+        {/* NAVIGATION DESKTOP (Menu de luxe) */}
+        <div className="hidden lg:block">
+          <Menubar className="border-none bg-transparent">
+            {/* Menu Expertise */}
+            <MenubarMenu>
+              <MenubarTrigger>{t.nav.conseil}</MenubarTrigger>
+              <MenubarContent>
+                <Link to="/conseil"><MenubarItem>Stratégie Achats</MenubarItem></Link>
+                <Link to="/audit"><MenubarItem>Audit & Diagnostic</MenubarItem></Link>
+              </MenubarContent>
+            </MenubarMenu>
+
+            {/* Menu Développement */}
+            <MenubarMenu>
+              <MenubarTrigger>{t.nav.formation}</MenubarTrigger>
+              <MenubarContent>
+                <Link to="/formation"><MenubarItem>Programmes de Formation</MenubarItem></Link>
+                <Link to="/mediation"><MenubarItem>Médiation Commerciale</MenubarItem></Link>
+              </MenubarContent>
+            </MenubarMenu>
+
+            {/* Lien Simple À Propos */}
+            <MenubarMenu>
+              <Link to="/about">
+                <MenubarTrigger>{t.nav.about}</MenubarTrigger>
               </Link>
-            ))}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleLanguage}
-              className="flex items-center space-x-1"
-            >
-              <Globe className="w-4 h-4" />
-              <span>{language.toUpperCase()}</span>
-            </Button>
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            </MenubarMenu>
+          </Menubar>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-gray-200">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`block py-3 px-4 text-base font-medium transition-colors hover:bg-gray-50 ${
-                  location.pathname === item.path ? 'text-blue-600 bg-blue-50' : 'text-gray-700'
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <button
-              onClick={() => {
-                toggleLanguage();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center space-x-2"
-            >
-              <Globe className="w-5 h-5" />
-              <span>{language === 'fr' ? 'English' : 'Français'}</span>
+        {/* ACTIONS : Langue et Contact */}
+        <div className="hidden lg:flex items-center space-x-6">
+          <button 
+            onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
+            className="flex items-center space-x-2 text-[10px] font-bold text-white uppercase tracking-[0.2em] border border-white/20 px-3 py-1.5 hover:bg-white hover:text-[#0A192F] transition-all"
+          >
+            <Globe className="w-3 h-3" />
+            <span>{language === 'fr' ? 'EN' : 'FR'}</span>
+          </button>
+          
+          <Link to="/contact">
+            <button className="bg-blue-600 text-white px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-blue-700 transition-all shadow-lg">
+              {t.nav.contact}
             </button>
-          </nav>
-        )}
+          </Link>
+        </div>
+
+        {/* MENU MOBILE (Bouton) */}
+        <div className="lg:hidden flex items-center">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white">
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
+
+      {/* OVERLAY MOBILE MENU */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#0A192F] border-t border-gray-800 animate-in slide-in-from-top w-full absolute top-full left-0 p-6 space-y-6 shadow-2xl">
+          <Link to="/conseil" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.conseil}</Link>
+          <Link to="/audit" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.audit}</Link>
+          <Link to="/formation" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.formation}</Link>
+          <Link to="/mediation" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.mediation}</Link>
+          <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full bg-blue-600 text-white text-center py-4 font-bold uppercase tracking-widest text-xs">{t.nav.contact}</Link>
+        </div>
+      )}
     </header>
   );
 };
