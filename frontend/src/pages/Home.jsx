@@ -58,9 +58,9 @@ const Home = () => {
     <>
       <SEO 
         title="Accueil"
-        description="MBK Consulting - Cabinet de conseil, audit, formation et médiation. Expertise reconnue en transformation d'entreprise. Accompagnement sur mesure pour votre réussite."
+        description="MBK Procurement - Cabinet de conseil, audit, formation et médiation. Expertise reconnue en transformation d'entreprise. Accompagnement sur mesure pour votre réussite."
         keywords="conseil stratégique, audit organisationnel, formation professionnelle, médiation commerciale, transformation entreprise, Paris"
-        canonical="https://mbk-consulting.fr/"
+        canonical="https://mbkprocurement.com/"
       />
       <div className="min-h-screen">
       {/* Hero Section */}
@@ -127,7 +127,7 @@ const Home = () => {
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-200 rounded-full opacity-50"></div>
               <img 
                 src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80" 
-                alt="Équipe MBK Consulting"
+                alt="Équipe MBK Procurement"
                 className="rounded-2xl shadow-2xl relative z-10"
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-200 rounded-full opacity-50"></div>
