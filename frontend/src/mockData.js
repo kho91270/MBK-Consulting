@@ -1,305 +1,239 @@
 export const translations = {
   fr: {
     nav: {
-      conseil: 'Conseil',
-      audit: 'Audit',
-      formation: 'Formation',
-      mediation: 'Médiation',
-      about: 'À Propos',
-      contact: 'Contact'
+      conseil: 'Ingénierie Sourcing',
+      audit: 'Audit de Maturité',
+      formation: 'Academy Experts',
+      mediation: 'Médiation Stratégique',
+      about: 'Le Cabinet',
+      contact: 'Expertise Directe'
     },
     hero: {
       title: 'MBK Procurement',
-      subtitle: 'Expert en Transformation & Performance des Achats',
-      description: 'Consultant dédié à l\'optimisation de votre marge opérationnelle. Nous transformons vos défis d\'approvisionnement en leviers de rentabilité durable par l\'audit, la stratégie et la digitalisation.',
-      cta: 'Demander un diagnostic Achats'
+      subtitle: 'Ingénierie de la Performance Achats & Supply Chain',
+      description: 'Nous intervenons sur les structures de coûts complexes pour transformer vos flux d\'approvisionnement en vecteurs de rentabilité. Audit de maturité S2C, optimisation du Working Capital et sécurisation contractuelle.',
+      cta: 'Lancer un Audit de Performance'
     },
     services: {
-      title: 'Notre Expertise Consultant Achats',
+      title: 'Domaines d’Intervention Stratégiques',
       conseil: {
-        title: 'STRATÉGIE & CONSEIL',
+        title: 'Conseil & Ingénierie Sourcing',
         items: [
-          'Définition de politiques d\'achat (Sourcing & Rationalisation)',
-          'Stratégie de réduction des coûts (Plans de productivité ROI)',
-          'Transformation et organisation de la fonction Achats',
-          'Accompagnement opérationnel au changement',
-          'Externalisation et pilotage des catégories stratégiques'
+          'Design de stratégies Catégorielles (Category Management)',
+          'Rationalisation de panel & Sourcing global (LCC/HCC)',
+          'Ingénierie de la valeur et analyse de la structure des coûts',
+          'Accompagnement au déploiement de solutions e-Procurement',
+          'Pilotage de programmes de réduction des coûts (Cost-Out)'
         ]
       },
       audit: {
-        title: 'AUDIT & ANALYSE',
+        title: 'Diagnostic & Audit 360°',
         items: [
-          'Cartographie des dépenses (Spend Analysis) et segmentation',
-          'Évaluation du panel fournisseurs et des risques associés',
-          'Audit de conformité, réglementaire et contrôle interne',
-          'Analyse de la maturité des processus S2C et P2P',
-          'Diagnostic de performance et rapports de préconisations'
+          'Spend Analysis prédictive & Segmentation de Pareto',
+          'Audit de conformité (Compliance) et gestion des risques',
+          'Évaluation de la maturité organisationnelle et digitale',
+          'Analyse de la performance fournisseurs (KPIs & Scorecards)',
+          'Diagnostic des processus S2C (Source-to-Contract)'
         ]
       },
       formation: {
-        title: 'FORMATION & COACHING',
+        title: 'Transfert de Compétences',
         items: [
-          'Techniques de négociation complexe et appels d\'offres',
-          'Développement des compétences managériales Achats',
-          'Maîtrise du Total Cost of Ownership (TCO) et SRM',
-          'Programmes sur mesure (Présentiel et e-learning)',
-          'Coaching individuel pour acheteurs et cadres'
+          'Techniques de Négociation à hauts enjeux (Méthode Harvard)',
+          'Gestion de la relation fournisseurs (SRM & Co-innovation)',
+          'Maîtrise du TCO (Total Cost of Ownership) & Lifecycle Costing',
+          'Droit des contrats Achats et sécurisation juridique',
+          'Leadership et posture stratégique de l’Acheteur'
         ]
       },
       mediation: {
-        title: 'MÉDIATION & GESTION DE CRISE',
+        title: 'Médiation & Résolution Business',
         items: [
           'Résolution amiable de litiges fournisseurs critiques',
-          'Négociation de protocoles et sortie de crise',
-          'Sécurisation et continuité des flux d\'approvisionnement',
-          'Médiation inter-entreprises et facilitation de dialogue',
-          'Prévention des risques de rupture contractuelle'
+          'Gestion de crise et sécurisation de la continuité de flux',
+          'Négociation de protocoles transactionnels complexes',
+          'Médiation inter-entreprises & Facilitation de dialogue',
+          'Prévention des risques de rupture de chaîne d\'approvisionnement'
         ]
       }
     },
     about: {
-      title: 'Expertise & Engagement MBK Procurement',
-      description: 'MBK Procurement est un cabinet de conseil de premier plan spécialisé dans l\'optimisation de la chaîne de valeur. En tant que consultant expert, nous intervenons pour transformer vos achats en un véritable centre de profit.',
-      mission: 'Ma mission de Consultant',
-      missionText: 'Accompagner les dirigeants dans la sécurisation de leurs flux et l\'amélioration de leur rentabilité. Mon approche combine rigueur analytique (Audit), vision stratégique et exécution opérationnelle (Négociation).',
-      values: 'Nos Valeurs Fondamentales',
+      title: 'L’Excellence MBK Procurement',
+      description: 'Un cabinet spécialisé dans la transformation des organisations Achats. Nous combinons rigueur académique et pragmatisme opérationnel pour offrir une vision 360° de votre chaîne de valeur.',
+      mission: 'Notre Approche Méthodologique',
+      missionText: 'Notre mission est d\'ancrer l\'excellence au cœur de vos processus. Nous utilisons des méthodologies éprouvées pour libérer les marges opérationnelles et sécuriser les actifs immatériels liés aux relations fournisseurs.',
+      values: 'Nos Piliers Fondamentaux',
       valuesList: [
-        { title: 'Excellence Opérationnelle', description: 'Une approche pragmatique orientée vers des résultats mesurables.' },
-        { title: 'Intégrité & Éthique', description: 'Une transparence totale dans le sourcing et la gestion fournisseurs.' },
-        { title: 'Innovation Digitale', description: 'Digitalisation des processus pour améliorer la productivité.' },
-        { title: 'Engagement Total', description: 'Un accompagnement de proximité pour garantir votre succès.' }
+        { title: 'Analytique Avancée', description: 'Utilisation de la donnée pour piloter chaque décision de sourcing.' },
+        { title: 'Intégrité Structurelle', description: 'Transparence totale et éthique irréprochable dans les médiations.' },
+        { title: 'Résilience Opérationnelle', description: 'Capacité à intervenir en urgence sur des chaînes de flux en tension.' },
+        { title: 'Valeur Partagée', description: 'Création de bénéfices mesurables pour l\'ensemble des parties prenantes.' }
       ]
     },
     pages: {
       conseil: {
-        title: 'Conseil en Stratégie Achats',
-        description: 'En tant que consultant, je définis des politiques d\'achat sur mesure pour optimiser votre panel fournisseurs et rationaliser vos coûts.',
-        whyTitle: 'Missions de Conseil',
+        title: 'Ingénierie Stratégique des Approvisionnements',
+        description: 'Redéfinir le modèle opérationnel Achats pour maximiser l’agilité financière et la résilience industrielle.',
+        whyTitle: 'Phases d’Accompagnement',
         benefits: [
-          { title: 'Optimisation Opérationnelle', description: 'Conduire des appels d\'offres et négocier vos contrats majeurs.' },
-          { title: 'Digitalisation', description: 'Moderniser vos processus pour une meilleure productivité.' }
+          { title: 'Analyse Pré-Sourcing', description: 'Étude de marché exhaustive et identification de leviers technologiques.' },
+          { title: 'Exécution Tactique', description: 'Pilotage d\'appels d\'offres complexes et sécurisation des SLAs.' }
         ]
       },
       audit: {
-        title: 'Audit & Diagnostic de Performance',
-        description: 'Une analyse rigoureuse de vos dépenses pour identifier les risques et les gisements d\'économies.',
-        whyTitle: 'Expertise en Audit',
+        title: 'Audit de Maturité & Risk Management',
+        description: 'Identification des vulnérabilités systémiques et des gisements d’économies non exploités.',
+        whyTitle: 'Livrables Critiques',
         benefits: [
-          { title: 'Cartographie des Risques', description: 'Évaluation critique de la dépendance envers vos fournisseurs.' },
-          { title: 'Spend Analysis', description: 'Vision claire de vos flux pour des décisions stratégiques.' }
+          { title: 'Matrice de Risques', description: 'Évaluation de la dépendance fournisseur et plans de contingence.' },
+          { title: 'Plan de Gains (ROI)', description: 'Chiffrage précis des économies générables sous 12 mois.' }
         ]
       },
       formation: {
-        title: 'Formation & Transfert de Savoir',
-        description: 'Professionnalisez vos équipes pour maîtriser les nouveaux outils digitaux et les techniques de négociation.',
-        whyTitle: 'Pourquoi se former ?',
+        title: 'Academy : L’Excellence Pédagogique',
+        description: 'Élever le niveau d’expertise interne pour transformer les acheteurs en Business Partners.',
+        whyTitle: 'Axes de Développement',
         benefits: [
-          { title: 'Performance accrue', description: 'Des acheteurs plus agiles et mieux armés en négociation.' },
-          { title: 'Maîtrise technologique', description: 'Adoption rapide des nouveaux outils e-Procurement.' }
+          { title: 'Négociation Élite', description: 'Simulation de cas réels et techniques de communication non-verbale.' },
+          { title: 'Maîtrise du SI Achats', description: 'Optimisation de l\'utilisation des outils SAP, Ariba ou Ivalua.' }
         ]
       },
       mediation: {
-        title: 'Médiation Commerciale',
-        description: 'Résoudre vos conflits de manière confidentielle et efficace pour préserver vos relations d\'affaires.',
-        whyTitle: 'L\'atout Médiation',
+        title: 'Médiation & Continuité Business',
+        description: 'Gestion de conflits à hauts enjeux pour protéger la réputation et les opérations de l\'entreprise.',
+        whyTitle: 'Levier de Sécurisation',
         benefits: [
-          { title: 'Gain de temps', description: 'Une résolution souvent 10 fois plus rapide qu\'un procès.' },
-          { title: 'Confidentialité', description: 'Protéger l\'image de votre entreprise durant le conflit.' }
+          { title: 'Neutralité Experte', description: 'Intervention d\'un tiers neutre maîtrisant les codes de l\'industrie.' },
+          { title: 'Protocole Accéléré', description: 'Résolution contractuelle rapide évitant les contentieux judiciaires.' }
         ]
       }
     },
-    team: {
-      title: 'Votre Partenaire Expert',
-      subtitle: 'Une expertise senior au service de votre transformation',
-      members: [
-        { name: 'Marc-B. K.', role: 'Fondateur & Consultant Achats', expertise: 'Expert en audit de panel fournisseurs, stratégie de sourcing et digitalisation des processus (P2P/S2C).' }
-      ]
-    },
-    stats: {
-      experience: "Années d'expertise",
-      clients: "Entreprises auditées",
-      missions: "Appels d'offres menés",
-      satisfaction: "Taux de satisfaction"
-    },
-    contact: {
-      title: 'Contactez votre Consultant',
-      subtitle: 'Optimisons ensemble votre performance Achats.',
-      form: {
-        name: 'Nom complet',
-        email: 'Email professionnel',
-        phone: 'Téléphone',
-        company: 'Entreprise',
-        subject: 'Objet',
-        message: 'Détaillez votre projet',
-        submit: 'Envoyer ma demande',
-        success: 'Message reçu ! Je vous recontacte sous 24h.'
-      }
-    },
-    footer: {
-      description: 'MBK Procurement - Expert en Audit, Stratégie Achats et Médiation Commerciale.',
-      rights: 'Tous droits réservés'
-    },
     common: {
-      learnMore: 'En savoir plus',
-      ctaTitle: 'Prêt à optimiser vos coûts ?',
-      ctaSubtitle: '"L\'excellence dans les achats est le moteur silencieux de votre croissance."',
-      testimonialsTitle: 'Témoignages Clients',
-      testimonialsSubtitle: 'Découvrez l\'impact de nos missions',
+      learnMore: 'Explorer l’Expertise',
+      ctaTitle: 'Libérez votre Performance Achats',
+      ctaSubtitle: 'Engagez la transformation de votre Working Capital dès maintenant.',
+      testimonialsTitle: 'Réalisations Stratégiques',
       testimonials: [
-        { name: 'S. Le Guen', role: 'Dir. Achats', text: '"L\'audit stratégique a permis de dégager 15% d\'économies sur nos frais généraux."' },
-        { name: 'J. Martin', role: 'Directeur Général', text: '"Une médiation efficace qui a sauvé un contrat critique avec un fournisseur clé."' }
+        { name: 'S. Le Guen', role: 'Group CPO', text: '"L’audit Spend Analysis a permis de restructurer notre panel de 2000 fournisseurs, dégageant 12M€ de cash-flow."' }
       ]
     }
   },
   en: {
     nav: {
-      conseil: 'Consulting',
-      audit: 'Audit',
-      formation: 'Training',
-      mediation: 'Mediation',
-      about: 'About',
-      contact: 'Contact'
+      conseil: 'Sourcing Engineering',
+      audit: 'Maturity Audit',
+      formation: 'Expert Academy',
+      mediation: 'Strategic Mediation',
+      about: 'The Firm',
+      contact: 'Direct Expertise'
     },
     hero: {
       title: 'MBK Procurement',
-      subtitle: 'Expert in Procurement Transformation & Performance',
-      description: 'Dedicated consultant to optimize your operating margin. We transform your supply challenges into sustainable profitability through audit, strategy, and digitalization.',
-      cta: 'Request a Procurement Diagnosis'
+      subtitle: 'Purchasing & Supply Chain Performance Engineering',
+      description: 'We optimize complex cost structures to transform your supply flows into profitability drivers. S2C maturity audits, Working Capital optimization, and contractual securing.',
+      cta: 'Launch a Performance Audit'
     },
     services: {
-      title: 'Our Procurement Expertise',
+      title: 'Strategic Areas of Intervention',
       conseil: {
-        title: 'STRATEGY & CONSULTING',
+        title: 'Consulting & Sourcing Engineering',
         items: [
-          'Procurement policy definition (Sourcing & Rationalization)',
-          'Cost reduction strategy (ROI productivity plans)',
-          'Transformation and organization of Procurement function',
-          'Operational change management support',
-          'Strategic category management and outsourcing'
+          'Category Management Strategy Design',
+          'Panel Rationalization & Global Sourcing (LCC/HCC)',
+          'Value Engineering & Cost Structure Analysis',
+          'e-Procurement Solutions Deployment Support',
+          'Cost-Out Program Management'
         ]
       },
       audit: {
-        title: 'AUDIT & ANALYSIS',
+        title: '360° Diagnosis & Audit',
         items: [
-          'Spend Analysis mapping and segmentation',
-          'Supplier panel assessment and associated risks',
-          'Compliance, regulatory, and internal control audit',
-          'S2C and P2P process maturity analysis',
-          'Performance diagnosis and recommendation reports'
+          'Predictive Spend Analysis & Pareto Segmentation',
+          'Compliance Audit & Risk Management',
+          'Organizational & Digital Maturity Assessment',
+          'Supplier Performance Analysis (KPIs & Scorecards)',
+          'Source-to-Contract (S2C) Process Diagnosis'
         ]
       },
       formation: {
-        title: 'TRAINING & COACHING',
+        title: 'Skills Transfer',
         items: [
-          'Complex negotiation techniques and Tenders',
-          'Procurement management skill development',
-          'Total Cost of Ownership (TCO) and SRM mastery',
-          'Custom programs (On-site and e-learning)',
-          'Individual coaching for buyers and executives'
+          'High-Stakes Negotiation Techniques (Harvard Method)',
+          'Supplier Relationship Management (SRM & Co-innovation)',
+          'Total Cost of Ownership (TCO) & Lifecycle Costing',
+          'Purchasing Contract Law & Legal Securing',
+          'Buyer Strategic Posture & Leadership'
         ]
       },
       mediation: {
-        title: 'MEDIATION & CRISIS MGMT',
+        title: 'Mediation & Business Resolution',
         items: [
-          'Amicable resolution of critical supplier disputes',
-          'Protocol negotiation and crisis exit',
-          'Securing supply chain flow continuity',
-          'B2B mediation and dialogue facilitation',
-          'Prevention of contractual breach risks'
+          'Amicable Resolution of Critical Supplier Disputes',
+          'Crisis Management & Flow Continuity Securing',
+          'Complex Settlement Protocol Negotiation',
+          'B2B Mediation & Dialogue Facilitation',
+          'Supply Chain Disruption Risk Prevention'
         ]
       }
     },
     about: {
-      title: 'MBK Procurement Expertise',
-      description: 'Leading consulting firm specialized in value chain optimization. As an expert consultant, we intervene to transform your procurement into a profit center.',
-      mission: 'My Consultant Mission',
-      missionText: 'Supporting leaders in securing flows and improving profitability. My approach combines analytical rigor (Audit), strategic vision, and operational execution (Negotiation).',
-      values: 'Our Core Values',
+      title: 'MBK Procurement Excellence',
+      description: 'A firm specialized in Purchasing organization transformation. We combine academic rigor and operational pragmatism to provide a 360° view of your value chain.',
+      mission: 'Our Methodological Approach',
+      missionText: 'Our mission is to anchor excellence at the heart of your processes. We use proven methodologies to unlock operating margins and secure intangible assets.',
+      values: 'Our Core Pillars',
       valuesList: [
-        { title: 'Operational Excellence', description: 'A pragmatic approach oriented towards measurable results.' },
-        { title: 'Integrity & Ethics', description: 'Full transparency in sourcing and supplier management.' },
-        { title: 'Digital Innovation', description: 'Process digitalization to improve productivity.' },
-        { title: 'Full Commitment', description: 'Close support to guarantee your success.' }
+        { title: 'Advanced Analytics', description: 'Using data to drive every sourcing decision.' },
+        { title: 'Structural Integrity', description: 'Full transparency and impeccable ethics in mediations.' },
+        { title: 'Operational Resilience', description: 'Ability to intervene urgently on stressed supply chains.' },
+        { title: 'Shared Value', description: 'Creating measurable benefits for all stakeholders.' }
       ]
     },
     pages: {
       conseil: {
-        title: 'Strategic Procurement Consulting',
-        description: 'As a consultant, I define custom procurement policies to optimize your supplier panel and rationalize costs.',
-        whyTitle: 'Consulting Missions',
+        title: 'Strategic Supply Engineering',
+        description: 'Redefining the Procurement operating model to maximize financial agility and industrial resilience.',
+        whyTitle: 'Support Phases',
         benefits: [
-          { title: 'Operational Optimization', description: 'Conducting tenders and negotiating major contracts.' },
-          { title: 'Digitalization', description: 'Modernizing your processes for better productivity.' }
+          { title: 'Pre-Sourcing Analysis', description: 'Exhaustive market study and identification of tech levers.' },
+          { title: 'Tactical Execution', description: 'Managing complex tenders and securing SLAs.' }
         ]
       },
       audit: {
-        title: 'Audit & Performance Diagnosis',
-        description: 'A rigorous analysis of your expenses to identify risks and savings opportunities.',
-        whyTitle: 'Audit Expertise',
+        title: 'Maturity Audit & Risk Management',
+        description: 'Identification of systemic vulnerabilities and untapped savings pools.',
+        whyTitle: 'Critical Deliverables',
         benefits: [
-          { title: 'Risk Mapping', description: 'Critical assessment of supplier dependency.' },
-          { title: 'Spend Analysis', description: 'Clear vision of your flows for strategic decisions.' }
+          { title: 'Risk Matrix', description: 'Supplier dependency assessment and contingency plans.' },
+          { title: 'Gain Plan (ROI)', description: 'Precise quantification of savings generatable within 12 months.' }
         ]
       },
       formation: {
-        title: 'Training & Skill Transfer',
-        description: 'Professionalize your teams to master new digital tools and negotiation techniques.',
-        whyTitle: 'Why Training?',
+        title: 'Academy: Pedagogical Excellence',
+        description: 'Elevating internal expertise to transform buyers into Strategic Business Partners.',
+        whyTitle: 'Development Axes',
         benefits: [
-          { title: 'Increased performance', description: 'More agile buyers, better equipped in negotiation.' },
-          { title: 'Tech mastery', description: 'Fast adoption of new e-Procurement tools.' }
+          { title: 'Elite Negotiation', description: 'Real-case simulations and non-verbal communication techniques.' },
+          { title: 'IT Mastery', description: 'Optimizing usage of SAP, Ariba, or Ivalua tools.' }
         ]
       },
       mediation: {
-        title: 'Commercial Mediation',
-        description: 'Resolving your conflicts confidentially and effectively to preserve your business relations.',
-        whyTitle: 'Mediation Advantage',
+        title: 'Mediation & Business Continuity',
+        description: 'Managing high-stakes conflicts to protect company reputation and operations.',
+        whyTitle: 'Security Lever',
         benefits: [
-          { title: 'Time saving', description: 'Resolution often 10 times faster than a trial.' },
-          { title: 'Confidentiality', description: 'Protecting your company image during conflict.' }
+          { title: 'Expert Neutrality', description: 'Intervention of a neutral third party mastering industry codes.' },
+          { title: 'Accelerated Protocol', description: 'Fast contractual resolution avoiding court litigation.' }
         ]
       }
     },
-    team: {
-      title: 'Your Dedicated Partner',
-      subtitle: 'Senior expertise at the service of your transformation',
-      members: [
-        { name: 'Marc-B. K.', role: 'Founder & Procurement Consultant', expertise: 'Expert in supplier panel audit, sourcing strategy, and process digitalization (P2P/S2C).' }
-      ]
-    },
-    stats: {
-      experience: "Years of expertise",
-      clients: "Audited companies",
-      missions: "Tenders conducted",
-      satisfaction: "Satisfaction rate"
-    },
-    contact: {
-      title: 'Contact your Consultant',
-      subtitle: 'Let\'s optimize your Procurement performance together.',
-      form: {
-        name: 'Full Name',
-        email: 'Work Email',
-        phone: 'Phone',
-        company: 'Company',
-        subject: 'Subject',
-        message: 'Detail your project',
-        submit: 'Send Request',
-        success: 'Message received! I will contact you within 24h.'
-      }
-    },
-    footer: {
-      description: 'MBK Procurement - Expert in Audit, Strategy and Commercial Mediation.',
-      rights: 'All rights reserved'
-    },
     common: {
-      learnMore: 'Learn more',
-      ctaTitle: 'Ready to optimize your costs?',
-      ctaSubtitle: '"Excellence in procurement is the silent engine of your growth."',
-      testimonialsTitle: 'Client Testimonials',
-      testimonialsSubtitle: 'Discover the impact of our missions',
+      learnMore: 'Explore Expertise',
+      ctaTitle: 'Unlock Your Purchasing Performance',
+      ctaSubtitle: 'Engage your Working Capital transformation now.',
+      testimonialsTitle: 'Strategic Achievements',
       testimonials: [
-        { name: 'S. Le Guen', role: 'Head of Procurement', text: '"The strategic audit revealed 15% savings on our overhead costs."' },
-        { name: 'J. Martin', role: 'CEO', text: '"Effective mediation that saved a critical contract with a key supplier."' }
+        { name: 'S. Le Guen', role: 'Group CPO', text: '"The Spend Analysis audit restructured our 2000-supplier panel, unlocking €12M in cash flow."' }
       ]
     }
   }
