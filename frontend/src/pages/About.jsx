@@ -19,7 +19,7 @@ const About = () => {
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1920&q=80" 
-            alt="Équipe MBK Consulting"
+            alt="Équipe MBK Procurement"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/90"></div>
