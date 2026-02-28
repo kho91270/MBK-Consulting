@@ -1,118 +1,62 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Button } from '../components/ui/button';
+import SEO from '../components/SEO';
+import { ShieldAlert, Handshake, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { HandshakeIcon, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const Mediation = () => {
   const { t } = useLanguage();
+  const pageData = t.pages.mediation;
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-sky-600 to-sky-800 py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1622675363311-3e1904dc1885?w=1920&q=80" 
-            alt="Médiation professionnelle"
-            className="w-full h-full object-cover opacity-20"
-          />
+    <div className="min-h-screen bg-white">
+      <SEO title={`${pageData.title} | MBK Procurement`} />
+      
+      <section className="bg-[#0A192F] py-24 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="text-blue-400 font-bold tracking-[0.2em] uppercase text-sm">{t.nav.mediation}</span>
+          <h1 className="text-5xl lg:text-7xl font-bold font-serif mt-4 mb-8">{pageData.title}</h1>
+          <p className="text-xl lg:text-2xl text-gray-400 max-w-3xl font-light leading-relaxed">
+            {pageData.description}
+          </p>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 text-white">
-              <div className="inline-flex items-center space-x-2 bg-sky-500 px-4 py-2 rounded-full mb-6">
-                <HandshakeIcon className="w-5 h-5" />
-                <span className="font-semibold">{t.services.mediation.title}</span>
+      </section>
+
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gray-50 border border-gray-100 p-12 mb-20">
+               <h2 className="text-3xl font-bold font-serif mb-8 text-[#0A192F] text-center">{pageData.whyTitle}</h2>
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  {pageData.benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <ShieldAlert className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-bold text-gray-900">{benefit.title}</h4>
+                        <p className="text-gray-600 text-sm mt-1">{benefit.description}</p>
+                      </div>
+                    </div>
+                  ))}
+               </div>
+            </div>
+
+            <div className="text-center">
+              <h3 className="text-2xl font-bold font-serif mb-10 text-[#0A192F]">Expertise en Résolution de Conflits</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-12">
+                {t.services.mediation.items.map((item, idx) => (
+                  <div key={idx} className="flex items-center p-4 border-l-2 border-blue-600 bg-white shadow-sm">
+                    <Handshake className="w-5 h-5 text-gray-400 mr-4" />
+                    <span className="text-gray-700 text-sm italic">{item}</span>
+                  </div>
+                ))}
               </div>
-              <h1 className="text-5xl font-bold mb-6">
-                {t.services.mediation.title}
-              </h1>
-              <p className="text-xl mb-8 leading-relaxed text-sky-50">
-                {t.pages.mediation.description}
-              </p>
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-sky-600 hover:bg-gray-100">
-                  {t.hero.cta}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                <button className="bg-[#0A192F] text-white px-12 py-5 font-bold uppercase tracking-widest text-xs hover:bg-blue-600 transition-all">
+                  Engager une Médiation Confidentielle
+                </button>
               </Link>
             </div>
-            <div className="lg:w-1/2">
-              <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t.services.mediation.title}
-                </h3>
-                <ul className="space-y-4">
-                  {t.services.mediation.items.map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <CheckCircle2 className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Image Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img 
-              src="https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg?w=800&q=80" 
-              alt="Discussion professionnelle"
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1709715357510-b687304cee3a?w=800&q=80" 
-              alt="Médiation en entreprise"
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-6">
-            {t.pages.mediation.whyTitle}
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.pages.mediation.whySubtitle}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.pages.mediation.benefits.map((benefit, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-white font-bold text-xl">{index + 1}</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-sky-600 to-sky-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            {t.pages.mediation.ctaTitle}
-          </h2>
-          <p className="text-xl mb-10 text-sky-100">
-            {t.pages.mediation.ctaSubtitle}
-          </p>
-          <Link to="/contact">
-            <Button size="lg" variant="outline" className="bg-white text-sky-600 hover:bg-gray-100 border-0">
-              {t.nav.contact}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
         </div>
       </section>
     </div>
