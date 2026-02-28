@@ -6,10 +6,10 @@ const SEO = ({
   description, 
   keywords, 
   canonical, 
-  ogImage = "https://mbk-consulting.fr/og-image.jpg",
+  ogImage = "https://mbkprocurement.com/og-image.jpg",
   ogType = "website"
 }) => {
-  const siteTitle = "MBK Consulting";
+  const siteTitle = "MBK Procurement";
   const fullTitle = title ? `${title} | ${siteTitle}` : `${siteTitle} - Conseil, Audit, Formation et Médiation`;
 
   return (
