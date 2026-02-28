@@ -1,5 +1,4 @@
 // Mock data for MBK Procurement website
-
 export const translations = {
   fr: {
     nav: {
@@ -118,35 +117,31 @@ export const translations = {
       rights: 'Tous droits réservés',
       contact: 'Contact'
     },
- common: {
+    common: {
       learnMore: 'En savoir plus',
-      years: 'années',
-      clientsTitle: 'Nos clients nous font confiance',
-      clientsSubtitle: 'Ils nous ont fait confiance pour les accompagner dans leur transformation',
+      ctaSubtitle: '"Notre engagement : être à vos côtés à chaque étape de votre transformation pour garantir des résultats durables."',
       testimonialsTitle: 'Témoignages clients',
       testimonialsSubtitle: 'Découvrez ce que nos clients disent de leur expérience avec MBK Procurement',
-      ctaTitle: 'Prêt à transformer votre entreprise ?',
-      ctaSubtitle: 'Contactez-nous dès aujourd\'hui pour discuter de vos projets',
-      servicesSubtitle: 'Des solutions sur mesure pour accompagner votre transformation et votre croissance',
-      // C'EST CETTE LISTE QUE "HOME.JSX" CHERCHE (Ligne 228) :
       testimonials: [
         {
           name: 'Sophie L.',
           role: 'Directrice Générale',
-          text: '"Un accompagnement exceptionnel qui a transformé notre organisation. L\'équipe MBK a su comprendre nos enjeux."'
+          text: '"Un accompagnement exceptionnel qui a transformé notre organisation."'
         },
         {
           name: 'Marc D.',
           role: 'Directeur Financier',
-          text: '"L\'audit réalisé par MBK nous a permis d\'identifier des axes d\'amélioration majeurs."'
-        },
-        {
-          name: 'Claire P.',
-          role: 'DRH',
-          text: '"Les formations proposées sont de très haute qualité. Nos équipes ont développé de nouvelles compétences."'
+          text: '"L\'audit réalisé par MBK nous a permis d\'optimiser nos processus."'
         }
       ]
     },
+    pages: {
+        conseil: { description: "Expertise en conseil stratégique." },
+        audit: { description: "Expertise en audit opérationnel." },
+        formation: { description: "Expertise en formation continue." },
+        mediation: { description: "Expertise en médiation professionnelle." }
+    }
+  },
   en: {
     nav: {
       conseil: 'Consulting',
@@ -162,28 +157,31 @@ export const translations = {
       description: 'Excellence, expertise and tailored support to transform your challenges into opportunities',
       cta: 'Request a consultation'
     },
+    services: {
+      title: 'Our Services',
+      conseil: { title: 'CONSULTING', items: ['Strategy', 'Process optimization'] },
+      audit: { title: 'AUDIT', items: ['Operational audit', 'Compliance'] },
+      formation: { title: 'TRAINING', items: ['Custom programs', 'Coaching'] },
+      mediation: { title: 'MEDIATION', items: ['Conflict resolution', 'Negotiation'] }
+    },
     about: {
       title: 'About MBK Procurement',
-      description: 'MBK Procurement is a leading consulting firm specializing in purchasing optimization and strategic corporate transformation.',
+      description: 'Leading firm in Procurement and strategic transformation.',
       mission: 'Our Mission',
-      missionText: 'To support our clients in their development by providing innovative and personalized solutions that create sustainable value.',
+      missionText: 'To provide sustainable value to our clients.',
       values: 'Our Values',
       valuesList: [
-        { title: 'Excellence', description: 'We aim for excellence in every mission' },
-        { title: 'Integrity', description: 'Ethics and transparency guide our actions' },
-        { title: 'Innovation', description: 'We offer creative and adapted solutions' },
-        { title: 'Commitment', description: 'We are fully committed to your success' }
+        { title: 'Excellence', description: 'Top quality missions' },
+        { title: 'Integrity', description: 'Ethical behavior' },
+        { title: 'Innovation', description: 'Creative solutions' },
+        { title: 'Engagement', description: 'Committed to your success' }
       ]
     },
     team: {
       title: 'Our Team',
-      subtitle: 'Experts passionate about your success',
+      subtitle: 'Experts dedicated to your growth',
       members: [
-        {
-          name: 'Marc-B. K.',
-          role: 'Founder & Purchasing Expert',
-          expertise: '20 years of experience in Procurement strategy'
-        }
+        { name: 'Marc-B. K.', role: 'Founder', expertise: 'Strategy Expert' }
       ]
     },
     stats: {
@@ -192,24 +190,31 @@ export const translations = {
       missions: "Missions completed",
       satisfaction: "Satisfaction rate"
     },
+    contact: { title: 'Contact Us', subtitle: 'Reach out to us', form: { submit: 'Send' } },
     footer: {
-      description: 'MBK Procurement - Your trusted partner for the transformation and growth of your business.',
+      description: 'MBK Procurement - Your trusted partner.',
       links: 'Quick links',
-      legal: 'Legal notice',
-      privacy: 'Privacy policy',
-      terms: 'Terms and conditions',
-      rights: 'All rights reserved',
-      contact: 'Contact'
+      rights: 'All rights reserved'
     },
     common: {
-      ctaSubtitle: '"Our commitment: to be by your side at every stage of your transformation to guarantee lasting results."'
+      learnMore: 'Learn more',
+      ctaSubtitle: '"Our commitment to your success."',
+      testimonialsTitle: 'Testimonials',
+      testimonialsSubtitle: 'What our clients say',
+      testimonials: [
+        { name: 'John D.', role: 'CEO', text: '"Great experience."' }
+      ]
+    },
+    pages: {
+        conseil: { description: "Consulting expertise." },
+        audit: { description: "Audit expertise." },
+        formation: { description: "Training expertise." },
+        mediation: { description: "Mediation expertise." }
     }
   }
 };
 
 export const clients = [
   { name: 'TechCorp', logo: 'TC' },
-  { name: 'Global Industries', logo: 'GI' },
-  { name: 'Innovation Group', logo: 'IG' },
-  { name: 'Strategic Alliance', logo: 'SA' }
+  { name: 'Global Industries', logo: 'GI' }
 ];
