@@ -19,7 +19,7 @@ const About = () => {
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1920&q=80" 
-            alt="Équipe MBK Procurement"
+            alt={t.about.title}
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/90"></div>
@@ -49,16 +49,15 @@ const About = () => {
               </p>
               <div className="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-600">
                 <p className="text-gray-800 italic">
-                  {t.hero.title.includes('partenaire')
-                    ? '"Notre engagement : être à vos côtés à chaque étape de votre transformation pour garantir des résultats durables et mesurables."'
-                    : '"Our commitment: to be at your side at every stage of your transformation to guarantee sustainable and measurable results."'}
+                  {/* Utilisation de la clé de traduction pour la citation */}
+                  {t.about.quote}
                 </p>
               </div>
             </div>
             <div>
               <img 
                 src="https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?w=800&q=80" 
-                alt="Notre mission"
+                alt={t.about.mission}
                 className="rounded-lg shadow-2xl"
               />
             </div>
@@ -73,9 +72,8 @@ const About = () => {
             {t.about.values}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire')
-              ? 'Les valeurs qui guident nos actions au quotidien'
-              : 'The values that guide our actions every day'}
+            {/* Utilisation de la clé de traduction pour le sous-titre des valeurs */}
+            {t.about.valuesSubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.about.valuesList.map((value, index) => {
@@ -101,9 +99,8 @@ const About = () => {
             {t.team.title}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            {t.hero.title.includes('partenaire')
-              ? 'Une équipe de consultants expérimentés, passionnés par votre réussite'
-              : 'A team of experienced consultants, passionate about your success'}
+            {/* Utilisation de la clé de traduction pour le sous-titre de l'équipe */}
+            {t.team.subtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {t.team.members.map((member, index) => (
@@ -118,11 +115,10 @@ const About = () => {
             ))}
           </div>
 
-          {/* Team Image */}
           <div className="mt-12">
             <img 
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" 
-              alt="Notre équipe en action"
+              alt={t.team.title}
               className="rounded-lg shadow-2xl w-full h-96 object-cover"
             />
           </div>
@@ -135,27 +131,19 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold mb-2">15+</div>
-              <div className="text-blue-100">
-                {t.hero.title.includes('partenaire') ? 'Années d\'expérience' : 'Years of experience'}
-              </div>
+              <div className="text-blue-100">{t.stats.experience}</div>
             </div>
             <div>
               <div className="text-5xl font-bold mb-2">200+</div>
-              <div className="text-blue-100">
-                {t.hero.title.includes('partenaire') ? 'Clients accompagnés' : 'Clients supported'}
-              </div>
+              <div className="text-blue-100">{t.stats.clients}</div>
             </div>
             <div>
               <div className="text-5xl font-bold mb-2">500+</div>
-              <div className="text-blue-100">
-                {t.hero.title.includes('partenaire') ? 'Missions réalisées' : 'Missions completed'}
-              </div>
+              <div className="text-blue-100">{t.stats.missions}</div>
             </div>
             <div>
               <div className="text-5xl font-bold mb-2">95%</div>
-              <div className="text-blue-100">
-                {t.hero.title.includes('partenaire') ? 'Taux de satisfaction' : 'Satisfaction rate'}
-              </div>
+              <div className="text-blue-100">{t.stats.satisfaction}</div>
             </div>
           </div>
         </div>
