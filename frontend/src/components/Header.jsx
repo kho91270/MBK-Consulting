@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { Globe, Menu, X } from 'lucide-react';
+import { Globe, Menu, X, ChevronDown } from 'lucide-react';
 import {
   Menubar,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
   MenubarTrigger,
-} from "./ui/menubar"; // On importe les outils de l'étape 1
+} from "./ui/menubar";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -17,7 +17,6 @@ const Header = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  // Gestion de la transparence au défilement
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -30,35 +29,48 @@ const Header = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         
-        {/* LOGO MBK - Style Institutionnel */}
+        {/* LOGO INSTITUTIONNEL */}
         <Link to="/" className="group">
           <span className="text-2xl font-bold text-white font-serif tracking-tight">
             MBK <span className="text-blue-500 font-sans text-xs uppercase tracking-[0.3em] ml-1">Procurement</span>
           </span>
         </Link>
 
-        {/* NAVIGATION DESKTOP (Menu de luxe) */}
+        {/* NAVIGATION DESKTOP ALIGNÉE SUR LE NOUVEAU MOCKDATA */}
         <div className="hidden lg:block">
           <Menubar className="border-none bg-transparent">
-            {/* Menu Expertise */}
+            
+            {/* 1. INGÉNIERIE & AUDIT */}
             <MenubarMenu>
-              <MenubarTrigger>{t.nav.conseil}</MenubarTrigger>
+              <MenubarTrigger className="flex items-center gap-1">
+                {t.nav.conseil} <ChevronDown className="w-3 h-3 opacity-50" />
+              </MenubarTrigger>
               <MenubarContent>
-                <Link to="/conseil"><MenubarItem>Stratégie Achats</MenubarItem></Link>
-                <Link to="/audit"><MenubarItem>Audit & Diagnostic</MenubarItem></Link>
+                <Link to="/conseil">
+                  <MenubarItem>{t.pages.conseil.title}</MenubarItem>
+                </Link>
+                <Link to="/audit">
+                  <MenubarItem>{t.pages.audit.title}</MenubarItem>
+                </Link>
               </MenubarContent>
             </MenubarMenu>
 
-            {/* Menu Développement */}
+            {/* 2. ACADEMY & MÉDIATION */}
             <MenubarMenu>
-              <MenubarTrigger>{t.nav.formation}</MenubarTrigger>
+              <MenubarTrigger className="flex items-center gap-1">
+                {t.nav.formation} <ChevronDown className="w-3 h-3 opacity-50" />
+              </MenubarTrigger>
               <MenubarContent>
-                <Link to="/formation"><MenubarItem>Programmes de Formation</MenubarItem></Link>
-                <Link to="/mediation"><MenubarItem>Médiation Commerciale</MenubarItem></Link>
+                <Link to="/formation">
+                  <MenubarItem>{t.pages.formation.title}</MenubarItem>
+                </Link>
+                <Link to="/mediation">
+                  <MenubarItem>{t.pages.mediation.title}</MenubarItem>
+                </Link>
               </MenubarContent>
             </MenubarMenu>
 
-            {/* Lien Simple À Propos */}
+            {/* 3. CABINET (À PROPOS) */}
             <MenubarMenu>
               <Link to="/about">
                 <MenubarTrigger>{t.nav.about}</MenubarTrigger>
@@ -67,7 +79,7 @@ const Header = () => {
           </Menubar>
         </div>
 
-        {/* ACTIONS : Langue et Contact */}
+        {/* ACTIONS & LANGUE */}
         <div className="hidden lg:flex items-center space-x-6">
           <button 
             onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
@@ -84,21 +96,21 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* MENU MOBILE (Bouton) */}
-        <div className="lg:hidden flex items-center">
+        {/* MOBILE TOGGLE */}
+        <div className="lg:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white">
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* OVERLAY MOBILE MENU */}
+      {/* MOBILE MENU ALIGNÉ */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0A192F] border-t border-gray-800 animate-in slide-in-from-top w-full absolute top-full left-0 p-6 space-y-6 shadow-2xl">
-          <Link to="/conseil" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.conseil}</Link>
-          <Link to="/audit" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.audit}</Link>
-          <Link to="/formation" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.formation}</Link>
-          <Link to="/mediation" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-sm font-bold border-b border-gray-800 pb-4">{t.nav.mediation}</Link>
+        <div className="lg:hidden bg-[#0A192F] border-t border-gray-800 absolute w-full top-full left-0 p-6 space-y-4 shadow-2xl animate-in slide-in-from-top">
+          <Link to="/conseil" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-xs font-bold border-b border-gray-800 pb-4">{t.nav.conseil}</Link>
+          <Link to="/audit" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-xs font-bold border-b border-gray-800 pb-4">{t.nav.audit}</Link>
+          <Link to="/formation" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-xs font-bold border-b border-gray-800 pb-4">{t.nav.formation}</Link>
+          <Link to="/mediation" onClick={() => setMobileMenuOpen(false)} className="block text-white uppercase tracking-widest text-xs font-bold border-b border-gray-800 pb-4">{t.nav.mediation}</Link>
           <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full bg-blue-600 text-white text-center py-4 font-bold uppercase tracking-widest text-xs">{t.nav.contact}</Link>
         </div>
       )}
