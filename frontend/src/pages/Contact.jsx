@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { useToast } from '../components/ui/use-toast';
 
 const Contact = () => {
   const { t } = useLanguage();
-  const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulation d'envoi
+    // Simulation d'envoi simple
     setTimeout(() => {
       setLoading(false);
-      toast({
-        title: t.contact.form.success,
-        description: "Nous reviendrons vers vous dans les plus brefs délais.",
-      });
+      setSent(true);
       e.target.reset();
+      alert(t.contact.form.success); // Alerte classique pour éviter l'erreur de module
     }, 1500);
   };
 
@@ -33,7 +29,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Informations de Contact */}
+          {/* Infos de Contact */}
           <div className="space-y-8">
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
               <div className="flex items-start space-x-4">
@@ -72,40 +68,46 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Formulaire de Contact */}
+          {/* Formulaire */}
           <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.name}</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+                  <input type="text" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.email}</label>
-                  <input type="email" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+                  <input type="email" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.company}</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.subject}</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+                  <input type="text" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">{t.contact.form.message}</label>
-                <textarea rows="4" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"></textarea>
+                <textarea rows="4" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
               </div>
 
-              <Button type="submit" disabled={loading} className="w-full py-6 text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center space-x-2 transition-all">
+              <button 
+                type="submit" 
+                disabled={loading} 
+                className="w-full py-4 text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center space-x-2 transition-all disabled:opacity-50"
+              >
                 {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                 <span>{t.contact.form.submit}</span>
-              </Button>
+              </button>
+              
+              {sent && <p className="text-green-600 text-center font-medium">{t.contact.form.success}</p>}
             </form>
           </div>
         </div>
