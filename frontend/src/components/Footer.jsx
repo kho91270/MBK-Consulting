@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
@@ -8,74 +8,77 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center">
-                  <span className="text-gray-900 font-bold text-xs leading-tight">M B K</span>
-                  <div className="w-8 h-0.5 bg-blue-500 mt-0.5"></div>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold text-white leading-tight">MBK</span>
-                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">Procurement</span>
-              </div>
+    <footer className="bg-[#0A192F] text-gray-400 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          
+          {/* Section Logo & Vision */}
+          <div className="space-y-6">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-white font-serif leading-tight tracking-tight">
+                MBK <span className="text-blue-500 font-sans font-medium text-lg uppercase tracking-[0.2em] ml-1">Procurement</span>
+              </span>
             </div>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm leading-relaxed font-light pr-4">
               {t.footer.description}
             </p>
+            <div className="flex space-x-4">
+              <a href="https://linkedin.com" className="hover:text-blue-500 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Expertises (Quick Links) */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{t.footer.links}</h3>
-            <ul className="space-y-2">
-              <li><Link to="/conseil" className="text-sm hover:text-blue-400 transition-colors">{t.nav.conseil}</Link></li>
-              <li><Link to="/audit" className="text-sm hover:text-blue-400 transition-colors">{t.nav.audit}</Link></li>
-              <li><Link to="/formation" className="text-sm hover:text-blue-400 transition-colors">{t.nav.formation}</Link></li>
-              <li><Link to="/mediation" className="text-sm hover:text-blue-400 transition-colors">{t.nav.mediation}</Link></li>
-              <li><Link to="/about" className="text-sm hover:text-blue-400 transition-colors">{t.nav.about}</Link></li>
+            <h3 className="text-white font-serif text-lg font-bold mb-6 italic">{t.footer.links}</h3>
+            <ul className="space-y-4">
+              <li><Link to="/conseil" className="text-sm hover:text-white transition-colors border-b border-transparent hover:border-blue-500 pb-1">{t.nav.conseil}</Link></li>
+              <li><Link to="/audit" className="text-sm hover:text-white transition-colors border-b border-transparent hover:border-blue-500 pb-1">{t.nav.audit}</Link></li>
+              <li><Link to="/formation" className="text-sm hover:text-white transition-colors border-b border-transparent hover:border-blue-500 pb-1">{t.nav.formation}</Link></li>
+              <li><Link to="/mediation" className="text-sm hover:text-white transition-colors border-b border-transparent hover:border-blue-500 pb-1">{t.nav.mediation}</Link></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Bureau & Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{t.footer.contact}</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                <span className="text-sm">123 Avenue des Champs-Élysées<br />75008 Paris, France</span>
+            <h3 className="text-white font-serif text-lg font-bold mb-6 italic">{t.footer.contact}</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 text-blue-500 mt-1 flex-shrink-0" />
+                <span className="text-sm leading-relaxed">Paris, France<br />Zone d'intervention EMEA</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-5 h-5 text-blue-400" />
+              <li className="flex items-center space-x-3">
+                <Phone className="w-4 h-4 text-blue-500" />
                 <span className="text-sm">+33 1 23 45 67 89</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Mail className="w-5 h-5 text-blue-400" />
+              <li className="flex items-center space-x-3">
+                <Mail className="w-4 h-4 text-blue-500" />
                 <span className="text-sm">contact@mbkprocurement.com</span>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Légal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{t.footer.legal}</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-sm hover:text-blue-400 transition-colors">{t.footer.legal}</a></li>
-              <li><a href="#" className="text-sm hover:text-blue-400 transition-colors">{t.footer.privacy}</a></li>
-              <li><a href="#" className="text-sm hover:text-blue-400 transition-colors">{t.footer.terms}</a></li>
+            <h3 className="text-white font-serif text-lg font-bold mb-6 italic">{t.footer.legal}</h3>
+            <ul className="space-y-4">
+              <li><a href="#" className="text-sm hover:text-white transition-colors">{t.footer.privacy}</a></li>
+              <li><a href="#" className="text-sm hover:text-white transition-colors">{t.footer.terms}</a></li>
+              <li><a href="#" className="text-sm hover:text-white transition-colors">{t.footer.legal}</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-sm text-gray-400">
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800/50 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs tracking-widest uppercase font-medium text-gray-500">
             © {currentYear} MBK Procurement. {t.footer.rights}
           </p>
+          <div className="flex items-center space-x-1">
+             <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+             <span className="text-[10px] uppercase tracking-[0.3em] text-gray-600">Excellence in Sourcing</span>
+          </div>
         </div>
       </div>
     </footer>
