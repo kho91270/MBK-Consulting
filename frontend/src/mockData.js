@@ -57,19 +57,6 @@ export const translations = {
         ]
       }
     },
-    about: {
-      title: 'L’Excellence MBK Procurement',
-      description: 'Un cabinet spécialisé dans la transformation des organisations Achats. Nous combinons rigueur académique et pragmatisme opérationnel pour offrir une vision 360° de votre chaîne de valeur.',
-      mission: 'Notre Approche Méthodologique',
-      missionText: 'Notre mission est d\'ancrer l\'excellence au cœur de vos processus. Nous utilisons des méthodologies éprouvées pour libérer les marges opérationnelles et sécuriser les actifs immatériels liés aux relations fournisseurs.',
-      values: 'Nos Piliers Fondamentaux',
-      valuesList: [
-        { title: 'Analytique Avancée', description: 'Utilisation de la donnée pour piloter chaque décision de sourcing.' },
-        { title: 'Intégrité Structurelle', description: 'Transparence totale et éthique irréprochable dans les médiations.' },
-        { title: 'Résilience Opérationnelle', description: 'Capacité à intervenir en urgence sur des chaînes de flux en tension.' },
-        { title: 'Valeur Partagée', description: 'Création de bénéfices mesurables pour l\'ensemble des parties prenantes.' }
-      ]
-    },
     pages: {
       conseil: {
         title: 'Ingénierie Stratégique des Approvisionnements',
@@ -93,6 +80,7 @@ export const translations = {
         title: 'Academy : L’Excellence Pédagogique',
         description: 'Élever le niveau d’expertise interne pour transformer les acheteurs en Business Partners.',
         whyTitle: 'Axes de Développement',
+        viewPrograms: 'Consulter les programmes',
         benefits: [
           { title: 'Négociation Élite', description: 'Simulation de cas réels et techniques de communication non-verbale.' },
           { title: 'Maîtrise du SI Achats', description: 'Optimisation de l\'utilisation des outils SAP, Ariba ou Ivalua.' }
@@ -120,6 +108,8 @@ export const translations = {
     contact: {
       title: 'Contactez votre Consultant',
       subtitle: 'Optimisons ensemble votre performance Achats.',
+      location: 'Localisation',
+      emea: 'Interventions sur toute la zone EMEA',
       form: {
         name: 'Nom complet',
         email: 'Email professionnel',
@@ -131,18 +121,11 @@ export const translations = {
         success: 'Message reçu ! Je vous recontacte sous 24h.'
       }
     },
-    stats: {
-      experience: "Années d'expertise",
-      clients: "Entreprises auditées",
-      missions: "Appels d'offres menés",
-      satisfaction: "Taux de satisfaction"
-    },
     common: {
       learnMore: 'Explorer l’Expertise',
       ctaTitle: 'Libérez votre Performance Achats',
       ctaSubtitle: 'Engagez la transformation de votre Working Capital dès maintenant.',
       testimonialsTitle: 'Réalisations Stratégiques',
-      testimonialsSubtitle: 'Découvrez l\'impact de nos missions',
       testimonials: [
         { name: 'S. Le Guen', role: 'Group CPO', text: '"L’audit Spend Analysis a permis de restructurer notre panel de 2000 fournisseurs, dégageant 12M€ de cash-flow."' }
       ]
@@ -242,6 +225,7 @@ export const translations = {
         title: 'Academy: Pedagogical Excellence',
         description: 'Elevating internal expertise to transform buyers into Strategic Business Partners.',
         whyTitle: 'Development Axes',
+        viewPrograms: 'View Training Programs',
         benefits: [
           { title: 'Elite Negotiation', description: 'Real-case simulations and non-verbal communication techniques.' },
           { title: 'IT Mastery', description: 'Optimizing usage of SAP, Ariba, or Ivalua tools.' }
@@ -269,6 +253,8 @@ export const translations = {
     contact: {
       title: 'Contact your Consultant',
       subtitle: 'Let\'s optimize your Procurement performance together.',
+      location: 'Location',
+      emea: 'Deployments across the entire EMEA region',
       form: {
         name: 'Full Name',
         email: 'Work Email',
@@ -280,18 +266,11 @@ export const translations = {
         success: 'Message received! I will contact you within 24h.'
       }
     },
-    stats: {
-      experience: "Years of expertise",
-      clients: "Audited companies",
-      missions: "Tenders conducted",
-      satisfaction: "Satisfaction rate"
-    },
     common: {
       learnMore: 'Explore Expertise',
       ctaTitle: 'Unlock Your Purchasing Performance',
-      ctaSubtitle: 'Engage your Working Capital transformation now.',
+      ctaSubtitle: 'Begin the transformation of your Working Capital today.',
       testimonialsTitle: 'Strategic Achievements',
-      testimonialsSubtitle: 'Discover the impact of our missions',
       testimonials: [
         { name: 'S. Le Guen', role: 'Group CPO', text: '"The Spend Analysis audit restructured our 2000-supplier panel, unlocking €12M in cash flow."' }
       ]
