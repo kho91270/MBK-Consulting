@@ -19,6 +19,7 @@ export const translations = {
       servicePrefix: "Expertise",
       module: "Module",
       analysis: "Analyse",
+      axe: "Axe",
       ctaTitle: "Engageons une conversation stratégique",
       send: "Envoyer la requête",
       maintenance: "Formulaire en maintenance sécurisée"
@@ -27,28 +28,48 @@ export const translations = {
       title: "Nos Domaines d'Intervention",
       conseil: {
         title: "Ingénierie Sourcing",
-        items: ["Optimisation du TCO", "Design-to-Cost", "Stratégies catégorielles", "Make or Buy"]
+        items: [
+          "Optimisation du TCO (Total Cost of Ownership)",
+          "Design-to-Cost & Clean Sheet Analysis",
+          "Stratégies catégorielles complexes",
+          "Externalisation & Make or Buy"
+        ]
       },
       audit: {
         title: "Audit de Maturité",
-        items: ["Diagnostic 360°", "Audit de conformité", "Performance fournisseur", "Gisements de productivité"]
+        items: [
+          "Diagnostic 360° de la fonction Achats",
+          "Audit de conformité et gestion des risques",
+          "Évaluation de la performance fournisseur",
+          "Cartographie des gisements de productivité"
+        ]
       },
       formation: {
         title: "Academy Experts",
-        items: ["Négociation haut niveau", "Analyse financière", "Leadership", "Risk Management"]
+        items: [
+          "Négociation de haut niveau",
+          "Maîtrise de l'analyse financière achats",
+          "Leadership & Management de transition",
+          "Sourcing international et Risk Management"
+        ]
       },
       mediation: {
         title: "Médiation Stratégique",
-        items: ["Résolution de conflits", "Renégociation contrats", "Gestion de crise", "Équilibre relationnel"]
+        items: [
+          "Sécuriser les relations critiques",
+          "Résolution de conflits fournisseurs",
+          "Renégociation de contrats cadres",
+          "Gestion de crise Supply Chain"
+        ]
       }
     },
     about: {
       title: "Le Cabinet",
-      philosophy: "L'excellence analytique au service de votre rentabilité.",
+      philosophy: "L'excellence analytique au service de votre rentabilité structurelle.",
       adnTitle: "Notre ADN",
-      adnDescription: "MBK apporte une expertise pointue basée sur la rigueur industrielle.",
+      adnDescription: "MBK Procurement apporte aux directions générales une expertise pointue basée sur la rigueur industrielle et l'audit financier.",
       methodTitle: "Standards Mondiaux",
-      methodDescription: "Impact mesurable sur l'EBITDA via des méthodologies éprouvées."
+      methodDescription: "Notre approche garantit un impact mesurable sur l'EBITDA via des méthodologies éprouvées de cost-killing éthique."
     },
     footer: {
       description: "Cabinet de conseil en stratégie achats et ingénierie de la performance.",
@@ -70,13 +91,14 @@ export const translations = {
     hero: {
       subtitle: "Performance Architect",
       title: "Procurement Performance Engineering",
-      description: "Elite consultancy dedicated to optimizing complex cost structures.",
+      description: "Elite consultancy dedicated to optimizing complex cost structures and securing global value chains.",
       cta: "Initiate Strategic Audit"
     },
     common: {
-      servicePrefix: "Expertise",
+      servicePrefix: "Capabilities",
       module: "Module",
       analysis: "Analysis",
+      axe: "Pillar",
       ctaTitle: "Let's initiate a strategic conversation",
       send: "Send Request",
       maintenance: "Form under secure maintenance"
@@ -85,31 +107,51 @@ export const translations = {
       title: "Core Capabilities",
       conseil: {
         title: "Sourcing Engineering",
-        items: ["TCO Optimization", "Design-to-Cost", "Category Strategies", "Make or Buy"]
+        items: [
+          "TCO (Total Cost of Ownership) Optimization",
+          "Design-to-Cost & Clean Sheet Analysis",
+          "Complex Category Strategies",
+          "Outsourcing & Make or Buy Decisions"
+        ]
       },
       audit: {
         title: "Maturity Audit",
-        items: ["360° Diagnosis", "Compliance Audit", "Supplier Performance", "Productivity Mapping"]
+        items: [
+          "360° Procurement Function Diagnosis",
+          "Compliance Audit & Risk Management",
+          "Supplier Performance Evaluation",
+          "Productivity Opportunity Mapping"
+        ]
       },
       formation: {
         title: "Academy Experts",
-        items: ["High-Level Negotiation", "Financial Analysis", "Leadership", "Risk Management"]
+        items: [
+          "High-Level Negotiation",
+          "Financial Procurement Analysis",
+          "Leadership & Interim Management",
+          "International Sourcing & Risk Management"
+        ]
       },
       mediation: {
         title: "Strategic Mediation",
-        items: ["Conflict Resolution", "Contract Renegotiation", "Crisis Management", "Relationship Balance"]
+        items: [
+          "Securing critical relationships",
+          "Supplier conflict resolution",
+          "Master contract renegotiation",
+          "Supply Chain crisis management"
+        ]
       }
     },
     about: {
       title: "The Firm",
-      philosophy: "Analytical excellence serving your profitability.",
+      philosophy: "Analytical excellence serving your structural profitability.",
       adnTitle: "Our DNA",
-      adnDescription: "MBK provides sharp expertise based on industrial rigor.",
+      adnDescription: "MBK Procurement provides executive management with sharp expertise based on industrial rigor and financial audit.",
       methodTitle: "Global Standards",
-      methodDescription: "Measurable impact on EBITDA through proven methodologies."
+      methodDescription: "Our approach guarantees a measurable impact on EBITDA through proven ethical cost-killing methodologies."
     },
     footer: {
-      description: "Strategy consulting firm specializing in procurement performance.",
+      description: "Strategy consulting firm specializing in procurement and performance engineering.",
       links: "Capabilities",
       legal: "Legal Notice",
       privacy: "Privacy Policy"
