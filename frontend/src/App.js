@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
 
-// IMPORT DES COMPOSANTS (Vérifie bien que ces fichiers existent dans src/components/)
-import Navbar from './components/Navbar';
+// STRUCTURE - CORRECTION DES CHEMINS
+// On pointe vers ton fichier existant dans le dossier ui
+import Menubar from './components/ui/Menubar'; 
 import Footer from './components/Footer';
 
-// IMPORT DES PAGES (Vérifie bien que ces fichiers existent dans src/pages/)
+// PAGES
 import Home from './pages/Home';
 import Conseil from './pages/Conseil';
 import Audit from './pages/Audit';
@@ -24,7 +25,9 @@ function App() {
       <LanguageProvider>
         <Router>
           <div className="flex flex-col min-h-screen bg-white">
-            <Navbar />
+            {/* On utilise Menubar ici au lieu de Navbar */}
+            <Menubar /> 
+            
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -38,6 +41,7 @@ function App() {
                 <Route path="/privacy" element={<Privacy />} />
               </Routes>
             </main>
+
             <Footer />
           </div>
         </Router>
