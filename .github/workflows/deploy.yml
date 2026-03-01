@@ -27,6 +27,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # Craco crée un dossier 'build'
-          local-dir: ./frontend/dist/
+          local-dir: ./frontend/build/
           server-dir: ./www/
           delete-destination: false
