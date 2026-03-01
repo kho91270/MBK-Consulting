@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline'; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+                   font-src 'self' data: https://fonts.gstatic.com; 
+                   img-src 'self' data: https://mbkprocurement.com; 
+                   connect-src 'self';">
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     
@@ -16,12 +24,12 @@
     <title>MBK Procurement | Ingénierie de la Performance Achats</title>
     
     <style>
-      /* STYLE DU SPLASH SCREEN (Critique pour un chargement sans flash blanc) */
+      /* STYLE DU SPLASH SCREEN */
       body, html {
         margin: 0;
         padding: 0;
-        background-color: #0A192F; /* Bleu nuit institutionnel */
-        overflow: hidden; /* Empêche le scroll pendant le chargement */
+        background-color: #0A192F;
+        overflow: hidden;
       }
 
       #splash-screen {
@@ -84,7 +92,6 @@
         100% { opacity: 1; transform: scale(1); }
       }
 
-      /* Classe pour restaurer le scroll après le chargement */
       body.loaded {
         overflow: auto;
       }
@@ -105,22 +112,22 @@
     <div id="root"></div>
 
     <script>
-      // Simulation d'une progression fluide dès le début
       setTimeout(() => {
-        document.getElementById('progress-bar').style.width = '40%';
+        const bar = document.getElementById('progress-bar');
+        if(bar) bar.style.width = '40%';
       }, 100);
 
       window.addEventListener('load', function() {
         const splash = document.getElementById('splash-screen');
         const progressBar = document.getElementById('progress-bar');
         
-        // Finalisation de la barre
-        progressBar.style.width = '100%';
+        if(progressBar) progressBar.style.width = '100%';
         
-        // Sortie douce de l'écran de chargement
         setTimeout(() => {
-          splash.style.opacity = '0';
-          splash.style.visibility = 'hidden';
+          if(splash) {
+            splash.style.opacity = '0';
+            splash.style.visibility = 'hidden';
+          }
           document.body.classList.add('loaded');
         }, 800);
       });
@@ -129,7 +136,7 @@
     <script type="module" src="/src/main.jsx"></script>
 
     <noscript>
-      <div style="text-align: center; padding: 50px; color: white;">
+      <div style="text-align: center; padding: 50px; color: white; font-family: sans-serif;">
         <h1>JavaScript requis</h1>
         <p>Veuillez activer JavaScript pour accéder à l'expérience MBK Procurement.</p>
       </div>
