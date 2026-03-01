@@ -1,38 +1,30 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ClipboardCheck, BarChart3, ShieldAlert, Zap } from 'lucide-react';
 
 const Audit = () => {
   const { t } = useLanguage();
   const content = t?.services?.audit;
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="bg-[#0A192F] pt-40 pb-20 text-white px-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-7xl font-serif font-bold mb-6 uppercase tracking-tight">
+    <div className="min-h-screen bg-[#F8F9FA]">
+      <section className="pt-48 pb-20 px-8">
+        <div className="max-w-7xl mx-auto border-l border-[#0A192F] pl-12">
+          <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#0A192F] mb-12 tracking-tighter">
             {content?.title}
           </h1>
-          <p className="text-blue-400 font-bold tracking-[0.3em] uppercase text-xs">MBK Performance Diagnostic</p>
+          <p className="text-[11px] uppercase tracking-[0.5em] font-bold text-blue-600 mb-20">Diagnostic de Performance Achats</p>
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <h2 className="text-3xl font-serif font-bold text-[#0A192F]">Identification des gisements de productivité</h2>
-            <p className="text-gray-600 font-light text-lg leading-relaxed">
-              {t?.hero?.description?.split('.')[0]}.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {content?.items?.map((item, index) => (
-              <div key={index} className="p-8 bg-gray-50 border-b-4 border-blue-600 hover:shadow-xl transition-all group">
-                <ClipboardCheck className="w-8 h-8 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                <p className="text-[#0A192F] font-bold text-sm leading-snug uppercase tracking-wide">{item}</p>
-              </div>
-            ))}
-          </div>
+      <section className="pb-32 px-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-1">
+          {content?.items?.map((item, idx) => (
+            <div key={idx} className="bg-white p-12 border border-gray-100 hover:shadow-2xl transition-all duration-700">
+              <div className="w-8 h-px bg-blue-600 mb-8"></div>
+              <p className="text-[#0A192F] font-serif text-xl mb-4 italic">Analysis Point</p>
+              <p className="text-gray-500 font-light text-sm leading-relaxed">{item}</p>
+            </div>
+          ))}
         </div>
       </section>
     </div>
