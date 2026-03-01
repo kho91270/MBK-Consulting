@@ -2,13 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
-
-// STRUCTURE - ATTENTION À LA CASSE EXACTE
-// Import avec 'menubar' en minuscule pour correspondre à ton fichier
 import Menubar from './components/ui/menubar'; 
 import Footer from './components/Footer';
-
-// PAGES
 import Home from './pages/Home';
 import Conseil from './pages/Conseil';
 import Audit from './pages/Audit';
@@ -37,6 +32,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/legal" element={<Legal />} />
                 <Route path="/privacy" element={<Privacy />} />
+                <Route path="*" element={<Home />} />
               </Routes>
             </main>
             <Footer />
@@ -46,5 +42,4 @@ function App() {
     </HelmetProvider>
   );
 }
-
 export default App;
