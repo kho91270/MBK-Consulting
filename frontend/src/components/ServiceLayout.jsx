@@ -4,7 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 const ServiceLayout = ({ content, label, imageUrl, indexNumber }) => {
   const { language } = useLanguage();
 
-  if (!content) return null;
+  // Sécurité critique : si content est indéfini, on ne rend rien pour éviter le crash
+  if (!content || !content.items) return null;
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -23,13 +24,13 @@ const ServiceLayout = ({ content, label, imageUrl, indexNumber }) => {
       <section className="relative w-full h-[55vh] bg-[#0A192F] overflow-hidden grayscale contrast-125 border-y border-gray-100">
         <img 
           src={imageUrl} 
-          alt={content.title || "Service MBK"} 
+          alt="MBK Service" 
           className="w-full h-full object-cover opacity-60"
         />
       </section>
 
       <section className="py-32 px-8 max-w-7xl mx-auto grid md:grid-cols-2 gap-x-24 gap-y-20">
-        {content.items && content.items.map((item, idx) => (
+        {content.items.map((item, idx) => (
           <div key={idx} className="flex flex-col border-t border-gray-100 pt-12">
             <span className="text-xs text-blue-500 font-bold tracking-[0.3em] mb-8 block uppercase">
               {label} // 0{idx + 1}
