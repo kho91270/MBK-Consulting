@@ -1,22 +1,21 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { translations } from '../data/mockData';
+// CORRECTION : On remonte d'un niveau (../) pour trouver mockData.js dans src
+import { translations } from '../mockData'; 
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  // On récupère la langue stockée ou on met 'fr' par défaut
   const [language, setLanguage] = useState(localStorage.getItem('mbk_lang') || 'fr');
-
-  // t contient l'objet de traduction correspondant à la langue active
-  const [t, setT] = useState(translations[language]);
+  
+  // Sécurité : Fallback sur un objet vide si translations n'est pas chargé
+  const [t, setT] = useState(translations ? translations[language] : {});
 
   useEffect(() => {
-    // Mise à jour de l'objet de traduction dès que la langue change
-    setT(translations[language]);
-    // Persistance du choix de l'utilisateur
-    localStorage.setItem('mbk_lang', language);
-    // Mise à jour de l'attribut lang du HTML pour le SEO et l'accessibilité
-    document.documentElement.lang = language;
+    if (translations && translations[language]) {
+      setT(translations[language]);
+      localStorage.setItem('mbk_lang', language);
+      document.documentElement.lang = language;
+    }
   }, [language]);
 
   const toggleLanguage = () => {
