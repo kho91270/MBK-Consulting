@@ -5,33 +5,33 @@ import { useLanguage } from '../context/LanguageContext';
 const Footer = () => {
   const { t } = useLanguage();
   return (
-    <footer className="bg-white border-t border-gray-100 pt-32 pb-16 px-8">
+    <footer className="bg-[#0A192F] text-white py-24 px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-20 mb-32">
-          <div className="md:col-span-6">
-            <h2 className="text-3xl font-serif font-bold text-[#0A192F] mb-8 italic">MBK Procurement.</h2>
-            <p className="text-gray-400 font-light text-lg leading-relaxed max-w-md">
-              Cabinet de conseil spécialisé dans l'ingénierie de la performance Achats et Supply Chain. 
-              Résultats tangibles. Stratégies imperturbables.
+        <div className="grid md:grid-cols-2 gap-24 mb-24 font-light">
+          <div>
+            <h2 className="text-3xl font-serif font-bold mb-8 italic">MBK Procurement.</h2>
+            <p className="text-gray-400 max-w-md leading-relaxed">
+              Cabinet d'élite dédié à l'ingénierie de la performance. Nous intervenons sur les structures de coûts complexes pour libérer la croissance de nos partenaires.
             </p>
           </div>
-          <div className="md:col-span-3">
-            <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-600 mb-10">Capabilities</h4>
-            <ul className="space-y-4 text-[11px] font-bold uppercase tracking-widest text-[#0A192F]">
-              <li><Link to="/conseil" className="hover:opacity-50 transition-opacity">Sourcing Engineering</Link></li>
-              <li><Link to="/audit" className="hover:opacity-50 transition-opacity">Maturity Audit</Link></li>
-              <li><Link to="/formation" className="hover:opacity-50 transition-opacity">Experts Academy</Link></li>
-              <li><Link to="/mediation" className="hover:opacity-50 transition-opacity">Mediation</Link></li>
-            </ul>
-          </div>
-          <div className="md:col-span-3">
-            <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-blue-600 mb-10">Engagement</h4>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]">contact@mbkprocurement.com</p>
+          <div className="grid grid-cols-2 gap-12">
+            <div>
+              <h4 className="text-[10px] uppercase tracking-widest text-blue-500 font-bold mb-8 underline decoration-blue-500/30 underline-offset-8">Expertise</h4>
+              <ul className="space-y-4 text-[11px] uppercase tracking-widest text-gray-400">
+                <li><Link to="/conseil" className="hover:text-white">Sourcing</Link></li>
+                <li><Link to="/audit" className="hover:text-white">Audit</Link></li>
+                <li><Link to="/formation" className="hover:text-white">Academy</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-[10px] uppercase tracking-widest text-blue-500 font-bold mb-8 underline decoration-blue-500/30 underline-offset-8">Engagement</h4>
+              <p className="text-[11px] uppercase tracking-widest text-gray-400">contact@mbkprocurement.com</p>
+            </div>
           </div>
         </div>
-        <div className="flex justify-between items-center border-t border-gray-100 pt-10 text-[9px] uppercase tracking-[0.4em] text-gray-400">
-          <p>© {new Date().getFullYear()} MBK. Global Standards.</p>
-          <div className="flex gap-10 font-bold">
+        <div className="pt-12 border-t border-white/5 flex justify-between items-center text-[9px] uppercase tracking-[0.4em] text-gray-500 font-bold">
+          <p>© {new Date().getFullYear()} MBK Global Standards.</p>
+          <div className="flex gap-8">
             <Link to="/legal">Legal</Link>
             <Link to="/privacy">Privacy</Link>
           </div>
