@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { GraduationCap } from 'lucide-react';
 
 const Formation = () => {
   const { t } = useLanguage();
@@ -8,35 +7,41 @@ const Formation = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.5em] text-blue-600 font-bold underline underline-offset-8 decoration-blue-600/20">
-          Knowledge Transfer // 03
+      {/* Header : Correction du bilinguisme */}
+      <header className="pt-48 pb-16 px-8 max-w-7xl mx-auto">
+        <span className="text-[10px] uppercase tracking-[0.6em] text-blue-600 font-bold mb-6 block">
+          {t.common?.servicePrefix || 'Expertise'} // 03
         </span>
-        <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#0A192F] mt-12 tracking-tighter uppercase leading-none">
+        <h1 className="text-6xl md:text-8xl font-serif font-bold text-[#0A192F] tracking-tighter uppercase leading-[0.85]">
           {content?.title}
         </h1>
       </header>
 
-      <section className="w-full h-[50vh] bg-gray-100 grayscale contrast-125 brightness-75 overflow-hidden">
+      {/* SECTION IMAGE : Portrait Noir & Blanc haute définition */}
+      <section className="relative w-full h-[60vh] bg-[#0A192F] overflow-hidden grayscale contrast-125">
         <img 
-          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2000" 
-          alt="MBK Academy" 
-          className="w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2000&auto=format&fit=crop" 
+          alt="MBK Academy Expert" 
+          className="w-full h-full object-cover opacity-60"
+          loading="eager"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/20 to-white/10"></div>
       </section>
 
-      <section className="py-24 px-8 max-w-7xl mx-auto grid lg:grid-cols-12 gap-20">
-        <div className="lg:col-span-5">
-          <GraduationCap className="w-12 h-12 text-blue-600 mb-8 opacity-20" />
-          <h2 className="text-3xl font-serif text-[#0A192F] leading-tight italic">
-            "Le capital humain est le seul levier de performance qui ne se déprécie pas."
-          </h2>
-        </div>
-        <div className="lg:col-span-7 space-y-4">
+      {/* Grid de contenu : Harmonisée avec la page Audit */}
+      <section className="py-24 px-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-x-20 gap-y-16">
           {content?.items?.map((item, idx) => (
-            <div key={idx} className="p-8 border border-gray-100 hover:bg-[#0A192F] hover:text-white transition-all duration-500 group flex justify-between items-center">
-              <p className="text-lg font-light tracking-tight">{item}</p>
-              <span className="text-[9px] font-mono text-gray-300 group-hover:text-blue-500">PRO_CERT_{idx+1}</span>
+            <div key={idx} className="flex flex-col border-t border-gray-100 pt-10 group transition-all">
+              <span className="text-[10px] text-blue-600 font-bold tracking-[0.4em] mb-6 block">
+                {t.common?.module || 'Module'} 0{idx + 1}
+              </span>
+              <h3 className="text-2xl md:text-3xl font-serif text-[#0A192F] font-bold leading-tight italic mb-4">
+                {item}
+              </h3>
+              <p className="text-gray-500 font-light text-sm leading-relaxed max-w-md">
+                Transfert de compétences critiques et méthodologies avancées pour transformer la fonction achats en levier de création de valeur stratégique.
+              </p>
             </div>
           ))}
         </div>
