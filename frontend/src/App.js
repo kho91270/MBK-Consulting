@@ -2,8 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
+
+// Structure - Vérifie bien que ces fichiers existent
 import Menubar from './components/ui/menubar'; 
 import Footer from './components/Footer';
+
+// Pages
 import Home from './pages/Home';
 import Conseil from './pages/Conseil';
 import Audit from './pages/Audit';
@@ -19,7 +23,7 @@ function App() {
     <HelmetProvider>
       <LanguageProvider>
         <Router>
-          <div className="flex flex-col min-h-screen bg-white">
+          <div className="flex flex-col min-h-screen bg-white font-sans">
             <Menubar /> 
             <main className="flex-grow">
               <Routes>
@@ -42,4 +46,5 @@ function App() {
     </HelmetProvider>
   );
 }
+
 export default App;
