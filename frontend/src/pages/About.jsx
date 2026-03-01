@@ -1,40 +1,57 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
+import { Award, Target, BookOpen } from 'lucide-react';
 
 const About = () => {
-  const { t } = useLanguage();
-  const aboutData = t.about;
+  // Sécurité : extraction de t et language
+  const { t, language } = useLanguage();
+  const a = t.about;
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      <SEO 
-        title={`${t.nav.about} | MBK Procurement`} 
-        description={aboutData.description}
-        keywords="Cabinet Conseil Achats Paris, Expertise MBK Procurement, Valeurs MBK, Consultants Achats EMEA"
-      />
+    <div className="min-h-screen bg-white pt-32 pb-20 px-6">
+      <SEO title={`${t.nav.about} | MBK Procurement`} />
       
-      <section className="bg-[#0A192F] py-32 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl lg:text-7xl font-bold font-serif mb-8 italic">{aboutData.title}</h1>
-          <p className="text-xl text-gray-400 font-light leading-relaxed">{aboutData.description}</p>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center mb-24">
+          <div>
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#0A192F] mb-8">
+              {t.nav.about}
+            </h1>
+            <p className="text-lg text-gray-600 font-light leading-relaxed mb-6">
+              {a.intro}
+            </p>
+            <p className="text-gray-500 font-light leading-relaxed italic">
+              {language === 'fr' 
+                ? "Notre approche repose sur l'excellence opérationnelle et l'intégrité." 
+                : "Our approach is based on operational excellence and integrity."}
+            </p>
+          </div>
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80" 
+              alt="Team Workshop" 
+              className="w-full h-[500px] object-cover shadow-2xl"
+            />
+          </div>
         </div>
-      </section>
 
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div>
-          <h2 className="text-3xl font-bold font-serif text-[#0A192F] mb-6">{aboutData.mission}</h2>
-          <p className="text-gray-600 text-lg font-light leading-relaxed">{aboutData.missionText}</p>
+        {/* Section Valeurs */}
+        <div className="grid md:grid-cols-3 gap-12 border-t border-gray-100 pt-16">
+          <div className="text-center">
+            <Target className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+            <h4 className="font-bold uppercase tracking-tighter text-[#0A192F]">Mission</h4>
+          </div>
+          <div className="text-center">
+            <Award className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+            <h4 className="font-bold uppercase tracking-tighter text-[#0A192F]">Excellence</h4>
+          </div>
+          <div className="text-center">
+            <BookOpen className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+            <h4 className="font-bold uppercase tracking-tighter text-[#0A192F]">Expertise</h4>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {aboutData.valuesList.map((value, idx) => (
-            <div key={idx} className="p-8 bg-gray-50 border border-gray-100 hover:shadow-xl transition-all">
-              <h4 className="font-bold text-blue-600 uppercase tracking-widest text-[10px] mb-3">{value.title}</h4>
-              <p className="text-sm text-gray-600 font-light leading-relaxed">{value.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      </div>
     </div>
   );
 };
