@@ -1,40 +1,31 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { GraduationCap, Award } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
 const Formation = () => {
   const { t } = useLanguage();
   const content = t?.services?.formation;
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="pt-48 pb-24 px-8 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-blue-600 font-bold">Knowledge Transfer // 03</span>
-          <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#0A192F] mt-8 tracking-tighter uppercase">
+    <div className="min-h-screen bg-gray-50">
+      <section className="pt-48 pb-32 px-8 bg-[#0A192F] text-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <GraduationCap className="w-12 h-12 text-blue-500 mx-auto mb-8 opacity-50" />
+          <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tighter uppercase mb-8">
             {content?.title}
           </h1>
+          <div className="h-1 w-24 bg-blue-600 mx-auto"></div>
         </div>
       </section>
 
-      <section className="py-32 px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <h2 className="text-4xl font-serif font-bold text-[#0A192F]">Professionnalisation des filières Achats.</h2>
-              <p className="text-gray-600 font-light text-lg leading-relaxed italic">
-                "Le capital humain est le seul actif capable de transformer une stratégie en résultats tangibles."
-              </p>
+      <section className="py-32 px-8 max-w-5xl mx-auto">
+        <div className="space-y-4">
+          {content?.items?.map((item, idx) => (
+            <div key={idx} className="bg-white p-8 border-l-4 border-blue-600 shadow-sm flex justify-between items-center group hover:bg-white/50 transition-colors">
+              <p className="text-[#0A192F] font-serif text-xl italic">{item}</p>
+              <span className="text-[10px] font-mono text-gray-300">MOD_0{idx+1}</span>
             </div>
-            <div className="bg-white p-12 shadow-2xl space-y-8">
-              {content?.items?.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-6 group">
-                  <GraduationCap className="w-6 h-6 text-blue-600 flex-shrink-0" />
-                  <p className="text-[#0A192F] font-bold text-sm uppercase tracking-widest leading-snug">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
