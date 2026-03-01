@@ -1,67 +1,51 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import SEO from '../components/SEO';
-import { Lightbulb, Target, ShieldCheck, BarChart } from 'lucide-react';
 
 const Conseil = () => {
-  // On extrait t (les traductions) du contexte
+  // On récupère t du contexte
   const { t } = useLanguage();
   
-  // SÉCURITÉ : On pointe exactement là où sont les données dans ton mockData.js
+  // SÉCURITÉ : On pointe vers t.services.conseil (structure de ton mockData.js)
+  // On utilise ?. pour éviter les erreurs si la donnée est absente
   const content = t?.services?.conseil;
 
   return (
-    <div className=\"min-h-screen bg-white\">
-      {/* SEO dynamique avec les données du fichier de traduction */}
-      <SEO 
-        title={`${t?.nav?.conseil || 'Conseil'} | MBK Procurement`} 
-        description={content?.title}
-      />
+    <div className="min-h-screen bg-white pt-32 pb-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Titre de la page */}
+        <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#0A192F] mb-8 uppercase">
+          {content?.title || "Ingénierie Sourcing"}
+        </h1>
+        
+        {/* Ligne bleue décorative */}
+        <div className="h-1 w-20 bg-blue-600 mb-12"></div>
 
-      {/* Hero Section Page */}
-      <section className=\"bg-[#0A192F] pt-40 pb-20 text-white px-6\">
-        <div className=\"max-w-7xl mx-auto\">
-          <span className=\"text-blue-500 font-bold tracking-[0.3em] uppercase text-xs\">
-            {t?.nav?.conseil}
-          </span>
-          <h1 className=\"text-4xl md:text-6xl font-serif font-bold mt-6 mb-8 uppercase leading-tight\">
-            {content?.title}
-          </h1>
-          <div className=\"h-1 w-20 bg-blue-600\"></div>
-        </div>
-      </section>
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Colonne gauche : Description */}
+          <div>
+            <p className="text-xl text-gray-600 font-light leading-relaxed italic border-l-4 border-blue-600 pl-6 mb-8">
+              {t?.hero?.description}
+            </p>
+          </div>
 
-      {/* Contenu Principal */}
-      <section className=\"py-24 px-6\">
-        <div className=\"max-w-7xl mx-auto\">
-          <div className=\"grid lg:grid-cols-2 gap-16 items-start\">
-            <div>
-              <h2 className=\"text-2xl font-serif font-bold text-[#0A192F] mb-6 uppercase tracking-tight\">
-                Expertise Métier
-              </h2>
-              <p className=\"text-xl text-gray-600 font-light leading-relaxed mb-10 italic border-l-4 border-blue-600 pl-6\">
-                {t?.hero?.description}
-              </p>
-            </div>
-
-            {/* Liste des expertises tirée directement de ton mockData */}
-            <div className=\"bg-gray-50 p-10 shadow-sm border border-gray-100\">
-              <h3 className=\"font-bold text-[#0A192F] uppercase text-xs tracking-[0.2em] mb-8\">
-                Domaines d'intervention
-              </h3>
-              <ul className=\"space-y-6\">
-                {content?.items?.map((item, index) => (
-                  <li key={index} className=\"flex items-start gap-4\">
-                    <div className=\"mt-1.5 w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0\" />
-                    <span className=\"text-gray-700 font-light leading-snug\">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Colonne droite : Liste des points (items) */}
+          <div className="bg-gray-50 p-10 shadow-sm border border-gray-100">
+            <h3 className="font-bold text-[#0A192F] uppercase text-xs tracking-widest mb-8">
+              Expertises
+            </h3>
+            <ul className="space-y-6">
+              {content?.items?.map((item, index) => (
+                <li key={index} className="flex items-start gap-4 text-gray-700">
+                  <span className="text-blue-600 font-bold">•</span>
+                  <span className="font-light">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  );
+};
 
-      {/* Section Contact Rapide */}
-      <section className=\"py-20 bg-[#0A192F] text-center px-6\">
-        <h3 className=\"text-white text-2xl
+export default Conseil;
