@@ -8,7 +8,7 @@ const Legal = () => {
 
   return (
     <div className="min-h-screen bg-white pt-32 pb-20">
-      <SEO title={l.title} />
+      <SEO title={`${l.title} | MBK Procurement`} />
       
       <div className="max-w-4xl mx-auto px-6">
         <h1 className="text-4xl font-serif font-bold text-[#0A192F] mb-12 border-b border-gray-100 pb-6">
@@ -24,7 +24,7 @@ const Legal = () => {
             <p className="text-gray-700 leading-relaxed font-light">
               {l.editorDesc}
             </p>
-            <p className="text-gray-700 font-medium mt-2">
+            <p className="text-gray-900 font-bold mt-2">
               {l.registration}
             </p>
           </section>
@@ -49,15 +49,15 @@ const Legal = () => {
             </p>
           </section>
 
-          {/* PROPRIÉTÉ INTELLECTUELLE (Standard) */}
-          <section className="pt-6 border-t border-gray-50">
+          {/* PROPRIÉTÉ INTELLECTUELLE */}
+          <section className="pt-8 border-t border-gray-100">
             <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">
-              {language === 'fr' ? 'Propriété Intellectuelle' : 'Intellectual Property'}
+              Copyright
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed font-light italic">
-              {language === 'fr' 
-                ? "Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable."
-                : "Any reproduction, representation, modification, publication, adaptation of all or part of the elements of the site, whatever the means or process used, is prohibited, unless prior written authorization is obtained."}
+              {t.common.ctaTitle.includes('Libérez') 
+                ? "Toute reproduction ou représentation, intégrale ou partielle, du contenu de ce site est interdite sans autorisation préalable."
+                : "Any reproduction or representation, in whole or in part, of the content of this site is prohibited without prior authorization."}
             </p>
           </section>
         </div>
