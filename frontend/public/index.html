@@ -2,10 +2,12 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#0A192F" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,19 +17,22 @@
     <title>MBK Procurement | Ingénierie de la Performance Achats</title>
     
     <style>
+      /* RESET & BASE */
       body, html {
         margin: 0;
         padding: 0;
         background-color: #0A192F;
         width: 100%;
         min-height: 100%;
+        font-family: 'Inter', sans-serif;
       }
 
-      /* On ne bloque le scroll QUE si le splash screen est présent */
+      /* Verrouillage du scroll uniquement pendant le chargement */
       body.is-loading {
         overflow: hidden;
       }
 
+      /* SPLASH SCREEN */
       #splash-screen {
         position: fixed;
         top: 0;
@@ -96,7 +101,7 @@
         <span class="logo-text">MBK <span class="logo-subtext">Procurement</span></span>
       </div>
       
-      <div className="loader-bar-container">
+      <div class="loader-bar-container">
         <div id="progress-bar" class="loader-bar-progress"></div>
       </div>
     </div>
@@ -104,7 +109,7 @@
     <div id="root"></div>
 
     <script>
-      // Progression immédiate
+      // Gestion de la barre de progression
       setTimeout(() => {
         const bar = document.getElementById('progress-bar');
         if(bar) bar.style.width = '40%';
@@ -125,20 +130,18 @@
         }, 800);
       });
 
-      // Sécurité : si après 5 secondes le splash est encore là, on force la fermeture
+      // Sécurité : Libération du scroll après 5s en cas d'erreur JS
       setTimeout(() => {
         document.body.classList.remove('is-loading');
-        const splash = document.getElementById('splash-screen');
-        if(splash) splash.style.display = 'none';
       }, 5000);
     </script>
 
     <script type="module" src="/src/main.jsx"></script>
 
     <noscript>
-      <div style="text-align: center; padding: 50px; color: white; background: #0A192F; height: 100vh;">
-        <h1>JavaScript requis</h1>
-        <p>Veuillez activer JavaScript pour accéder à l'expérience MBK Procurement.</p>
+      <div style="text-align: center; padding: 50px; color: white; background: #0A192F; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1 style="font-family: 'Playfair Display', serif;">JavaScript requis</h1>
+        <p style="font-family: 'Inter', sans-serif; opacity: 0.6;">Veuillez activer JavaScript pour accéder à l'expérience MBK Procurement.</p>
       </div>
     </noscript>
   </body>
