@@ -1,0 +1,35 @@
+# ----------------------------------------------------------------------
+# 1. FORCE LE HTTPS (SSL)
+# ----------------------------------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ----------------------------------------------------------------------
+# 2. EN-TÊTES DE SÉCURITÉ (SECURITY HEADERS)
+# ----------------------------------------------------------------------
+# Empêche le site d'être affiché dans une iFrame (Protection contre le Clickjacking)
+Header set X-Frame-Options "SAMEORIGIN"
+
+# Empêche le navigateur de deviner le type de contenu (Protection contre le MIME-sniffing)
+Header set X-Content-Type-Options "nosniff"
+
+# Active le filtre XSS intégré au navigateur
+Header set X-XSS-Protection "1; mode=block"
+
+# Force l'utilisation du HTTPS pendant 1 an (HSTS)
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Contrôle les informations envoyées lors d'un clic vers un autre site
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# ----------------------------------------------------------------------
+# 3. PROTECTION DES FICHIERS SENSIBLES
+# ----------------------------------------------------------------------
+<FilesMatch "(\.(bak|config|sql|lib|sh|inc|swp|dist)|~)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Désactive l'affichage du contenu des dossiers si l'index est absent
+Options -Indexes
