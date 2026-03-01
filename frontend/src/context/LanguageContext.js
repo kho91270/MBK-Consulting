@@ -1,41 +1,39 @@
-import React, { createContext, useContext, useState } from 'react';
-import { translations } from '../mockData';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { translations } from '../data/mockData';
 
 const LanguageContext = createContext();
+
+export const LanguageProvider = ({ children }) => {
+  // On récupère la langue stockée ou on met 'fr' par défaut
+  const [language, setLanguage] = useState(localStorage.getItem('mbk_lang') || 'fr');
+
+  // t contient l'objet de traduction correspondant à la langue active
+  const [t, setT] = useState(translations[language]);
+
+  useEffect(() => {
+    // Mise à jour de l'objet de traduction dès que la langue change
+    setT(translations[language]);
+    // Persistance du choix de l'utilisateur
+    localStorage.setItem('mbk_lang', language);
+    // Mise à jour de l'attribut lang du HTML pour le SEO et l'accessibilité
+    document.documentElement.lang = language;
+  }, [language]);
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === 'fr' ? 'en' : 'fr'));
+  };
+
+  return (
+    <LanguageContext.Provider value={{ t, language, toggleLanguage }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage must be used within LanguageProvider');
+    throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
-};
-
-export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('fr');
-
-  // Sécurité : on s'assure que t ne soit jamais indéfini
-  const t = translations[language] || translations['fr'];
-
-  // Cette fonction est celle que le Header réclame (le fameux "n")
-  const handleSetLanguage = (lang) => {
-    if (translations[lang]) {
-      setLanguage(lang);
-    }
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'fr' ? 'en' : 'fr');
-  };
-
-  return (
-    <LanguageContext.Provider value={{ 
-      language, 
-      setLanguage: handleSetLanguage, // <--- On expose explicitement la fonction ici
-      toggleLanguage, 
-      t 
-    }}>
-      {children}
-    </LanguageContext.Provider>
-  );
 };
