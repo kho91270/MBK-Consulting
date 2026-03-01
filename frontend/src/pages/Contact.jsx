@@ -1,56 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import SEO from '../components/SEO';
-import { Mail, Phone, MapPin, Send, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const { t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <SEO 
-        title={`${t.nav.contact} | MBK Procurement`} 
-        description={t.contact.subtitle}
-        keywords="Contacter MBK Procurement, Devis Conseil Achats, Audit Performance Achats Paris, Cabinet Sourcing EMEA"
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <div className="min-h-screen bg-[#0A192F] text-white pt-48 pb-32 px-8">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32">
         <div>
-          <h1 className="text-5xl font-serif font-bold text-[#0A192F] mb-6">{t.contact.title}</h1>
-          <p className="text-xl text-gray-600 font-light mb-12">{t.contact.subtitle}</p>
-
-          <div className="space-y-8">
-            <div className="flex items-start space-x-4">
-              <MapPin className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-bold uppercase tracking-widest text-xs mb-1">{t.contact.location}</h3>
-                <p className="text-gray-600 font-light">Paris, France<br />{t.contact.emea}</p>
-              </div>
+          <span className="text-blue-500 font-bold tracking-[0.5em] uppercase text-[10px] mb-8 block">Direct Engagement</span>
+          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-12 tracking-tighter uppercase leading-none">Contact.</h1>
+          
+          <div className="space-y-12 mt-20">
+            <div className="flex gap-8 items-center border-b border-white/10 pb-8">
+              <Mail className="text-blue-500 w-5 h-5" />
+              <p className="text-xl font-light tracking-widest">contact@mbkprocurement.com</p>
             </div>
-            <div className="flex items-center space-x-4">
-              <Linkedin className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-bold uppercase tracking-widest text-xs mb-1">LinkedIn</h3>
-                <a href="https://linkedin.com/company/mbkprocurement" target="_blank" className="text-blue-600 hover:underline">MBK Procurement Official</a>
-              </div>
+            <div className="flex gap-8 items-center">
+              <MapPin className="text-blue-500 w-5 h-5" />
+              <p className="text-sm uppercase tracking-[0.3em] font-bold">Paris — EMEA Region</p>
             </div>
           </div>
         </div>
-
-        <div className="bg-gray-50 p-10 border border-gray-100 shadow-inner">
-          {submitted ? (
-            <div className="text-green-600 font-bold text-center py-20 uppercase tracking-widest text-xs">{t.contact.form.success}</div>
-          ) : (
-            <form onSubmit={(e) => {e.preventDefault(); setSubmitted(true);}} className="space-y-6">
-              <input type="text" placeholder={t.contact.form.name} className="w-full bg-white border p-4 outline-none focus:border-blue-600" required />
-              <input type="email" placeholder={t.contact.form.email} className="w-full bg-white border p-4 outline-none focus:border-blue-600" required />
-              <textarea placeholder={t.contact.form.message} rows="5" className="w-full bg-white border p-4 outline-none focus:border-blue-600" required></textarea>
-              <button className="w-full bg-[#0A192F] text-white py-5 font-bold uppercase tracking-[0.3em] text-xs hover:bg-blue-600 transition-all flex items-center justify-center gap-3">
-                {t.contact.form.submit} <Send className="w-4 h-4" />
-              </button>
-            </form>
-          )}
+        
+        <div className="bg-white p-16 grayscale contrast-125 brightness-75 flex items-center justify-center">
+            <h2 className="text-[#0A192F] font-serif text-3xl font-bold italic text-center">Formulaire en cours de maintenance sécurisée.</h2>
         </div>
       </div>
     </div>
