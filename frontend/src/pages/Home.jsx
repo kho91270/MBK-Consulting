@@ -8,9 +8,17 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section : Impact & Sobriété */}
-      <section className="relative h-screen flex items-center bg-[#0A192F] px-8">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+      {/* Hero Section McKinsey Style avec Image B&W */}
+      <section className="relative h-screen flex items-center bg-[#0A192F] px-8 overflow-hidden">
+        {/* IMAGE NOIR ET BLANC HAUTE QUALITÉ */}
+        <div className="absolute inset-0 opacity-15 grayscale contrast-125 scale-105">
+          <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
+            alt="Architecture Corporate MBK" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <span className="text-blue-500 font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">
             {t.hero.subtitle}
@@ -30,7 +38,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Grid Stratégique : Rigueur & Alignement */}
+      {/* Grid Stratégique (Inchangée) */}
       <section className="py-32 px-8 bg-white max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100">
           {Object.entries(t.services).filter(([k]) => k !== 'title').map(([key, service], idx) => (
