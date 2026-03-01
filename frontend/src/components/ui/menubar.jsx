@@ -1,59 +1,88 @@
-import * as React from "react"
-import * as MenubarPrimitive from "@radix-ui/react-menubar"
-import { ChevronRight } from "lucide-react"
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
+import { Globe, Menu, X, ArrowRight } from 'lucide-react';
 
-// Utilitaire de secours pour remplacer "cn" si votre projet a un souci d'alias
-const cn = (...classes) => classes.filter(Boolean).join(" ");
+const Menubar = () => {
+  const { t, language, toggleLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-const Menubar = React.forwardRef(({ className, ...props }, ref) => (
-  <MenubarPrimitive.Root
-    ref={ref}
-    className={cn("flex h-12 items-center space-x-1 bg-transparent p-1", className)}
-    {...props} />
-))
-Menubar.displayName = "Menubar"
+  // Gestion du fond au scroll pour le standing "Elite"
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-const MenubarMenu = MenubarPrimitive.Menu
-const MenubarGroup = MenubarPrimitive.Group
-const MenubarPortal = MenubarPrimitive.Portal
+  // Ferme le menu mobile au changement de page
+  useEffect(() => setIsOpen(false), [location]);
 
-const MenubarTrigger = React.forwardRef(({ className, ...props }, ref) => (
-  <MenubarPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "flex cursor-pointer select-none items-center rounded-sm px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white outline-none hover:text-blue-400 data-[state=open]:text-blue-400 transition-colors",
-      className
-    )}
-    {...props} />
-))
-MenubarTrigger.displayName = "MenubarTrigger"
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          
+          {/* LOGO */}
+          <Link to="/" className="flex items-center">
+            <span className={`text-2xl font-serif font-bold ${scrolled ? 'text-[#0A192F]' : 'text-white'}`}>
+              MBK <span className="text-blue-600 font-sans text-[10px] uppercase tracking-[0.3em] ml-1 font-black">Procurement</span>
+            </span>
+          </Link>
 
-const MenubarContent = React.forwardRef(({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => (
-  <MenubarPrimitive.Portal>
-    <MenubarPrimitive.Content
-      ref={ref}
-      align={align}
-      alignOffset={alignOffset}
-      sideOffset={sideOffset}
-      className={cn(
-        "z-50 min-w-[12rem] overflow-hidden border border-gray-800 bg-[#0A192F] p-1 text-white shadow-2xl",
-        className
+          {/* DESKTOP NAV */}
+          <div className="hidden lg:flex items-center space-x-8">
+            <Link to="/conseil" className={`text-[11px] uppercase tracking-widest font-bold ${scrolled ? 'text-gray-700' : 'text-white/90'} hover:text-blue-600 transition-colors`}>{t.nav.conseil}</Link>
+            <Link to="/audit" className={`text-[11px] uppercase tracking-widest font-bold ${scrolled ? 'text-gray-700' : 'text-white/90'} hover:text-blue-600 transition-colors`}>{t.nav.audit}</Link>
+            <Link to="/formation" className={`text-[11px] uppercase tracking-widest font-bold ${scrolled ? 'text-gray-700' : 'text-white/90'} hover:text-blue-600 transition-colors`}>{t.nav.formation}</Link>
+            <Link to="/about" className={`text-[11px] uppercase tracking-widest font-bold ${scrolled ? 'text-gray-700' : 'text-white/90'} hover:text-blue-600 transition-colors`}>{t.nav.about}</Link>
+
+            {/* TOGGLE LANGUE */}
+            <button 
+              onClick={toggleLanguage}
+              className={`flex items-center gap-2 px-3 py-1 border rounded-full text-[10px] font-bold ${scrolled ? 'border-gray-300 text-gray-700' : 'border-white/30 text-white'} hover:bg-blue-600 hover:text-white transition-all`}
+            >
+              <Globe className="w-3 h-3" />
+              {language === 'fr' ? 'EN' : 'FR'}
+            </button>
+
+            {/* CTA CONTACT */}
+            <Link to="/contact">
+              <button className={`px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest transition-all ${scrolled ? 'bg-[#0A192F] text-white' : 'bg-white text-[#0A192F]'} hover:bg-blue-600 hover:text-white flex items-center gap-2`}>
+                {t.nav.contact} <ArrowRight className="w-3 h-3" />
+              </button>
+            </Link>
+          </div>
+
+          {/* MOBILE BUTTON */}
+          <div className="lg:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className={scrolled ? 'text-[#0A192F]' : 'text-white'}>
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE MENU overlay */}
+      {isOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-[#0A192F] p-8 flex flex-col space-y-6 border-t border-white/10 animate-in fade-in slide-in-from-top-4">
+          <Link to="/conseil" className="text-white text-lg font-serif italic">{t.nav.conseil}</Link>
+          <Link to="/audit" className="text-white text-lg font-serif italic">{t.nav.audit}</Link>
+          <Link to="/about" className="text-white text-lg font-serif italic">{t.nav.about}</Link>
+          <button onClick={toggleLanguage} className="text-blue-400 text-left text-xs font-bold tracking-widest">
+             {language === 'fr' ? 'SWITCH TO ENGLISH' : 'PASSER EN FRANÇAIS'}
+          </button>
+          <Link to="/contact" className="bg-blue-600 text-white p-4 text-center text-xs font-bold tracking-[0.3em]">
+            {t.nav.contact}
+          </Link>
+        </div>
       )}
-      {...props} />
-  </MenubarPrimitive.Portal>
-))
-MenubarContent.displayName = "MenubarContent"
+    </nav>
+  );
+};
 
-const MenubarItem = React.forwardRef(({ className, inset, ...props }, ref) => (
-  <MenubarPrimitive.Item
-    ref={ref}
-    className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm px-4 py-3 text-[10px] uppercase tracking-widest outline-none focus:bg-blue-600 focus:text-white",
-      inset && "pl-8",
-      className
-    )}
-    {...props} />
-))
-MenubarItem.displayName = "MenubarItem"
-
-export { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem, MenubarGroup, MenubarPortal }
+// LA LIGNE QUI MANQUAIT ET QUI CAUSAIT L'ERREUR :
+export default Menubar;
