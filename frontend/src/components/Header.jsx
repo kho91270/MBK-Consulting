@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -10,38 +10,35 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: t.nav.conseil, path: '/conseil' },
-    { name: t.nav.audit, path: '/audit' },
-    { name: t.nav.formation, path: '/formation' },
-    { name: t.nav.mediation, path: '/mediation' },
-  ];
-
   return (
-    <header className={`fixed w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-8'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-        <Link to="/" className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-500 ${!isScrolled && location.pathname === '/' ? 'text-white' : 'text-[#0A192F]'}`}>
-          MBK<span className="text-blue-600">.</span><span className="text-[10px] uppercase tracking-[0.4em] ml-2 font-sans font-light">Procurement</span>
+        <Link title="MBK Home" to="/" className={`text-2xl font-serif font-bold tracking-tighter ${!isScrolled && location.pathname === '/' ? 'text-white' : 'text-[#0A192F]'}`}>
+          MBK<span className="text-blue-600">.</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link key={link.path} to={link.path} className={`text-[10px] uppercase tracking-[0.25em] font-bold transition-all hover:opacity-60 ${!isScrolled && location.pathname === '/' ? 'text-white' : 'text-[#0A192F]'}`}>
-              {link.name}
+        <nav className="hidden lg:flex items-center gap-12">
+          {['conseil', 'audit', 'formation', 'mediation'].map((key) => (
+            <Link 
+              key={key} 
+              to={`/${key}`} 
+              className={`text-[10px] uppercase tracking-[0.3em] font-bold transition-opacity hover:opacity-50 ${!isScrolled && location.pathname === '/' ? 'text-white' : 'text-[#0A192F]'}`}
+            >
+              {t.nav[key]}
             </Link>
           ))}
-          <button onClick={toggleLanguage} className={`text-[10px] font-bold uppercase tracking-widest border-b pb-1 transition-all ${!isScrolled && location.pathname === '/' ? 'border-white/30 text-white' : 'border-[#0A192F]/20 text-[#0A192F]'}`}>
-            {language === 'fr' ? 'EN' : 'FR'}
+          <button onClick={toggleLanguage} className={`text-[10px] font-bold border-b pb-1 ${!isScrolled && location.pathname === '/' ? 'text-white border-white/40' : 'text-[#0A192F] border-[#0A192F]/20'}`}>
+            {language.toUpperCase()}
           </button>
         </nav>
 
         <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X /> : <Menu className={!isScrolled && location.pathname === '/' ? 'text-white' : 'text-[#0A192F]'} />}
+          {isMenuOpen ? <X className="text-[#0A192F]" /> : <Menu className={!isScrolled && location.pathname === '/' ? 'text-white' : 'text-[#0A192F]'} />}
         </button>
       </div>
     </header>
