@@ -27,48 +27,28 @@ export const translations = {
       title: "Nos Domaines d'Intervention",
       conseil: {
         title: "Ingénierie Sourcing",
-        items: [
-          "Optimisation du TCO (Total Cost of Ownership)",
-          "Design-to-Cost & Clean Sheet Analysis",
-          "Stratégies catégorielles complexes",
-          "Externalisation & Make or Buy"
-        ]
+        items: ["Optimisation du TCO", "Design-to-Cost", "Stratégies catégorielles", "Make or Buy"]
       },
       audit: {
         title: "Audit de Maturité",
-        items: [
-          "Diagnostic 360° de la fonction Achats",
-          "Audit de conformité et gestion des risques",
-          "Évaluation de la performance fournisseur",
-          "Cartographie des gisements de productivité"
-        ]
+        items: ["Diagnostic 360°", "Audit de conformité", "Performance fournisseur", "Gisements de productivité"]
       },
       formation: {
         title: "Academy Experts",
-        items: [
-          "Négociation de haut niveau",
-          "Maîtrise de l'analyse financière achats",
-          "Leadership & Management de transition",
-          "Sourcing international et Risk Management"
-        ]
+        items: ["Négociation haut niveau", "Analyse financière", "Leadership", "Risk Management"]
       },
       mediation: {
         title: "Médiation Stratégique",
-        items: [
-          "Résolution de conflits fournisseurs critiques",
-          "Renégociation de contrats cadres",
-          "Gestion de crise Supply Chain",
-          "Équilibre des relations inter-entreprises"
-        ]
+        items: ["Résolution de conflits", "Renégociation contrats", "Gestion de crise", "Équilibre relationnel"]
       }
     },
     about: {
       title: "Le Cabinet",
-      philosophy: "L'excellence analytique au service de votre rentabilité structurelle.",
+      philosophy: "L'excellence analytique au service de votre rentabilité.",
       adnTitle: "Notre ADN",
-      adnDescription: "MBK Procurement apporte aux directions générales une expertise pointue basée sur la rigueur industrielle et l'audit financier.",
+      adnDescription: "MBK apporte une expertise pointue basée sur la rigueur industrielle.",
       methodTitle: "Standards Mondiaux",
-      methodDescription: "Notre approche garantit un impact mesurable sur l'EBITDA via des méthodologies éprouvées de cost-killing éthique."
+      methodDescription: "Impact mesurable sur l'EBITDA via des méthodologies éprouvées."
     },
     footer: {
       description: "Cabinet de conseil en stratégie achats et ingénierie de la performance.",
@@ -90,7 +70,7 @@ export const translations = {
     hero: {
       subtitle: "Performance Architect",
       title: "Procurement Performance Engineering",
-      description: "Elite consultancy dedicated to optimizing complex cost structures and securing global value chains.",
+      description: "Elite consultancy dedicated to optimizing complex cost structures.",
       cta: "Initiate Strategic Audit"
     },
     common: {
@@ -105,51 +85,31 @@ export const translations = {
       title: "Core Capabilities",
       conseil: {
         title: "Sourcing Engineering",
-        items: [
-          "TCO (Total Cost of Ownership) Optimization",
-          "Design-to-Cost & Clean Sheet Analysis",
-          "Complex Category Strategies",
-          "Outsourcing & Make or Buy Decisions"
-        ]
+        items: ["TCO Optimization", "Design-to-Cost", "Category Strategies", "Make or Buy"]
       },
       audit: {
         title: "Maturity Audit",
-        items: [
-          "360° Procurement Function Diagnosis",
-          "Compliance Audit & Risk Management",
-          "Supplier Performance Evaluation",
-          "Productivity Opportunity Mapping"
-        ]
+        items: ["360° Diagnosis", "Compliance Audit", "Supplier Performance", "Productivity Mapping"]
       },
       formation: {
         title: "Academy Experts",
-        items: [
-          "High-Level Negotiation",
-          "Financial Procurement Analysis",
-          "Leadership & Interim Management",
-          "International Sourcing & Risk Management"
-        ]
+        items: ["High-Level Negotiation", "Financial Analysis", "Leadership", "Risk Management"]
       },
       mediation: {
         title: "Strategic Mediation",
-        items: [
-          "Critical Supplier Conflict Resolution",
-          "Master Contract Renegotiation",
-          "Supply Chain Crisis Management",
-          "Inter-company Relationship Balance"
-        ]
+        items: ["Conflict Resolution", "Contract Renegotiation", "Crisis Management", "Relationship Balance"]
       }
     },
     about: {
       title: "The Firm",
-      philosophy: "Analytical excellence serving your structural profitability.",
+      philosophy: "Analytical excellence serving your profitability.",
       adnTitle: "Our DNA",
-      adnDescription: "MBK Procurement provides executive management with sharp expertise based on industrial rigor and financial audit.",
+      adnDescription: "MBK provides sharp expertise based on industrial rigor.",
       methodTitle: "Global Standards",
-      methodDescription: "Our approach guarantees a measurable impact on EBITDA through proven ethical cost-killing methodologies."
+      methodDescription: "Measurable impact on EBITDA through proven methodologies."
     },
     footer: {
-      description: "Strategy consulting firm specializing in procurement and performance engineering.",
+      description: "Strategy consulting firm specializing in procurement performance.",
       links: "Capabilities",
       legal: "Legal Notice",
       privacy: "Privacy Policy"
