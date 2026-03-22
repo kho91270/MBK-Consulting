@@ -42,7 +42,7 @@ const Contact = () => {
               <p className="hover:text-blue-600 transition-colors cursor-pointer duration-500">
                 contact@mbkprocurement.com
               </p>
-              <p className="text-gray-400">Paris — Luxembourg - New-York - Dubaï</p>
+              <p className="text-gray-400">Paris — Luxembourg — New-York — Dubaï</p>
             </div>
           </div>
         </div>
