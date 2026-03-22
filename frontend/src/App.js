@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
 // NAVIGATION : Mise à jour avec votre dossier "ui" et votre fichier "Menubar"
-import Menubar from './components/ui/Menubar'; 
+import Menubar from './components/ui/menubar'; 
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
