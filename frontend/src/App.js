@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
-// Navigation & Global
+// Components
 import Navbar from './components/Navbar';
-import Footer from './components/Footer'; 
-import ScrollToTop from './components/ScrollToTop'; 
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
@@ -22,12 +22,9 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        {/* CRUCIAL : ScrollToTop doit être EN DESSOUS de <Router> */}
-        <ScrollToTop /> 
-        
-        <div className="flex flex-col min-h-screen bg-white">
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen">
           <Navbar />
-          
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -41,7 +38,6 @@ function App() {
               <Route path="/confidentialite" element={<Privacy />} />
             </Routes>
           </main>
-
           <Footer />
         </div>
       </Router>
