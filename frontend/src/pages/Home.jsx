@@ -63,7 +63,7 @@ const Home = () => {
               to="/about" 
               className="text-[11px] uppercase tracking-[0.3em] text-gray-400 hover:text-white transition-colors py-5 border-b border-transparent hover:border-blue-600"
             >
-              {t.nav.about || "The Firm"} // 06
+              {t.nav.about || "The Firm"}
             </Link>
           </div>
         </div>
