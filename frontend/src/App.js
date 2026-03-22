@@ -2,8 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
-// NAVIGATION : Mise à jour avec votre dossier "ui" et votre fichier "Menubar"
+// NAVIGATION : Importation avec le 'm' minuscule exact
+// Si vous avez une erreur "Default export not found", 
+// remplacez la ligne ci-dessous par : import { Menubar } from './components/ui/menubar';
 import Menubar from './components/ui/menubar'; 
+
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -22,9 +25,9 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        <ScrollToTop />
+        <ScrollToTop /> 
         <div className="flex flex-col min-h-screen bg-white">
-          {/* On utilise ici le nom "Menubar" */}
+          {/* Le nom du composant reste Menubar avec une majuscule pour React */}
           <Menubar />
           
           <main className="flex-grow">
