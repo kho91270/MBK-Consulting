@@ -15,14 +15,9 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-[#0A192F]">
       
-      {/* HEADER : Un seul label noble et le titre imposant */}
+      {/* HEADER : Épuré - Titre et Lead uniquement */}
       <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
-        <div className="flex items-center gap-6 mb-8">
-          <span className="h-px w-16 bg-blue-600"></span>
-          <span className="text-sm md:text-base uppercase tracking-[0.5em] text-blue-600 font-bold">
-            {label}
-          </span>
-        </div>
+        {/* Le bloc "label" (Axe, Stratégie, etc.) a été supprimé ici */}
         
         <h1 className="text-5xl md:text-8xl !font-serif !font-bold tracking-tighter leading-[0.9] !italic mb-10">
           {content.title}<span className="text-blue-600">.</span>
@@ -71,8 +66,6 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
           ))}
         </div>
       </section>
-      
-      {/* Note : J'ai supprimé la balise </footer> orpheline qui causait l'erreur */}
     </div>
   );
 };
