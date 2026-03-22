@@ -8,7 +8,7 @@ const Legal = () => {
     fr: {
       title: "Mentions Légales",
       sections: [
-        { h: "Éditeur du site", p: "MBK Procurement, Cabinet de Conseil en Achats Stratégiques. Siège social : [Votre Adresse, Ville, Pays]. Immatriculation : [Votre N° SIRET/Registre]." },
+        { h: "Éditeur du site", p: "MBK Procurement, Cabinet de Conseil en Achats Stratégiques. Siège social : Luxembourg. Immatriculation : [Votre N° SIRET/Registre]." },
         { h: "Direction de la publication", p: "Le site est édité et dirigé par la Direction de MBK Procurement." },
         { h: "Hébergement", p: "Ce site est hébergé par GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA)." }
       ]
@@ -16,7 +16,7 @@ const Legal = () => {
     en: {
       title: "Legal Notice",
       sections: [
-        { h: "Site Editor", p: "MBK Procurement, Strategic Sourcing Consultancy. Head Office: [Your Address, City, Country]. Registration: [Your Registration Number]." },
+        { h: "Site Editor", p: "MBK Procurement, Strategic Sourcing Consultancy. Head Office: Luxembourg. Registration: [Your Registration Number]." },
         { h: "Publication Director", p: "The site is edited and managed by MBK Procurement Management." },
         { h: "Hosting", p: "This site is hosted by GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA)." }
       ]
