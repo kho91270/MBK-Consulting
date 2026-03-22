@@ -12,24 +12,23 @@ const SEO = ({
   const { t, language } = useLanguage();
   
   const siteName = "MBK Procurement";
-  const currentUrl = window.location.href;
-  const linkedinUrl = "https://linkedin.com/company/mbkprocurement";
+  const baseUrl = "https://mbkprocurement.com";
+  const currentUrl = `${baseUrl}${window.location.pathname}`;
 
-  // Construction du titre : Priorité au titre passé en prop, sinon titre du mockData
-  const seoTitle = title || t.hero.title;
+  // On récupère les données par défaut depuis ton objet 'hero'
+  const defaultHero = t?.hero || {};
+
+  // Construction dynamique des balises
+  const seoTitle = title || defaultHero.title || "L'Ingénierie de la Performance Achats";
   const fullTitle = `${seoTitle} | ${siteName}`;
-  
-  // Description : Priorité prop, sinon description du mockData (hero par défaut)
-  const seoDescription = description || t.hero.description;
+  const seoDescription = description || defaultHero.description || "Cabinet d'élite dédié à l'optimisation des structures de coûts.";
 
-  // Données structurées (JSON-LD) pour rassurer les algorithmes Google sur l'autorité du cabinet
   const schemaOrg = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": siteName,
-    "url": "https://mbkprocurement.com",
-    "logo": "https://mbkprocurement.com/logo.png",
-    "sameAs": [linkedinUrl],
+    "url": baseUrl,
+    "logo": `${baseUrl}/logo.png`,
     "description": seoDescription,
     "address": {
       "@type": "PostalAddress",
@@ -40,20 +39,19 @@ const SEO = ({
 
   return (
     <Helmet>
-      {/* 1. CONFIGURATION DE BASE */}
+      {/* Configuration de base */}
       <html lang={language} />
       <title>{fullTitle}</title>
-      <meta name="title" content={fullTitle} />
       <meta name="description" content={seoDescription} />
-      {keywords && <meta name="keywords" content={keywords} />}
+      {keywords && <meta name="keywords" content={keywords} /> }
       <link rel="canonical" href={currentUrl} />
 
-      {/* 2. INTERNATIONALISATION (Hreflang) - Crucial pour le bilingue */}
+      {/* Hreflang : Crucial pour ne pas être pénalisé sur le bilingue */}
       <link rel="alternate" hrefLang="fr" href={currentUrl} />
       <link rel="alternate" hrefLang="en" href={currentUrl} />
       <link rel="alternate" hrefLang="x-default" href={currentUrl} />
 
-      {/* 3. OPEN GRAPH (LinkedIn & Facebook) */}
+      {/* Open Graph / LinkedIn */}
       <meta property="og:site_name" content={siteName} />
       <meta property="og:type" content={ogType} />
       <meta property="og:title" content={fullTitle} />
@@ -61,15 +59,8 @@ const SEO = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:locale" content={language === 'fr' ? 'fr_FR' : 'en_US'} />
-      <meta property="og:see_also" content={linkedinUrl} />
 
-      {/* 4. TWITTER CARDS */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={seoDescription} />
-      <meta name="twitter:image" content={ogImage} />
-
-      {/* 5. DONNÉES STRUCTURÉES (JSON-LD) - Qualité Institutionnelle */}
+      {/* Données Structurées */}
       <script type="application/ld+json">
         {JSON.stringify(schemaOrg)}
       </script>
