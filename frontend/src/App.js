@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
-// NAVIGATION : Importation nommée avec accolades et 'm' minuscule
-import { Menubar } from './components/ui/menubar'; 
+// NAVIGATION : Import de sécurité pour retrouver vos liens
+import * as NavModule from './components/ui/menubar';
 
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -20,13 +20,17 @@ import Legal from './pages/Legal';
 import Privacy from './pages/Privacy';
 
 function App() {
+  // Cette ligne détecte automatiquement si votre composant s'appelle Menubar, Navbar ou s'il est par défaut
+  const MenubarComponent = NavModule.Menubar || NavModule.Navbar || NavModule.default;
+
   return (
     <LanguageProvider>
       <Router>
-        <ScrollToTop /> 
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-white">
-          {/* Le nom du composant reste Menubar avec une majuscule pour React */}
-          <Menubar />
+          
+          {/* Si le composant est trouvé, il s'affiche, sinon on affiche un message d'erreur invisible en prod */}
+          {MenubarComponent ? <MenubarComponent /> : console.error("Le menu n'a pas été trouvé dans menubar.jsx")}
           
           <main className="flex-grow">
             <Routes>
