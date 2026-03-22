@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
-// Components
-import Navbar from './components/Navbar';
+// NAVIGATION : Mise à jour avec votre dossier "ui" et votre fichier "Menubar"
+import Menubar from './components/ui/Menubar'; 
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -23,8 +23,10 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
+        <div className="flex flex-col min-h-screen bg-white">
+          {/* On utilise ici le nom "Menubar" */}
+          <Menubar />
+          
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -38,6 +40,7 @@ function App() {
               <Route path="/confidentialite" element={<Privacy />} />
             </Routes>
           </main>
+
           <Footer />
         </div>
       </Router>
