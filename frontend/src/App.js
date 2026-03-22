@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { LanguageProvider } from './context/LanguageContext';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
-// IMPORTATION NOMMÉE : On utilise { Menubar } car il n'y a pas d'export default
-import { Menubar } from './components/ui/menubar'; 
+// Importation nommée pour Radix (ton fichier menubar en minuscules)
+import { Menubar, MenubarMenu, MenubarTrigger } from './components/ui/menubar';
 
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -19,25 +19,70 @@ import Contact from './pages/Contact';
 import Legal from './pages/Legal';
 import Privacy from './pages/Privacy';
 
+// COMPOSANT NAVIGATION (Intégré pour éviter les erreurs d'import)
+const NavigationBar = () => {
+  const { t, language, toggleLanguage } = useLanguage();
+  
+  // Sécurité si translations.js met du temps à charger
+  if (!t || !t.nav) return null;
+
+  return (
+    <header className="fixed top-0 w-full z-50 bg-[#0A192F] border-b border-white/10 shadow-2xl">
+      <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+        
+        {/* LOGO MBK */}
+        <Link to="/" className="text-2xl font-serif font-bold italic text-white tracking-tighter">
+          MBK<span className="text-blue-500">.</span>
+        </Link>
+
+        <div className="flex items-center gap-4">
+          {/* MENU DYNAMIQUE */}
+          <Menubar className="border-none bg-transparent shadow-none">
+            <MenubarMenu>
+              <Link to="/conseil"><MenubarTrigger>{t.nav.conseil}</MenubarTrigger></Link>
+            </MenubarMenu>
+            <MenubarMenu>
+              <Link to="/audit"><MenubarTrigger>{t.nav.audit}</MenubarTrigger></Link>
+            </MenubarMenu>
+            <MenubarMenu>
+              <Link to="/formation"><MenubarTrigger>{t.nav.formation}</MenubarTrigger></Link>
+            </MenubarMenu>
+            <MenubarMenu>
+              <Link to="/mediation"><MenubarTrigger>{t.nav.mediation}</MenubarTrigger></Link>
+            </MenubarMenu>
+            <MenubarMenu>
+              <Link to="/about"><MenubarTrigger>{t.nav.about}</MenubarTrigger></Link>
+            </MenubarMenu>
+            <MenubarMenu>
+              <Link to="/contact" className="ml-4 px-6 py-2 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-blue-700 transition-all rounded-sm">
+                {t.nav.contact}
+              </Link>
+            </MenubarMenu>
+          </Menubar>
+
+          {/* SÉLECTEUR DE LANGUE */}
+          <button 
+            onClick={toggleLanguage}
+            className="ml-4 px-3 py-1 border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest hover:bg-white hover:text-[#0A192F] transition-all rounded-sm"
+          >
+            {language === 'fr' ? 'EN' : 'FR'}
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+// COMPOSANT PRINCIPAL APP
 function App() {
   return (
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen bg-white text-[#0A192F]">
+        <div className="flex flex-col min-h-screen bg-white">
+          <NavigationBar />
           
-          {/* IMPORTANT : Le Menubar que vous avez fourni est un conteneur vide. 
-              S'il ne contient pas vos liens, c'est normal qu'ils ne s'affichent pas. */}
-          <header className="fixed top-0 w-full z-50 bg-[#0A192F]/90 backdrop-blur-md border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-8">
-               <Menubar>
-                 {/* Si vos liens ont disparu, c'est qu'ils doivent être réécrits ici 
-                     ou dans un composant "Navbar" qui utilise ce Menubar */}
-               </Menubar>
-            </div>
-          </header>
-          
-          <main className="flex-grow">
+          <main className="flex-grow pt-20">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/conseil" element={<Conseil />} />
