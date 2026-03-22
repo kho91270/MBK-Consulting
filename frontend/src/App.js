@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
-// NAVIGATION : Import de sécurité pour retrouver vos liens
-import * as NavModule from './components/ui/menubar';
+// IMPORTATION NOMMÉE : On utilise { Menubar } car il n'y a pas d'export default
+import { Menubar } from './components/ui/menubar'; 
 
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -20,17 +20,22 @@ import Legal from './pages/Legal';
 import Privacy from './pages/Privacy';
 
 function App() {
-  // Cette ligne détecte automatiquement si votre composant s'appelle Menubar, Navbar ou s'il est par défaut
-  const MenubarComponent = NavModule.Menubar || NavModule.Navbar || NavModule.default;
-
   return (
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen bg-white">
+        <div className="flex flex-col min-h-screen bg-white text-[#0A192F]">
           
-          {/* Si le composant est trouvé, il s'affiche, sinon on affiche un message d'erreur invisible en prod */}
-          {MenubarComponent ? <MenubarComponent /> : console.error("Le menu n'a pas été trouvé dans menubar.jsx")}
+          {/* IMPORTANT : Le Menubar que vous avez fourni est un conteneur vide. 
+              S'il ne contient pas vos liens, c'est normal qu'ils ne s'affichent pas. */}
+          <header className="fixed top-0 w-full z-50 bg-[#0A192F]/90 backdrop-blur-md border-b border-white/10">
+            <div className="max-w-7xl mx-auto px-8">
+               <Menubar>
+                 {/* Si vos liens ont disparu, c'est qu'ils doivent être réécrits ici 
+                     ou dans un composant "Navbar" qui utilise ce Menubar */}
+               </Menubar>
+            </div>
+          </header>
           
           <main className="flex-grow">
             <Routes>
