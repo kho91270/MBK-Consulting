@@ -21,7 +21,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-8 pb-32">
         <header className="mb-24 border-b border-white/10 pb-12">
           <span className="text-blue-500 font-bold tracking-[0.5em] uppercase text-sm mb-6 block">
-            {t.common.ctaTitle} // 05
+            {t.common.ctaTitle}
           </span>
           <h1 className="text-6xl md:text-8xl font-serif font-bold tracking-tighter uppercase italic leading-none">
             {t.nav.contact}<span className="text-blue-600">.</span>
