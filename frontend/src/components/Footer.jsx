@@ -9,6 +9,8 @@ const Footer = () => {
     <footer className="bg-white border-t border-gray-100 py-20 px-8 w-full">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-end">
+          
+          {/* Identité visuelle MBK */}
           <div className="space-y-4">
             <h2 className="text-2xl !font-serif !font-bold !italic text-[#0A192F]">
               MBK Procurement<span className="text-blue-600">.</span>
@@ -17,14 +19,29 @@ const Footer = () => {
               Performance & Strategy Architect
             </p>
           </div>
-          <div className="flex flex-col md:flex-row md:justify-end gap-8">
-            <Link to="/mentions-legales" className="text-[10px] uppercase tracking-[0.4em] text-gray-500 hover:text-blue-600 font-bold transition-colors">
+
+          {/* Liens de navigation légale */}
+          <div className="flex flex-col md:flex-row md:justify-end gap-8 md:gap-12">
+            <Link 
+              to="/mentions-legales" 
+              className="text-[10px] uppercase tracking-[0.4em] text-gray-500 hover:text-blue-600 font-bold transition-colors duration-500"
+            >
               {language === 'en' ? 'Legal Notice' : 'Mentions Légales'}
             </Link>
-            <Link to="/confidentialite" className="text-[10px] uppercase tracking-[0.4em] text-gray-500 hover:text-blue-600 font-bold transition-colors">
+            <Link 
+              to="/confidentialite" 
+              className="text-[10px] uppercase tracking-[0.4em] text-gray-500 hover:text-blue-600 font-bold transition-colors duration-500"
+            >
               {language === 'en' ? 'Privacy' : 'Confidentialité'}
             </Link>
           </div>
+
+        </div>
+
+        {/* Signature de bas de page */}
+        <div className="mt-20 pt-8 border-t border-gray-50 flex justify-between items-center text-[9px] text-gray-300 uppercase tracking-widest">
+          <span>© 2026 MBK Procurement</span>
+          <span className="!font-serif !italic text-gray-400">Excellence in Sourcing.</span>
         </div>
       </div>
     </footer>
