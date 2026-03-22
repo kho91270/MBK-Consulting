@@ -5,14 +5,12 @@ const LanguageContext = createContext(null);
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    // Récupération sécurisée du choix précédent
     try {
       const saved = localStorage.getItem('mbk_lang');
-      if (saved) return saved;
+      return saved || 'fr';
     } catch (e) {
-      console.error("LocalStorage non accessible");
+      return 'fr';
     }
-    return 'fr';
   });
 
   useEffect(() => {
@@ -24,11 +22,14 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(prev => (prev === 'fr' ? 'en' : 'fr'));
   };
 
-  // On extrait les traductions correspondant à la langue
-  const t = translations[language] || translations['fr'];
+  const value = {
+    language,
+    toggleLanguage,
+    t: translations[language] || translations['fr']
+  };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
@@ -36,8 +37,6 @@ export const LanguageProvider = ({ children }) => {
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
+  if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
   return context;
 };
