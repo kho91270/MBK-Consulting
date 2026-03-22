@@ -8,7 +8,8 @@ const ScrollToTop = () => {
     try {
       window.scrollTo(0, 0);
     } catch (error) {
-      console.warn("ScrollToTop failed", error);
+      // Sécurité pour les navigateurs anciens
+      document.documentElement.scrollTop = 0;
     }
   }, [pathname]);
 
