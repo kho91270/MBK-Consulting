@@ -8,7 +8,7 @@ const Audit = () => {
   if (!t || !t.services || !t.services.audit) return null;
 
   // L'URL stable et optimisée
-  const auditImageUrl = "https://images.unsplash.com/photo-1454165833767-0274b24f6733?q=80&w=2000&auto=format&fit=crop";
+  const auditImageUrl = "https://images.unsplash.com/photo-1454165833767-0274b24f6733?q=80&w=2000";
 
   return (
     <ServiceLayout 
