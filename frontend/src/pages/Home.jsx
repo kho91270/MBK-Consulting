@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 const Home = () => {
   const { t, language } = useLanguage();
 
-  // On utilise 'home' qui est la clé réelle dans ton fichier translations.js
+  // On pointe vers 'home' pour récupérer les textes de translations.js
   const content = t?.home;
 
   if (!content) return null;
@@ -24,20 +24,14 @@ const Home = () => {
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          {/* Label bleu supérieur */}
-          <div className="flex items-center gap-4 mb-8">
-            <span className="h-px w-10 bg-blue-500"></span>
-            <span className="text-sm md:text-base font-bold tracking-[0.5em] text-blue-500 uppercase">
-              {content.heroSubtitle}
-            </span>
-          </div>
+          {/* LE LABEL BLEU SUPÉRIEUR A ÉTÉ SUPPRIMÉ ICI POUR LA STANDARDISATION */}
 
           {/* TITRE HOME : Serif Bold Italic */}
           <h1 className="text-5xl md:text-8xl !font-serif !font-bold text-white mb-10 leading-[1.05] tracking-tighter italic max-w-5xl">
             {content.heroTitle}<span className="text-blue-600">.</span>
           </h1>
 
-          {/* Description / Philosophie */}
+          {/* Description / Philosophie avec bordure bleue discrète */}
           <p className="max-w-2xl text-xl text-gray-400 font-light leading-relaxed mb-14 border-l-2 border-blue-600/50 pl-10 italic">
             {content.philosophy}
           </p>
