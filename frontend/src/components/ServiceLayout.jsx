@@ -46,7 +46,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40"></div>
       </section>
 
-      {/* GRILLE D'EXPERTISE : Suppression totale des labels // Focus / // Expertise */}
+      {/* GRILLE D'EXPERTISE */}
       <section className="py-32 px-8 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-x-24 gap-y-24">
           {content.items.map((item, idx) => (
@@ -54,7 +54,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
               key={idx} 
               className="flex flex-col border-t-2 border-gray-100 pt-12 group hover:border-blue-600 transition-colors duration-700"
             >
-              {/* TITRE DE L'EXPERTISE : Uniforme en FR et EN */}
+              {/* TITRE DE L'EXPERTISE */}
               <h3 className="text-3xl md:text-4xl !font-serif !font-bold leading-tight mb-8 !italic tracking-tight group-hover:translate-x-2 transition-transform duration-500">
                 {item}<span className="text-blue-600">.</span>
               </h3>
@@ -64,16 +64,15 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
                 <p>
                   {content.descriptions && content.descriptions[idx] 
                     ? content.descriptions[idx] 
-                    : "Optimisation stratégique de vos ressources."}
+                    : (language === 'fr' ? "Optimisation stratégique de vos ressources." : "Strategic resource optimization.")}
                 </p>
               </div>
             </div>
           ))}
         </div>
       </section>
-
-   
-      </footer>
+      
+      {/* Note : J'ai supprimé la balise </footer> orpheline qui causait l'erreur */}
     </div>
   );
 };
