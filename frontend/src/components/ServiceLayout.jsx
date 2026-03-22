@@ -7,7 +7,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
   if (!content || !content.items) return null;
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans text-[#0A192F]">
       <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
         <div className="flex items-center gap-6 mb-8">
           <span className="h-px w-16 bg-blue-600"></span>
@@ -16,7 +16,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
           </span>
         </div>
         
-        <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#0A192F] tracking-tighter leading-[0.9] italic mb-10">
+        <h1 className="text-5xl md:text-8xl font-serif font-bold tracking-tighter leading-[0.9] italic mb-10">
           {content.title}<span className="text-blue-600">.</span>
         </h1>
         
@@ -34,7 +34,8 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
         <div className="grid md:grid-cols-2 gap-x-24 gap-y-24">
           {content.items.map((item, idx) => (
             <div key={idx} className="flex flex-col border-t-2 border-gray-100 pt-12 group hover:border-blue-600 transition-colors duration-700">
-              <h3 className="text-3xl md:text-4xl font-serif text-[#0A192F] font-bold leading-tight mb-8 italic">
+              {/* LA CORRECTION EST ICI : font-serif + italic + point bleu */}
+              <h3 className="text-3xl md:text-4xl font-serif font-bold leading-tight mb-8 italic tracking-tight">
                 {item}<span className="text-blue-600">.</span>
               </h3>
               
