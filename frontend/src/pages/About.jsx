@@ -12,7 +12,7 @@ const About = () => {
       {/* Header Institutionnel */}
       <header className="pt-48 pb-16 px-8 max-w-7xl mx-auto">
         <span className="text-[10px] uppercase tracking-[0.6em] text-blue-600 font-bold mb-6 block">
-          {language === 'fr' ? 'LE CABINET' : 'THE FIRM'} // 06
+          {language === 'fr' ? 'LE CABINET' : 'THE FIRM'}
         </span>
         <h1 className="text-6xl md:text-8xl font-serif font-bold text-[#0A192F] tracking-tighter uppercase leading-[0.85]">
           {content.title}
@@ -41,7 +41,7 @@ const About = () => {
           {/* ADN // 01 */}
           <div className="flex flex-col border-t border-gray-100 pt-12">
             <span className="text-[10px] text-blue-600 font-bold tracking-[0.4em] mb-8 block uppercase">
-              {language === 'fr' ? 'IDENTITÉ' : 'IDENTITY'} // 01
+              {language === 'fr' ? 'IDENTITÉ' : 'IDENTITY'}
             </span>
             <h2 className="text-3xl font-serif font-bold text-[#0A192F] mb-6 uppercase tracking-tighter">
               {content.adnTitle}
@@ -54,7 +54,7 @@ const About = () => {
           {/* MÉTHODE // 02 */}
           <div className="flex flex-col border-t border-gray-100 pt-12">
             <span className="text-[10px] text-blue-600 font-bold tracking-[0.4em] mb-8 block uppercase">
-              {language === 'fr' ? 'STANDARDS' : 'STANDARDS'} // 02
+              {language === 'fr' ? 'STANDARDS' : 'STANDARDS'}
             </span>
             <h2 className="text-3xl font-serif font-bold text-[#0A192F] mb-6 uppercase tracking-tighter">
               {content.methodTitle}
