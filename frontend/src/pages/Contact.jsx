@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Globe, Send, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Mail, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
   const { t, language } = useLanguage();
@@ -15,63 +15,38 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-[#0A192F] text-white font-sans">
-      {/* Spacer pour éviter le chevauchement du Header invisible */}
       <div className="h-40 w-full"></div>
-
       <div className="max-w-7xl mx-auto px-8 pb-32">
         <header className="mb-24 border-b border-white/10 pb-12">
           <span className="text-blue-500 font-bold tracking-[0.5em] uppercase text-sm mb-6 block">
-            {t.common.ctaTitle}
+            {t.nav.contact}
           </span>
-          <h1 className="text-6xl md:text-8xl font-serif font-bold tracking-tighter uppercase italic leading-none">
+          {/* TITRE CONTACT : Serif Bold Italic */}
+          <h1 className="text-6xl md:text-8xl font-serif font-bold tracking-tighter italic leading-none">
             {t.nav.contact}<span className="text-blue-600">.</span>
           </h1>
         </header>
         
-        <div className="grid lg:grid-cols-2 gap-32">
-          <div className="space-y-16">
-            <div className="bg-white/5 p-10 border-l-4 border-blue-600">
-              <h2 className="text-2xl font-serif italic mb-6">
-                {language === 'fr' ? "Protocole d'engagement" : "Engagement Protocol"}
-              </h2>
-              <p className="text-gray-400 font-light leading-relaxed text-lg">
-                {language === 'fr' 
-                  ? "Chaque sollicitation fait l'objet d'une analyse de conflit d'intérêt préalable. Nos analystes traitent vos données sous chiffrement de bout en bout."
-                  : "Every inquiry undergoes a prior conflict-of-interest analysis. Our analysts process your data using end-to-end encryption."}
-              </p>
-            </div>
-
-            <div className="space-y-12">
-              <div className="group">
-                <p className="text-[10px] uppercase tracking-[0.4em] text-blue-500 font-bold mb-4">Direct Channel</p>
-                <a href="mailto:contact@mbkprocurement.com" className="text-2xl md:text-3xl font-light hover:text-blue-400 transition-all border-b border-white/10 pb-2">
-                  contact@mbkprocurement.com
-                </a>
-              </div>
-              <div className="group">
-                <p className="text-[10px] uppercase tracking-[0.4em] text-blue-500 font-bold mb-4">Regional Hubs</p>
-                <p className="text-xl font-light tracking-wide text-gray-300 italic">Paris — London — Dubai — Singapore</p>
-              </div>
-            </div>
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
+          <div className="space-y-16 italic font-light text-2xl text-gray-300 leading-relaxed border-l-2 border-blue-600 pl-10">
+            {language === 'fr' 
+              ? "Engagez une conversation stratégique sur vos enjeux de performance structurelle."
+              : "Engage a strategic conversation regarding your structural performance challenges."}
           </div>
 
           <div className="relative">
             {submitted ? (
-              <div className="bg-blue-600 p-20 text-center animate-in fade-in zoom-in duration-700">
-                <CheckCircle className="w-16 h-16 text-white mx-auto mb-8" />
-                <h3 className="text-3xl font-serif italic mb-4">Inquiry Received</h3>
-                <p className="text-blue-100 uppercase tracking-widest text-xs font-bold">Secure ID: #MBK-{Math.floor(Math.random()*9000)}</p>
+              <div className="bg-white/5 border border-blue-500/30 p-20 text-center backdrop-blur-md animate-in zoom-in duration-1000">
+                <CheckCircle className="w-12 h-12 text-blue-500 mx-auto mb-8" />
+                <h3 className="text-3xl font-serif italic">{language === 'fr' ? "Transmission réussie" : "Transmission successful"}</h3>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-10">
-                <div className="space-y-8">
-                  <input required type="text" placeholder={language === 'fr' ? "Nom & Institution" : "Name & Institution"} className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-blue-500 text-lg font-light transition-all" />
-                  <input required type="email" placeholder="Corporate Email" className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-blue-500 text-lg font-light transition-all" />
-                  <textarea rows="5" placeholder={language === 'fr' ? "Description sommaire de l'enjeu" : "Brief description of the challenge"} className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-blue-500 text-lg font-light resize-none transition-all"></textarea>
-                </div>
-                <button type="submit" className="group flex items-center justify-between w-full bg-white text-[#0A192F] px-10 py-6 font-bold uppercase tracking-[0.4em] text-xs hover:bg-blue-600 hover:text-white transition-all">
-                  <span>{language === 'fr' ? "Transmettre" : "Transmit"}</span>
-                  <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              <form onSubmit={handleSubmit} className="space-y-12 bg-white/[0.03] p-12 border border-white/10">
+                <input required type="text" placeholder={language === 'fr' ? "Nom & Institution" : "Name & Institution"} className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-blue-500 text-lg font-light transition-all" />
+                <input required type="email" placeholder="Email corporate" className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-blue-500 text-lg font-light transition-all" />
+                <textarea rows="4" placeholder="Message" className="w-full bg-transparent border-b border-white/20 py-4 focus:outline-none focus:border-blue-500 text-lg font-light resize-none transition-all"></textarea>
+                <button type="submit" className="w-full py-6 bg-blue-600 hover:bg-blue-700 text-white uppercase tracking-[0.5em] text-[10px] font-bold flex items-center justify-center gap-4 transition-all">
+                  {language === 'fr' ? 'Transmettre' : 'Transmit'} <Send className="w-3 h-3" />
                 </button>
               </form>
             )}
