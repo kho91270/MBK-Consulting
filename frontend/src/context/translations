@@ -1,0 +1,130 @@
+export const translations = {
+  fr: {
+    nav: { home: "Accueil", conseil: "Conseil", audit: "Audit", formation: "Formation", mediation: "Médiation", about: "Le Cabinet", contact: "Contact" },
+    common: { strategyLabel: "Stratégie", analysisLabel: "Analyse", moduleLabel: "Module", pillarLabel: "Axe", ctaTitle: "Contact" },
+    hero: { 
+      subtitle: "Performance Architect", 
+      title: "L'Ingénierie de la Performance Achats", 
+      description: "Cabinet d'élite dédié à l'optimisation des structures de coûts complexes et à la sécurisation des chaînes de valeur globales.", 
+      cta: "Engager l'audit stratégique" 
+    },
+    services: {
+      conseil: {
+        title: "Ingénierie Sourcing",
+        lead: "L'ingénierie de sourcing ne consiste pas à réduire un prix, mais à reconstruire une chaîne de valeur. Nous intervenons pour aligner vos ressources externes sur vos ambitions stratégiques.",
+        items: ["Optimisation du TCO", "Design-to-Cost", "Stratégies Catégorielles", "Make or Buy"],
+        descriptions: [
+          "Nous analysons le coût réel de vos solutions, de l'acquisition à la fin de vie. Cette vision globale permet de libérer de la trésorerie immédiate et d'optimiser la rentabilité de vos projets à long terme.",
+          "Travailler sur le coût dès la conception. Nous collaborons avec vos équipes pour s'assurer que chaque fonctionnalité apporte une valeur réelle, garantissant ainsi un produit compétitif sans compromis sur la qualité.",
+          "Organiser vos marchés par pôles d'expertise. Cette structure permet de bâtir des relations solides avec vos partenaires clés et de sécuriser vos approvisionnements face aux fluctuations du marché mondial.",
+          "Arbitrer entre produire en interne ou externaliser. Nous vous aidons à décider où placer vos efforts pour conserver vos savoir-faire critiques tout en profitant de l'agilité des meilleurs spécialistes externes."
+        ]
+      },
+      audit: {
+        title: "Audit de Maturité",
+        lead: "Un regard neutre et expert pour transformer vos dépenses en opportunités de croissance. Nous identifions les zones de risques et les gisements de profit cachés dans votre organisation.",
+        items: ["Diagnostic 360°", "Audit de Conformité", "Performance Fournisseur", "Gisements de Productivité"],
+        descriptions: [
+          "Nous scannons l'ensemble de votre organisation pour comprendre où part chaque euro. Un diagnostic clair pour aider les décideurs à arbitrer leurs budgets en toute visibilité.",
+          "Vérifier que vos contrats protègent réellement l'entreprise. Un point crucial pour sécuriser vos engagements juridiques et opérationnels vis-à-vis de vos prestataires.",
+          "Vos fournisseurs sont-ils des partenaires ou des risques ? Nous mesurons leur fiabilité pour sécuriser votre production et la pérennité de votre image de marque.",
+          "Identifier immédiatement des économies sans sacrifier la qualité. Un gain direct pour l'EBITDA de l'entreprise, créant de la valeur pour l'ensemble des parties prenantes."
+        ]
+      },
+      formation: {
+        title: "Academy Experts",
+        lead: "Le savoir-faire est le premier actif de l'entreprise. Nos programmes transforment vos collaborateurs en négociateurs d'élite et en gestionnaires de risques avertis.",
+        items: ["Négociation Haut Niveau", "Analyse Financière", "Leadership", "Risk Management"],
+        descriptions: [
+          "Maîtriser les leviers psychologiques et tactiques pour aboutir à des accords équilibrés. Une compétence essentielle pour protéger les marges de l'entreprise et construire des partenariats durables.",
+          "Comprendre la santé réelle de vos partenaires économiques. Nous donnons à vos équipes les outils pour anticiper les défaillances et prendre des décisions fondées sur des données rigoureuses.",
+          "Développer l'influence et la posture décisionnelle. Apprendre à porter des projets complexes au sein de l'organisation et à fédérer des interlocuteurs aux intérêts divergents.",
+          "Identifier et neutraliser les menaces avant qu'elles ne deviennent des crises. Nous enseignons une méthodologie de protection pour garantir la continuité de votre activité en tout temps."
+        ]
+      },
+      mediation: {
+        title: "Médiation Stratégique",
+        lead: "Le conflit est un coût invisible. Nous intervenons comme tiers de confiance pour dénouer les situations complexes et transformer les litiges en accords constructifs.",
+        items: ["Relations Critiques", "Résolution de Conflits", "Renégociation Contrats", "Gestion de Crise"],
+        descriptions: [
+          "Sécuriser les liens avec vos partenaires indispensables. Nous intervenons pour restaurer le dialogue et la confiance lorsque les enjeux financiers sont menacés par une mésentente.",
+          "Sortir des impasses contractuelles par la négociation raisonnée. Notre approche privilégie des solutions rapides et pérennes, évitant les procédures juridiques longues et coûteuses.",
+          "Rééquilibrer vos engagements face aux évolutions du marché. Nous vous accompagnons pour adapter vos accords existants aux nouvelles réalités économiques sans rompre la dynamique de partenariat.",
+          "Agir dans l'urgence pour protéger vos intérêts vitaux. En cas de rupture brutale ou de défaillance majeure, nous pilotons la sortie de crise pour minimiser l'impact sur votre performance globale."
+        ]
+      }
+    },
+    about: {
+      title: "Le Cabinet",
+      philosophy: "L'excellence opérationnelle n'est pas une option, c'est le socle de notre engagement envers votre performance globale.",
+      adnTitle: "Identité Stratégique",
+      adnDescription: "MBK est né de la conviction que les achats sont le moteur secret de la rentabilité. Nous fusionnons rigueur analytique et vision business pour transformer chaque ligne de dépense en avantage compétitif.",
+      methodTitle: "Standards d'Excellence",
+      methodDescription: "Nous appliquons des méthodologies issues des plus hauts standards du conseil international. Notre approche est pragmatique, mesurable et orientée vers un ROI immédiat pour nos clients."
+    }
+  },
+  en: {
+    nav: { home: "Home", conseil: "Consulting", audit: "Audit", formation: "Academy", mediation: "Mediation", about: "The Firm", contact: "Contact" },
+    common: { strategyLabel: "Strategy", analysisLabel: "Analysis", moduleLabel: "Module", pillarLabel: "Pillar", ctaTitle: "Contact" },
+    hero: { 
+      subtitle: "Performance Architect", 
+      title: "Procurement Performance Engineering", 
+      description: "Elite consultancy dedicated to optimizing complex cost structures and securing global value chains.", 
+      cta: "Initiate Strategic Audit" 
+    },
+    services: {
+      conseil: {
+        title: "Sourcing Engineering",
+        lead: "Sourcing engineering is not about cutting prices, but about rebuilding a value chain. We intervene to align your external resources with your strategic ambitions.",
+        items: ["TCO Optimization", "Design-to-Cost", "Category Strategies", "Make or Buy"],
+        descriptions: [
+          "We analyze the total cost of ownership, from acquisition to end-of-life. This global view releases immediate cash flow and optimizes long-term project profitability.",
+          "Working on costs right from the design phase. We collaborate with your teams to ensure every feature adds real value, guaranteeing a competitive product without quality compromise.",
+          "Organizing your markets by expertise clusters. This structure builds strong relationships with key partners and secures supplies against global market fluctuations.",
+          "Deciding between in-house production or outsourcing. We help you choose where to focus your efforts to keep critical know-how while leveraging specialized external agility."
+        ]
+      },
+      audit: {
+        title: "Maturity Audit",
+        lead: "A neutral and expert eye to transform your expenses into growth opportunities. We identify risk zones and hidden profit sources within your organization.",
+        items: ["360° Diagnosis", "Compliance Audit", "Supplier Performance", "Productivity Mapping"],
+        descriptions: [
+          "We scan your entire organization to understand where every euro goes. A clear diagnosis to help decision-makers manage budgets with full visibility.",
+          "Verifying that your contracts truly protect the company. A crucial point to secure your legal and operational commitments towards your service providers.",
+          "Are your suppliers partners or risks? We measure their reliability to secure your production and the long-term integrity of your brand image.",
+          "Immediately identify savings without sacrificing quality. A direct gain for the company's EBITDA, creating value for all stakeholders."
+        ]
+      },
+      formation: {
+        title: "Academy Experts",
+        lead: "Know-how is a company's primary asset. Our programs transform your employees into elite negotiators and savvy risk managers.",
+        items: ["High-Level Negotiation", "Financial Analysis", "Leadership", "Risk Management"],
+        descriptions: [
+          "Mastering psychological and tactical levers to reach balanced agreements. An essential skill to protect company margins and build sustainable partnerships.",
+          "Understanding the real health of your economic partners. We provide your teams with tools to anticipate failures and make decisions based on rigorous data.",
+          "Developing influence and a decisive posture. Learning to lead complex projects within the organization and unite stakeholders with diverging interests.",
+          "Identifying and neutralizing threats before they become crises. We teach a protection methodology to guarantee business continuity at all times."
+        ]
+      },
+      mediation: {
+        title: "Strategic Mediation",
+        lead: "Conflict is an invisible cost. We act as a trusted third party to untangle complex situations and transform disputes into constructive agreements.",
+        items: ["Critical Relationships", "Conflict Resolution", "Contract Renegotiation", "Crisis Management"],
+        descriptions: [
+          "Securing links with indispensable partners. We intervene to restore dialogue and trust when financial stakes are threatened by disagreement.",
+          "Breaking through contractual deadlocks through reasoned negotiation. Our approach favors quick and lasting solutions, avoiding long and costly legal procedures.",
+          "Rebalancing your commitments in the face of market changes. We help you adapt existing agreements to new economic realities without breaking partnership dynamics.",
+          "Acting urgently to protect vital interests. In the event of a sudden breach or major failure, we manage the crisis exit to minimize impact on overall performance."
+        ]
+      }
+    },
+    about: {
+      title: "The Firm",
+      philosophy: "Operational excellence is not an option; it is the foundation of our commitment to your overall performance.",
+      adnTitle: "Strategic Identity",
+      adnDescription: "MBK was born from the conviction that procurement is the secret engine of profitability. We merge analytical rigor and business vision to turn every expense line into a competitive advantage.",
+      methodTitle: "Standards of Excellence",
+      methodDescription: "We apply methodologies derived from the highest standards of international consulting. Our approach is pragmatic, measurable, and oriented towards immediate ROI for our clients."
+    }
+  }
+};
