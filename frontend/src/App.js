@@ -2,10 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
-// NAVIGATION : Importation avec le 'm' minuscule exact
-// Si vous avez une erreur "Default export not found", 
-// remplacez la ligne ci-dessous par : import { Menubar } from './components/ui/menubar';
-import Menubar from './components/ui/menubar'; 
+// NAVIGATION : Importation nommée avec accolades et 'm' minuscule
+import { Menubar } from './components/ui/menubar'; 
 
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
