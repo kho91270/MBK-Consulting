@@ -72,10 +72,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
         </div>
       </section>
 
-      {/* SIGNATURE DISCRÈTE */}
-      <footer className="pb-20 pt-10 px-8 max-w-7xl mx-auto border-t border-gray-50 flex justify-between items-center opacity-30">
-        <span className="text-[10px] uppercase tracking-[0.5em] font-bold">MBK Procurement</span>
-        <div className="h-px w-20 bg-[#0A192F]"></div>
+   
       </footer>
     </div>
   );
