@@ -4,14 +4,18 @@ import { translations } from './translations';
 const LanguageContext = createContext(null);
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(() => {
+  const [language, setLanguage] = useState('fr');
+
+  useEffect(() => {
     try {
       const saved = localStorage.getItem('mbk_lang');
-      return saved || 'fr';
+      if (saved && (saved === 'fr' || saved === 'en')) {
+        setLanguage(saved);
+      }
     } catch (e) {
-      return 'fr';
+      console.warn("Storage access restricted");
     }
-  });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('mbk_lang', language);
@@ -37,6 +41,6 @@ export const LanguageProvider = ({ children }) => {
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
+  if (!context) throw new Error('useLanguage missing Provider');
   return context;
 };
