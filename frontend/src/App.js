@@ -22,7 +22,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        {/* Ce composant force le retour en haut de page à chaque clic */}
+        {/* CRUCIAL : ScrollToTop doit être EN DESSOUS de <Router> */}
         <ScrollToTop /> 
         
         <div className="flex flex-col min-h-screen bg-white">
