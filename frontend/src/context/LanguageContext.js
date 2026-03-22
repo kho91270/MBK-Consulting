@@ -1,29 +1,36 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-// CORRECTION : On remonte d'un niveau (../) pour trouver mockData.js dans src
-import { translations } from '../mockData'; 
+// Importation depuis le même dossier (./)
+import { translations } from './translations';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(localStorage.getItem('mbk_lang') || 'fr');
-  
-  // Sécurité : Fallback sur un objet vide si translations n'est pas chargé
-  const [t, setT] = useState(translations ? translations[language] : {});
+  // Détection de la langue du navigateur ou français par défaut
+  const [language, setLanguage] = useState(() => {
+    const saved = localStorage.getItem('mbk_lang');
+    if (saved) return saved;
+    const browserLang = navigator.language.split('-')[0];
+    return ['fr', 'en'].includes(browserLang) ? browserLang : 'fr';
+  });
 
   useEffect(() => {
-    if (translations && translations[language]) {
-      setT(translations[language]);
-      localStorage.setItem('mbk_lang', language);
-      document.documentElement.lang = language;
-    }
+    localStorage.setItem('mbk_lang', language);
+    document.documentElement.lang = language;
   }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'fr' ? 'en' : 'fr'));
+    setLanguage(prev => (prev === 'fr' ? 'en' : 'fr'));
+  };
+
+  // On passe 't' (les traductions de la langue actuelle) à toute l'app
+  const value = {
+    language,
+    toggleLanguage,
+    t: translations[language]
   };
 
   return (
-    <LanguageContext.Provider value={{ t, language, toggleLanguage }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
