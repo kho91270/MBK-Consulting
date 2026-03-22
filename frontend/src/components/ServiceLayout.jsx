@@ -15,7 +15,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-[#0A192F]">
       
-      {/* HEADER */}
+      {/* HEADER : Un seul label noble et le titre imposant */}
       <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
         <div className="flex items-center gap-6 mb-8">
           <span className="h-px w-16 bg-blue-600"></span>
@@ -33,20 +33,20 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
         </p>
       </header>
 
-      {/* SECTION IMAGE - Optimisée pour l'Audit */}
+      {/* SECTION VISUELLE : Image Noir & Blanc contrastée */}
       <section className="relative w-full h-[65vh] bg-[#0A192F] overflow-hidden grayscale contrast-125 border-y border-gray-100">
         <img 
           src={imageUrl} 
           alt={content.title} 
           className="w-full h-full object-cover object-center opacity-60 scale-105 hover:scale-100 transition-transform duration-[4s] ease-out"
           onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000"; // Image de secours si l'URL échoue
+            e.target.src = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000";
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40"></div>
       </section>
 
-      {/* GRILLE DE CONTENU - Nettoyée des labels // Focus */}
+      {/* GRILLE D'EXPERTISE : Suppression totale des labels // Focus / // Expertise */}
       <section className="py-32 px-8 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-x-24 gap-y-24">
           {content.items.map((item, idx) => (
@@ -54,17 +54,17 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
               key={idx} 
               className="flex flex-col border-t-2 border-gray-100 pt-12 group hover:border-blue-600 transition-colors duration-700"
             >
-              {/* TITRE D'ITEM : Serif Bold Italic + Point Bleu */}
+              {/* TITRE DE L'EXPERTISE : Uniforme en FR et EN */}
               <h3 className="text-3xl md:text-4xl !font-serif !font-bold leading-tight mb-8 !italic tracking-tight group-hover:translate-x-2 transition-transform duration-500">
                 {item}<span className="text-blue-600">.</span>
               </h3>
               
-              {/* DESCRIPTION */}
+              {/* DESCRIPTION ACCESSIBLE */}
               <div className="space-y-6 text-lg text-gray-600 font-light leading-relaxed !italic border-l-2 border-blue-50 pl-6">
                 <p>
                   {content.descriptions && content.descriptions[idx] 
                     ? content.descriptions[idx] 
-                    : (language === 'fr' ? "Optimisation stratégique de vos ressources." : "Strategic resource optimization.")}
+                    : "Optimisation stratégique de vos ressources."}
                 </p>
               </div>
             </div>
@@ -72,7 +72,7 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
         </div>
       </section>
 
-      {/* SIGNATURE BAS DE PAGE */}
+      {/* SIGNATURE DISCRÈTE */}
       <footer className="pb-20 pt-10 px-8 max-w-7xl mx-auto border-t border-gray-50 flex justify-between items-center opacity-30">
         <span className="text-[10px] uppercase tracking-[0.5em] font-bold">MBK Procurement</span>
         <div className="h-px w-20 bg-[#0A192F]"></div>
