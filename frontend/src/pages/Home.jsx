@@ -4,18 +4,12 @@ import { useLanguage } from '../context/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 
 const Home = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  // Correction : On pointe vers 'home' qui est la clé réelle dans ton translations.js
+  // On utilise 'home' qui est la clé réelle dans ton fichier translations.js
   const content = t?.home;
 
-  if (!content) {
-    return (
-      <div className="min-h-screen bg-[#0A192F] flex items-center justify-center">
-        <div className="w-12 h-px bg-blue-600 animate-pulse"></div>
-      </div>
-    );
-  }
+  if (!content) return null;
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -30,7 +24,7 @@ const Home = () => {
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          {/* Le petit label bleu au-dessus du titre */}
+          {/* Label bleu supérieur */}
           <div className="flex items-center gap-4 mb-8">
             <span className="h-px w-10 bg-blue-500"></span>
             <span className="text-sm md:text-base font-bold tracking-[0.5em] text-blue-500 uppercase">
@@ -43,18 +37,17 @@ const Home = () => {
             {content.heroTitle}<span className="text-blue-600">.</span>
           </h1>
 
-          {/* Description avec bordure bleue */}
+          {/* Description / Philosophie */}
           <p className="max-w-2xl text-xl text-gray-400 font-light leading-relaxed mb-14 border-l-2 border-blue-600/50 pl-10 italic">
             {content.philosophy}
           </p>
 
-          {/* Bouton CTA */}
+          {/* BOUTON CTA : Redirection vers /contact */}
           <Link 
-            to="/audit" 
+            to="/contact" 
             className="group flex items-center gap-6 bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all w-fit shadow-2xl"
           >
-            {/* Si t.hero.cta n'existe pas, on met un texte par défaut ou t.nav.audit */}
-            {t.nav?.audit || "Expertise"}
+            {language === 'fr' ? "Engager l'audit stratégique" : "Start strategic audit"}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
           </Link>
         </div>
