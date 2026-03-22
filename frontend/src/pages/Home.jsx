@@ -36,7 +36,7 @@ const Home = () => {
             {t.hero.description}
           </p>
 
-          <Link to="/audit" className="group flex items-center gap-6 bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all w-fit shadow-2xl">
+          <Link to="/contact" className="group flex items-center gap-6 bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all w-fit shadow-2xl">
             {t.hero.cta}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
           </Link>
