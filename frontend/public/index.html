@@ -37,7 +37,6 @@
       .loader-bar-container { width: 140px; height: 1px; background: rgba(255, 255, 255, 0.1); margin-top: 30px; position: relative; overflow: hidden; }
       .loader-bar-progress { position: absolute; height: 100%; width: 0%; background: #2563eb; transition: width 0.5s ease; }
 
-      /* AJOUT : Styles pour les textes de maintenance */
       .status-container { margin-top: 24px; text-align: center; }
       #status-title { color: white; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 6px; font-weight: 600; }
       #status-desc { color: rgba(255,255,255,0.4); font-size: 10px; letter-spacing: 0.05em; font-weight: 300; }
@@ -68,19 +67,28 @@
     <div id="root"></div>
 
     <script>
-      // 1. DÉTECTION DE LA LANGUE (Natif Navigateur)
+      // 1. DÉTECTION DE LA LANGUE
       const userLang = navigator.language || navigator.userLanguage; 
       const isEn = userLang.startsWith('en');
 
-      // 2. TRADUCTION DU SPLASH
+      // 2. TRADUCTION DU SPLASH (Mise à jour : Prestige au lieu de Maintenance)
       const splashContent = {
-        fr: { title: "Système en maintenance", desc: "Mise à jour des protocoles de performance..." },
-        en: { title: "System Maintenance", desc: "Updating performance protocols..." }
+        fr: { 
+          title: "MBK PROCUREMENT", 
+          desc: "Initialisation de votre performance stratégique..." 
+        },
+        en: { 
+          title: "MBK PROCUREMENT", 
+          desc: "Initializing your strategic performance..." 
+        }
       };
 
       const content = isEn ? splashContent.en : splashContent.fr;
-      document.getElementById('status-title').innerText = content.title;
-      document.getElementById('status-desc').innerText = content.desc;
+      const titleEl = document.getElementById('status-title');
+      const descEl = document.getElementById('status-desc');
+      
+      if(titleEl) titleEl.innerText = content.title;
+      if(descEl) descEl.innerText = content.desc;
 
       // 3. GESTION DU CHARGEMENT
       setTimeout(() => {
@@ -98,7 +106,6 @@
           if(splash) {
             splash.style.opacity = '0';
             splash.style.visibility = 'hidden';
-            // On retire complètement du DOM après l'animation pour libérer les ressources
             setTimeout(() => { splash.style.display = 'none'; }, 800);
           }
           document.body.classList.remove('is-loading');
@@ -106,7 +113,11 @@
       });
 
       // Sécurité 5s
-      setTimeout(() => { document.body.classList.remove('is-loading'); }, 5000);
+      setTimeout(() => { 
+        document.body.classList.remove('is-loading'); 
+        const splash = document.getElementById('splash-screen');
+        if(splash) splash.style.display = 'none';
+      }, 5000);
     </script>
 
     <script type="module" src="/src/main.jsx"></script>
