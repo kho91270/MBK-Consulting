@@ -1,16 +1,18 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-// Importation depuis le même dossier (./)
 import { translations } from './translations';
 
-const LanguageContext = createContext();
+const LanguageContext = createContext(null);
 
 export const LanguageProvider = ({ children }) => {
-  // Détection de la langue du navigateur ou français par défaut
   const [language, setLanguage] = useState(() => {
-    const saved = localStorage.getItem('mbk_lang');
-    if (saved) return saved;
-    const browserLang = navigator.language.split('-')[0];
-    return ['fr', 'en'].includes(browserLang) ? browserLang : 'fr';
+    // Récupération sécurisée du choix précédent
+    try {
+      const saved = localStorage.getItem('mbk_lang');
+      if (saved) return saved;
+    } catch (e) {
+      console.error("LocalStorage non accessible");
+    }
+    return 'fr';
   });
 
   useEffect(() => {
@@ -22,15 +24,11 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(prev => (prev === 'fr' ? 'en' : 'fr'));
   };
 
-  // On passe 't' (les traductions de la langue actuelle) à toute l'app
-  const value = {
-    language,
-    toggleLanguage,
-    t: translations[language]
-  };
+  // On extrait les traductions correspondant à la langue
+  const t = translations[language] || translations['fr'];
 
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
