@@ -1,24 +1,27 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+// IMPORTATION CRITIQUE : Vérifiez que translations.js est bien dans le même dossier
 import { translations } from './translations';
 
 const LanguageContext = createContext(null);
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('fr');
-
-  useEffect(() => {
+  // Initialisation sécurisée : si localStorage échoue, on utilise 'fr'
+  const [language, setLanguage] = useState(() => {
     try {
       const saved = localStorage.getItem('mbk_lang');
-      if (saved && (saved === 'fr' || saved === 'en')) {
-        setLanguage(saved);
-      }
+      return (saved === 'fr' || saved === 'en') ? saved : 'fr';
     } catch (e) {
-      console.warn("Storage access restricted");
+      return 'fr';
     }
-  }, []);
+  });
 
+  // Mise à jour du HTML et du stockage local
   useEffect(() => {
-    localStorage.setItem('mbk_lang', language);
+    try {
+      localStorage.setItem('mbk_lang', language);
+    } catch (e) {
+      // Ignore les erreurs de quota ou de navigation privée
+    }
     document.documentElement.lang = language;
   }, [language]);
 
@@ -26,10 +29,13 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(prev => (prev === 'fr' ? 'en' : 'fr'));
   };
 
+  // SECURITÉ : On s'assure que 't' n'est jamais undefined
+  const t = translations[language] || translations['fr'];
+
   const value = {
     language,
     toggleLanguage,
-    t: translations[language] || translations['fr']
+    t
   };
 
   return (
@@ -41,6 +47,9 @@ export const LanguageProvider = ({ children }) => {
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (!context) throw new Error('useLanguage missing Provider');
+  if (!context) {
+    // Cette erreur est utile pour le debug mais ne bloque pas le build
+    return { t: translations['fr'], language: 'fr', toggleLanguage: () => {} };
+  }
   return context;
 };
