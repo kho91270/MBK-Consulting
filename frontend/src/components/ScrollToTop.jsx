@@ -1,12 +1,15 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom"; // Vérifiez bien cet import
+import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Cette commande force le navigateur à remonter tout en haut
-    window.scrollTo(0, 0);
+    try {
+      window.scrollTo(0, 0);
+    } catch (error) {
+      console.warn("ScrollToTop failed", error);
+    }
   }, [pathname]);
 
   return null;
