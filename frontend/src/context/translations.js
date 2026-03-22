@@ -1,7 +1,21 @@
 export const translations = {
   fr: {
-    nav: { home: "Accueil", conseil: "Conseil", audit: "Audit", formation: "Formation", mediation: "Médiation", about: "Le Cabinet", contact: "Contact" },
-    common: { strategyLabel: "Stratégie", analysisLabel: "Analyse", moduleLabel: "Module", pillarLabel: "Axe", ctaTitle: "Contact" },
+    nav: { 
+      home: "Accueil", 
+      conseil: "Conseil", 
+      audit: "Audit", 
+      formation: "Formation", 
+      mediation: "Médiation", 
+      about: "Le Cabinet", 
+      contact: "Contact" 
+    },
+    common: { 
+      strategyLabel: "Stratégie", 
+      analysisLabel: "Analyse", 
+      moduleLabel: "Module", 
+      pillarLabel: "Axe", 
+      ctaTitle: "Contact" 
+    },
     hero: { 
       subtitle: "Performance Architect", 
       title: "L'Ingénierie de la Performance Achats", 
@@ -64,8 +78,22 @@ export const translations = {
     }
   },
   en: {
-    nav: { home: "Home", conseil: "Consulting", audit: "Audit", formation: "Academy", mediation: "Mediation", about: "The Firm", contact: "Contact" },
-    common: { strategyLabel: "Strategy", analysisLabel: "Analysis", moduleLabel: "Module", pillarLabel: "Pillar", ctaTitle: "Contact" },
+    nav: { 
+      home: "Home", 
+      conseil: "Consulting", 
+      audit: "Audit", 
+      formation: "Academy", 
+      mediation: "Mediation", 
+      about: "The Firm", 
+      contact: "Contact" 
+    },
+    common: { 
+      strategyLabel: "Strategy", 
+      analysisLabel: "Analysis", 
+      moduleLabel: "Module", 
+      pillarLabel: "Pillar", 
+      ctaTitle: "Contact" 
+    },
     hero: { 
       subtitle: "Performance Architect", 
       title: "Procurement Performance Engineering", 
