@@ -20,7 +20,7 @@ export const translations = {
       subtitle: "Performance Architect", 
       title: "L'Ingénierie de la Performance Achats", 
       description: "Cabinet d'élite dédié à l'optimisation des structures de coûts complexes et à la sécurisation des chaînes de valeur globales.", 
-      cta: "Engager l'audit stratégique" 
+      cta: "En savoir plus" 
     },
     services: {
       conseil: {
@@ -46,7 +46,7 @@ export const translations = {
         ]
       },
       formation: {
-        title: "Academy Experts",
+        title: "Académie Experts",
         lead: "Le savoir-faire est le premier actif de l'entreprise. Nos programmes transforment vos collaborateurs en négociateurs d'élite et en gestionnaires de risques avertis.",
         items: ["Négociation Haut Niveau", "Analyse Financière", "Leadership", "Risk Management"],
         descriptions: [
@@ -98,7 +98,7 @@ export const translations = {
       subtitle: "Performance Architect", 
       title: "Procurement Performance Engineering", 
       description: "Elite consultancy dedicated to optimizing complex cost structures and securing global value chains.", 
-      cta: "Initiate Strategic Audit" 
+      cta: "To know more" 
     },
     services: {
       conseil: {
