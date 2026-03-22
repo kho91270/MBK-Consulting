@@ -26,7 +26,7 @@ export const translations = {
       conseil: {
         title: "Ingénierie Sourcing",
         lead: "L'ingénierie de sourcing ne consiste pas à réduire un prix, mais à reconstruire une chaîne de valeur. Nous intervenons pour aligner vos ressources externes sur vos ambitions stratégiques.",
-        items: ["Optimisation du TCO", "Design-to-Cost", "Stratégies Catégorielles", "Make or Buy"],
+        items: ["Optimisation du TCO", "Design-to-Cost", "Stratégies Catégorielles", "Internaliser ou Externaliser"],
         descriptions: [
           "Nous analysons le coût réel de vos solutions, de l'acquisition à la fin de vie. Cette vision globale permet de libérer de la trésorerie immédiate et d'optimiser la rentabilité de vos projets à long terme.",
           "Travailler sur le coût dès la conception. Nous collaborons avec vos équipes pour s'assurer que chaque fonctionnalité apporte une valeur réelle, garantissant ainsi un produit compétitif sans compromis sur la qualité.",
