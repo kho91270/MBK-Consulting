@@ -10,7 +10,7 @@ const Privacy = () => {
       sections: [
         { h: "Collecte des données", p: "Nous collectons uniquement les données transmises via notre formulaire de contact (Nom, Email, Institution) afin de répondre à vos demandes d'expertise." },
         { h: "Usage et Sécurité", p: "Vos informations sont traitées avec la plus stricte confidentialité et ne sont jamais cédées à des tiers. Nous appliquons des protocoles de sécurité rigoureux pour protéger vos échanges." },
-        { h: "Vos droits", p: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles sur simple demande par email." }
+        { h: "Vos droits", p: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles sur simple demande par email à contact@mbkprocurement.com." }
       ]
     },
     en: {
@@ -18,7 +18,7 @@ const Privacy = () => {
       sections: [
         { h: "Data Collection", p: "We only collect data submitted through our contact form (Name, Email, Institution) to address your expertise inquiries." },
         { h: "Usage and Security", p: "Your information is processed with the strictest confidentiality and is never shared with third parties. We apply rigorous security protocols to protect your communications." },
-        { h: "Your Rights", p: "In accordance with GDPR, you have the right to access, rectify, or delete your personal data upon simple request via email." }
+        { h: "Your Rights", p: "In accordance with GDPR, you have the right to access, rectify, or delete your personal data upon simple request via email to contact@mbkprocurement.com." }
       ]
     }
   };
