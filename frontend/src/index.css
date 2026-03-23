@@ -84,10 +84,16 @@ h1, h2, h3, h4, h5, h6 {
     * { @apply border-border; }
     body { @apply bg-background text-foreground; }
 }
+/* --- MBK PROCUREMENT : ANIMATIONS & SCROLL HINT --- */
+@keyframes scrollHint {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-40px); } /* Le menu glisse à gauche */
+    40% { transform: translateX(0); }    /* Puis revient en place */
+}
 
 /* --- OPTIMISATION MOBILE & NAVIGATION DÉFILANTE --- */
 @media (max-width: 768px) {
-    /* Typographie */
+    /* 1. Typographie & Titres */
     h1 {
         font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
         line-height: 1.1 !important;
@@ -96,34 +102,45 @@ h1, h2, h3, h4, h5, h6 {
     p.max-w-2xl {
         font-size: 1.05rem !important;
         padding-left: 1.2rem !important;
+        border-left: 2px solid #3b82f6; /* Rappel de la ligne bleue */
     }
 
-    /* Boutons */
-    .group.flex.items-center {
-        width: 100% !important;
-        justify-content: center;
-    }
-
-    /* Le menu défilant */
+    /* 2. Le Menu Défilant avec Animation et Dégradé */
     .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
         display: flex !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 12px !important;
+        padding-right: 40px !important; /* Espace pour le dégradé */
+        
+        /* L'animation de "rebond" au chargement */
+        animation: scrollHint 1.8s ease-in-out;
+        animation-delay: 1s; /* Se lance juste après l'apparition du site */
+
+        /* Le dégradé de transparence sur la droite */
+        mask-image: linear-gradient(to right, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
     }
 
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
 
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* 3. Sécurité pour les liens */
     .shrink-0 {
         flex-shrink: 0 !important;
     }
 
-    /* Espacement section */
-    section.relative.h-screen {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+    /* 4. Boutons CTA */
+    .group.flex.items-center {
+        width: 100% !important;
+        justify-content: center;
+        padding: 1.25rem !important;
     }
 }
