@@ -217,3 +217,34 @@ h1, h2, h3, h4, h5, h6 {
         border-bottom-color: inherit;
     }
 }
+/* --- MBK PROCUREMENT : OPTIMISATION MOBILE --- */
+@media (max-width: 768px) {
+    /* Ajustement des titres h1 (Hero et Services) */
+    h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    /* Ajustement des paragraphes de description (Philosophie) */
+    p.max-w-2xl {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        padding-left: 1.2rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Boutons CTA en plein largeur sur mobile */
+    .group.flex.items-center {
+        width: 100% !important;
+        justify-content: center;
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+
+    /* Ajustement de l'espacement du Hero sur mobile */
+    section.relative.h-screen {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
