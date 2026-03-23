@@ -9,7 +9,8 @@ const Mediation = () => {
   return (
     <ServiceLayout 
       content={t.services.mediation} 
-      imageUrl="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2000" 
+      imageUrl="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2000"
+      altText="Point de convergence architecturale symbolisant la médiation et la résolution de conflits fournisseurs."
     />
   );
 };
