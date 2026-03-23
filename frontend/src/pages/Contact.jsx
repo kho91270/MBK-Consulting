@@ -103,7 +103,7 @@ const Contact = () => {
       {language === 'fr' ? 'AUDIT STRATÉGIQUE' : 'STRATEGIC AUDIT'}
     </option>
     <option className="bg-[#0A192F]" value="conseil">
-      {language === 'fr' ? 'CONSEIL EN PERFORMANCE' : 'PERFORMANCE CONSULTING'}
+      {language === 'fr' ? 'CONSEIL EN PERFORMANCE ACHATS' : 'PROCUREMENT CONSULTING'}
     </option>
     <option className="bg-[#0A192F]" value="formation">
       {language === 'fr' ? 'FORMATION ACHATS' : 'PROCUREMENT TRAINING'}
