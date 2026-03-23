@@ -14,7 +14,8 @@ const Audit = () => {
     <ServiceLayout 
       content={t.services.audit} 
       label={t.common.analysisLabel} 
-      imageUrl={auditImageUrl} 
+      imageUrl={auditImageUrl}
+      altText="Analyse détaillée et diagnostic de performance pour l'audit stratégique achats de MBK Procurement."
     />
   );
 };
