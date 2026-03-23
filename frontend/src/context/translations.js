@@ -48,7 +48,7 @@ export const translations = {
       formation: {
         title: "Académie Experts",
         lead: "Le savoir-faire est le premier actif de l'entreprise. Nos programmes transforment vos collaborateurs en négociateurs d'élite et en gestionnaires de risques avertis.",
-        items: ["Négociation Haut Niveau", "Analyse Financière", "Leadership", "Risk Management"],
+        items: ["Négociation de Haut Niveau", "Analyse Financière", "Leadership", "Risk Management"],
         descriptions: [
           "Maîtriser les leviers psychologiques et tactiques pour aboutir à des accords équilibrés. Une compétence essentielle pour protéger les marges de l'entreprise et construire des partenariats durables.",
           "Comprendre la santé réelle de vos partenaires économiques. Nous donnons à vos équipes les outils pour anticiper les défaillances et prendre des décisions fondées sur des données rigoureuses.",
