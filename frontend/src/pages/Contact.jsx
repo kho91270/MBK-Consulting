@@ -60,7 +60,7 @@ const Contact = () => {
                 {language === 'fr' ? 'Message Transmis' : 'Message Sent'}
               </h3>
               <p className="text-gray-400 text-[10px] tracking-[0.2em] uppercase">
-                {language === 'fr' ? 'Nous reviendrons vers vous sous 24h.' : 'We will get back to you within 24h.'}
+                {language === 'fr' ? 'Nous reviendrons vers vous sous 48h.' : 'We will get back to you within 48h.'}
               </p>
               <button onClick={() => setStatus('idle')} className="text-blue-500 text-[9px] font-bold tracking-[0.3em] uppercase hover:text-white transition-colors">
                 {language === 'fr' ? 'Nouvel envoi' : 'New request'}
@@ -89,19 +89,30 @@ const Contact = () => {
                 />
               </div>
 
-              {/* SÉLECTEUR DE SERVICE (Élite segmentation) */}
-              <div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
-                <select 
-                  className="w-full bg-transparent outline-none text-[10px] font-bold tracking-[0.3em] uppercase text-white cursor-pointer appearance-none"
-                  style={{ background: 'none' }}
-                >
-                  <option className="bg-[#0A192F]" value="">{language === 'fr' ? '-- SÉLECTIONNER UN AXE --' : '-- SELECT EXPERTISE --'}</option>
-                  <option className="bg-[#0A192F]" value="audit">AUDIT</option>
-                  <option className="bg-[#0A192F]" value="conseil">CONSEIL</option>
-                  <option className="bg-[#0A192F]" value="formation">FORMATION</option>
-                  <option className="bg-[#0A192F]" value="mediation">MÉDIATION</option>
-                </select>
-              </div>
+         {/* SÉLECTEUR DE SERVICE (Dynamique FR/EN) */}
+<div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
+  <select 
+    required
+    className="w-full bg-transparent outline-none text-[10px] font-bold tracking-[0.3em] uppercase text-white cursor-pointer appearance-none"
+    style={{ background: 'none' }}
+  >
+    <option className="bg-[#0A192F]" value="">
+      {language === 'fr' ? '-- SÉLECTIONNER UN AXE --' : '-- SELECT EXPERTISE --'}
+    </option>
+    <option className="bg-[#0A192F]" value="audit">
+      {language === 'fr' ? 'AUDIT STRATÉGIQUE' : 'STRATEGIC AUDIT'}
+    </option>
+    <option className="bg-[#0A192F]" value="conseil">
+      {language === 'fr' ? 'CONSEIL EN PERFORMANCE' : 'PERFORMANCE CONSULTING'}
+    </option>
+    <option className="bg-[#0A192F]" value="formation">
+      {language === 'fr' ? 'FORMATION ACHATS' : 'PROCUREMENT TRAINING'}
+    </option>
+    <option className="bg-[#0A192F]" value="mediation">
+      {language === 'fr' ? 'MÉDIATION FOURNISSEURS' : 'SUPPLIER MEDIATION'}
+    </option>
+  </select>
+</div>
 
               {/* MESSAGE */}
               <div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
