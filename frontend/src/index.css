@@ -248,25 +248,25 @@ h1, h2, h3, h4, h5, h6 {
         padding-right: 1.5rem !important;
     }
 }
+/* --- NAVIGATION HORIZONTALE MOBILE --- */
 @media (max-width: 768px) {
-    /* Conteneur de la navigation mobile */
-    .mobile-nav-scroll {
+    .mobile-nav-container {
         display: flex !important;
-        overflow-x: auto !important; /* Active le défilement horizontal */
-        white-space: nowrap !important; /* Empêche le texte de revenir à la ligne */
-        scroll-snap-type: x mandatory; /* Effet de "cran" au défilement */
-        -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS */
-        padding-bottom: 10px; /* Espace pour ne pas coller au bord */
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
         scrollbar-width: none; /* Cache la barre sur Firefox */
+        padding: 10px 20px;
+        gap: 25px !important; /* Espace entre les services */
     }
 
-    .mobile-nav-scroll::-webkit-scrollbar {
+    .mobile-nav-container::-webkit-scrollbar {
         display: none; /* Cache la barre sur Chrome/Safari */
     }
 
-    .mobile-nav-item {
+    .mobile-nav-link {
         scroll-snap-align: start;
-        flex: 0 0 auto;
-        padding-right: 25px; /* Espace entre chaque service */
+        flex: 0 0 auto; /* Empêche le texte de rétrécir */
     }
 }
