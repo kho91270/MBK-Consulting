@@ -248,25 +248,27 @@ h1, h2, h3, h4, h5, h6 {
         padding-right: 1.5rem !important;
     }
 }
-/* --- NAVIGATION HORIZONTALE MOBILE --- */
+/* --- NAVIGATION MOBILE DÉFILANTE --- */
 @media (max-width: 768px) {
-    .mobile-nav-container {
-        display: flex !important;
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none; /* Cache la barre sur Firefox */
-        padding: 10px 20px;
-        gap: 25px !important; /* Espace entre les services */
-    }
+  .mobile-nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+    padding-right: 20px; /* Petit padding pour voir qu'il y a une suite */
+  }
 
-    .mobile-nav-container::-webkit-scrollbar {
-        display: none; /* Cache la barre sur Chrome/Safari */
-    }
+  /* Cache la barre de défilement pour un look propre */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-    .mobile-nav-link {
-        scroll-snap-align: start;
-        flex: 0 0 auto; /* Empêche le texte de rétrécir */
-    }
+  /* Empêche les éléments de rétrécir */
+  .shrink-0 {
+    flex-shrink: 0;
+  }
 }
