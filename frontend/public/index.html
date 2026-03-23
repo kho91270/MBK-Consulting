@@ -71,11 +71,19 @@
     <div id="root"></div>
 
     <script>
-      // 1. DÉTECTION DE LA LANGUE
+      // 1. GESTION DE LA SESSION (Vérifie si le splash a déjà été vu)
+      const hasSeenSplash = sessionStorage.getItem('mbk_splash_seen');
+      const splashEl = document.getElementById('splash-screen');
+      
+      if (hasSeenSplash) {
+        if (splashEl) splashEl.style.display = 'none';
+        document.body.classList.remove('is-loading');
+      }
+
+      // 2. DÉTECTION DE LA LANGUE & CONTENU
       const userLang = navigator.language || navigator.userLanguage; 
       const isEn = userLang.startsWith('en');
 
-      // 2. TRADUCTION DU SPLASH
       const splashContent = {
         fr: { 
           title: "MBK PROCUREMENT", 
@@ -94,34 +102,36 @@
       if(titleEl) titleEl.innerText = content.title;
       if(descEl) descEl.innerText = content.desc;
 
-      // 3. GESTION DU CHARGEMENT
-      setTimeout(() => {
-        const bar = document.getElementById('progress-bar');
-        if(bar) bar.style.width = '40%';
-      }, 100);
-
-      window.addEventListener('load', function() {
-        const splash = document.getElementById('splash-screen');
-        const progressBar = document.getElementById('progress-bar');
-        
-        if(progressBar) progressBar.style.width = '100%';
-        
+      // 3. LOGIQUE DE CHARGEMENT (Uniquement si non vu)
+      if (!hasSeenSplash) {
         setTimeout(() => {
-          if(splash) {
-            splash.style.opacity = '0';
-            splash.style.visibility = 'hidden';
-            setTimeout(() => { splash.style.display = 'none'; }, 800);
-          }
-          document.body.classList.remove('is-loading');
-        }, 800);
-      });
+          const bar = document.getElementById('progress-bar');
+          if(bar) bar.style.width = '40%';
+        }, 100);
 
-      // Sécurité 5s
-      setTimeout(() => { 
-        document.body.classList.remove('is-loading'); 
-        const splash = document.getElementById('splash-screen');
-        if(splash) splash.style.display = 'none';
-      }, 5000);
+        window.addEventListener('load', function() {
+          const progressBar = document.getElementById('progress-bar');
+          if(progressBar) progressBar.style.width = '100%';
+          
+          setTimeout(() => {
+            if(splashEl) {
+              splashEl.style.opacity = '0';
+              splashEl.style.visibility = 'hidden';
+              setTimeout(() => { 
+                splashEl.style.display = 'none'; 
+                sessionStorage.setItem('mbk_splash_seen', 'true');
+              }, 800);
+            }
+            document.body.classList.remove('is-loading');
+          }, 800);
+        });
+
+        // Sécurité 5s
+        setTimeout(() => { 
+          document.body.classList.remove('is-loading'); 
+          if(splashEl) splashEl.style.display = 'none';
+        }, 5000);
+      }
     </script>
 
     <script type="module" src="/src/main.jsx"></script>
