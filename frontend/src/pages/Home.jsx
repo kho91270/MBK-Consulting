@@ -80,7 +80,7 @@ const Home = () => {
                 <div className="text-blue-600 text-[10px] font-bold tracking-[0.3em] mb-4">SAVINGS</div>
                 <div className="text-5xl font-serif italic text-[#0A192F] mb-2">-23%</div>
                 <p className="text-gray-500 text-xs font-light tracking-wide uppercase">
-                  {language === 'fr' ? 'Sur appels d\'offres EU' : 'On European Tenders'}
+                  {language === 'fr' ? 'Sur appels d\'offres Européens' : 'On European Tenders'}
                 </p>
               </div>
             </div>
