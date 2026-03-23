@@ -1,36 +1,29 @@
 import React from 'react';
 import ServiceLayout from '../components/ServiceLayout';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO'; // On garde l'import
 import { useLanguage } from '../context/LanguageContext';
 
 const Audit = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
-  // Sécurité d'accès aux données
+  // Ta condition de sécurité qui fonctionne
   if (!t || !t.services || !t.services.audit) return null;
 
-  const content = t.services.audit;
-
-  // L'URL de l'image (Expertise / Bureau / Analyse)
   const auditImageUrl = "https://images.unsplash.com/photo-1454165833767-0274b24f6733?q=80&w=2000";
 
   return (
-    <>
-      {/* OPTIMISATION SEO DYNAMIQUE */}
+    <div className="audit-page">
+      {/* Le SEO s'insère ici sans fragment complexe */}
       <SEO 
-        title={content.title} 
-        description={content.lead} 
-        keywords={language === 'fr' 
-          ? "Audit Achats, Maturité Achats, Diagnostic Performance, EBITDA, MBK Procurement" 
-          : "Procurement Audit, Maturity Audit, Performance Diagnosis, EBITDA, MBK"} 
+        title={t.services.audit.title} 
+        description={t.services.audit.lead} 
       />
 
-      {/* LAYOUT DE LA PAGE (Label supprimé pour standardisation) */}
       <ServiceLayout 
-        content={content} 
+        content={t.services.audit} 
         imageUrl={auditImageUrl} 
       />
-    </>
+    </div>
   );
 };
 
