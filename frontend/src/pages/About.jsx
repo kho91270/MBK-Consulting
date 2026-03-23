@@ -20,7 +20,7 @@ const About = () => {
       <section className="relative w-full h-[70vh] bg-[#0A192F] overflow-hidden grayscale contrast-125">
         <img 
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" 
-          alt="MBK Identity" 
+          alt="Structure architecturale solide représentant les fondations et l'expertise stratégique du cabinet MBK Procurement."
           className="w-full h-full object-cover opacity-50" 
         />
         <div className="absolute inset-0 flex items-center justify-center px-8">
