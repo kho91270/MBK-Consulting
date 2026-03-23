@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
-const ServiceLayout = ({ content, label, imageUrl }) => {
+// Ajout de "altText" dans les props extraites
+const ServiceLayout = ({ content, label, imageUrl, altText }) => {
   const { language } = useLanguage();
 
   if (!content || !content.items) {
@@ -15,10 +16,8 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-[#0A192F]">
       
-      {/* HEADER : Épuré - Titre et Lead uniquement */}
+      {/* HEADER */}
       <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
-        {/* Le bloc "label" (Axe, Stratégie, etc.) a été supprimé ici */}
-        
         <h1 className="text-5xl md:text-8xl !font-serif !font-bold tracking-tighter leading-[0.9] !italic mb-10">
           {content.title}<span className="text-blue-600">.</span>
         </h1>
@@ -28,11 +27,12 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
         </p>
       </header>
 
-      {/* SECTION VISUELLE : Image Noir & Blanc contrastée */}
+      {/* SECTION VISUELLE */}
       <section className="relative w-full h-[65vh] bg-[#0A192F] overflow-hidden grayscale contrast-125 border-y border-gray-100">
         <img 
           src={imageUrl} 
-          alt={content.title} 
+          /* MODIFICATION ICI : Priorité au altText personnalisé, sinon utilise le titre */
+          alt={altText || content.title} 
           className="w-full h-full object-cover object-center opacity-60 scale-105 hover:scale-100 transition-transform duration-[4s] ease-out"
           onError={(e) => {
             e.target.src = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000";
@@ -49,12 +49,10 @@ const ServiceLayout = ({ content, label, imageUrl }) => {
               key={idx} 
               className="flex flex-col border-t-2 border-gray-100 pt-12 group hover:border-blue-600 transition-colors duration-700"
             >
-              {/* TITRE DE L'EXPERTISE */}
               <h3 className="text-3xl md:text-4xl !font-serif !font-bold leading-tight mb-8 !italic tracking-tight group-hover:translate-x-2 transition-transform duration-500">
                 {item}<span className="text-blue-600">.</span>
               </h3>
               
-              {/* DESCRIPTION ACCESSIBLE */}
               <div className="space-y-6 text-lg text-gray-600 font-light leading-relaxed !italic border-l-2 border-blue-50 pl-6">
                 <p>
                   {content.descriptions && content.descriptions[idx] 
