@@ -12,7 +12,8 @@ const Formation = () => {
     <ServiceLayout 
       content={t.services.formation} 
       label={t.common.moduleLabel || "Module"} 
-      imageUrl="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2000&auto=format&fit=crop" 
+      imageUrl="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2000&auto=format&fit=crop"
+      altText="Salle de séminaire moderne pour la formation continue des acheteurs et la montée en compétence achats."
     />
   );
 };
