@@ -248,3 +248,25 @@ h1, h2, h3, h4, h5, h6 {
         padding-right: 1.5rem !important;
     }
 }
+@media (max-width: 768px) {
+    /* Conteneur de la navigation mobile */
+    .mobile-nav-scroll {
+        display: flex !important;
+        overflow-x: auto !important; /* Active le défilement horizontal */
+        white-space: nowrap !important; /* Empêche le texte de revenir à la ligne */
+        scroll-snap-type: x mandatory; /* Effet de "cran" au défilement */
+        -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS */
+        padding-bottom: 10px; /* Espace pour ne pas coller au bord */
+        scrollbar-width: none; /* Cache la barre sur Firefox */
+    }
+
+    .mobile-nav-scroll::-webkit-scrollbar {
+        display: none; /* Cache la barre sur Chrome/Safari */
+    }
+
+    .mobile-nav-item {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        padding-right: 25px; /* Espace entre chaque service */
+    }
+}
