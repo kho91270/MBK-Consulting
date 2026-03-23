@@ -54,7 +54,7 @@ const Home = () => {
                 <p className="text-xl text-gray-600 font-light leading-relaxed italic">
                   {language === 'fr' 
                     ? "Ingénierie d'un département achats complet : catégorisation des familles, structuration des équipes, implémentation de processus cibles et pilotage d'appels d'offres européens stratégiques."
-                    : "Engineering of a comprehensive procurement department: category management, team structuring, process implementation, and strategic European tender management."}
+                    : "Engineering of a procurement department: category management, team structuring, process implementation, and strategic European tender management."}
                 </p>
                 <p className="text-gray-500 text-lg font-light italic">
                   {language === 'fr'
