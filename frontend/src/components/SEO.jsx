@@ -1,46 +1,63 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLanguage } from '../context/LanguageContext';
 
-const SEO = ({ 
-  title, 
-  description, 
-  keywords, 
-  ogImage = "https://mbkprocurement.com/og-image.jpg",
-  ogType = "website"
-}) => {
-  const { t, language } = useLanguage();
-  
-  // Sécurité : si t ou t.hero n'existe pas, on définit des valeurs vides pour éviter le crash
-  const hero = t?.hero || {};
-  
-  const siteName = "MBK Procurement";
-  const currentUrl = window.location.href;
+const SEO = ({ title, description, canonical, keywords, image, type = 'website', lang = 'fr' }) => {
+  const siteName = 'MBK Procurement';
+  const defaultImage = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200';
+  const baseUrl = 'https://www.mbkprocurement.com';
 
-  // Utilisation des clés EXACTES de ton fichier translations.js
-  const seoTitle = title || hero.title || "L'Ingénierie de la Performance Achats";
-  const fullTitle = `${seoTitle} | ${siteName}`;
-  const seoDescription = description || hero.description || "Cabinet d'élite dédié à l'optimisation des structures de coûts.";
+  const fullTitle = title ? `${title} | ${siteName}` : `${siteName} | L'Ingénierie de la Performance Achats`;
+  const fullImage = image || defaultImage;
+  const fullCanonical = canonical || baseUrl;
 
   return (
     <Helmet>
-      <html lang={language || 'fr'} />
+      <html lang={lang} />
       <title>{fullTitle}</title>
-      <meta name="description" content={seoDescription} />
+      <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={currentUrl} />
+      <link rel="canonical" href={fullCanonical} />
 
-      {/* Open Graph */}
-      <meta property="og:type" content={ogType} />
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={seoDescription} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:url" content={currentUrl} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={fullImage} />
+      <meta property="og:url" content={fullCanonical} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
 
-      {/* Twitter */}
+      {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={seoDescription} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImage} />
+
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "MBK Procurement",
+          "description": description,
+          "url": baseUrl,
+          "logo": `${baseUrl}/logo192.png`,
+          "image": fullImage,
+          "telephone": "+352-691-254-492",
+          "email": "contact@mbkprocurement.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Luxembourg",
+            "addressCountry": "LU"
+          },
+          "areaServed": ["FR", "LU", "US", "AE"],
+          "serviceType": ["Conseil Achats", "Audit Procurement", "Formation Négociation", "Médiation Commerciale"],
+          "priceRange": "€€€",
+          "sameAs": [
+            "https://www.linkedin.com/company/mbkprocurement/"
+          ]
+        })}
+      </script>
     </Helmet>
   );
 };
