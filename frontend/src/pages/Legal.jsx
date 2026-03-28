@@ -4,40 +4,58 @@ import { useLanguage } from '../context/LanguageContext';
 const Legal = () => {
   const { language } = useLanguage();
 
-  const content = {
-    fr: {
-      title: "Mentions Légales",
-      sections: [
-        { h: "Éditeur du site", p: "MBK Procurement, Cabinet de Conseil en Achats Stratégiques. Siège social : Luxembourg. Immatriculation : [Votre N° SIRET/Registre]." },
-        { h: "Direction de la publication", p: "Le site est édité et dirigé par la Direction de MBK Procurement." },
-        { h: "Hébergement", p: "Ce site est hébergé par GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA)." }
-      ]
-    },
-    en: {
-      title: "Legal Notice",
-      sections: [
-        { h: "Site Editor", p: "MBK Procurement, Strategic Sourcing Consultancy. Head Office: Luxembourg. Registration: [Your Registration Number]." },
-        { h: "Publication Director", p: "The site is edited and managed by MBK Procurement Management." },
-        { h: "Hosting", p: "This site is hosted by GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA)." }
-      ]
-    }
-  };
-
-  const active = content[language];
-
   return (
-    <div className="min-h-screen bg-white font-sans text-[#0A192F] pt-48 pb-32 px-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-7xl !font-serif !font-bold !italic tracking-tighter mb-20">
-          {active.title}<span className="text-blue-600">.</span>
+    <div className="min-h-screen bg-black text-white">
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <h1 className="text-6xl font-serif italic font-bold mb-8">
+          {language === 'fr' ? 'Mentions Légales' : 'Legal Notice'}
         </h1>
-        <div className="space-y-16">
-          {active.sections.map((s, i) => (
-            <div key={i} className="border-t border-gray-100 pt-8">
-              <h2 className="text-xl font-bold uppercase tracking-widest text-blue-600 mb-4">{s.h}</h2>
-              <p className="text-lg text-gray-500 font-light leading-relaxed italic">{s.p}</p>
-            </div>
-          ))}
+        
+        <div className="text-gray-400 space-y-8 leading-relaxed">
+          <section>
+            <h2 className="text-2xl font-serif italic text-white mb-4">
+              {language === 'fr' ? 'Éditeur du site' : 'Site Publisher'}
+            </h2>
+            <p>
+              <strong className="text-white">MBK Procurement</strong><br />
+              {language === 'fr' ? 'Siège social' : 'Headquarters'}: Paris, France<br />
+              Email: contact@mbkprocurement.com<br />
+              {language === 'fr' ? 'Directeur de publication' : 'Publication Director'}: [Votre Nom]
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-serif italic text-white mb-4">
+              {language === 'fr' ? 'Hébergement' : 'Hosting'}
+            </h2>
+            <p>
+              {language === 'fr'
+                ? 'Ce site est hébergé par : [Nom de votre hébergeur]'
+                : 'This site is hosted by: [Your hosting provider name]'}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-serif italic text-white mb-4">
+              {language === 'fr' ? 'Propriété intellectuelle' : 'Intellectual Property'}
+            </h2>
+            <p>
+              {language === 'fr'
+                ? 'Tous les contenus de ce site (textes, images, logos) sont la propriété exclusive de MBK Procurement. Toute reproduction est interdite sans autorisation.'
+                : 'All contents of this site (texts, images, logos) are the exclusive property of MBK Procurement. Any reproduction is prohibited without authorization.'}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-serif italic text-white mb-4">
+              {language === 'fr' ? 'Responsabilité' : 'Liability'}
+            </h2>
+            <p>
+              {language === 'fr'
+                ? 'MBK Procurement s\'efforce d\'assurer l\'exactitude des informations diffusées mais ne peut être tenue responsable des erreurs ou omissions.'
+                : 'MBK Procurement strives to ensure the accuracy of information published but cannot be held responsible for errors or omissions.'}
+            </p>
+          </section>
         </div>
       </div>
     </div>
