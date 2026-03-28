@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Calendar, Linkedin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const Contact = () => {
   const { t, language } = useLanguage();
@@ -69,8 +71,14 @@ const Contact = () => {
   };
 
   return (
+        <>
+    <SEO
+      title="Contact"
+      description="Contactez MBK Procurement pour un audit, conseil stratégique ou formation en achats. Bureaux à Paris, Luxembourg, New-York et Dubaï."
+      canonical="https://www.mbkprocurement.com/contact"
+      keywords="contact consultant achats, rendez-vous conseil procurement, audit achats Paris"
+    />
     <div className="min-h-screen bg-black text-white">
-
       {/* HERO IMAGE */}
       <div className="relative h-[50vh] overflow-hidden">
         <img
@@ -240,6 +248,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+     </>
   );
 };
 
