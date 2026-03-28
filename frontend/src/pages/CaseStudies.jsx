@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { TrendingUp, Users, Target, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const CaseStudies = () => {
   const { language } = useLanguage();
@@ -58,6 +59,13 @@ const CaseStudies = () => {
   ];
 
   return (
+       <>
+    <SEO
+      title="Cas Clients"
+      description="Découvrez nos cas clients : €2.3M économisés, conformité contractuelle de 13% à 96%, harmonisation achats multi-pays. Résultats concrets et mesurables."
+      canonical="https://www.mbkprocurement.com/case-studies"
+      keywords="cas client procurement, résultats audit achats, économies achats, ROI consultant"
+    />
     <div className="min-h-screen bg-white font-sans text-[#0A192F]">
 
       {/* HEADER */}
@@ -170,6 +178,7 @@ const CaseStudies = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 
