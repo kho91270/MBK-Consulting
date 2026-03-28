@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -8,6 +9,13 @@ const About = () => {
   if (!content) return null;
 
   return (
+  <>
+    <SEO
+      title="Le Cabinet"
+      description="MBK Procurement : identité stratégique et standards d'excellence. Cabinet né de la conviction que les achats sont le moteur secret de la rentabilité."
+      canonical="https://www.mbkprocurement.com/about"
+      keywords="cabinet conseil achats Paris, expertise procurement, consultant achats senior"
+    />
     <div className="min-h-screen bg-white font-sans text-[#0A192F]">
       {/* HEADER ÉPURÉ */}
       <header className="pt-48 pb-16 px-8 max-w-7xl mx-auto">
@@ -67,6 +75,7 @@ const About = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
