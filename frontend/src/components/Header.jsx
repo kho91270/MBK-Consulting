@@ -107,26 +107,28 @@ const Header = () => {
         </button>
       </div>
 
-      {/* MOBILE NAV OVERLAY */}
-      <div className={`fixed inset-0 bg-[#0A192F] z-[-1] transition-transform duration-500 flex flex-col justify-center items-center gap-8 ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-        {navLinks.map((link) => (
+     {/* MOBILE NAV OVERLAY */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-[#0A192F] z-[99] transition-opacity duration-500 flex flex-col justify-center items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-white text-2xl font-serif italic uppercase tracking-widest"
+            >
+              {link.name}
+            </Link>
+          ))}
           <Link
-            key={link.path}
-            to={link.path}
+            to="/contact"
             onClick={() => setIsMenuOpen(false)}
-            className="text-white text-2xl font-serif italic uppercase tracking-widest"
+            className="mt-4 px-10 py-4 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold"
           >
-            {link.name}
+            {t.nav.contact}
           </Link>
-        ))}
-        <Link
-          to="/contact"
-          onClick={() => setIsMenuOpen(false)}
-          className="mt-4 px-10 py-4 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold"
-        >
-          {t.nav.contact}
-        </Link>
-      </div>
+        </div>
+      )}
     </header>
   );
 };
