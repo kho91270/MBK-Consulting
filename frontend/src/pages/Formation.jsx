@@ -17,6 +17,7 @@ const Formation = () => {
   canonical="https://www.mbkprocurement.com/formation"
   keywords="formation achats, formation négociation, académie procurement, leadership achats"
 />
+      />
     <ServiceLayout
       content={t.services.formation} 
       label={t.common.moduleLabel || "Module"} 
