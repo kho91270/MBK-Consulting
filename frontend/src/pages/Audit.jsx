@@ -13,11 +13,12 @@ const Audit = () => {
 
    return (
     <>
-    <SEO
-      title="Ingénierie Sourcing — Conseil Achats"
-      description="Optimisation du TCO, Design-to-Cost, stratégies catégorielles. MBK Procurement aligne vos ressources externes sur vos ambitions stratégiques."
-      canonical="https://www.mbkprocurement.com/conseil"
-      keywords="conseil achats, optimisation TCO, design to cost, stratégie catégorielle, sourcing"
+ <SEO
+  title="Audit de Maturité — Diagnostic Achats"
+  description="Diagnostic 360°, audit de conformité, performance fournisseur. Identifiez les zones de risques et gisements de profit cachés dans votre organisation."
+  canonical="https://www.mbkprocurement.com/audit"
+  keywords="audit achats, diagnostic procurement, conformité fournisseurs, audit maturité achats"
+/>
     />
     <ServiceLayout
       content={t.services.audit} 
