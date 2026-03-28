@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Home = () => {
   const { t, language } = useLanguage();
@@ -9,6 +10,13 @@ const Home = () => {
   if (!t || !t.hero) return null;
 
   return (
+    <>
+    <SEO
+      title="Accueil"
+      description="MBK Procurement : Cabinet d'expertise en audit, conseil stratégique, formation et médiation achats. Optimisez votre performance achats et votre EBITDA."
+      canonical="https://www.mbkprocurement.com/"
+      keywords="cabinet conseil achats, audit procurement, formation négociation, médiation commerciale, optimisation coûts, Paris, Luxembourg"
+    />
     <div className="min-h-screen bg-white font-sans">
       {/* SECTION HERO */}
       <section className="relative h-screen flex items-center bg-[#0A192F] px-8 overflow-hidden">
@@ -89,6 +97,7 @@ const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
