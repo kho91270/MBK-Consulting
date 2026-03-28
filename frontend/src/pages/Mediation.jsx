@@ -16,6 +16,7 @@ const Mediation = () => {
   canonical="https://www.mbkprocurement.com/mediation"
   keywords="médiation commerciale, résolution conflits achats, renégociation contrats, gestion crise fournisseur"
 />
+      />
     <ServiceLayout
       content={t.services.mediation} 
       imageUrl="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2000"
