@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './context/LanguageContext';
 import { Toaster } from './components/ui/toaster';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Conseil from './pages/Conseil';
@@ -21,10 +22,10 @@ function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
-       <BrowserRouter>
-            <ScrollToTop />
-            <div className="App min-h-screen flex flex-col">
-              <Header />
+        <BrowserRouter>
+          <ScrollToTop />
+          <div className="App min-h-screen flex flex-col">
+            <Header />
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
