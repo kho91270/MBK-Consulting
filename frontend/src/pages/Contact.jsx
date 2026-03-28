@@ -1,141 +1,138 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { Calendar, Linkedin } from 'lucide-react';
 
 const Contact = () => {
-  const { language } = useLanguage();
-  const [status, setStatus] = useState('idle'); // idle, sending, success
+  const { t, language } = useLanguage();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    // Simulation d'envoi (à relier à ton service d'email plus tard)
-    setTimeout(() => setStatus('success'), 2000);
+  // Sécurité si translations.js est incomplet
+  const content = t?.contact || {};
+
+  // Fonction pour ouvrir Koalendar en popup
+  const openKoalendar = () => {
+    window.open(
+      'https://koalendar.com/e/meet-with-mbk-procurement',
+      'koalendar-popup',
+      'width=800,height=700,scrollbars=yes,resizable=yes'
+    );
   };
 
   return (
-    <div className="min-h-screen bg-[#0A192F] font-sans text-white relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white">
       
-      {/* SECTION VISUELLE */}
-      <section className="absolute inset-0 w-full h-full bg-[#0A192F] overflow-hidden grayscale contrast-125 border-b border-gray-800">
+      {/* SECTION VISUELLE : L'Image Exclusive "Le Lien Stratégique" */}
+      <div className="relative h-[50vh] overflow-hidden">
         <img 
           src="https://images.unsplash.com/photo-1512411604-d73117498c8c?q=80&w=2500" 
-          alt="Structure architecturale épurée représentant l'expertise stratégique de MBK Procurement." 
-          className="w-full h-full object-cover object-center opacity-30 scale-105 hover:scale-100 transition-transform duration-[6s] ease-out"
+          alt="MBK Connection Architecture"
+          className="w-full h-full object-cover opacity-40"
+          onError={(e) => {
+            e.target.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2500";
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-transparent opacity-60"></div>
-      </section>
+      </div>
 
-      {/* HEADER ÉPURÉ */}
-      <header className="relative z-10 pt-48 pb-10 px-8 max-w-7xl mx-auto text-left">
-        <h1 className="text-6xl md:text-9xl !font-serif !font-bold italic tracking-tighter leading-[0.85] mb-4 text-white">
-          {language === 'fr' ? "L'Engagement Stratégique" : "Strategic Engagement"}<span className="text-blue-600">.</span>
+      {/* HEADER ÉPURÉ (Même style que le Hero de la Home) */}
+      <div className="text-center py-16 px-6">
+        <h1 className="text-7xl font-serif italic font-bold mb-4">
+          {content.title || 'Contact'}
         </h1>
-      </header>
+      </div>
 
       {/* COLONNES INFOS & FORMULAIRE */}
-      <section className="relative z-10 pb-32 pt-16 px-8 max-w-7xl mx-auto grid lg:grid-cols-2 gap-32">
+      <div className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-12">
         
         {/* COLONNE INFOS */}
-        <div className="space-y-16">
-          <div className="border-t-2 border-white pt-12 group hover:border-blue-600 transition-colors duration-700">
-            <h2 className="text-4xl !font-serif !font-bold italic mb-8 tracking-tighter text-white group-hover:translate-x-3 transition-transform duration-500">
-              {language === 'fr' ? 'Définir la trajectoire' : 'Define the trajectory'}<span className="text-blue-600">.</span>
+        <div className="space-y-8">
+          <div>
+            <h2 className="text-3xl font-serif italic mb-6">
+              {language === 'fr' ? 'Définir la trajectoire' : 'Define the trajectory'}.
             </h2>
-            <div className="space-y-6 text-2xl !font-serif italic text-gray-300">
-              <p className="hover:text-blue-600 transition-colors cursor-pointer duration-500">
-                contact@mbkprocurement.com
-              </p>
-              <p className="text-gray-400">Paris — Luxembourg — New-York — Dubaï</p>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              {content.subtitle || (language === 'fr' 
+                ? 'Nous transformons vos enjeux achats en avantage stratégique.' 
+                : 'We transform your procurement challenges into strategic advantage.')}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-gray-300">contact@mbkprocurement.com</p>
+            <p className="text-gray-500 text-sm">
+              Paris — Luxembourg — New-York — Dubaï
+            </p>
+          </div>
+
+          {/* NOUVELLE SECTION : SCHEDULE & CONNECT */}
+          <div className="pt-8 border-t border-gray-800">
+            <h3 className="text-xl font-serif italic mb-6 text-gray-300">
+              {language === 'fr' ? 'Réserver ou se connecter' : 'Schedule or Connect'}
+            </h3>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* BOUTON KOALENDAR */}
+              <button
+                onClick={openKoalendar}
+                className="flex-1 group relative px-6 py-4 bg-transparent border border-gray-700 hover:border-white transition-all duration-300 overflow-hidden"
+              >
+                <div className="flex items-center justify-center gap-3">
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-medium">
+                    {language === 'fr' ? 'Réserver un meeting' : 'Book a Meeting'}
+                  </span>
+                </div>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+              </button>
+
+              {/* BOUTON LINKEDIN */}
+              <a
+                href="https://www.linkedin.com/company/mbkprocurement/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 group relative px-6 py-4 bg-transparent border border-gray-700 hover:border-blue-500 transition-all duration-300 overflow-hidden"
+              >
+                <div className="flex items-center justify-center gap-3">
+                  <Linkedin className="w-5 h-5" />
+                  <span className="font-medium">LinkedIn</span>
+                </div>
+                <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+              </a>
             </div>
+
+            <p className="text-xs text-gray-600 mt-4 text-center">
+              {language === 'fr' 
+                ? 'Choisissez votre mode de contact préféré' 
+                : 'Choose your preferred contact method'}
+            </p>
           </div>
         </div>
 
-        {/* FORMULAIRE D'ÉLITE */}
-        <div className="bg-white/5 p-12 border border-white/10 shadow-2xl backdrop-blur-md relative min-h-[500px] flex flex-col justify-center">
-          
-          {status === 'success' ? (
-            <div className="animate-fadeIn text-center space-y-6">
-              <div className="w-16 h-px bg-blue-600 mx-auto"></div>
-              <h3 className="text-2xl !font-serif italic uppercase tracking-widest">
-                {language === 'fr' ? 'Message Transmis' : 'Message Sent'}
-              </h3>
-              <p className="text-gray-400 text-[10px] tracking-[0.2em] uppercase">
-                {language === 'fr' ? 'Nous reviendrons vers vous sous 48h.' : 'We will get back to you within 48h.'}
-              </p>
-              <button onClick={() => setStatus('idle')} className="text-blue-500 text-[9px] font-bold tracking-[0.3em] uppercase hover:text-white transition-colors">
-                {language === 'fr' ? 'Nouvel envoi' : 'New request'}
-              </button>
-            </div>
-          ) : (
-            <form className="space-y-10" onSubmit={handleSubmit}>
-              
-              {/* NOM */}
-              <div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
-                <input 
-                  required
-                  type="text" 
-                  placeholder={language === 'fr' ? "NOM" : "NAME"} 
-                  className="w-full bg-transparent outline-none text-[10px] font-bold tracking-[0.3em] uppercase text-white placeholder:text-gray-500"
-                />
-              </div>
-
-              {/* EMAIL */}
-              <div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
-                <input 
-                  required
-                  type="email" 
-                  placeholder="EMAIL" 
-                  className="w-full bg-transparent outline-none text-[10px] font-bold tracking-[0.3em] uppercase text-white placeholder:text-gray-500"
-                />
-              </div>
-
-         {/* SÉLECTEUR DE SERVICE (Dynamique FR/EN) */}
-<div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
-  <select 
-    required
-    className="w-full bg-transparent outline-none text-[10px] font-bold tracking-[0.3em] uppercase text-white cursor-pointer appearance-none"
-    style={{ background: 'none' }}
-  >
-    <option className="bg-[#0A192F]" value="">
-      {language === 'fr' ? '-- SÉLECTIONNER UN AXE --' : '-- SELECT EXPERTISE --'}
-    </option>
-    <option className="bg-[#0A192F]" value="audit">
-      {language === 'fr' ? 'AUDIT STRATÉGIQUE' : 'STRATEGIC AUDIT'}
-    </option>
-    <option className="bg-[#0A192F]" value="conseil">
-      {language === 'fr' ? 'CONSEIL EN PERFORMANCE ACHATS' : 'PROCUREMENT CONSULTING'}
-    </option>
-    <option className="bg-[#0A192F]" value="formation">
-      {language === 'fr' ? 'FORMATION ACHATS' : 'PROCUREMENT TRAINING'}
-    </option>
-    <option className="bg-[#0A192F]" value="mediation">
-      {language === 'fr' ? 'MÉDIATION FOURNISSEURS' : 'SUPPLIER MEDIATION'}
-    </option>
-  </select>
-</div>
-
-              {/* MESSAGE */}
-              <div className="space-y-2 border-b border-white/20 pb-4 focus-within:border-blue-600 transition-all duration-500">
-                <textarea 
-                  rows="3" 
-                  placeholder="MESSAGE" 
-                  className="w-full bg-transparent outline-none text-[10px] font-bold tracking-[0.3em] uppercase resize-none text-white placeholder:text-gray-500"
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit"
-                disabled={status === 'sending'}
-                className="w-full py-6 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-[0.5em] hover:bg-blue-700 transition-all duration-700 disabled:bg-gray-700"
-              >
-                {status === 'sending' 
-                  ? (language === 'fr' ? 'TRANSMISSION...' : 'SENDING...') 
-                  : (language === 'fr' ? 'ENGAGER LA DISCUSSION' : 'START THE CONVERSATION')}
-              </button>
-            </form>
-          )}
+        {/* FORMULAIRE SIMPLE ET CHIC (Adapté pour fond sombre) */}
+        <div>
+          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              placeholder={content.form?.name || (language === 'fr' ? 'Nom' : 'Name')}
+              className="w-full px-4 py-3 bg-transparent border border-gray-800 focus:border-gray-600 outline-none transition-colors text-white placeholder-gray-600"
+            />
+            <input
+              type="email"
+              placeholder={content.form?.email || 'Email'}
+              className="w-full px-4 py-3 bg-transparent border border-gray-800 focus:border-gray-600 outline-none transition-colors text-white placeholder-gray-600"
+            />
+            <textarea
+              placeholder={content.form?.message || 'Message'}
+              rows={6}
+              className="w-full px-4 py-3 bg-transparent border border-gray-800 focus:border-gray-600 outline-none transition-colors resize-none text-white placeholder-gray-600"
+            ></textarea>
+            <button
+              type="submit"
+              className="w-full py-4 bg-white text-black font-semibold hover:bg-gray-200 transition-colors"
+            >
+              {language === 'fr' ? 'ENVOYER LE MESSAGE' : 'SEND MESSAGE'}
+            </button>
+          </form>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
