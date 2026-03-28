@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* COLONNE 2 : LIENS RAPIDES */}
+          {/* COLONNE 2 : LIENS RAPIDES - TOUS LES SERVICES */}
           <div>
             <h4 className="text-white font-medium mb-4 text-sm uppercase tracking-wider">
               {language === 'fr' ? 'Navigation' : 'Quick Links'}
@@ -37,6 +37,21 @@ const Footer = () => {
               <li>
                 <Link to="/conseil" className="hover:text-white transition-colors">
                   {language === 'fr' ? 'Conseil' : 'Consulting'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/audit" className="hover:text-white transition-colors">
+                  Audit
+                </Link>
+              </li>
+              <li>
+                <Link to="/formation" className="hover:text-white transition-colors">
+                  {language === 'fr' ? 'Formation' : 'Training'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/mediation" className="hover:text-white transition-colors">
+                  {language === 'fr' ? 'Médiation' : 'Mediation'}
                 </Link>
               </li>
               <li>
@@ -83,6 +98,17 @@ const Footer = () => {
               >
                 contact@mbkprocurement.com
               </a>
+            </div>
+
+            {/* SCHEDULE MEETING - BONUS */}
+            <div className="mt-6">
+              <button
+                onClick={() => window.open('https://koalendar.com/e/meet-with-mbk-procurement', 'koalendar-popup', 'width=800,height=700,scrollbars=yes,resizable=yes')}
+                className="text-sm text-gray-500 hover:text-white transition-colors flex items-center gap-2"
+              >
+                <span>📅</span>
+                <span>{language === 'fr' ? 'Réserver un meeting' : 'Book a Meeting'}</span>
+              </button>
             </div>
           </div>
         </div>
