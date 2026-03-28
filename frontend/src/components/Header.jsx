@@ -19,7 +19,7 @@ const Header = () => {
   }, []);
 
   // Logique de contraste : Blanc sur pages sombres, Marine sur pages claires
-  const isDarkPage = location.pathname === '/contact' || location.pathname === '/about';
+  const isDarkPage = location.pathname === '/contact' || location.pathname === '/privacy' || location.pathname === '/legal';
   const isHomePage = location.pathname === '/';
   
   // Le texte est blanc si : on est en haut de la Home OU on est sur une page sombre (Contact/About)
