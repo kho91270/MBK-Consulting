@@ -9,7 +9,7 @@ const Formation = () => {
   // Sécurité pour éviter le rond rouge
   if (!t || !t.services || !t.services.formation) return null;
 
-  r return (
+  return (
     <>
    <SEO
   title="Académie Experts — Formation Achats"
@@ -23,7 +23,7 @@ const Formation = () => {
       imageUrl="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2000&auto=format&fit=crop"
       altText="Salle de séminaire moderne pour la formation continue des acheteurs et la montée en compétence achats."
     />
-  </>
+    </>
   );
 };
 
