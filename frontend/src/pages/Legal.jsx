@@ -6,7 +6,7 @@ const Legal = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="max-w-4xl mx-auto px-6 py-20">
+      <div className="max-w-4xl mx-auto px-6 pt-40 pb-20">
         <h1 className="text-6xl font-serif italic font-bold mb-8">
           {language === 'fr' ? 'Mentions Légales' : 'Legal Notice'}
         </h1>
