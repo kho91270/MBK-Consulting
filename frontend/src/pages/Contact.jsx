@@ -1,5 +1,3 @@
-Remplacez tout le contenu de frontend/src/pages/Contact.jsx par :
-
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Calendar, Linkedin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
