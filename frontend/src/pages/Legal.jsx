@@ -18,9 +18,9 @@ const Legal = () => {
             </h2>
             <p>
               <strong className="text-white">MBK Procurement</strong><br />
-              {language === 'fr' ? 'Siège social' : 'Headquarters'}: Paris, France<br />
+              {language === 'fr' ? 'Siège social' : 'Headquarters'}: Luxembourg, Luxembourg<br />
               Email: contact@mbkprocurement.com<br />
-              {language === 'fr' ? 'Directeur de publication' : 'Publication Director'}: [Votre Nom]
+              {language === 'fr' ? 'Directeur de publication' : 'Publication Director'}: MBK Procurement
             </p>
           </section>
 
