@@ -87,7 +87,7 @@ const CaseStudies = () => {
           alt={language === 'fr'
             ? 'Collaboration professionnelle illustrant les cas clients de MBK Procurement'
             : 'Professional collaboration illustrating MBK Procurement case studies'}
-          className="w-full h-full object-cover object-center opacity-60 scale-105 hover:scale-100 transition-transform duration-[4s] ease-out"
+          className="w-full h-full object-cover object-center opacity-60 scale-105 hover:scale-100 transition-transform duration-[4000ms] ease-out"
           onError={(e) => {
             e.target.src = 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000';
           }}
