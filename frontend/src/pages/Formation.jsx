@@ -1,4 +1,3 @@
-Code complet corrigé
 import React from 'react';
 import ServiceLayout from '../components/ServiceLayout';
 import { useLanguage } from '../context/LanguageContext';
