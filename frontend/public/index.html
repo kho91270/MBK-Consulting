@@ -94,7 +94,7 @@
         document.body.classList.remove('is-loading');
       }
 
-      // 2. DÉTECTION DE LA LANGUE & CONTENU
+      // 2. DETECTION DE LA LANGUE
       const userLang = navigator.language || navigator.userLanguage;
       const isEn = userLang.startsWith('en');
 
@@ -133,7 +133,7 @@
           }, 800);
         });
 
-        // Sécurité 5s
+        // Securite 5s
         setTimeout(() => {
           document.body.classList.remove('is-loading');
           if (splashEl) splashEl.style.display = 'none';
