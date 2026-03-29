@@ -82,7 +82,7 @@ const Privacy = () => {
             </p>
             <p className="text-white mt-2">
               Email: contact@mbkprocurement.com<br />
-              {language === 'fr' ? 'Adresse' : 'Address'}: Paris, France
+              {language === 'fr' ? 'Adresse' : 'Address'}: Luxembourg, Luxembourg
             </p>
           </section>
         </div>
