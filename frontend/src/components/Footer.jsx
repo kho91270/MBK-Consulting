@@ -1,21 +1,48 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { Linkedin, ArrowRight, CheckCircle } from 'lucide-react';
+import { Linkedin, ArrowRight, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 const Footer = () => {
   const { language } = useLanguage();
   const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+const [newsletterStatus, setNewsletterStatus] = useState('idle');
 
-  const handleNewsletter = (e) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
+const handleNewsletter = async (e) => {
+  e.preventDefault();
+  setNewsletterStatus('sending');
+
+  try {
+    const WEB3FORMS_KEY = 'e2902245-a54e-4a05-a2ab-ddd87ca1674b';
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        email,
+        subject: 'Nouvelle inscription newsletter — MBK Procurement',
+        from_name: 'MBK Procurement Newsletter',
+        message: `Nouvelle inscription à la newsletter : ${email}`,
+        replyto: email,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setNewsletterStatus('success');
       setEmail('');
-      setTimeout(() => setSubscribed(false), 4000);
+      setTimeout(() => setNewsletterStatus('idle'), 4000);
+    } else {
+      setNewsletterStatus('error');
     }
-  };
+  } catch (error) {
+    console.error('Newsletter submission error:', error);
+    setNewsletterStatus('error');
+  }
+};
+
 
   return (
     <footer className="bg-black border-t border-gray-900 text-gray-400">
@@ -80,30 +107,47 @@ const Footer = () => {
                 ? 'Recevez nos analyses et insights directement.'
                 : 'Get our analyses and insights delivered directly.'}
             </p>
-            {subscribed ? (
-              <div className="flex items-center gap-2 text-green-500 text-sm py-2">
-                <CheckCircle className="w-4 h-4" />
-                <span>{language === 'fr' ? 'Inscription confirmée' : 'Subscription confirmed'}</span>
-              </div>
-            ) : (
-              <form onSubmit={handleNewsletter} className="flex">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
-                  className="flex-1 px-3 py-2 bg-transparent border border-gray-800 text-white text-sm placeholder-gray-600 focus:border-gray-600 outline-none transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="px-3 py-2 bg-white text-black hover:bg-blue-600 hover:text-white transition-colors"
-                  aria-label="Subscribe"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-            )}
+            {newsletterStatus === 'success' ? (
+  <div className="flex items-center gap-2 text-green-500 text-sm py-2">
+    <CheckCircle className="w-4 h-4" />
+    <span>{language === 'fr' ? 'Inscription confirmée' : 'Subscription confirmed'}</span>
+  </div>
+) : (
+  <form onSubmit={handleNewsletter} className="flex">
+    <input
+      type="email"
+      required
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      placeholder="Email"
+      className="flex-1 px-3 py-2 bg-transparent border border-gray-800 text-white text-sm placeholder-gray-600 focus:border-gray-600 outline-none transition-colors"
+    />
+    <button
+      type="submit"
+      disabled={newsletterStatus === 'sending'}
+      className="px-3 py-2 bg-white text-black hover:bg-blue-600 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      aria-label="Subscribe"
+    >
+      {newsletterStatus === 'sending' ? (
+        <Loader2 className="w-4 h-4 animate-spin" />
+      ) : (
+        <ArrowRight className="w-4 h-4" />
+      )}
+    </button>
+  </form>
+)}
+
+{newsletterStatus === 'error' && (
+  <div className="flex items-center gap-2 text-red-400 text-xs mt-3">
+    <AlertCircle className="w-4 h-4" />
+    <span>
+      {language === 'fr'
+        ? "Erreur lors de l'inscription. Veuillez réessayer."
+        : 'Subscription error. Please try again.'}
+    </span>
+  </div>
+)}
+
 
             <div className="space-y-2 text-sm mt-8 border-t border-gray-900 pt-4">
               <Link to="/privacy" className="block hover:text-white transition-colors">
