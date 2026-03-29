@@ -13,14 +13,13 @@ jobs:
 
       - name: Installer et Construire le Frontend
         working-directory: ./frontend
-        env:
-          DISABLE_ESLINT_PLUGIN: 'true'
-          ESLINT_NO_DEV_ERRORS: 'true'
-          CI: 'false'
         run: |
           rm -rf node_modules package-lock.json
           npm install ajv --save-dev --legacy-peer-deps
           npm install --legacy-peer-deps
+          export DISABLE_ESLINT_PLUGIN=true
+          export ESLINT_NO_DEV_ERRORS=true
+          export CI=false
           npm run build
 
       - name: FTP Deploy
