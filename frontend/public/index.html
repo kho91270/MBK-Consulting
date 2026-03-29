@@ -46,102 +46,11 @@
         margin: 0; padding: 0; background-color: #0A192F;
         width: 100%; min-height: 100%; font-family: 'Inter', sans-serif;
       }
-      body.is-loading { overflow: hidden; }
-      #splash-screen {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background-color: #0A192F; display: flex; flex-direction: column;
-        justify-content: center; align-items: center; z-index: 9999;
-        transition: opacity 0.8s ease-out, visibility 0.8s;
-      }
-      .logo-container { text-align: center; animation: fadeInScale 1.2s ease-out forwards; }
-      .logo-text { color: white; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: bold; letter-spacing: -0.02em; }
-      .logo-subtext { color: #2563eb; font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4em; margin-left: 10px; font-weight: 600; }
-      .loader-bar-container { width: 140px; height: 1px; background: rgba(255,255,255,0.1); margin-top: 30px; position: relative; overflow: hidden; }
-      .loader-bar-progress { position: absolute; height: 100%; width: 0%; background: #2563eb; transition: width 0.5s ease; }
-      .status-container { margin-top: 24px; text-align: center; }
-      #status-title { color: white; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 6px; font-weight: 600; }
-      #status-desc { color: rgba(255,255,255,0.4); font-size: 10px; letter-spacing: 0.05em; font-weight: 300; }
-      @keyframes fadeInScale {
-        0% { opacity: 0; transform: scale(0.95); }
-        100% { opacity: 1; transform: scale(1); }
-      }
     </style>
 </head>
 
-<body class="is-loading">
-    <div id="splash-screen">
-      <div class="logo-container">
-        <span class="logo-text">MBK <span class="logo-subtext">Procurement</span></span>
-      </div>
-      <div class="loader-bar-container">
-        <div id="progress-bar" class="loader-bar-progress"></div>
-      </div>
-      <div class="status-container">
-        <p id="status-title"></p>
-        <p id="status-desc"></p>
-      </div>
-    </div>
-
+<body>
     <div id="root"></div>
-
-    <script>
-      // 1. GESTION DE LA SESSION
-      const hasSeenSplash = sessionStorage.getItem('mbk_splash_seen');
-      const splashEl = document.getElementById('splash-screen');
-
-      if (hasSeenSplash) {
-        if (splashEl) splashEl.style.display = 'none';
-        document.body.classList.remove('is-loading');
-      }
-
-      // 2. DETECTION DE LA LANGUE
-      const userLang = navigator.language || navigator.userLanguage;
-      const isEn = userLang.startsWith('en');
-
-      const splashContent = {
-        fr: { title: "MBK PROCUREMENT", desc: "Initialisation de votre performance stratégique..." },
-        en: { title: "MBK PROCUREMENT", desc: "Initializing your strategic performance..." }
-      };
-
-      const content = isEn ? splashContent.en : splashContent.fr;
-      const titleEl = document.getElementById('status-title');
-      const descEl = document.getElementById('status-desc');
-      if (titleEl) titleEl.innerText = content.title;
-      if (descEl) descEl.innerText = content.desc;
-
-      // 3. LOGIQUE DE CHARGEMENT
-      if (!hasSeenSplash) {
-        setTimeout(() => {
-          const bar = document.getElementById('progress-bar');
-          if (bar) bar.style.width = '40%';
-        }, 100);
-
-        window.addEventListener('load', function() {
-          const progressBar = document.getElementById('progress-bar');
-          if (progressBar) progressBar.style.width = '100%';
-
-          setTimeout(() => {
-            if (splashEl) {
-              splashEl.style.opacity = '0';
-              splashEl.style.visibility = 'hidden';
-              setTimeout(() => {
-                splashEl.style.display = 'none';
-                sessionStorage.setItem('mbk_splash_seen', 'true');
-              }, 800);
-            }
-            document.body.classList.remove('is-loading');
-          }, 800);
-        });
-
-        // Securite 5s
-        setTimeout(() => {
-          document.body.classList.remove('is-loading');
-          if (splashEl) splashEl.style.display = 'none';
-        }, 5000);
-      }
-    </script>
-
-    <script type="module" src="/src/main.jsx"></script>
 
     <noscript>
       <div style="text-align: center; padding: 50px; color: white; background: #0A192F; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
