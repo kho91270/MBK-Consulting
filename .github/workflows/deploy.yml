@@ -8,10 +8,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Checkout du code
+      - name: Checkout du code
         uses: actions/checkout@v4
 
-    - name: 🏗️ Installer et Construire le Frontend
+      - name: Installer et Construire le Frontend
         working-directory: ./frontend
         env:
           DISABLE_ESLINT_PLUGIN: 'true'
@@ -23,14 +23,12 @@ jobs:
           npm install --legacy-peer-deps
           npm run build
 
-
-      - name: 🚀 FTP Deploy
+      - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Craco crée un dossier 'build'
           local-dir: ./frontend/build/
           server-dir: ./www/
           delete-destination: false
