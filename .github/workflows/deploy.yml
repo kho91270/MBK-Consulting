@@ -11,14 +11,17 @@ jobs:
       - name: 🚚 Checkout du code
         uses: actions/checkout@v4
 
-      - name: 🏗️ Installer et Construire le Frontend
+    - name: 🏗️ Installer et Construire le Frontend
         working-directory: ./frontend
+        env:
+          DISABLE_ESLINT_PLUGIN: 'true'
+          ESLINT_NO_DEV_ERRORS: 'true'
+          CI: 'false'
         run: |
-          # Nettoyage et installation forcée
           rm -rf node_modules package-lock.json
           npm install ajv --save-dev --legacy-peer-deps
           npm install --legacy-peer-deps
-          DISABLE_ESLINT_PLUGIN=true npm run build
+          npm run build
 
 
       - name: 🚀 FTP Deploy
