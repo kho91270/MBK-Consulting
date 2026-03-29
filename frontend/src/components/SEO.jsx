@@ -17,8 +17,6 @@ const SEO = ({ title, description, canonical, keywords, image, type = 'website',
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={fullCanonical} />
-
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
@@ -26,14 +24,10 @@ const SEO = ({ title, description, canonical, keywords, image, type = 'website',
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
-
-      {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
-
-      {/* JSON-LD Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -41,21 +35,18 @@ const SEO = ({ title, description, canonical, keywords, image, type = 'website',
           "name": "MBK Procurement",
           "description": description,
           "url": baseUrl,
-          "logo": `${baseUrl}/logo192.png`,
+          "logo": baseUrl + "/logo192.png",
           "image": fullImage,
-          "telephone": "+352-691-254-492",
           "email": "contact@mbkprocurement.com",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Luxembourg",
-            "addressCountry": "LU"
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
           },
           "areaServed": ["FR", "LU", "US", "AE"],
           "serviceType": ["Conseil Achats", "Audit Procurement", "Formation Négociation", "Médiation Commerciale"],
           "priceRange": "€€€",
-          "sameAs": [
-            "https://www.linkedin.com/company/mbkprocurement/"
-          ]
+          "sameAs": ["https://www.linkedin.com/company/mbkprocurement/"]
         })}
       </script>
     </Helmet>
