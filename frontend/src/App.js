@@ -6,6 +6,8 @@ import { Toaster } from './components/ui/toaster';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import Breadcrumbs from './components/Breadcrumbs';
 import Home from './pages/Home';
 import Conseil from './pages/Conseil';
 import Audit from './pages/Audit';
@@ -16,6 +18,8 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Legal from './pages/Legal';
 import CaseStudies from './pages/CaseStudies';
+import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -26,6 +30,7 @@ function App() {
           <ScrollToTop />
           <div className="App min-h-screen flex flex-col">
             <Header />
+            <Breadcrumbs />
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -38,9 +43,12 @@ function App() {
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/legal" element={<Legal />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />
+            <ScrollToTopButton />
             <Toaster />
           </div>
         </BrowserRouter>
