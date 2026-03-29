@@ -30,8 +30,8 @@ const Legal = () => {
             </h2>
             <p>
               {language === 'fr'
-                ? 'Ce site est hébergé par : [Nom de votre hébergeur]'
-                : 'This site is hosted by: [Your hosting provider name]'}
+                ? 'Ce site est hébergé par : OVH'
+                : 'This site is hosted by: OVH'}
             </p>
           </section>
 
