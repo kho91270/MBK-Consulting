@@ -10,6 +10,17 @@ jobs:
     steps:
       - name: Checkout du code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Debug - Lister les fichiers
+        run: |
+          echo "=== components ==="
+          ls -la frontend/src/components/
+          echo "=== pages ==="
+          ls -la frontend/src/pages/
+          echo "=== App.js ==="
+          head -25 frontend/src/App.js
 
       - name: Installer et Construire le Frontend
         working-directory: ./frontend
