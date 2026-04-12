@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 const SEO = ({ title, description, canonical, keywords, image, type = 'website' }) => {
   const { language } = useLanguage();
   const siteName = 'MBK Procurement';
-  const defaultImage = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200';
+  const defaultImage = 'https://www.mbkprocurement.com/og-image.png';
   const baseUrl = 'https://www.mbkprocurement.com';
 
   const fullTitle = title ? `${title} | ${siteName}` : `${siteName} | L'Ingénierie de la Performance Achats`;
