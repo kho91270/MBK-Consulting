@@ -1,7 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLanguage } from '../context/LanguageContext';
 
-const SEO = ({ title, description, canonical, keywords, image, type = 'website', lang = 'fr' }) => {
+const SEO = ({ title, description, canonical, keywords, image, type = 'website' }) => {
+  const { language } = useLanguage();
   const siteName = 'MBK Procurement';
   const defaultImage = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200';
   const baseUrl = 'https://www.mbkprocurement.com';
@@ -12,7 +14,7 @@ const SEO = ({ title, description, canonical, keywords, image, type = 'website',
 
   return (
     <Helmet>
-      <html lang={lang} />
+      <html lang={language} />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
@@ -23,7 +25,7 @@ const SEO = ({ title, description, canonical, keywords, image, type = 'website',
       <meta property="og:image" content={fullImage} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+      <meta property="og:locale" content={language === 'fr' ? 'fr_FR' : 'en_US'} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
