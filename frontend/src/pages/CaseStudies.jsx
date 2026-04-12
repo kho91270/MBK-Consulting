@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { TrendingUp, Users, Target, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const CaseStudies = () => {
@@ -10,50 +10,50 @@ const CaseStudies = () => {
   const cases = [
     {
       id: 1,
-      client: language === 'fr' ? 'Groupe Industriel International' : 'International Industrial Group',
-      sector: language === 'fr' ? 'Industrie' : 'Industry',
-      challenge: language === 'fr'
-        ? "Optimiser la supply chain et réduire les coûts d'approvisionnement"
-        : 'Optimize supply chain and reduce procurement costs',
-      solution: language === 'fr'
-        ? 'Audit complet, négociation fournisseurs, digitalisation des processus'
-        : 'Complete audit, supplier negotiation, process digitalization',
+      client: 'Kingfisher',
+      sector: language === 'fr' ? 'Distribution & Retail' : 'Distribution & Retail',
+      context: language === 'fr'
+        ? "Groupe international de distribution spécialisée, présent dans plusieurs pays européens. La direction générale constatait un manque de visibilité sur la performance réelle de ses contrats Facility Management et une absence de pilotage structuré de ses fournisseurs stratégiques."
+        : "International specialist retail group operating across several European countries. Senior management identified a lack of visibility on the actual performance of its Facility Management contracts and the absence of structured management of strategic suppliers.",
+      mission: language === 'fr'
+        ? "Prise en charge du management des appels d'offres européens sur les catégories Facility Management. Structuration de la gestion contractuelle fournisseurs : revue du parc de contrats, mise en place d'indicateurs de performance, pilotage des SLA et suivi de la conformité contractuelle. Accompagnement des équipes internes dans la conduite des négociations et la sécurisation des engagements."
+        : "Management of European tenders across Facility Management categories. Structuring of supplier contract management: contract portfolio review, implementation of performance indicators, SLA monitoring and contractual compliance tracking. Support for internal teams in conducting negotiations and securing commitments.",
       results: [
-        { icon: TrendingUp, value: '\u20AC2.3M', label: language === 'fr' ? 'économisés' : 'saved' },
-        { icon: Users, value: '45%', label: language === 'fr' ? 'gain de temps' : 'time saved' },
-        { icon: Target, value: '12', label: language === 'fr' ? 'mois' : 'months' }
+        { value: '13% → 96%', label: language === 'fr' ? 'Conformité contractuelle' : 'Contractual compliance' },
+        { value: '-23%', label: language === 'fr' ? "Sur appels d'offres européens" : 'On European tenders' },
+        { value: '100%', label: language === 'fr' ? 'Couverture contractuelle FM' : 'FM contract coverage' }
       ]
     },
     {
       id: 2,
-      client: language === 'fr' ? 'Entreprise Technologique' : 'Technology Company',
-      sector: 'Tech',
-      challenge: language === 'fr'
-        ? 'Structurer la fonction achats inexistante'
-        : 'Structure non-existent procurement function',
-      solution: language === 'fr'
-        ? "Création département achats, formation équipes, mise en place outils"
-        : 'Create procurement department, train teams, implement tools',
+      client: 'Logista',
+      sector: language === 'fr' ? 'Logistique & Distribution' : 'Logistics & Distribution',
+      context: language === 'fr'
+        ? "Leader européen de la distribution de proximité, Logista devait transférer l'ensemble de ses opérations logistiques d'un site historique vers un nouveau bâtiment. L'enjeu : assurer la continuité d'exploitation sans rupture de service, tout en respectant un calendrier serré et un budget contraint."
+        : "European leader in proximity distribution, Logista needed to relocate its entire logistics operations from a legacy site to a new facility. The challenge: ensuring operational continuity without service disruption, while meeting a tight schedule and constrained budget.",
+      mission: language === 'fr'
+        ? "Pilotage end-to-end du projet de déménagement : coordination des prestataires de déménagement industriel, supervision de la restitution de l'ancien site aux normes contractuelles, sourcing et sélection des entreprises d'aménagement du nouveau bâtiment. Suivi de l'installation complète — du gros œuvre aux postes de travail — jusqu'à la validation de la mise en exploitation opérationnelle."
+        : "End-to-end project management of the relocation: coordination of industrial moving contractors, supervision of former site handover to contractual standards, sourcing and selection of fit-out companies for the new building. Oversight of complete installation — from structural works to workstations — through to operational go-live validation.",
       results: [
-        { icon: TrendingUp, value: '\u20AC850K', label: language === 'fr' ? 'économisés' : 'saved' },
-        { icon: Users, value: '100%', label: language === 'fr' ? 'conformité' : 'compliance' },
-        { icon: Target, value: '6', label: language === 'fr' ? 'mois' : 'months' }
+        { value: '0', label: language === 'fr' ? "Jours d'interruption" : 'Days of disruption' },
+        { value: '100%', label: language === 'fr' ? 'Délais respectés' : 'On-time delivery' },
+        { value: language === 'fr' ? 'Budget maîtrisé' : 'Budget controlled', label: language === 'fr' ? 'Aucun dépassement' : 'No overrun' }
       ]
     },
     {
       id: 3,
-      client: language === 'fr' ? 'Groupe Retail Européen' : 'European Retail Group',
-      sector: 'Retail',
-      challenge: language === 'fr'
-        ? 'Harmoniser les achats multi-pays'
-        : 'Harmonize multi-country procurement',
-      solution: language === 'fr'
-        ? 'Stratégie globale, contrats-cadres, centralisation des achats'
-        : 'Global strategy, framework agreements, procurement centralization',
+      client: 'SBFM',
+      sector: 'Facility Management',
+      context: language === 'fr'
+        ? "Acteur reconnu du Facility Management au Royaume-Uni, SBFM souhaitait accélérer son développement sur le marché européen continental. L'entreprise ne disposait pas du réseau de sous-traitants nécessaire pour répondre aux exigences locales de ses futurs clients grands comptes en Europe."
+        : "An established Facility Management provider in the United Kingdom, SBFM sought to accelerate its expansion into the continental European market. The company lacked the subcontractor network required to meet the local requirements of its future enterprise clients in Europe.",
+      mission: language === 'fr'
+        ? "Sourcing stratégique de sous-traitants spécialisés en Facility Management sur les marchés cibles européens. Qualification des prestataires selon les standards de qualité, de conformité et de capacité opérationnelle requis. Constitution d'un panel fournisseurs opérationnel permettant à SBFM de répondre immédiatement aux appels d'offres européens avec une couverture locale crédible."
+        : "Strategic sourcing of specialized Facility Management subcontractors across target European markets. Qualification of providers against required quality, compliance and operational capacity standards. Building of an operational supplier panel enabling SBFM to immediately respond to European tenders with credible local coverage.",
       results: [
-        { icon: TrendingUp, value: '\u20AC4.1M', label: language === 'fr' ? 'économisés' : 'saved' },
-        { icon: Users, value: '8', label: language === 'fr' ? 'pays' : 'countries' },
-        { icon: Target, value: '18', label: language === 'fr' ? 'mois' : 'months' }
+        { value: '5', label: language === 'fr' ? 'Marchés européens ouverts' : 'European markets opened' },
+        { value: '30+', label: language === 'fr' ? 'Sous-traitants qualifiés' : 'Qualified subcontractors' },
+        { value: language === 'fr' ? 'Opérationnel' : 'Operational', label: language === 'fr' ? 'Panel actif en 4 mois' : 'Panel live in 4 months' }
       ]
     }
   ];
@@ -62,9 +62,9 @@ const CaseStudies = () => {
     <>
       <SEO
         title="Cas Clients"
-        description="Découvrez nos cas clients : plus de 2M économisés, conformité contractuelle de 13% à 96%, harmonisation achats multi-pays. Résultats concrets et mesurables."
+        description="Découvrez nos cas clients : conformité contractuelle de 13% à 96%, déménagement logistique sans interruption, sourcing européen en Facility Management. Résultats concrets."
         canonical="https://www.mbkprocurement.com/case-studies"
-        keywords="cas client procurement, résultats audit achats, économies achats, ROI consultant"
+        keywords="cas client procurement, résultats audit achats, économies achats, ROI consultant, appels offres européens, facility management"
       />
       <div className="min-h-screen bg-white font-sans text-[#0A192F]">
         <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
@@ -73,8 +73,8 @@ const CaseStudies = () => {
           </h1>
           <p className="max-w-4xl text-xl md:text-2xl text-gray-500 font-light leading-relaxed !italic border-l-4 border-blue-50 pl-10">
             {language === 'fr'
-              ? 'Résultats concrets. Impact mesurable. Excellence délivrée.'
-              : 'Concrete results. Measurable impact. Excellence delivered.'}
+              ? "Chaque mission part d'un problème réel. Voici comment nous l'avons résolu."
+              : 'Every mission starts with a real problem. Here is how we solved it.'}
           </p>
         </header>
 
@@ -107,19 +107,18 @@ const CaseStudies = () => {
 
                 <div className="grid md:grid-cols-2 gap-16 mb-16">
                   <div className="border-l-2 border-blue-50 pl-8">
-                    <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">{language === 'fr' ? 'Défi' : 'Challenge'}</h3>
-                    <p className="text-xl text-gray-500 font-light leading-relaxed !italic">{caseItem.challenge}</p>
+                    <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">{language === 'fr' ? 'Contexte' : 'Context'}</h3>
+                    <p className="text-lg text-gray-500 font-light leading-relaxed !italic">{caseItem.context}</p>
                   </div>
                   <div className="border-l-2 border-blue-50 pl-8">
-                    <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">Solution</h3>
-                    <p className="text-xl text-gray-500 font-light leading-relaxed !italic">{caseItem.solution}</p>
+                    <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">Mission</h3>
+                    <p className="text-lg text-gray-500 font-light leading-relaxed !italic">{caseItem.mission}</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-8">
                   {caseItem.results.map((result, idx) => (
-                    <div key={idx} className={`p-8 ${idx === 0 ? 'bg-[#0A192F]' : 'bg-gray-50 border border-gray-100'} group/card hover:-translate-y-2 transition-transform duration-500`}>
-                      <result.icon className={`w-5 h-5 mb-4 ${idx === 0 ? 'text-blue-500' : 'text-blue-600'}`} />
+                    <div key={idx} className={`p-8 ${idx === 0 ? 'bg-[#0A192F]' : 'bg-gray-50 border border-gray-100'} hover:-translate-y-2 transition-transform duration-500`}>
                       <div className={`text-4xl md:text-5xl !font-serif !italic mb-2 ${idx === 0 ? 'text-white' : 'text-[#0A192F]'}`}>{result.value}</div>
                       <div className={`text-xs font-light uppercase tracking-wider ${idx === 0 ? 'text-gray-400' : 'text-gray-500'}`}>{result.label}</div>
                     </div>
@@ -134,10 +133,10 @@ const CaseStudies = () => {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <div>
               <h2 className="text-4xl md:text-5xl !font-serif !font-bold !italic tracking-tighter mb-4">
-                {language === 'fr' ? 'Prêt à transformer vos achats' : 'Ready to transform your procurement'}<span className="text-blue-600"> ?</span>
+                {language === 'fr' ? 'Un projet, un enjeu achats' : 'A project, a procurement challenge'}<span className="text-blue-600"> ?</span>
               </h2>
               <p className="text-gray-500 text-lg font-light !italic">
-                {language === 'fr' ? 'Discutons de votre projet et construisons ensemble votre trajectoire.' : "Let's discuss your project and build your trajectory together."}
+                {language === 'fr' ? "Parlons-en. Chaque situation mérite une réponse sur mesure." : "Let's talk. Every situation deserves a tailored response."}
               </p>
             </div>
             <Link to="/contact" className="group flex items-center gap-4 px-10 py-5 bg-[#0A192F] text-white text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-blue-600 transition-colors duration-300 whitespace-nowrap">
