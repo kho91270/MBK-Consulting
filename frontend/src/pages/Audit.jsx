@@ -7,8 +7,6 @@ const Audit = () => {
   const { t } = useLanguage();
   if (!t || !t.services || !t.services.audit) return null;
 
-  const auditImageUrl = "https://images.unsplash.com/photo-1454165833767-0274b24f6733?q=80&w=2000";
-
   return (
     <>
       <SEO
@@ -20,7 +18,7 @@ const Audit = () => {
       <ServiceLayout
         content={t.services.audit}
         label={t.common.analysisLabel}
-        imageUrl={auditImageUrl}
+        imageUrl="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000"
         altText="Analyse détaillée et diagnostic de performance pour l'audit stratégique achats de MBK Procurement."
       />
     </>
