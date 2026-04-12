@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const ServiceLayout = ({ content, label, imageUrl, altText, faq }) => {
   const { language } = useLanguage();
@@ -18,8 +19,29 @@ const ServiceLayout = ({ content, label, imageUrl, altText, faq }) => {
     ? imageUrl + '&fm=webp'
     : imageUrl;
 
+  const faqSchema = faq && faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  } : null;
+
   return (
     <div className="min-h-screen bg-white font-sans text-[#0A192F]">
+      {faqSchema && (
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(faqSchema)}
+          </script>
+        </Helmet>
+      )}
+
       <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
         <h1 className="text-5xl md:text-8xl !font-serif !font-bold tracking-tighter leading-[0.9] !italic mb-10">
           {content.title}<span className="text-blue-600">.</span>
