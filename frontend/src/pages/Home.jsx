@@ -87,6 +87,92 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Références Clients */}
+        <section className="py-32 bg-[#0A192F] px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-20">
+              <h2 className="text-4xl md:text-6xl font-serif font-bold italic tracking-tighter text-white mb-6">
+                {language === 'fr' ? 'Références' : 'References'}<span className="text-blue-600">.</span>
+              </h2>
+              <p className="text-gray-500 text-lg font-light italic max-w-2xl">
+                {language === 'fr'
+                  ? "Des missions concrètes, des résultats mesurables. Nous accompagnons des leaders européens dans la transformation de leur fonction achats."
+                  : "Concrete missions, measurable results. We support European leaders in transforming their procurement function."}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-0 border-t border-gray-800">
+              <div className="border-r border-b md:border-b-0 border-gray-800 p-10">
+                <div className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-3">
+                  {language === 'fr' ? 'Appels d\'offres & Contrats' : 'Tenders & Contracts'}
+                </div>
+                <h3 className="text-3xl font-serif italic font-bold text-white tracking-tight mb-6">
+                  Kingfisher
+                </h3>
+                <p className="text-gray-400 font-light leading-relaxed italic text-sm">
+                  {language === 'fr'
+                    ? "Management d'appels d'offres européens, gestion contractuelle fournisseurs et pilotage de la performance des contrats Facility Management."
+                    : "European tender management, supplier contract management and Facility Management contract performance monitoring."}
+                </p>
+              </div>
+
+              <div className="border-r border-b md:border-b-0 border-gray-800 p-10">
+                <div className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-3">
+                  {language === 'fr' ? 'Logistique & Transfert' : 'Logistics & Transfer'}
+                </div>
+                <h3 className="text-3xl font-serif italic font-bold text-white tracking-tight mb-6">
+                  Logista
+                </h3>
+                <p className="text-gray-400 font-light leading-relaxed italic text-sm">
+                  {language === 'fr'
+                    ? "Pilotage end-to-end du déménagement d'un site logistique : restitution de l'ancien site, aménagement complet du nouveau jusqu'à son exploitation opérationnelle."
+                    : "End-to-end management of a logistics site relocation: handover of the former site, full fit-out of the new facility through to operational launch."}
+                </p>
+              </div>
+
+              <div className="border-b md:border-b-0 border-gray-800 p-10">
+                <div className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-3">
+                  {language === 'fr' ? 'Sourcing & Développement' : 'Sourcing & Development'}
+                </div>
+                <h3 className="text-3xl font-serif italic font-bold text-white tracking-tight mb-6">
+                  SBFM
+                </h3>
+                <p className="text-gray-400 font-light leading-relaxed italic text-sm">
+                  {language === 'fr'
+                    ? "Sourcing stratégique pour le développement d'un nouveau marché en Europe et identification de sous-traitants spécialisés en Facility Management."
+                    : "Strategic sourcing for European market expansion and identification of specialized Facility Management subcontractors."}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 bg-white px-8 border-t border-gray-100">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold italic tracking-tighter text-[#0A192F] mb-6">
+              {language === 'fr' ? 'Discutons de votre situation' : "Let's discuss your situation"}<span className="text-blue-600">.</span>
+            </h2>
+            <p className="text-gray-500 text-lg font-light italic mb-12 max-w-2xl mx-auto">
+              {language === 'fr'
+                ? "Contactez-nous dès aujourd'hui pour discuter de vos projets"
+                : "Contact us today to discuss your projects"}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact" className="group flex items-center justify-center gap-4 bg-[#0A192F] hover:bg-blue-600 text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all shadow-xl">
+                {language === 'fr' ? 'Nous contacter' : 'Contact us'}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
+              </Link>
+              <button
+                onClick={() => window.open('https://koalendar.com/e/meet-with-mbk-procurement', 'koalendar-popup', 'width=800,height=700,scrollbars=yes,resizable=yes')}
+                className="flex items-center justify-center gap-4 bg-transparent border-2 border-[#0A192F] text-[#0A192F] hover:bg-[#0A192F] hover:text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all"
+              >
+                {language === 'fr' ? 'Prendre rendez-vous' : 'Book a meeting'}
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
