@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { ArrowRight } from 'lucide-react';
 
 const ServiceLayout = ({ content, label, imageUrl, altText }) => {
   const { language } = useLanguage();
@@ -59,6 +61,32 @@ const ServiceLayout = ({ content, label, imageUrl, altText }) => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-[#0A192F] px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold italic tracking-tighter text-white mb-6">
+            {language === 'fr' ? 'Discutons de votre situation' : "Let's discuss your situation"}<span className="text-blue-600">.</span>
+          </h2>
+          <p className="text-gray-500 text-lg font-light italic mb-12 max-w-2xl mx-auto">
+            {language === 'fr'
+              ? "Contactez-nous dès aujourd'hui pour discuter de vos projets"
+              : "Contact us today to discuss your projects"}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact" className="group flex items-center justify-center gap-4 bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all shadow-xl">
+              {language === 'fr' ? 'Nous contacter' : 'Contact us'}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
+            </Link>
+            <button
+              onClick={() => window.open('https://koalendar.com/e/meet-with-mbk-procurement', 'koalendar-popup', 'width=800,height=700,scrollbars=yes,resizable=yes')}
+              className="flex items-center justify-center gap-4 bg-transparent border-2 border-gray-700 text-white hover:border-white px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] transition-all"
+            >
+              {language === 'fr' ? 'Prendre rendez-vous' : 'Book a meeting'}
+            </button>
+          </div>
         </div>
       </section>
     </div>
