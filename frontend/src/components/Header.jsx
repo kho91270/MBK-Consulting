@@ -9,7 +9,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Détection du scroll pour changer l'apparence
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -18,12 +17,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Logique de contraste : Blanc sur pages sombres, Marine sur pages claires
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   const isDarkPage = location.pathname === '/contact' || location.pathname === '/privacy' || location.pathname === '/legal';
   const isHomePage = location.pathname === '/';
-  
-  // Le texte est blanc si : on est en haut de la Home OU on est sur une page sombre (Contact/About)
-  // Sauf si on a scrollé, là le header devient blanc opaque et le texte marine.
   const shouldBeWhite = (isHomePage && !isScrolled) || (isDarkPage && !isScrolled);
 
   const navLinks = [
@@ -33,19 +32,28 @@ const Header = () => {
     { name: t.nav.mediation, path: '/mediation' },
   ];
 
+  const mobileLinks = [
+    { name: t.nav.home, path: '/' },
+    { name: t.nav.conseil, path: '/conseil' },
+    { name: t.nav.audit, path: '/audit' },
+    { name: t.nav.formation, path: '/formation' },
+    { name: t.nav.mediation, path: '/mediation' },
+    { name: t.nav.about, path: '/about' },
+    { name: language === 'fr' ? 'Cas Clients' : 'Case Studies', path: '/case-studies' },
+  ];
+
   return (
-    <header 
+    <header
       className={`fixed w-full z-[100] transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md py-4 shadow-lg' 
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md py-4 shadow-lg'
           : 'bg-transparent py-8'
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-        
-        {/* LOGO */}
-        <Link 
-          to="/" 
+
+        <Link
+          to="/"
           className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-300 ${
             shouldBeWhite ? 'text-white' : 'text-[#0A192F]'
           }`}
@@ -69,24 +77,22 @@ const Header = () => {
 
           <div className={`h-4 w-px transition-colors ${shouldBeWhite ? 'bg-white/20' : 'bg-gray-200'}`}></div>
 
-          {/* BOUTON CONTACT */}
           <Link
             to="/contact"
             className={`text-[10px] uppercase tracking-[0.3em] font-bold px-6 py-2.5 border transition-all duration-300 ${
-              shouldBeWhite 
-                ? 'border-white text-white hover:bg-white hover:text-[#0A192F]' 
+              shouldBeWhite
+                ? 'border-white text-white hover:bg-white hover:text-[#0A192F]'
                 : 'border-[#0A192F] text-[#0A192F] hover:bg-[#0A192F] hover:text-white'
             }`}
           >
             {t.nav.contact}
           </Link>
 
-          {/* LANGUE */}
           <button
             onClick={toggleLanguage}
             className={`text-[10px] font-bold w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
-              shouldBeWhite 
-                ? 'border-white/30 text-white hover:bg-blue-600 hover:border-blue-600' 
+              shouldBeWhite
+                ? 'border-white/30 text-white hover:bg-blue-600 hover:border-blue-600'
                 : 'border-gray-200 text-gray-500 hover:border-[#0A192F] hover:text-[#0A192F]'
             }`}
           >
@@ -95,38 +101,53 @@ const Header = () => {
         </nav>
 
         {/* MOBILE MENU TOGGLE */}
-        <button 
-          className="lg:hidden"
+        <button
+          className="lg:hidden relative z-[101]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <X className={shouldBeWhite ? 'text-white' : 'text-[#0A192F]'} />
+            <X className="text-white w-6 h-6" />
           ) : (
-            <Menu className={shouldBeWhite ? 'text-white' : 'text-[#0A192F]'} />
+            <Menu className={`w-6 h-6 ${shouldBeWhite ? 'text-white' : 'text-[#0A192F]'}`} />
           )}
         </button>
       </div>
 
-     {/* MOBILE NAV OVERLAY */}
+      {/* MOBILE NAV OVERLAY */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-[#0A192F] z-[99] transition-opacity duration-500 flex flex-col justify-center items-center gap-8">
-          {navLinks.map((link) => (
+        <div className="fixed inset-0 bg-[#0A192F] z-[99] flex flex-col justify-center items-center gap-6 px-8">
+
+          {mobileLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl font-serif italic uppercase tracking-widest"
+              className={`text-xl font-serif italic uppercase tracking-widest transition-colors ${
+                location.pathname === link.path ? 'text-blue-500' : 'text-white'
+              }`}
             >
               {link.name}
             </Link>
           ))}
+
           <Link
             to="/contact"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-4 px-10 py-4 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold"
+            className="mt-4 px-10 py-4 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold text-sm"
           >
             {t.nav.contact}
           </Link>
+
+          {/* TOGGLE LANGUE MOBILE */}
+          <button
+            onClick={() => {
+              toggleLanguage();
+              setIsMenuOpen(false);
+            }}
+            className="mt-2 w-12 h-12 rounded-full border border-white/30 text-white text-xs font-bold flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all"
+          >
+            {language === 'fr' ? 'EN' : 'FR'}
+          </button>
         </div>
       )}
     </header>
