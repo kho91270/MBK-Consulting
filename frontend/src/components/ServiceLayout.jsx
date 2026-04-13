@@ -42,8 +42,8 @@ const ServiceLayout = ({ content, label, imageUrl, altText, faq }) => {
         </Helmet>
       )}
 
-      <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
-        <h1 className="text-5xl md:text-8xl !font-serif !font-bold tracking-tighter leading-[0.9] !italic mb-10">
+      <header className="pt-28 lg:pt-48 pb-12 lg:pb-20 px-6 lg:px-8 max-w-7xl mx-auto">
+        <h1 className="text-4xl md:text-8xl !font-serif !font-bold tracking-tighter leading-[0.9] !italic mb-10">
           {content.title}<span className="text-blue-600">.</span>
         </h1>
         <p className="max-w-4xl text-xl md:text-2xl text-gray-500 font-light leading-relaxed !italic border-l-4 border-blue-50 pl-10">
