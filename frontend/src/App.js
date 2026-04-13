@@ -28,7 +28,7 @@ function App() {
       <LanguageProvider>
         <BrowserRouter>
           <ScrollToTop />
-          <div className="App min-h-screen flex flex-col overflow-x-hidden">
+          <div className="App min-h-screen flex flex-col">
             <Header />
             <Breadcrumbs />
             <main className="flex-grow">
