@@ -21,6 +21,15 @@ const Header = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
+
   const isDarkPage = location.pathname === '/contact' || location.pathname === '/privacy' || location.pathname === '/legal';
   const isHomePage = location.pathname === '/';
   const shouldBeWhite = (isHomePage && !isScrolled) || (isDarkPage && !isScrolled);
@@ -46,11 +55,11 @@ const Header = () => {
     <header
       className={`fixed w-full z-[100] transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md py-4 shadow-lg'
-          : 'bg-transparent py-8'
+          ? 'bg-white/95 backdrop-blur-md py-3 lg:py-4 shadow-lg'
+          : 'bg-transparent py-5 lg:py-8'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
 
         <Link
           to="/"
@@ -104,6 +113,7 @@ const Header = () => {
         <button
           className="lg:hidden relative z-[101]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Menu"
         >
           {isMenuOpen ? (
             <X className="text-white w-6 h-6" />
@@ -115,39 +125,42 @@ const Header = () => {
 
       {/* MOBILE NAV OVERLAY */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-[#0A192F] z-[99] flex flex-col justify-center items-center gap-6 px-8">
+        <div className="fixed inset-0 bg-[#0A192F] z-[99] overflow-y-auto">
+          <div className="flex flex-col justify-center items-center min-h-full py-24 px-8 gap-5">
 
-          {mobileLinks.map((link) => (
+            {mobileLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-lg font-serif italic uppercase tracking-widest transition-colors ${
+                  location.pathname === link.path ? 'text-blue-500' : 'text-white'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            <div className="w-12 h-px bg-gray-800 my-2"></div>
+
             <Link
-              key={link.path}
-              to={link.path}
+              to="/contact"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-xl font-serif italic uppercase tracking-widest transition-colors ${
-                location.pathname === link.path ? 'text-blue-500' : 'text-white'
-              }`}
+              className="px-10 py-3 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold text-xs"
             >
-              {link.name}
+              {t.nav.contact}
             </Link>
-          ))}
 
-          <Link
-            to="/contact"
-            onClick={() => setIsMenuOpen(false)}
-            className="mt-4 px-10 py-4 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold text-sm"
-          >
-            {t.nav.contact}
-          </Link>
-
-          {/* TOGGLE LANGUE MOBILE */}
-          <button
-            onClick={() => {
-              toggleLanguage();
-              setIsMenuOpen(false);
-            }}
-            className="mt-2 w-12 h-12 rounded-full border border-white/30 text-white text-xs font-bold flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all"
-          >
-            {language === 'fr' ? 'EN' : 'FR'}
-          </button>
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsMenuOpen(false);
+              }}
+              className="w-11 h-11 rounded-full border border-white/30 text-white text-xs font-bold flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all"
+            >
+              {language === 'fr' ? 'EN' : 'FR'}
+            </button>
+          </div>
         </div>
       )}
     </header>
