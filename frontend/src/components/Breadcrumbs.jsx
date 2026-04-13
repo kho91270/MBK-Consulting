@@ -1,42 +1,46 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { ChevronRight } from 'lucide-react';
 
 const Breadcrumbs = () => {
   const { language, t } = useLanguage();
   const location = useLocation();
 
-  const pathMap = {
-    '/conseil': language === 'fr' ? 'Conseil' : 'Consulting',
-    '/audit': 'Audit',
-    '/formation': 'Formation',
-    '/mediation': language === 'fr' ? 'Médiation' : 'Mediation',
-    '/about': language === 'fr' ? 'Le Cabinet' : 'About',
-    '/contact': 'Contact',
-  };
+  // On définit les liens que l'on veut rendre accessibles rapidement
+  const navLinks = [
+    { path: '/about', label: t.nav.about },
+    { path: '/conseil', label: t.nav.conseil },
+    { path: '/audit', label: t.nav.audit },
+    { path: '/formation', label: t.nav.formation },
+    { path: '/mediation', label: t.nav.mediation },
+    { path: '/contact', label: t.nav.contact },
+  ];
 
   const currentPath = location.pathname;
-  const pageName = pathMap[currentPath];
-
-  if (!pageName || currentPath === '/') return null;
+  if (currentPath === '/') return null;
 
   return (
-    <nav className="fixed top-[64px] left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 py-3">
-        {/* Conteneur de scroll forcé pour mobile */}
-        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest overflow-x-auto no-scrollbar whitespace-nowrap">
-          <Link to="/" className="text-gray-400 hover:text-blue-600 shrink-0">
-            {language === 'fr' ? 'Accueil' : 'Home'}
-          </Link>
-          <ChevronRight className="w-3 h-3 text-gray-300 shrink-0" />
-          <span className="text-blue-600 font-bold shrink-0">{pageName}</span>
-          
-          {/* On rajoute les autres services en accès rapide pour faciliter la navigation mobile */}
-          <ChevronRight className="w-3 h-3 text-gray-300 shrink-0" />
-          <Link to="/about" className="text-gray-400 shrink-0">{t.nav.about}</Link>
-          <ChevronRight className="w-3 h-3 text-gray-300 shrink-0" />
-          <Link to="/contact" className="text-gray-400 shrink-0">{t.nav.contact}</Link>
+    <nav className="fixed top-[64px] left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center h-12 overflow-x-auto no-scrollbar gap-8">
+          {navLinks.map((link) => {
+            const isActive = currentPath === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-[10px] uppercase tracking-[0.2em] transition-all shrink-0 whitespace-nowrap ${
+                  isActive 
+                    ? "text-[#0A192F] font-bold border-b-2 border-blue-600 pb-1" 
+                    : "text-gray-400 hover:text-[#0A192F]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          {/* Petit espace vide à la fin pour le confort du scroll mobile */}
+          <div className="w-6 shrink-0" />
         </div>
       </div>
     </nav>
