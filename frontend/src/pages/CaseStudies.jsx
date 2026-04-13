@@ -1,3 +1,333 @@
+
+1. src/index.css (ajout html { overflow-x: hidden; })
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.6s ease-out forwards; }
+.animate-slideInRight { animation: slideInRight 0.6s ease-out forwards; }
+.animate-scaleIn { animation: scaleIn 0.5s ease-out forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* Hover lift utility */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Scrollbar hiding utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --border: 0 0% 89.8%;
+        --radius: 0.75rem;
+    }
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+    }
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground; }
+}
+2. src/App.js (overflow-x-hidden retiré du div)
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { LanguageProvider } from './context/LanguageContext';
+import { Toaster } from './components/ui/toaster';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import Breadcrumbs from './components/Breadcrumbs';
+import Home from './pages/Home';
+import Conseil from './pages/Conseil';
+import Audit from './pages/Audit';
+import Formation from './pages/Formation';
+import Mediation from './pages/Mediation';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Legal from './pages/Legal';
+import CaseStudies from './pages/CaseStudies';
+import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
+import './App.css';
+
+function App() {
+  return (
+    <HelmetProvider>
+      <LanguageProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <div className="App min-h-screen flex flex-col">
+            <Header />
+            <Breadcrumbs />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/conseil" element={<Conseil />} />
+                <Route path="/audit" element={<Audit />} />
+                <Route path="/formation" element={<Formation />} />
+                <Route path="/mediation" element={<Mediation />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/legal" element={<Legal />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+            <ScrollToTopButton />
+            <Toaster />
+          </div>
+        </BrowserRouter>
+      </LanguageProvider>
+    </HelmetProvider>
+  );
+}
+
+export default App;
+3. src/components/Header.jsx (overlay sorti du <header>, z-index corrigé)
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { Menu, X } from 'lucide-react';
+
+const Header = () => {
+  const { t, language, toggleLanguage } = useLanguage();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
+
+  const isDarkPage = location.pathname === '/contact' || location.pathname === '/privacy' || location.pathname === '/legal';
+  const isHomePage = location.pathname === '/';
+  const shouldBeWhite = (isHomePage && !isScrolled) || (isDarkPage && !isScrolled);
+
+  const navLinks = [
+    { name: t.nav.conseil, path: '/conseil' },
+    { name: t.nav.audit, path: '/audit' },
+    { name: t.nav.formation, path: '/formation' },
+    { name: t.nav.mediation, path: '/mediation' },
+  ];
+
+  const mobileLinks = [
+    { name: t.nav.home || (language === 'fr' ? 'Accueil' : 'Home'), path: '/' },
+    { name: t.nav.conseil, path: '/conseil' },
+    { name: t.nav.audit, path: '/audit' },
+    { name: t.nav.formation, path: '/formation' },
+    { name: t.nav.mediation, path: '/mediation' },
+    { name: t.nav.about, path: '/about' },
+    { name: language === 'fr' ? 'Cas Clients' : 'Case Studies', path: '/case-studies' },
+  ];
+
+  return (
+    <>
+      <header
+        className={`fixed w-full z-[100] transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md py-3 lg:py-4 shadow-lg'
+            : 'bg-transparent py-4 sm:py-5 lg:py-8'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+
+          <Link
+            to="/"
+            className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-300 ${
+              shouldBeWhite ? 'text-white' : 'text-[#0A192F]'
+            }`}
+          >
+            MBK<span className="text-blue-600">.</span>
+          </Link>
+
+          {/* DESKTOP NAV */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-[11px] uppercase tracking-[0.4em] font-bold transition-all hover:text-blue-500 ${
+                  shouldBeWhite ? 'text-white/80' : 'text-[#0A192F]/80'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            <div className={`h-4 w-px transition-colors ${shouldBeWhite ? 'bg-white/20' : 'bg-gray-200'}`}></div>
+
+            <Link
+              to="/contact"
+              className={`text-[10px] uppercase tracking-[0.3em] font-bold px-6 py-2.5 border transition-all duration-300 ${
+                shouldBeWhite
+                  ? 'border-white text-white hover:bg-white hover:text-[#0A192F]'
+                  : 'border-[#0A192F] text-[#0A192F] hover:bg-[#0A192F] hover:text-white'
+              }`}
+            >
+              {t.nav.contact}
+            </Link>
+
+            <button
+              onClick={toggleLanguage}
+              className={`text-[10px] font-bold w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
+                shouldBeWhite
+                  ? 'border-white/30 text-white hover:bg-blue-600 hover:border-blue-600'
+                  : 'border-gray-200 text-gray-500 hover:border-[#0A192F] hover:text-[#0A192F]'
+              }`}
+            >
+              {language === 'fr' ? 'EN' : 'FR'}
+            </button>
+          </nav>
+
+          {/* MOBILE MENU TOGGLE */}
+          <button
+            className={`lg:hidden relative z-[101] p-2 -mr-2 ${isMenuOpen ? 'text-white' : shouldBeWhite ? 'text-white' : 'text-[#0A192F]'}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Menu"
+            style={{ WebkitTapHighlightColor: 'transparent' }}
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* MOBILE NAV OVERLAY — rendu en dehors du <header> pour éviter les problèmes de stacking context mobile */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-[#0A192F] z-[200] overflow-y-auto">
+          <div className="flex flex-col justify-center items-center min-h-full py-24 px-8 gap-5">
+
+            {mobileLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-lg font-serif italic uppercase tracking-widest transition-colors ${
+                  location.pathname === link.path ? 'text-blue-500' : 'text-white'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            <div className="w-12 h-px bg-gray-800 my-2"></div>
+
+            <Link
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="px-10 py-3 border border-blue-500 text-blue-500 uppercase tracking-widest font-bold text-xs"
+            >
+              {t.nav.contact}
+            </Link>
+
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsMenuOpen(false);
+              }}
+              className="w-11 h-11 rounded-full border border-white/30 text-white text-xs font-bold flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all"
+            >
+              {language === 'fr' ? 'EN' : 'FR'}
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Header;
+4. src/pages/CaseStudies.jsx (refait pour mobile)
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,142 +337,97 @@ import SEO from '../components/SEO';
 const CaseStudies = () => {
   const { language } = useLanguage();
 
-  const cases = [
-    {
-      id: 1,
-      client: 'Kingfisher',
-      sector: language === 'fr' ? 'Distribution & Retail' : 'Distribution & Retail',
-      context: language === 'fr'
-        ? "Groupe international de distribution spécialisée, présent dans plusieurs pays européens. La direction générale constatait un manque de visibilité sur la performance réelle de ses contrats Facility Management et une absence de pilotage structuré de ses fournisseurs stratégiques."
-        : "International specialist retail group operating across several European countries. Senior management identified a lack of visibility on the actual performance of its Facility Management contracts and the absence of structured management of strategic suppliers.",
-      mission: language === 'fr'
-        ? "Prise en charge du management des appels d'offres européens sur les catégories Facility Management. Structuration de la gestion contractuelle fournisseurs : revue du parc de contrats, mise en place d'indicateurs de performance, pilotage des SLA et suivi de la conformité contractuelle. Accompagnement des équipes internes dans la conduite des négociations et la sécurisation des engagements."
-        : "Management of European tenders across Facility Management categories. Structuring of supplier contract management: contract portfolio review, implementation of performance indicators, SLA monitoring and contractual compliance tracking. Support for internal teams in conducting negotiations and securing commitments.",
-      results: [
-        { value: '13% → 96%', label: language === 'fr' ? 'Conformité contractuelle' : 'Contractual compliance' },
-        { value: '-23%', label: language === 'fr' ? "Sur appels d'offres européens" : 'On European tenders' },
-        { value: '100%', label: language === 'fr' ? 'Couverture contractuelle FM' : 'FM contract coverage' }
-      ]
-    },
-    {
-      id: 2,
-      client: 'Logista',
-      sector: language === 'fr' ? 'Logistique & Distribution' : 'Logistics & Distribution',
-      context: language === 'fr'
-        ? "Leader européen de la distribution de proximité, Logista devait transférer l'ensemble de ses opérations logistiques d'un site historique vers un nouveau bâtiment. L'enjeu : assurer la continuité d'exploitation sans rupture de service, tout en respectant un calendrier serré et un budget contraint."
-        : "European leader in proximity distribution, Logista needed to relocate its entire logistics operations from a legacy site to a new facility. The challenge: ensuring operational continuity without service disruption, while meeting a tight schedule and constrained budget.",
-      mission: language === 'fr'
-        ? "Pilotage end-to-end du projet de déménagement : coordination des prestataires de déménagement industriel, supervision de la restitution de l'ancien site aux normes contractuelles, sourcing et sélection des entreprises d'aménagement du nouveau bâtiment. Suivi de l'installation complète — du gros œuvre aux postes de travail — jusqu'à la validation de la mise en exploitation opérationnelle."
-        : "End-to-end project management of the relocation: coordination of industrial moving contractors, supervision of former site handover to contractual standards, sourcing and selection of fit-out companies for the new building. Oversight of complete installation — from structural works to workstations — through to operational go-live validation.",
-      results: [
-        { value: '0', label: language === 'fr' ? "Jours d'interruption" : 'Days of disruption' },
-        { value: '100%', label: language === 'fr' ? 'Délais respectés' : 'On-time delivery' },
-        { value: language === 'fr' ? 'Budget maîtrisé' : 'Budget controlled', label: language === 'fr' ? 'Aucun dépassement' : 'No overrun' }
-      ]
-    },
-    {
-      id: 3,
-      client: 'SBFM',
-      sector: 'Facility Management',
-      context: language === 'fr'
-        ? "Acteur reconnu du Facility Management au Royaume-Uni, SBFM souhaitait accélérer son développement sur le marché européen continental. L'entreprise ne disposait pas du réseau de sous-traitants nécessaire pour répondre aux exigences locales de ses futurs clients grands comptes en Europe."
-        : "An established Facility Management provider in the United Kingdom, SBFM sought to accelerate its expansion into the continental European market. The company lacked the subcontractor network required to meet the local requirements of its future enterprise clients in Europe.",
-      mission: language === 'fr'
-        ? "Sourcing stratégique de sous-traitants spécialisés en Facility Management sur les marchés cibles européens. Qualification des prestataires selon les standards de qualité, de conformité et de capacité opérationnelle requis. Constitution d'un panel fournisseurs opérationnel permettant à SBFM de répondre immédiatement aux appels d'offres européens avec une couverture locale crédible."
-        : "Strategic sourcing of specialized Facility Management subcontractors across target European markets. Qualification of providers against required quality, compliance and operational capacity standards. Building of an operational supplier panel enabling SBFM to immediately respond to European tenders with credible local coverage.",
-      results: [
-        { value: '5', label: language === 'fr' ? 'Marchés européens ouverts' : 'European markets opened' },
-        { value: '30+', label: language === 'fr' ? 'Sous-traitants qualifiés' : 'Qualified subcontractors' },
-        { value: language === 'fr' ? 'Opérationnel' : 'Operational', label: language === 'fr' ? 'Panel actif en 4 mois' : 'Panel live in 4 months' }
-      ]
-    }
-  ];
-
   return (
     <>
       <SEO
-        title="Cas Clients"
-        description="Découvrez nos cas clients : conformité contractuelle de 13% à 96%, déménagement logistique sans interruption, sourcing européen en Facility Management. Résultats concrets."
+        title={language === 'fr' ? 'Cas Clients' : 'Case Studies'}
+        description="Découvrez comment MBK Procurement a accompagné des leaders européens : Kingfisher, Logista, SBFM."
         canonical="https://www.mbkprocurement.com/case-studies"
-        keywords="cas client procurement, résultats audit achats, économies achats, ROI consultant, appels offres européens, facility management"
       />
       <div className="min-h-screen bg-white font-sans text-[#0A192F]">
-        <header className="pt-48 pb-20 px-8 max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-8xl !font-serif !font-bold tracking-tighter leading-[0.9] !italic mb-10">
+        <header className="pt-20 sm:pt-28 lg:pt-48 pb-8 sm:pb-12 lg:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-8xl font-serif font-bold tracking-tighter italic leading-[0.9] mb-6 sm:mb-8">
             {language === 'fr' ? 'Cas Clients' : 'Case Studies'}<span className="text-blue-600">.</span>
           </h1>
-          <p className="max-w-4xl text-xl md:text-2xl text-gray-500 font-light leading-relaxed !italic border-l-4 border-blue-50 pl-10">
+          <p className="max-w-3xl text-base sm:text-lg md:text-xl text-gray-500 font-light leading-relaxed italic">
             {language === 'fr'
-              ? "Nous ne publions pas d'études de cas inventées avec des noms génériques. Voici trois entreprises réelles, avec de vrais problèmes, et ce que nous avons concrètement mis en place pour les résoudre."
-              : "We don't publish fabricated case studies with generic names. Here are three real companies, with real problems, and what we concretely implemented to solve them."}
+              ? "Des missions concrètes, des résultats mesurables. Voici comment nous avons accompagné des leaders européens dans la transformation de leur fonction achats."
+              : "Concrete missions, measurable results. Here's how we supported European leaders in transforming their procurement function."}
           </p>
         </header>
 
-        <section className="relative w-full h-[65vh] bg-[#0A192F] overflow-hidden grayscale contrast-125 border-y border-gray-100">
+        <section className="relative w-full h-[30vh] sm:h-[40vh] md:h-[55vh] bg-[#0A192F] overflow-hidden grayscale contrast-125 border-y border-gray-100">
           <img
-            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000&fm=webp"
-            alt={language === 'fr' ? 'Collaboration professionnelle illustrant les cas clients de MBK Procurement' : 'Professional collaboration illustrating MBK Procurement case studies'}
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&fm=webp"
+            alt={language === 'fr' ? 'Références clients MBK Procurement' : 'MBK Procurement client references'}
             loading="lazy"
-            className="w-full h-full object-cover object-center opacity-60 scale-105 hover:scale-100 transition-transform duration-[4000ms] ease-out"
-            onError={(e) => {
-              e.target.src = 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2000&fm=webp';
-            }}
+            className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40"></div>
         </section>
 
-        <section className="py-32 px-8 max-w-7xl mx-auto">
-          <div className="space-y-32">
-            {cases.map((caseItem, index) => (
-              <div key={caseItem.id} className="border-t-2 border-gray-100 pt-16 group hover:border-blue-600 transition-colors duration-700">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-12 gap-4">
-                  <div>
-                    <span className="text-blue-600 text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">{caseItem.sector}</span>
-                    <h2 className="text-3xl md:text-5xl !font-serif !font-bold !italic tracking-tighter leading-tight">
-                      {caseItem.client}<span className="text-blue-600">.</span>
-                    </h2>
-                  </div>
-                  <span className="text-gray-200 text-7xl md:text-9xl !font-serif !italic leading-none">0{index + 1}</span>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-16 mb-16">
-                  <div className="border-l-2 border-blue-50 pl-8">
-                    <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">{language === 'fr' ? 'Contexte' : 'Context'}</h3>
-                    <p className="text-lg text-gray-500 font-light leading-relaxed !italic">{caseItem.context}</p>
-                  </div>
-                  <div className="border-l-2 border-blue-50 pl-8">
-                    <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">Mission</h3>
-                    <p className="text-lg text-gray-500 font-light leading-relaxed !italic">{caseItem.mission}</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-8">
-                  {caseItem.results.map((result, idx) => (
-                    <div key={idx} className={`p-8 ${idx === 0 ? 'bg-[#0A192F]' : 'bg-gray-50 border border-gray-100'} hover:-translate-y-2 transition-transform duration-500`}>
-                      <div className={`text-4xl md:text-5xl !font-serif !italic mb-2 ${idx === 0 ? 'text-white' : 'text-[#0A192F]'}`}>{result.value}</div>
-                      <div className={`text-xs font-light uppercase tracking-wider ${idx === 0 ? 'text-gray-400' : 'text-gray-500'}`}>{result.label}</div>
-                    </div>
-                  ))}
-                </div>
+        <section className="py-12 sm:py-16 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-1 gap-8 sm:gap-12 md:gap-16">
+            <div className="border-t-2 border-gray-100 pt-8 sm:pt-10">
+              <div className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-3">
+                {language === 'fr' ? "Appels d'offres & Contrats" : 'Tenders & Contracts'}
               </div>
-            ))}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif italic font-bold tracking-tight mb-4">Kingfisher</h2>
+              <p className="text-gray-500 font-light leading-relaxed italic text-sm sm:text-base max-w-3xl">
+                {language === 'fr'
+                  ? "Management d'appels d'offres européens, gestion contractuelle fournisseurs et pilotage de la performance des contrats Facility Management."
+                  : "European tender management, supplier contract management and FM contract performance monitoring."}
+              </p>
+            </div>
+
+            <div className="border-t-2 border-gray-100 pt-8 sm:pt-10">
+              <div className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-3">
+                {language === 'fr' ? 'Logistique & Transfert' : 'Logistics & Transfer'}
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif italic font-bold tracking-tight mb-4">Logista</h2>
+              <p className="text-gray-500 font-light leading-relaxed italic text-sm sm:text-base max-w-3xl">
+                {language === 'fr'
+                  ? "Pilotage end-to-end du déménagement d'un site logistique : restitution de l'ancien site, aménagement complet du nouveau jusqu'à son exploitation opérationnelle."
+                  : "End-to-end management of a logistics site relocation: handover of the former site, full fit-out of the new facility through to operational launch."}
+              </p>
+            </div>
+
+            <div className="border-t-2 border-gray-100 pt-8 sm:pt-10">
+              <div className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-3">
+                {language === 'fr' ? 'Sourcing & Développement' : 'Sourcing & Development'}
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif italic font-bold tracking-tight mb-4">SBFM</h2>
+              <p className="text-gray-500 font-light leading-relaxed italic text-sm sm:text-base max-w-3xl">
+                {language === 'fr'
+                  ? "Sourcing stratégique pour le développement d'un nouveau marché en Europe et identification de sous-traitants spécialisés en Facility Management."
+                  : "Strategic sourcing for European market expansion and identification of specialized Facility Management subcontractors."}
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className="bg-gray-50 py-24 px-8 border-y border-gray-100">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div>
-              <h2 className="text-4xl md:text-5xl !font-serif !font-bold !italic tracking-tighter mb-4">
-                {language === 'fr' ? 'Un projet, un enjeu achats' : 'A project, a procurement challenge'}<span className="text-blue-600"> ?</span>
-              </h2>
-              <p className="text-gray-500 text-lg font-light !italic">
-                {language === 'fr' ? "Parlons-en. Chaque situation mérite une réponse sur mesure." : "Let's talk. Every situation deserves a tailored response."}
-              </p>
+        {/* CTA */}
+        <section className="py-12 md:py-24 bg-[#0A192F] px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold italic tracking-tighter text-white mb-6">
+              {language === 'fr' ? 'Un projet similaire ?' : 'A similar project?'}<span className="text-blue-600">.</span>
+            </h2>
+            <p className="text-gray-500 text-base sm:text-lg font-light italic mb-8 sm:mb-12 max-w-2xl mx-auto">
+              {language === 'fr'
+                ? "Contactez-nous pour discuter de vos enjeux achats."
+                : "Contact us to discuss your procurement challenges."}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact" className="group flex items-center justify-center gap-3 sm:gap-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 sm:px-10 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all shadow-xl">
+                {language === 'fr' ? 'Nous contacter' : 'Contact us'}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
+              </Link>
+              <button
+                onClick={() => window.open('https://koalendar.com/e/meet-with-mbk-procurement', 'koalendar-popup', 'width=800,height=700,scrollbars=yes,resizable=yes')}
+                className="flex items-center justify-center gap-3 sm:gap-4 bg-transparent border-2 border-gray-700 text-white hover:border-white px-6 py-4 sm:px-10 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all"
+              >
+                {language === 'fr' ? 'Prendre rendez-vous' : 'Book a meeting'}
+              </button>
             </div>
-            <Link to="/contact" className="group flex items-center gap-4 px-10 py-5 bg-[#0A192F] text-white text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-blue-600 transition-colors duration-300 whitespace-nowrap">
-              {language === 'fr' ? 'Nous contacter' : 'Contact us'}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
-            </Link>
           </div>
         </section>
       </div>
