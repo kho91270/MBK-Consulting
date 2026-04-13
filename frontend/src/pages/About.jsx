@@ -16,23 +16,18 @@ const About = () => {
         title="Le Cabinet"
         description="MBK Procurement : identité stratégique et standards d'excellence. Cabinet né de la conviction que les achats sont le moteur secret de la rentabilité."
         canonical="https://www.mbkprocurement.com/about"
-        keywords="cabinet conseil achats Paris, expertise procurement, consultant achats senior"
       />
       
       <div className="min-h-screen bg-white font-sans text-[#0A192F] overflow-x-hidden">
         
-        {/* Header - Ajusté pour éviter l'espace blanc avec Breadcrumbs fixed */}
+        {/* Header de page - Ajusté pour la Navbar fixed sans Breadcrumbs */}
         <header className="pt-32 sm:pt-48 pb-10 sm:pb-16 px-6 sm:px-8 max-w-7xl mx-auto">
           <h1 className="text-4xl sm:text-6xl md:text-8xl !font-serif !font-bold tracking-tighter italic leading-none">
-            {content.title && (
-              <>
-                {content.title}<span className="text-blue-600">.</span>
-              </>
-            )}
+            {content.title}<span className="text-blue-600">.</span>
           </h1>
         </header>
 
-        {/* Section Hero / Philosophie */}
+        {/* Section Hero */}
         <section className="relative w-full h-[50vh] sm:h-[70vh] bg-[#0A192F] overflow-hidden grayscale contrast-125">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&fm=webp&auto=format&fit=crop"
@@ -47,7 +42,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Notre histoire */}
+        {/* Notre Histoire */}
         <section className="py-16 sm:py-32 px-6 sm:px-8 max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-5xl !font-serif !font-bold italic tracking-tighter mb-12">
             {content.historyTitle}<span className="text-blue-600">.</span>
@@ -62,7 +57,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Identité & Méthodologie */}
+        {/* ADN & Méthodologie */}
         <section className="py-16 sm:py-32 px-6 sm:px-8 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 border-t border-gray-100">
           <div className="flex flex-col border-t-2 border-[#0A192F] pt-10">
             <h2 className="text-3xl !font-serif !font-bold mb-6 italic tracking-tighter">
@@ -90,34 +85,22 @@ const About = () => {
             </h2>
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h3 className="text-xl font-serif italic font-bold mb-4">
-                  {content.commitmentResultTitle}<span className="text-blue-600">.</span>
-                </h3>
-                <p className="text-gray-500 font-light italic leading-relaxed">
-                  {content.commitmentResultText}
-                </p>
+                <h3 className="text-xl font-serif italic font-bold mb-4">{content.commitmentResultTitle}<span className="text-blue-600">.</span></h3>
+                <p className="text-gray-500 font-light italic leading-relaxed">{content.commitmentResultText}</p>
               </div>
               <div>
-                <h3 className="text-xl font-serif italic font-bold mb-4">
-                  {content.commitmentTransferTitle}<span className="text-blue-600">.</span>
-                </h3>
-                <p className="text-gray-500 font-light italic leading-relaxed">
-                  {content.commitmentTransferText}
-                </p>
+                <h3 className="text-xl font-serif italic font-bold mb-4">{content.commitmentTransferTitle}<span className="text-blue-600">.</span></h3>
+                <p className="text-gray-500 font-light italic leading-relaxed">{content.commitmentTransferText}</p>
               </div>
               <div>
-                <h3 className="text-xl font-serif italic font-bold mb-4">
-                  {content.commitmentConfidentialityTitle}<span className="text-blue-600">.</span>
-                </h3>
-                <p className="text-gray-500 font-light italic leading-relaxed">
-                  {content.commitmentConfidentialityText}
-                </p>
+                <h3 className="text-xl font-serif italic font-bold mb-4">{content.commitmentConfidentialityTitle}<span className="text-blue-600">.</span></h3>
+                <p className="text-gray-500 font-light italic leading-relaxed">{content.commitmentConfidentialityText}</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION CTA STANDARDISÉE */}
+        {/* CTA FINAL STANDARDISÉ */}
         <section className="py-24 bg-[#0A192F] px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-serif font-bold italic tracking-tighter text-white mb-6">
