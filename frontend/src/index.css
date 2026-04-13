@@ -2,40 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- FONT CONFIGURATION --- */
 body {
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Empêche le rebond horizontal parasite sur mobile */
+    overflow-x: hidden; 
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', 'Inter', sans-serif;
+    font-family: 'Playfair Display', serif; /* Utilise ta font serif pour MBK */
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
 /* --- ANIMATIONS --- */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scrollHint {
     0% { transform: translateX(0); }
-    20% { transform: translateX(-40px); } 
+    20% { transform: translateX(-30px); } 
     40% { transform: translateX(0); }
 }
 
 .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
 
-/* --- TRANSITIONS GLOBALES --- */
-* {
-    transition-property: color, background-color, border-color, opacity, transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
+/* --- TRANSITIONS --- */
+/* On limite les transitions pour éviter les bugs de scroll sur mobile */
+.transition-standard {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- MBK UTILS --- */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 @layer base {
@@ -48,42 +57,38 @@ h1, h2, h3, h4, h5, h6 {
     body { @apply bg-background text-foreground; }
 }
 
-/* --- OPTIMISATION MOBILE & NAVIGATION (CORRECTION) --- */
+/* --- OPTIMISATION MOBILE (SOLUTIONS AUX BUGS) --- */
 @media (max-width: 768px) {
-    /* 1. Fix pour le titre */
-    h1 {
-        font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
-        line-height: 1.1 !important;
+    /* 1. Reset des positions pour la "box de contact bleue" si elle bug */
+    .mobile-static {
+        position: relative !important;
+        transform: none !important;
     }
 
-    /* 2. Fix pour le Menu Breadcrumbs / Navigation horizontale */
+    /* 2. Menu Breadcrumbs horizontal fluide */
     .no-scrollbar {
         display: flex !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
+        -webkit-overflow-scrolling: touch; /* Scroll "native-like" sur iOS */
         scroll-snap-type: x mandatory;
-        gap: 16px !important;
-        padding: 5px 20px !important;
-        
-        /* SUPPRESSION CRITIQUE : On retire les masques qui bloquent les clics */
+        gap: 12px !important;
+        padding: 5px 15px !important;
+        /* CRITIQUE : Suppression du mask-image qui bloquait les clics */
         mask-image: none !important;
         -webkit-mask-image: none !important;
-        
-        /* Animation plus courte pour l'indice visuel */
-        animation: scrollHint 1.2s ease-in-out;
     }
 
-    /* Cache la scrollbar sur tous les navigateurs */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none !important;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none !important;
-        scrollbar-width: none !important;
+    /* 3. Ajustement du titre pour éviter qu'il ne pousse le layout */
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+        line-height: 1.1 !important;
     }
 
-    /* 3. Assurer que les liens ne rétrécissent pas */
-    .shrink-0 {
-        flex-shrink: 0 !important;
+    /* 4. Navigation fixe (Breadcrumbs) */
+    nav[aria-label="Breadcrumb"] {
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px);
+        z-index: 50 !important; /* Toujours au-dessus du contenu */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 }
