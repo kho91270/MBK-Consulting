@@ -2,40 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- CONFIGURATION DE BASE --- */
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
+    color: #0A192F;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; /* Empêche tout bug de largeur sur mobile */
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Empêche tout décalage horizontal parasite */
 }
 
-/* --- TYPOGRAPHIE MBK --- */
 .font-serif {
     font-family: 'Playfair Display', serif !important;
 }
 
-/* --- CORRECTION DES BUGS MOBILES --- */
-@media (max-width: 768px) {
-    /* Supprime la box bleue fixe qui "colle" au scroll */
-    section.py-24.bg-\[\#0A192F\], 
-    .group.flex.items-center.bg-blue-600 {
-        position: relative !important;
-        bottom: auto !important;
-        transform: none !important;
-        margin-top: 2rem;
-    }
-
-    /* Optimisation du Header pour qu'il ne cache pas le titre */
-    header {
-        padding-top: 5rem !important; /* Ajusté pour éviter le vide blanc */
-    }
-
-    /* Nettoyage des transitions pour éviter les saccades */
-    * {
-        transition-duration: 0.3s !important;
-    }
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- UTILS --- */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.animate-fadeIn { 
+    animation: fadeIn 0.8s ease-out forwards; 
+}
+
+/* --- TRANSITIONS --- */
+* {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* --- OPTIMISATION MOBILE (CORRECTION BUGS) --- */
+@media (max-width: 768px) {
+    /* Correction de la box de contact bleue qui reste fixe */
+    .App main section, 
+    .App main div {
+        position: relative !important;
+        transform: none !important;
+    }
+
+    /* Standardisation des titres sur mobile */
+    h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Menu horizontal fluide (utilisé dans le Header) */
+    .no-scrollbar {
+        display: flex !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+}
