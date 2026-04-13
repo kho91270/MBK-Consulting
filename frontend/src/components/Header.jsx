@@ -31,6 +31,7 @@ const Header = () => {
     { name: t.nav.audit, path: '/audit' },
     { name: t.nav.formation, path: '/formation' },
     { name: t.nav.mediation, path: '/mediation' },
+    { name: t.nav.about, path: '/about' },
   ];
 
   return (
