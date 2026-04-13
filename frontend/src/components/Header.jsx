@@ -13,7 +13,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -42,7 +42,7 @@ const Header = () => {
   ];
 
   const mobileLinks = [
-    { name: t.nav.home, path: '/' },
+    { name: t.nav.home || (language === 'fr' ? 'Accueil' : 'Home'), path: '/' },
     { name: t.nav.conseil, path: '/conseil' },
     { name: t.nav.audit, path: '/audit' },
     { name: t.nav.formation, path: '/formation' },
@@ -56,10 +56,10 @@ const Header = () => {
       className={`fixed w-full z-[100] transition-all duration-500 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md py-3 lg:py-4 shadow-lg'
-          : 'bg-transparent py-5 lg:py-8'
+          : 'bg-transparent py-4 sm:py-5 lg:py-8'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
         <Link
           to="/"
