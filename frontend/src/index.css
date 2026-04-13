@@ -2,118 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --- CONFIGURATION DE BASE --- */
 body {
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* Bloque tout décalage horizontal parasite sur mobile */
-    overflow-x: hidden; 
-    background-color: #ffffff;
+    overflow-x: hidden; /* Empêche tout bug de largeur sur mobile */
 }
 
-h1, h2, h3, h4, h5, h6 {
-    /* Force l'utilisation de Playfair pour l'élégance MBK */
+/* --- TYPOGRAPHIE MBK --- */
+.font-serif {
     font-family: 'Playfair Display', serif !important;
-    font-weight: 700;
-    letter-spacing: -0.02em;
 }
 
-/* --- SYSTÈME D'ANIMATIONS ÉPURÉ --- */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animation discrète pour suggérer le scroll horizontal du menu */
-@keyframes scrollHintDiscreet {
-    0% { transform: translateX(0); }
-    15% { transform: translateX(-15px); } 
-    30% { transform: translateX(0); }
-}
-
-.animate-fadeIn { 
-    animation: fadeIn 0.8s ease-out forwards; 
-}
-
-/* --- UTILS & NAVIGATION --- */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* --- VARIABLES DE THÈME --- */
-@layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --border: 0 0% 89.8%;
-    }
-    * { @apply border-border; }
-}
-
-/* --- OPTIMISATION MOBILE (STRATÉGIE LUXE) --- */
+/* --- CORRECTION DES BUGS MOBILES --- */
 @media (max-width: 768px) {
-    
-    /* 1. Stabilisation du Scroll Global */
-    html, body {
-        position: relative;
-        width: 100%;
-        overflow-x: hidden !important;
-    }
-
-    /* 2. Menu de Navigation Contextuel (sans fil d'ariane scolaire) */
-    .no-scrollbar {
-        display: flex !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch; /* Scroll élastique iOS */
-        scroll-snap-type: x mandatory;
-        gap: 2rem !important; /* Espacement large et élégant */
-        padding: 0 24px !important;
-        /* Suppression de tout masque qui bloquerait l'interaction tactile */
-        mask-image: none !important;
-        -webkit-mask-image: none !important;
-        animation: scrollHintDiscreet 1.5s ease-in-out;
-    }
-
-    .no-scrollbar > * {
-        scroll-snap-align: start;
-        flex-shrink: 0;
-    }
-
-    /* 3. Titres adaptatifs (Luxe & Impact) */
-    h1 {
-        font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
-        line-height: 1.1 !important;
-        letter-spacing: -0.04em !important;
-    }
-
-    /* 4. Correction de la "Box Bleue" fixe */
-    /* On s'assure que les sections de contact restent dans le flux normal 
-       et ne flottent pas de manière désordonnée lors du scroll mobile */
-    section.bg-\[\#0A192F\], 
-    .fixed-contact-box {
+    /* Supprime la box bleue fixe qui "colle" au scroll */
+    section.py-24.bg-\[\#0A192F\], 
+    .group.flex.items-center.bg-blue-600 {
         position: relative !important;
+        bottom: auto !important;
         transform: none !important;
-        z-index: 10 !important;
+        margin-top: 2rem;
     }
 
-    /* 5. Ajustement pour la barre de navigation fixed */
-    main {
-        padding-top: 48px; /* Évite que le contenu ne soit caché sous la barre contextuelle */
+    /* Optimisation du Header pour qu'il ne cache pas le titre */
+    header {
+        padding-top: 5rem !important; /* Ajusté pour éviter le vide blanc */
+    }
+
+    /* Nettoyage des transitions pour éviter les saccades */
+    * {
+        transition-duration: 0.3s !important;
     }
 }
 
-/* --- EFFETS DE SURVOL --- */
-.hover-lift {
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.hover-lift:hover {
-    transform: translateY(-4px);
-}
+/* --- UTILS --- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
