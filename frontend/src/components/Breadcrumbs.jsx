@@ -52,13 +52,34 @@ const Breadcrumbs = () => {
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
-      <nav aria-label="Breadcrumb" className="fixed top-20 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-8 py-3 flex items-center gap-2 text-xs">
-          <Link to="/" className="text-gray-400 hover:text-[#0A192F] transition-colors">
-            {language === 'fr' ? 'Accueil' : 'Home'}
-          </Link>
-          <ChevronRight className="w-3 h-3 text-gray-300" />
-          <span className="text-[#0A192F] font-medium">{pageName}</span>
+      
+      {/* OPTIMISATION : 
+          - top-[64px] (ou 16 unités Tailwind) pour coller sous le Header principal.
+          - z-50 pour passer au-dessus des images et animations.
+          - bg-white/95 pour une opacité forte qui garantit la lisibilité.
+      */}
+      <nav 
+        aria-label="Breadcrumb" 
+        className="fixed top-[64px] left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+      >
+        <div className="max-w-7xl mx-auto px-6 py-3">
+          {/* no-scrollbar : Classe CSS personnalisée pour le défilement horizontal.
+              flex-nowrap : Empêche le retour à la ligne des liens sur mobile.
+          */}
+          <div className="no-scrollbar flex items-center gap-2 text-xs overflow-x-auto flex-nowrap whitespace-nowrap">
+            <Link to="/" className="text-gray-400 hover:text-[#0A192F] transition-colors shrink-0">
+              {language === 'fr' ? 'Accueil' : 'Home'}
+            </Link>
+            
+            <ChevronRight className="w-3 h-3 text-gray-300 shrink-0" />
+            
+            <span className="text-[#0A192F] font-medium shrink-0">
+              {pageName}
+            </span>
+
+            {/* ESPACE DE SÉCURITÉ : Pour que le dernier élément ne colle pas au bord droit lors du scroll */}
+            <div className="w-6 shrink-0 md:hidden"></div>
+          </div>
         </div>
       </nav>
     </>
