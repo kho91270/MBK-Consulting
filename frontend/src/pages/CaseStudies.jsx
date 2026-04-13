@@ -73,8 +73,8 @@ const CaseStudies = () => {
           </h1>
           <p className="max-w-4xl text-xl md:text-2xl text-gray-500 font-light leading-relaxed !italic border-l-4 border-blue-50 pl-10">
             {language === 'fr'
-              ? "Chaque mission part d'un problème réel. Voici comment nous l'avons résolu."
-              : 'Every mission starts with a real problem. Here is how we solved it.'}
+              ? "Nous ne publions pas d'études de cas inventées avec des noms génériques. Voici trois entreprises réelles, avec de vrais problèmes, et ce que nous avons concrètement mis en place pour les résoudre."
+              : "We don't publish fabricated case studies with generic names. Here are three real companies, with real problems, and what we concretely implemented to solve them."}
           </p>
         </header>
 
