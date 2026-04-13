@@ -18,8 +18,8 @@ const About = () => {
         keywords="cabinet conseil achats Paris, expertise procurement, consultant achats senior"
       />
       <div className="min-h-screen bg-white font-sans text-[#0A192F]">
-        <header className="pt-48 pb-16 px-8 max-w-7xl mx-auto">
-          <h1 className="text-6xl md:text-8xl !font-serif !font-bold tracking-tighter italic leading-[0.85]">
+        <header className="pt-28 lg:pt-48 pb-10 lg:pb-16 px-6 lg:px-8 max-w-7xl mx-auto">
+          <h1 className="text-4xl md:text-8xl !font-serif !font-bold tracking-tighter italic leading-[0.85]">
             {content.title}<span className="text-blue-600">.</span>
           </h1>
         </header>
