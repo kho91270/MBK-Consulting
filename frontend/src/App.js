@@ -30,7 +30,6 @@ function App() {
           <ScrollToTop />
           <div className="App min-h-screen flex flex-col">
             <Header />
-            <Breadcrumbs />
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
