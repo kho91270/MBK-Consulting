@@ -85,6 +85,11 @@ const Contact = () => {
           <h1 className="text-7xl font-serif italic font-bold mb-4">
             {content.title || 'Contact'}
           </h1>
+          <p className="text-gray-500 text-lg font-light italic max-w-2xl mx-auto">
+            {language === 'fr'
+              ? "Chaque situation est différente. Que vous ayez un besoin précis ou simplement une question sur la performance de vos achats, le premier échange est toujours sans engagement. Nous vous répondons sous 24h."
+              : "Every situation is different. Whether you have a specific need or simply a question about your procurement performance, the first conversation is always no-commitment. We respond within 24 hours."}
+          </p>
         </div>
 
         <div className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-12">
@@ -102,7 +107,31 @@ const Contact = () => {
 
             <div className="space-y-4">
               <p className="text-gray-300">contact@mbkprocurement.com</p>
-              <p className="text-gray-500 text-sm">Paris — Luxembourg — New-York — Dubaï</p>
+            </div>
+
+            {/* Présence internationale */}
+            <div className="pt-6 border-t border-gray-800">
+              <h3 className="text-[10px] font-bold text-blue-500 tracking-[0.3em] uppercase mb-6">
+                {language === 'fr' ? 'Présence internationale' : 'International presence'}
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-white font-medium text-sm">Paris</p>
+                  <p className="text-gray-600 text-xs">{language === 'fr' ? 'Bureau principal' : 'Head office'}</p>
+                </div>
+                <div>
+                  <p className="text-white font-medium text-sm">Luxembourg</p>
+                  <p className="text-gray-600 text-xs">{language === 'fr' ? 'Interventions régulières' : 'Regular engagements'}</p>
+                </div>
+                <div>
+                  <p className="text-white font-medium text-sm">New York</p>
+                  <p className="text-gray-600 text-xs">{language === 'fr' ? 'Missions ponctuelles' : 'Project-based missions'}</p>
+                </div>
+                <div>
+                  <p className="text-white font-medium text-sm">{language === 'fr' ? 'Dubaï' : 'Dubai'}</p>
+                  <p className="text-gray-600 text-xs">{language === 'fr' ? 'Couverture Moyen-Orient' : 'Middle East coverage'}</p>
+                </div>
+              </div>
             </div>
 
             <div className="pt-8 border-t border-gray-800">
