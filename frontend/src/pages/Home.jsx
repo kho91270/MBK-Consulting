@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <SEO
         title="Accueil"
-        description="MBK Procurement : Cabinet d'expertise en audit, conseil stratégique, formation et médiation achats. Optimisez votre performance achats et votre EBITDA."
+        description="MBK Procurement : Cabinet d'anciens responsables achats et négociateurs terrain. Nous savons où se cachent les vrais leviers. Nous vous aidons à les actionner pour réduire vos coûts et sécuriser vos approvisionnements."
         canonical="https://www.mbkprocurement.com/"
         keywords="cabinet conseil achats, audit procurement, formation négociation, médiation commerciale, optimisation coûts, Paris, Luxembourg"
       />
