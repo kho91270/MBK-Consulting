@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <SEO
         title="Accueil"
-        description="MBK Procurement : Cabinet d'anciens responsables achats et négociateurs terrain. Nous savons où se cachent les vrais leviers. Nous vous aidons à les actionner pour réduire vos coûts et sécuriser vos approvisionnements."
+        description="MBK Procurement : Cabinet d'expertise en audit, conseil stratégique, formation et médiation achats. Optimisez votre performance achats et votre EBITDA."
         canonical="https://www.mbkprocurement.com/"
         keywords="cabinet conseil achats, audit procurement, formation négociation, médiation commerciale, optimisation coûts, Paris, Luxembourg"
       />
@@ -51,6 +51,11 @@ const Home = () => {
                 <h2 className="text-4xl md:text-6xl !font-serif !font-bold italic tracking-tighter leading-tight text-[#0A192F]">
                   {language === 'fr' ? 'Expertise en Action' : 'Expertise in Action'}<span className="text-blue-600">.</span>
                 </h2>
+                <p className="text-lg text-gray-500 font-light italic leading-relaxed">
+                  {language === 'fr'
+                    ? "La plupart des entreprises savent qu'elles dépensent trop. Ce qu'elles ne savent pas, c'est où, pourquoi, et comment y remédier sans désorganiser l'existant. C'est là que nous intervenons. Pas avec des slides — avec des résultats."
+                    : "Most companies know they're overspending. What they don't know is where, why, and how to fix it without disrupting what already works. That's where we come in. Not with slides — with results."}
+                </p>
                 <div className="space-y-8 border-l-2 border-blue-600 pl-8">
                   <h3 className="text-blue-600 text-[10px] font-bold uppercase tracking-[0.3em]">
                     {language === 'fr' ? 'Transformation & Gouvernance' : 'Transformation & Governance'}
@@ -95,10 +100,10 @@ const Home = () => {
               <h2 className="text-4xl md:text-6xl font-serif font-bold italic tracking-tighter text-white mb-6">
                 {language === 'fr' ? 'Références' : 'References'}<span className="text-blue-600">.</span>
               </h2>
-              <p className="text-gray-500 text-lg font-light italic max-w-2xl">
+              <p className="text-gray-500 text-lg font-light italic max-w-3xl">
                 {language === 'fr'
-                  ? "Des missions concrètes, des résultats mesurables. Nous accompagnons des leaders européens dans la transformation de leur fonction achats."
-                  : "Concrete missions, measurable results. We support European leaders in transforming their procurement function."}
+                  ? "Nous ne publions pas de témoignages anonymes. Voici les entreprises que nous avons accompagnées, les problèmes qu'elles rencontraient, et ce que nous avons livré."
+                  : "We don't publish anonymous testimonials. Here are the companies we have supported, the problems they faced, and what we delivered."}
               </p>
             </div>
 
