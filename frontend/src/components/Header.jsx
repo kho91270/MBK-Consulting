@@ -52,80 +52,83 @@ const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed w-full z-[100] transition-all duration-500 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md py-3 lg:py-4 shadow-lg'
-          : 'bg-transparent py-4 sm:py-5 lg:py-8'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-
-        <Link
-          to="/"
-          className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-300 ${
-            shouldBeWhite ? 'text-white' : 'text-[#0A192F]'
-          }`}
-        >
-          MBK<span className="text-blue-600">.</span>
-        </Link>
-
-        {/* DESKTOP NAV */}
-        <nav className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-[11px] uppercase tracking-[0.4em] font-bold transition-all hover:text-blue-500 ${
-                shouldBeWhite ? 'text-white/80' : 'text-[#0A192F]/80'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-
-          <div className={`h-4 w-px transition-colors ${shouldBeWhite ? 'bg-white/20' : 'bg-gray-200'}`}></div>
+    <>
+      <header
+        className={`fixed w-full z-[100] transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md py-3 lg:py-4 shadow-lg'
+            : 'bg-transparent py-4 sm:py-5 lg:py-8'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
           <Link
-            to="/contact"
-            className={`text-[10px] uppercase tracking-[0.3em] font-bold px-6 py-2.5 border transition-all duration-300 ${
-              shouldBeWhite
-                ? 'border-white text-white hover:bg-white hover:text-[#0A192F]'
-                : 'border-[#0A192F] text-[#0A192F] hover:bg-[#0A192F] hover:text-white'
+            to="/"
+            className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-300 ${
+              shouldBeWhite ? 'text-white' : 'text-[#0A192F]'
             }`}
           >
-            {t.nav.contact}
+            MBK<span className="text-blue-600">.</span>
           </Link>
 
+          {/* DESKTOP NAV */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-[11px] uppercase tracking-[0.4em] font-bold transition-all hover:text-blue-500 ${
+                  shouldBeWhite ? 'text-white/80' : 'text-[#0A192F]/80'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            <div className={`h-4 w-px transition-colors ${shouldBeWhite ? 'bg-white/20' : 'bg-gray-200'}`}></div>
+
+            <Link
+              to="/contact"
+              className={`text-[10px] uppercase tracking-[0.3em] font-bold px-6 py-2.5 border transition-all duration-300 ${
+                shouldBeWhite
+                  ? 'border-white text-white hover:bg-white hover:text-[#0A192F]'
+                  : 'border-[#0A192F] text-[#0A192F] hover:bg-[#0A192F] hover:text-white'
+              }`}
+            >
+              {t.nav.contact}
+            </Link>
+
+            <button
+              onClick={toggleLanguage}
+              className={`text-[10px] font-bold w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
+                shouldBeWhite
+                  ? 'border-white/30 text-white hover:bg-blue-600 hover:border-blue-600'
+                  : 'border-gray-200 text-gray-500 hover:border-[#0A192F] hover:text-[#0A192F]'
+              }`}
+            >
+              {language === 'fr' ? 'EN' : 'FR'}
+            </button>
+          </nav>
+
+          {/* MOBILE MENU TOGGLE */}
           <button
-            onClick={toggleLanguage}
-            className={`text-[10px] font-bold w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
-              shouldBeWhite
-                ? 'border-white/30 text-white hover:bg-blue-600 hover:border-blue-600'
-                : 'border-gray-200 text-gray-500 hover:border-[#0A192F] hover:text-[#0A192F]'
-            }`}
+            className={`lg:hidden relative z-[101] p-2 -mr-2 ${isMenuOpen ? 'text-white' : shouldBeWhite ? 'text-white' : 'text-[#0A192F]'}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Menu"
+            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
-            {language === 'fr' ? 'EN' : 'FR'}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
-        </nav>
+        </div>
+      </header>
 
-        {/* MOBILE MENU TOGGLE */}
-        <button
-          className="lg:hidden relative z-[101]"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Menu"
-        >
-          {isMenuOpen ? (
-            <X className="text-white w-6 h-6" />
-          ) : (
-            <Menu className={`w-6 h-6 ${shouldBeWhite ? 'text-white' : 'text-[#0A192F]'}`} />
-          )}
-        </button>
-      </div>
-
-      {/* MOBILE NAV OVERLAY */}
+      {/* MOBILE NAV OVERLAY — rendu en dehors du <header> pour éviter les problèmes de stacking context mobile */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-[#0A192F] z-[99] overflow-y-auto">
+        <div className="fixed inset-0 bg-[#0A192F] z-[200] overflow-y-auto">
           <div className="flex flex-col justify-center items-center min-h-full py-24 px-8 gap-5">
 
             {mobileLinks.map((link) => (
@@ -163,7 +166,7 @@ const Header = () => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 
