@@ -52,7 +52,7 @@ const Breadcrumbs = () => {
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
-      <nav aria-label="Breadcrumb" className="hidden lg:block fixed top-20 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm border-b border-gray-100">
+      <nav aria-label="Breadcrumb" className="fixed top-20 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-8 py-3 flex items-center gap-2 text-xs">
           <Link to="/" className="text-gray-400 hover:text-[#0A192F] transition-colors">
             {language === 'fr' ? 'Accueil' : 'Home'}

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    overflow-x: hidden;
-}
-
 body {
     margin: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -13,7 +9,6 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
 }
 
 code {
@@ -54,10 +49,13 @@ h1, h2, h3, h4, h5, h6 {
 .animate-scaleIn { animation: scaleIn 0.5s ease-out forwards; }
 .animate-float { animation: float 3s ease-in-out infinite; }
 
-/* Hover lift utility */
-.hover-lift {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Transitions & Utils */
+* {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
 }
+
 .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -69,10 +67,6 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-/* Scrollbar hiding utility */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 @layer base {
     :root {
@@ -89,4 +83,64 @@ h1, h2, h3, h4, h5, h6 {
     }
     * { @apply border-border; }
     body { @apply bg-background text-foreground; }
+}
+/* --- MBK PROCUREMENT : ANIMATIONS & SCROLL HINT --- */
+@keyframes scrollHint {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-40px); } /* Le menu glisse à gauche */
+    40% { transform: translateX(0); }    /* Puis revient en place */
+}
+
+/* --- OPTIMISATION MOBILE & NAVIGATION DÉFILANTE --- */
+@media (max-width: 768px) {
+    /* 1. Typographie & Titres */
+    h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    p.max-w-2xl {
+        font-size: 1.05rem !important;
+        padding-left: 1.2rem !important;
+        border-left: 2px solid #3b82f6; /* Rappel de la ligne bleue */
+    }
+
+    /* 2. Le Menu Défilant avec Animation et Dégradé */
+    .no-scrollbar {
+        display: flex !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 12px !important;
+        padding-right: 40px !important; /* Espace pour le dégradé */
+        
+        /* L'animation de "rebond" au chargement */
+        animation: scrollHint 1.8s ease-in-out;
+        animation-delay: 1s; /* Se lance juste après l'apparition du site */
+
+        /* Le dégradé de transparence sur la droite */
+        mask-image: linear-gradient(to right, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* 3. Sécurité pour les liens */
+    .shrink-0 {
+        flex-shrink: 0 !important;
+    }
+
+    /* 4. Boutons CTA */
+    .group.flex.items-center {
+        width: 100% !important;
+        justify-content: center;
+        padding: 1.25rem !important;
+    }
 }
