@@ -50,6 +50,8 @@ h1, h2, h3, h4, h5, h6 {
 .animate-float { animation: float 3s ease-in-out infinite; }
 
 /* Transitions & Utils */
+/* Note: Appliquer une transition sur '*' peut être lourd pour les performances, 
+   privilégiez des classes spécifiques si possible */
 * {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,11 +86,12 @@ h1, h2, h3, h4, h5, h6 {
     * { @apply border-border; }
     body { @apply bg-background text-foreground; }
 }
-/* --- MBK PROCUREMENT : ANIMATIONS & SCROLL HINT --- */
+
+/* --- MBK PROCUREMENT : ANIMATIONS --- */
 @keyframes scrollHint {
     0% { transform: translateX(0); }
-    20% { transform: translateX(-40px); } /* Le menu glisse à gauche */
-    40% { transform: translateX(0); }    /* Puis revient en place */
+    20% { transform: translateX(-40px); } 
+    40% { transform: translateX(0); }
 }
 
 /* --- OPTIMISATION MOBILE & NAVIGATION DÉFILANTE --- */
@@ -102,42 +105,44 @@ h1, h2, h3, h4, h5, h6 {
     p.max-w-2xl {
         font-size: 1.05rem !important;
         padding-left: 1.2rem !important;
-        border-left: 2px solid #3b82f6; /* Rappel de la ligne bleue */
+        border-left: 2px solid #3b82f6;
     }
 
-    /* 2. Le Menu Défilant avec Animation et Dégradé */
+    /* 2. Le Menu Défilant - Corrigé pour la fluidité tactile */
     .no-scrollbar {
         display: flex !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
         scroll-snap-type: x mandatory;
-        gap: 12px !important;
-        padding-right: 40px !important; /* Espace pour le dégradé */
+        gap: 16px !important;
+        padding: 10px 20px !important;
         
-        /* L'animation de "rebond" au chargement */
-        animation: scrollHint 1.8s ease-in-out;
-        animation-delay: 1s; /* Se lance juste après l'apparition du site */
+        /* Animation de rebond au chargement */
+        animation: scrollHint 1.2s ease-in-out;
+        animation-delay: 1s;
 
-        /* Le dégradé de transparence sur la droite */
-        mask-image: linear-gradient(to right, black 80%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+        /* Masque supprimé car il bloquait les clics sur les liens à droite */
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
     }
 
+    /* Cache la scrollbar proprement */
     .no-scrollbar::-webkit-scrollbar {
-        display: none;
+        display: none !important;
     }
 
     .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
     }
 
-    /* 3. Sécurité pour les liens */
+    /* 3. Sécurité pour les liens défilants */
     .shrink-0 {
         flex-shrink: 0 !important;
+        scroll-snap-align: start;
     }
 
-    /* 4. Boutons CTA */
+    /* 4. Boutons CTA Pleine Largeur */
     .group.flex.items-center {
         width: 100% !important;
         justify-content: center;
