@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 const Breadcrumbs = () => {
   const { language, t } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // On définit les liens que l'on veut rendre accessibles rapidement
   const navLinks = [
     { path: '/about', label: t.nav.about },
     { path: '/conseil', label: t.nav.conseil },
@@ -20,30 +20,22 @@ const Breadcrumbs = () => {
   if (currentPath === '/') return null;
 
   return (
-    <nav className="fixed top-[64px] left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center h-12 overflow-x-auto no-scrollbar gap-8">
-          {navLinks.map((link) => {
-            const isActive = currentPath === link.path;
-            return (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-[10px] uppercase tracking-[0.2em] transition-all shrink-0 whitespace-nowrap ${
-                  isActive 
-                    ? "text-[#0A192F] font-bold border-b-2 border-blue-600 pb-1" 
-                    : "text-gray-400 hover:text-[#0A192F]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-          {/* Petit espace vide à la fin pour le confort du scroll mobile */}
-          <div className="w-6 shrink-0" />
+    <div className="fixed top-20 left-0 right-0 z-50 px-6 pointer-events-none md:hidden">
+      {/* On affiche uniquement une puce discrète qui indique le scroll possible */}
+      <div className="flex justify-center">
+        <div className="bg-[#0A192F]/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-1 pointer-events-auto">
+          <select 
+            value={currentPath}
+            onChange={(e) => navigate(e.target.value)}
+            className="bg-transparent text-[10px] uppercase tracking-[0.2em] text-[#0A192F] font-bold outline-none appearance-none cursor-pointer"
+          >
+            {navLinks.map(link => (
+              <option key={link.path} value={link.path}>{link.label}</option>
+            ))}
+          </select>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
