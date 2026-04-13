@@ -11,63 +11,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Inter', sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
-/* Animations */
+/* --- ANIMATIONS --- */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-@keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+@keyframes scrollHint {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-40px); } 
+    40% { transform: translateX(0); }
 }
 
 .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
-.animate-slideInLeft { animation: slideInLeft 0.6s ease-out forwards; }
-.animate-slideInRight { animation: slideInRight 0.6s ease-out forwards; }
-.animate-scaleIn { animation: scaleIn 0.5s ease-out forwards; }
-.animate-float { animation: float 3s ease-in-out infinite; }
 
-/* Transitions & Utils */
-/* Note: Appliquer une transition sur '*' peut être lourd pour les performances, 
-   privilégiez des classes spécifiques si possible */
+/* --- TRANSITIONS GLOBALES --- */
 * {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+    transition-property: color, background-color, border-color, opacity, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
-}
-
-.hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 @layer base {
@@ -76,76 +44,46 @@ h1, h2, h3, h4, h5, h6 {
         --foreground: 0 0% 3.9%;
         --primary: 0 0% 9%;
         --border: 0 0% 89.8%;
-        --radius: 0.75rem;
     }
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-    }
-    * { @apply border-border; }
     body { @apply bg-background text-foreground; }
 }
 
-/* --- MBK PROCUREMENT : ANIMATIONS --- */
-@keyframes scrollHint {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(-40px); } 
-    40% { transform: translateX(0); }
-}
-
-/* --- OPTIMISATION MOBILE & NAVIGATION DÉFILANTE --- */
+/* --- OPTIMISATION MOBILE & NAVIGATION (CORRECTION) --- */
 @media (max-width: 768px) {
-    /* 1. Typographie & Titres */
+    /* 1. Fix pour le titre */
     h1 {
         font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
         line-height: 1.1 !important;
     }
 
-    p.max-w-2xl {
-        font-size: 1.05rem !important;
-        padding-left: 1.2rem !important;
-        border-left: 2px solid #3b82f6;
-    }
-
-    /* 2. Le Menu Défilant - Corrigé pour la fluidité tactile */
+    /* 2. Fix pour le Menu Breadcrumbs / Navigation horizontale */
     .no-scrollbar {
         display: flex !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
         scroll-snap-type: x mandatory;
         gap: 16px !important;
-        padding: 10px 20px !important;
+        padding: 5px 20px !important;
         
-        /* Animation de rebond au chargement */
-        animation: scrollHint 1.2s ease-in-out;
-        animation-delay: 1s;
-
-        /* Masque supprimé car il bloquait les clics sur les liens à droite */
+        /* SUPPRESSION CRITIQUE : On retire les masques qui bloquent les clics */
         mask-image: none !important;
         -webkit-mask-image: none !important;
+        
+        /* Animation plus courte pour l'indice visuel */
+        animation: scrollHint 1.2s ease-in-out;
     }
 
-    /* Cache la scrollbar proprement */
+    /* Cache la scrollbar sur tous les navigateurs */
     .no-scrollbar::-webkit-scrollbar {
         display: none !important;
     }
-
     .no-scrollbar {
         -ms-overflow-style: none !important;
         scrollbar-width: none !important;
     }
 
-    /* 3. Sécurité pour les liens défilants */
+    /* 3. Assurer que les liens ne rétrécissent pas */
     .shrink-0 {
         flex-shrink: 0 !important;
-        scroll-snap-align: start;
-    }
-
-    /* 4. Boutons CTA Pleine Largeur */
-    .group.flex.items-center {
-        width: 100% !important;
-        justify-content: center;
-        padding: 1.25rem !important;
     }
 }
