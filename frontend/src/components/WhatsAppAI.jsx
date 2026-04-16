@@ -14,7 +14,7 @@ const WhatsAppAI = () => {
     // Remplacez par votre numéro configuré avec l'IA ou votre lien de concierge
     const phoneNumber = "+352691254492"; 
     const message = encodeURIComponent("Bonjour MBK Procurement. J'aimerais en savoir plus sur vos services.");
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    window.open(`https://typebot.co/open-ai-assistant-chat-cblqck3`, '_blank');
   };
 
   if (!isVisible) return null;
