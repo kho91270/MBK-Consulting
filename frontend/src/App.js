@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
-import Breadcrumbs from './components/Breadcrumbs';
+import WhatsAppAI from './components/WhatsAppAI'; // 1. Importation du composant IA
 import Home from './pages/Home';
 import Conseil from './pages/Conseil';
 import Audit from './pages/Audit';
@@ -47,6 +47,10 @@ function App() {
               </Routes>
             </main>
             <Footer />
+            
+            {/* 2. Ajout de l'agent IA ici */}
+            <WhatsAppAI /> 
+            
             <ScrollToTopButton />
             <Toaster />
           </div>
