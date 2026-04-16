@@ -13,7 +13,7 @@ const WhatsAppAI = () => {
   const openWhatsApp = () => {
     // Remplacez par votre numéro configuré avec l'IA ou votre lien de concierge
     const phoneNumber = "+352691254492"; 
-    const message = encodeURIComponent("Bonjour MBK. J'aimerais en savoir plus sur vos services d'audit.");
+    const message = encodeURIComponent("Bonjour MBK Procurement. J'aimerais en savoir plus sur vos services.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
@@ -23,7 +23,7 @@ const WhatsAppAI = () => {
     <div className="fixed bottom-8 right-8 z-[150] animate-fadeIn">
       {/* Tooltip élégant */}
       <div className="absolute bottom-full right-0 mb-4 w-48 bg-white p-4 shadow-2xl border border-gray-100 rounded-xl hidden md:block">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-[#0A192F] mb-1">Conciergerie IA</p>
+        <p className="text-[10px] uppercase tracking-widest font-bold text-[#0A192F] mb-1">Advisor AI</p>
         <p className="text-xs text-gray-500 italic">Une question sur vos achats ? Posez-la ici.</p>
       </div>
 
